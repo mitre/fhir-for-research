@@ -1,0 +1,27 @@
+---
+title: "Introduction"
+
+area:
+  name: FHIR Data
+topic:
+  name: REDCap
+
+roles:
+  - Investigator
+  - Research Leaders
+  - Informaticist
+  - Software Engineer
+  - Clinician Scientist/Trainee
+
+learning_objectives:
+  - question: tbd
+    answer: tbd
+---
+
+## Introduction
+
+[REDCap](https://www.project-redcap.org) (which stands for "Research Electronic Data Capture") is another useful, FHIR-compatible tool. @Cheng_2021 describe the development of the Clinical Data Interoperability Services (CDIS), which facilitates the exchange of data between REDCap and any EHR via the FHIR API. The authors tested two use cases for CDIS: Clinical Data Pull (CDP) and Clinical Data Mart (CDM).
+
+The CDP use case would apply to prospective studies that aggregate data and fill out case report forms (CRFs) for study participants. The CDM use case is for studies with a known cohort of patients and requires a bulk data extraction from an EHR. At the time of publishing, 55 CDP projects and 27 CDM projects had been implemented. Both use cases significantly reduced manual data entry into REDCap. CDIS has also proven to be reusable between projects at an institution, without the need for support from IT staff.
+
+![The CDIS workflow uses FHIR to simplify the process of creating a registry from EHR data. [@Cheng_2021]](images/cheng-fhir-shortcut.png)

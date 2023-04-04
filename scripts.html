@@ -1,0 +1,138 @@
+<!-- scripts.html -->
+<!-- any content in this file is inserted right before </body> -->
+
+<!-- fancy json code viewer -->
+<script type="text/javascript" src="https://unpkg.com/dompurify@3.0.1/dist/purify.min.js"></script> <!-- load JS Sanitizer -->
+<script>
+    function jsonViewer(json, collapsible=false) {
+        let TEMPLATES = {
+            item: '<div class="json_view__item"><div class="json_view__key">%KEY%</div><div class="json_view__value json_view__value--%TYPE%">%VALUE%</div></div>',
+            itemCollapsible: '<label class="json_view__item json_view__item--collapsible"><input type="checkbox" class="json_view__toggle"/><div class="json_view__key">%KEY%</div><div class="json_view__value json_view__value--type-%TYPE%">%VALUE%</div>%CHILDREN%</label>',
+            itemCollapsibleOpen: '<label class="json_view__item json_view__item--collapsible"><input type="checkbox" checked class="json_view__toggle"/><div class="json_view__key">%KEY%</div><div class="json_view__value json_view__value--type-%TYPE%">%VALUE%</div>%CHILDREN%</label>'
+        };
+
+        function createItem(key, value, type){
+            let element = TEMPLATES.item.replace('%KEY%', key);
+
+            if((key == 'div') && (type=='string')) { // Removes Resource.text.div value (looks bloated)
+                element = element.replace('%VALUE%', '...');
+            } else if(type == 'string') {
+                element = element.replace('%VALUE%', '"' + value + '"');
+            } else {
+                element = element.replace('%VALUE%', value);
+            }
+
+            element = element.replace('%TYPE%', type);
+
+            return element;
+        }
+
+        function createCollapsibleItem(key, value, type, children){
+            let tpl = 'itemCollapsible';
+
+            if(collapsible) {
+                tpl = 'itemCollapsibleOpen';
+            }
+
+            let element = TEMPLATES[tpl].replace('%KEY%', key);
+
+            element = element.replace('%VALUE%', type);
+            element = element.replace('%TYPE%', type);
+            element = element.replace('%CHILDREN%', children);
+
+            return element;
+        }
+
+        function handleChildren(key, value, type) {
+            let html = '';
+
+            for(let item in value) { 
+                let _key = item,
+                    _val = value[item];
+
+                html += handleItem(_key, _val);
+            }
+
+            return createCollapsibleItem(key, value, type, html);
+        }
+
+        function handleItem(key, value) {
+            let type = typeof value;
+ 
+            if( Array.isArray( value ) ) {
+                return handleChildren(key, value, "array");
+            }
+
+            if(typeof value === 'object') {        
+                return handleChildren(key, value, type);
+            }
+
+            return createItem(key, value, type);
+        }
+
+        function parseObject(obj) {
+            _result = '<div class="json_view">';
+
+            for(let item in obj) { 
+                let key = item,
+                    value = obj[item];
+
+                _result += handleItem(key, value);
+            }
+
+            _result += '</div>';
+
+            return _result;
+        }
+        
+        try {
+            return parseObject(JSON.parse(json));
+        }
+        catch(err) {
+            console.log("Could not render JSON viewer: ", err);
+            console.log("for string: ", json);
+            return null;
+        }
+
+    };
+
+
+    function parseHTML(string) {
+        let sanitized = DOMPurify.sanitize(string);
+        let parser = new DOMParser();
+        return parser.parseFromString(sanitized, "text/html").body.firstChild;
+    }
+
+    let jsonCodeBlocks = document.querySelectorAll("code.sourceCode.json");
+    jsonCodeBlocks.forEach((jsonCode) => {
+        let json = jsonCode.innerText;
+        let codeBlock = jsonCode.parentNode.parentNode;
+        let uid = codeBlock.id;
+        let documentLocation = codeBlock.parentNode;
+        let viewerHTML = jsonViewer(json, true);
+
+        let tabContainer = parseHTML(`
+          <div>
+            <ul class="nav nav-tabs" id="${uid}Tabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="${uid}ViewerTab" data-bs-toggle="tab" data-bs-target="#${uid}Viewer" type="button" role="tab" aria-controls="${uid}Viewer" aria-selected="true">Viewer</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="${uid}JsonTab" data-bs-toggle="tab" data-bs-target="#${uid}Json" type="button" role="tab" aria-controls="${uid}Json" aria-selected="false">JSON</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="${uid}TabContent" style="height:50vh;overflow:scroll;">
+              <div class="tab-pane fade show active" id="${uid}Viewer" role="tabpanel" aria-labelledby="${uid}ViewerTab"></div>
+              <div class="tab-pane fade" id="${uid}Json" role="tabpanel" aria-labelledby="${uid}JsonTab"></div>
+            </div>
+          </div>
+        `)
+
+        if( viewerHTML != null ) {
+            documentLocation.replaceChild(tabContainer, codeBlock);
+
+            tabContainer.querySelector(`div#${uid}TabContent div#${uid}Viewer`).appendChild( parseHTML(viewerHTML) );
+            tabContainer.querySelector(`div#${uid}TabContent div#${uid}Json`).appendChild(codeBlock);
+        }
+    });
+</script>

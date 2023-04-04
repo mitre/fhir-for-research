@@ -1,0 +1,81 @@
+---
+bibliography: ../bibliography.bib
+---
+
+### Standards
+
+**Standards** are agreed-upon methods for connecting systems together. They support interoperability by letting disparate systems talk to each other using the same "standard" language. They may pertain to security, data transport, data format or structure, or the meanings of codes or terms. They are defined, updated, and maintained by standards development organizations (SDOs) through a collaborative process involving the audience that will be using the standards.
+
+Standards are a critical part of the technology ecosystem outside of healthcare. For example, USB connectors are ubiquitous for charging devices like smartphone and tablets, and for connecting peripherals to computers. An SDO called the International Electrotechnical Commission published the IEC 62680-1-3 specification that governs USB-C, the most common kind of USB connector on modern devices. This specification ensures USB-C devices and cables can work with each other.
+
+![A USB-C connector next to a laptop. Source: Wikipedia/Wikideas1](images/image-1151772527.png){alt="A USB-C connector next to a laptop. Source: Wikipedia/Wikideas1" fig-align="left" width="50%"}
+
+**Standards in Healthcare**
+
+In healthcare, one of the key SDOs is Health Level Seven (HL7®), which is "dedicated to providing a comprehensive framework and related standards for the exchange, integration, sharing, and retrieval of electronic health information that supports clinical practice and the management, delivery, and evaluation of health services." [@hl7] Below are examples of HL7 standards for healthcare:
+
+-   [HL7 v2 Messaging](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185): A commonly used health data interchange standard that includes messaging specifications for patient administration, orders, results, scheduling, claims management, document management, and many others. v2 has been in use since the 1990s.
+
+-   [Consolidated-Clinical Document Architecture (C-CDA)](https://www.healthit.gov/topic/standards-technology/consolidated-cda-overview): framework for creating clinical documents that contain both human-readable text and a machine-readable format (XML). v1.0 of the standard was published in 2000. [@cda_hl7]
+
+-   [HL7 Fast Healthcare Interoperability Resources (FHIR)](http://hl7.org/fhir/): specification for exchanging clinical and administrative healthcare data based on common web technologies. The first draft standard of the FHIR specification was published in 2014. [@fhir_wikipedia]
+
+-   <!--# FIX Add v3 -MM -->
+
+As seen above, **HL7 FHIR** is not the first health IT standard. It is a new specification based on emerging industry approaches, informed by years of [lessons learned](https://www.hl7.org/fhir/comparison.html) around requirements, successes, and challenges from defining and implementing previous standards. Section 3 of this module will dive deeper into what FHIR is from a high-level and the module [Introduction Part 2: How FHIR Works](modules/10-intro--intro-part-2-how-fhir-works) will give a deeper comparison of the three HL7 standards mentioned above.
+
+### Regulating Interoperability
+
+In an effort to push health IT vendors toward open standards that allow for better interoperability (and hopefully increase access to data and improve health outcomes), US government agencies including ONC and CMS are beginning to require adoption of FHIR as the primary standard for exchanging health data.
+
+<!--# Add specifics on this regulation in ~3 sentences. What is it called, when was it adopted, and what does the regulation actually require? -->
+
+<!--# Question from Blake: Section 3.3 specifically brings up the ONC 21st Century Cures Act & the CMS Interoperability and Patient Access Rule. Do we want to remove the mention of that infor from that section and move it to this one? Since you wanted that section to focus on researchers, it might make more sense to move the regulation part up here anyways. -->
+
+## What is FHIR?
+
+![](images/fhir_acronym.png)
+
+Healthcare records are increasingly becoming digitized. As patients move around the healthcare ecosystem, their electronic health records must be available, discoverable, and understandable. FHIR is a standard for exchanging healthcare information electronically. Standards establish a common language and process for all health IT systems to communicate, allowing information to be shared seamlessly and efficiently. FHIR can be used as a stand-alone data exchange standard or with existing standards.
+
+FHIR is fast, efficient, and flexible. Its philosophy is to build a base set of resources that either by themselves or when combined satisfy the majority of use cases. It uses the **80/20 rule (http://www.healthintersections.com.au/?p=1924)**, where 20% of the requirements satisfy 80% of the needs. Solutions are built from modular components called "Resources," which are described in detail in the module [Introduction Part 2: How FHIR Works](modules/10-intro--intro-part-2-how-fhir-works). There is also the option to develop custom extensions for a variety of use cases.
+
+### FHIR Key Principles
+
+Learning from previous standards, FHIR's foundation was built around web technologies to allow for a variety of stakeholders to develop scalable health data exchange technologies, including healthcare providers, EHR vendors, researchers, and more. Below summarizes the major principles that governed the development of FHIR:
+
+-   Focus on **implementers**
+
+-   Target support for **common scenarios**
+
+-   Leverage cross-industry **web technologies**
+
+-   Require **human readability** as base level of interoperability
+
+-   The standard is **freely available**
+
+-   Support multiple **paradigms and architectures**
+
+-   Demonstrate best practice **governance**
+
+<!--# The sections below are missing the researcher context. We need less of a focus on business/clinical care, and more of a focus on why this matters to researchers (though don't entirely lose the business/clinical use cases as those are still relevant). -->
+
+<!--# Lizzy's suggestion: FHIR works by having containers with strict rules of what information can be put where and in what format. When a system fills a FHIR container and sends it to another system, that other system can understand what each piece of information means. -->
+
+### Business Case: Why Promote FHIR?
+
+**Single standard for health care transactions.** FHIR provides a standard for *both* administrative (claims, explanations of benefits, etc.) *and* clinical data.
+
+**Reduced burden and operating costs.** Aligning industry on a single, common standard means that parties do not need to maintain complicated translation layers, manual processes, or numerous differing workflows for accomplishing a single task.
+
+**Enables competition.** An open standards breaks down barriers to entry, allowing more open, free competition and lower costs.
+
+**Empowers patients.** One standard allows developers to compile all different types of data, without the need for additional layers of translation, enabling patients and caregivers to access their information in one place.
+
+**Greater data insights for healthier people**. Marrying these data sets will empower research, data science, and informatics, ultimately leading to healthier populations.
+
+**Enables more equitable decision-making**. Access to different slices of medical data could be standardized through FHIR to supplement socio-economic determinants of health.
+
+### Why Should You Understand FHIR?
+
+The level of FHIR activity and adoption is increasing rapidly. FHIR APIs are specifically required in the **ONC 21st Century Cures Act** [@cures_act] and the **CMS Interoperability and Patient Access Rule** [@cms_rule]. Federal agencies such as CMS, ONC, and CDC are increasingly looking for FHIR-based solutions to healthcare problems. As a result, healthcare providers with access to health IT APIs using FHIR is widespread.

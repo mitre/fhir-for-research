@@ -1,0 +1,137 @@
+---
+title: "Module: Real World Research Using FHIR"
+
+area:
+  name: Overview
+topic:
+  name: FHIR for Research
+
+roles:
+  - Investigator
+  - Research Leaders
+  - Informaticist
+  - Software Engineer
+  - Clinician Scientist/Trainee
+
+learning_objectives:
+  - question: What are the key ways FHIR has previously been used in research?
+    answer: FHIR has been used in research to transform data between common data models, to engage and communicate with study participants, and to facilitate multi-site collaboration.
+  - question: What are examples of data formats or resources that have been used in research alongside FHIR?
+    answer: Data models like OMOP, PCORnet; platforms like openEHR, REDCap, Apple ResearchKit; and frameworks like SMART on FHIR have all been used in studies alongside FHIR.
+---
+
+A review of studies that use FHIR in their research, including a meta-analysis of papers on FHIR for research [@duda2022], found four themes that could be adapted to other health centers or projects:
+
+## Data models and platforms
+
+FHIR has been used in several studies to transform health data from different data models into an interoperable format. This is a common issue for studies or research that uses data from different sites, agencies, or sources.
+
+<strong>@Lenert_2021</strong> describes a method of using FHIR as a canonical data standard for consolidating COVID-19 data from multiple institutions, and then distributing the data to [PCORnet](https://pcornet.org/) and [OMOP](https://www.ohdsi.org/data-standardization/) for analysis ([more on common data models](cdms.qmd)). The authors describe this method as a "best of both worlds" approach since FHIR is designed for accurate representation of clinical events, while PCORnet and OMOP are useful for computation and analysis of the clinical events.
+
+Using FHIR as the canonical data standard and then transmitting the data to other CDMs shortened the timeline from data acquisition to analytics which was critical for an emerging pandemic like COVID-19 and could be helpful for other rapidly changing clinical research.
+
+<strong>@Wood_2021</strong> offers another example of using both OMOP and FHIR for creating disease-specific learning communities from real-world data. Using OMOP and FHIR reduces burden and ensures sustainability for the learning community by routinely ingesting patients' entire corpus of EHR data. Working with both data standards also opens participation to more data sources like health care systems, hospitals, and outpatient practices, that already use OMOP or FHIR.
+
+<strong>@Rinaldi_Thun_2021</strong> mapped openEHR information to FHIR, and then to OMOP. The process brought together data from eight university hospitals in Germany to create an infection surveillance consortium with more recent, rapidly updated information. The group planned to use [openEHR](https://openehr.org/) to model infection-related information, but also wanted to conform to the [Medical Informatics Initiative (MII)](https://www.medizininformatik-initiative.de/en/start), which requires member organizations to use FHIR. However, FHIR is designed to support patient-level data, but the consortium wanted a population-level perspective with the ability to store and analyze data. They found that OMOP provided a better holistic-view and the analytic capabilities they needed. Transforming through the three models allowed them to take advantage of the benefits each offered while maintaining interoperability between the hospitals and the MII.
+
+```{=html}
+<!--# DISCUSS:
+Including one or both of the examples below from Rinaldi & Thun 2021 might be illustrative but will need to reformat. Happy to remove if they aren't useful
+ --KMB -->
+```
+![Example of the cultures studied and mapping from openEHR, to FHIR, and then OMOP. [@Rinaldi_Thun_2021]](images/rinaldi-culture-mapping.png)
+
+![Example of mapping resources from openEHR, to FHIR, and then OMOP. [@Rinaldi_Thun_2021]](images/rinaldi-openehr-fhir-omop-mappings.png)
+
+## SMART on FHIR
+
+[SMART on FHIR](https://smarthealthit.org/about-smart-2/) is an application programming interface (API) that enables interoperability between applications and any healthcare system with a FHIR-enabled EHR. A widely used implementation of SMART on FHIR is the Apple Health Records API, which allows iPhone users to request records from EHRs and other health systems, and then store the information on their mobile device.
+
+SMART has an [app gallery](https://apps.smarthealthit.org/apps?sort=name-asc) for viewing developers' applications that can be implemented in an EHR.
+
+<strong>@Wagholikar_2017</strong> trialed sharing SMART on FHIR apps at Partners Healthcare (PHC) in Boston, Massachusetts and REACHnet Data Center (RDC) in New Orleans, Louisiana. EHR data for select patients from the two institutions were imported to Patient-Centered Outcomes Research Institute's (PCORI) CDM and stored in Informatics for Integrating Biology and the Bedside ([i2b2](https://www.i2b2.org/)) repositories.
+
+![The proposed model for using SMART on FHIR to collaborate across institutions and their respective EHRs. [@Wagholikar_2017]](images/wagholikar-proposed-approach.png)
+
+SMART-on-FHIR was then used for the transformation from the PCORnet CDM to FHIR. Once the data was in FHIR-format, the authors tested four SMART apps from the app gallery.
+
+![The data pipeline used to move data from EHRs to SMART apps. [@Wagholikar_2017]](images/wagholikar-pipline.png)
+
+At PHC, the pipeline ran smoothly and the validation process indicated that all data was accounted for in the SMART apps. The implementation at RCD also ran smoothly, with the exception of a cardiac-risk app that signaled missing data. Further investigation revealed that the SMART on FHIR platform could not support the complex query used in certain FHIR resources.
+
+Despite the limitation to certain FHIR resources, the SMART on FHIR framework and apps can be used to share research infrastructure and collaborate across institutions. The SMART app can integrate with different EHRs, removing some interoperability barriers.
+
+## Patient-facing apps
+
+FHIR can also be used to create interoperable, patient-facing apps that collect data or enable researcher-participant messaging. Some apps listed in the SMART app gallery linked above are patient-facing apps.
+
+<strong>@Pfiffner_2016</strong> created an extension, dubbed C3-PRO[^1], that connects [Apple's ResearchKit](https://developer.apple.com/researchkit/) to health systems. The open-source tool uses FHIR to connect any Apple ResearchKit app to the i2b2 standard. They found that FHIR formats standardizes the survey questions and consent libraries for study participation. And since they are standardized, they can be reused across other studies.
+
+[^1]: Consent, Contact, and Community framework for Patient Reported Outcomes
+
+The initial test case for C3-PRO, also described in @Pfiffner_2016, was to enroll a completely anonymous cohort in a study using data from i2b2. Participants used an app to track and report their symptoms of Hepatitis C for improved treatment. For any type of study though, C3-PRO could use FHIR to determine participant eligibility, format informed consent documents, and generate the actual surveys.
+
+<strong>@Ahmad_2020</strong> uses [REDCap](redcap-intro.qmd) to program surveys, and Apple ResearchKit to render and deliver them in a user-friendly format. The responses are then sent back to REDCap and a proprietary program that converts the data into an [HL7 V2 message](https://en.wikipedia.org/wiki/Health_Level_7#Version_2_messaging), which is then added to the patient's EHR data (V2 could in theory be replaced by FHIR, which is typically easier for software developers and informaticists to work with than V2). A clinical decision support (CDS) tool then provided a suggested battery of tests based on the responses. The survey used in their study was offered to 15-21-year-old patients that arrived in the ER. The objective of the survey was to determine what, if any, tests for sexually transmitted infections (STIs) would be most appropriate for the patients. Despite the potentially sensitive subject matter, 88.9% of patients that completed the survey rated it to be "somewhat" or "very comfortable" to answer the questions electronically and 72.2% preferred the digital method over a face-to-face conversation or paper questionnaire.
+
+## Multi-site research
+
+Multi-site data-sharing requires standardized formats and common terminologies, which can be facilitated by FHIR. A larger pool of data from multiple healthcare institutions can support more comprehensive studies with broader groups of patients to draw from for research participation.
+
+Often, one of the initial steps in a study design is to determine the size of the patient population that could participate in the study or be impacted by the work. However, if researchers can only query patient records local to their institution, they may not have a complete picture of the patient population of interest. @Gruendner_2022 eliminated this institutional barrier by designing a feasibility query that works across multiple health centers in Germany. The query process involved four components:
+
+1.  user-interface for writing queries
+2.  backend for translating the user input to a standardized format
+3.  middleware to transport the query
+4.  execution service to convert the standardized query to FHIR
+
+For the query to work, all participating institutions had to share a common ontology and terminology mappings. The authors tested their feasibility query with 33 university hospitals in Germany, using synthetic data containing millions of FHIR resources. The feasibility query returned the number of patients that match the requested criteria within seconds. The authors note that they could easily tweak the returned value to be patient IDs to create a cohort.
+
+## Other references
+
+While developing this course content, we compiled a list of studies we found that used FHIR in some capacity. These may be helpful for generating ideas of how FHIR could benefit your research:
+
+-   Data Models
+    -   @Lambarki_2021
+    -   @Jiang_2017a
+    -   @Fischer_2020
+    -   @Pfaff_2019
+    -   @Jiang_2017b
+-   SMART on FHIR
+    -   @Mandel_Kreda_Mandl_Kohane_Ramoni_2016
+
+    -   @Bloomfield_Polo-Wood_Mandel_Mandl_2017
+
+    -   @Jones_Gottlieb_Mandel_Ignatov_Ellis_Kubick_Mandl_2021
+
+        @Wesley_Blumenthal_Shah_Littlejohn_Pruitt_Dixit_Hsiao_Dymek_Ratwani_2021
+
+    -   @Sayeed_Gottlieb_Mandl_2020
+-   Patient-Facing Apps
+    -   @Pawelek_Baca-Motes_Pandit_Berk_Ramos_2022
+    -   @Bartschke_Börner_Thun_2021
+    -   @Burkhardt_Brandt_Lee_Karras_Bugni_Cvitkovic_Chen_Lober_2021
+    -   @Ploner_Prokosch_2020
+-   Multi-site Research
+    -   @Garza_2020
+-   Meta-Analysis on FHIR for Research
+    -   @Vorisek_Lehne_Klopfenstein_Mayer_Bartschke_Haese_Thun_2022
+    -   @Griffin_2022
+-   REDCap
+    -   @Metke-Jimenez_Hansen_2019
+-   Cohort Building
+    -   @Gruendner_Gulden_Kampf_Mate_Prokosch_Zierk_2021
+    -   @Bradshaw_2022
+-   Terminologies
+    -   @Chatterjee_Pahari_Prinz_2022
+-   FAIR Data
+    -   @Sinaci_Nunez_2020
+-   SDOH
+    -   @Watkins_Viernes_Nguyen_Rojas_Mezarina_Silva_Valencia_Borbolla_2020
+-   Adverse Event Reporting
+    -   @Wang_Lehmann_Botsis_2021
+-   Software Dev
+    -   @Hong_Prodduturi_Wang_Jiang_2017
+-   Environmental Health
+    -   @Xu_Cox_Stillwell_Pfaff_Champion_Ahalt_Fecho_2020
+-   CDS/SMART
+    -   @Jung_Bae_Seong_Oh_Kim_Yi_2022

@@ -1,0 +1,33 @@
+{
+    "cSpell.enableFiletypes": [
+        "quarto"
+    ],
+    "cSpell.words": [
+        "Connectathons",
+        "FHIR",
+        "HIMSS",
+        "Implementability",
+        "Informaticist",
+        "Zulip"
+    ],
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#083b5c",
+        "activityBar.background": "#083b5c",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#cd1284",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#083b5c",
+        "statusBar.background": "#041d2d",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#083b5c",
+        "statusBarItem.remoteBackground": "#041d2d",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#041d2d",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#041d2d99",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#041d2d"
+}

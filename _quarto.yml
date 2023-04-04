@@ -1,0 +1,95 @@
+project:
+  type: website
+  output-dir: public
+  render:
+    - "*.qmd"
+    - "!cache/" # naming this _cache should work instead, but did not in testing https://community.rstudio.com/t/quarto-equivalent-to-exclude-yaml-command-in-distill/148758/2
+    - "!README.md"
+
+website:
+  title: "FHIR for Research"
+  site-url: https://mitre.github.io/fhir-for-research/
+  navbar:
+    left:
+      - text: Overview
+        file: sections/overview.qmd
+      - text: Working With Data
+        file: sections/working-with-data.qmd
+      - text: Advanced Topics
+        file: sections/advanced-topics.qmd
+
+
+    right:
+      - href: contribute.qmd
+        text: Contributions & Corrections
+      - icon: github
+        href: https://github.com/mitre/fhir-for-research
+
+  sidebar:
+    - id: overview
+      title: Overview
+      style: floating
+      search: false
+      align: left
+      collapse-level: 2
+      contents:
+        - sections/overview.qmd
+        - section: "FHIR for Research"
+          contents:
+            - modules/fhir-from-10000-ft.qmd
+            - modules/fhir-from-1000-ft.qmd
+            - file: modules/fhir-research.qmd
+              text: "Real World Research"
+            - modules/key-fhir-resources.qmd
+            - text: "Accessing FHIR Data"
+            - text: History of FHIR
+            - modules/terminology.qmd
+            - text: Common Data Models
+            - file: modules/fhir-community.qmd
+              text: Community & Documentation
+        - section: "SMART on FHIR"
+          contents:
+            - text: Introduction
+            - text: Real World Research
+            - text: Technical Quick Start
+            # - modules/smart-on-fhir-intro.qmd
+            # - modules/smart-on-fhir-research.qmd
+            # - modules/smart-on-fhir-technical-quick-start.qmd
+
+    - id: working-with-data
+      title: Working With Data
+      style: floating
+      search: false
+      align: left
+      collapse-level: 2
+      contents:
+        - file: sections/working-with-data.qmd
+          text: Working With Data
+        - section: "Tabular Analysis"
+          contents:
+            - modules/tabular-real-world.qmd
+            - modules/tabular-from-fhir.qmd
+            - modules/tabular-retrieving-and-subsetting.qmd
+        - section: "REDCap With FHIR"
+          contents:
+            - modules/redcap-intro.qmd
+            - modules/redcap-best-practices.qmd
+            - modules/redcap-example.qmd
+
+
+
+  page-footer:
+    center:
+      - text: "&copy; 2023 The MITRE Corporation / <a href=\"https://github.com/mitre/fhir-for-research/README.md\">License information</a><br>Approved for Public Release / Case #23-0966"
+
+
+
+format:
+  html:
+    theme:
+      - cosmo
+      - custom.scss
+    css: styles.css
+    toc: true
+    include-in-header: head.html
+    include-after-body: scripts.html

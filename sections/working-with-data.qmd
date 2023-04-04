@@ -1,0 +1,28 @@
+---
+title: Working with FHIR Data
+sidebar: false
+---
+
+**Working with FHIR Data** covers approaches to gathering and analyzing FHIR-formatted data for research purposes.
+
+Select your [role](/roles.html) to <mark>highlight</mark> the content that is most relevant to you:
+
+<a href="#">Investigator</a> |
+<a href="#">Research Leader</a> |
+<a href="#" style="font-weight: bold; text-decoration: none;"><mark>Informaticist</mark></a> |
+<a href="#">Software Engineer</a> |
+<a href="#">Clinician Scientist/Trainee</a>
+
+## Tabular Analysis
+
+-   <mark>**Prerequisite:** [Overview \> FHIR for Research](/modules/fhir-from-10000-ft.qmd)</mark>
+-   <mark>[Real-World Use Cases](#/modules/tabular-real-world.qmd)</mark>
+-   <mark>[FHIR to Tabular Data](#/modules/tabular-from-fhir.qmd)</mark>
+-   <mark>[Retrieving and Subsetting Data With FHIR](#/modules/tabular-retrieving-and-subsetting.qmd)</mark>
+
+## Using REDCap with FHIR
+
+-   <mark>**Prerequisite:** [Overview \> FHIR for Research](/modules/fhir-from-10000-ft.qmd)</mark>
+-   <mark>[Introduction](#/modules/redcap-intro.qmd)</mark>
+-   <mark>[Best Practices Workflow](#/modules/redcap-best-practices.qmd)</mark>
+-   <mark>[Example for a Study](#/modules/redcap-example.qmd)</mark>

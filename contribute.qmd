@@ -1,0 +1,16 @@
+---
+title: Contributions & Corrections
+toc: false
+sidebar: false
+---
+
+Contributions including error corrections and updates are welcomed, and may be made through the [GitHub repository](#) containing the source code for this site.
+
+Please [see here for more information on the mechanics of contributing](#), and review the [style guide](style-guide.html).
+
+If you believe you have found an error, [please open an issue here](#) or email [???@???.???](#).
+
+## More information
+
+-   [How to Edit This Website](#/modules/meta-contributing.qmd)
+-   [Forking and "Upstreaming" Contributions](#/modules/meta-forking.qmd)

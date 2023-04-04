@@ -1,0 +1,19 @@
+---
+title: Retrieving and Subsetting
+
+area:
+  name: Working with Data
+topic:
+  name: Tabular Analysis
+
+roles:
+  - Investigator
+  - Research Leaders
+  - Informaticist
+  - Software Engineer
+  - Clinician Scientist/Trainee
+
+learning_objectives:
+  - question: Question here
+    answer: Answer here
+---

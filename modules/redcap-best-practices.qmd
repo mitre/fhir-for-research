@@ -1,0 +1,19 @@
+---
+title: Best Practices
+
+area:
+  name: Working with Data
+topic:
+  name: REDCap
+
+roles:
+  - Investigator
+  - Research Leaders
+  - Informaticist
+  - Software Engineer
+  - Clinician Scientist/Trainee
+
+learning_objectives:
+  - question: Question here
+    answer: Answer here
+---

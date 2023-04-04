@@ -1,0 +1,44 @@
+---
+title: Overview
+sidebar: false
+---
+
+The **Overview** provides an introduction to FHIR for research, and details on two additional areas of general interest for researchers: SMART on FHIR and its research applications, and data modeling in FHIR.
+
+Select your [role](/roles.html) to <mark>highlight</mark> the content that is most relevant to you:
+
+<a href="#">Investigator</a> |
+<a href="#" style="font-weight: bold; text-decoration: none;"><mark>Research Leader</mark></a> |
+<a href="#">Informaticist</a> |
+<a href="#">Software Engineer</a> |
+<a href="#">Clinician Scientist/Trainee</a>
+
+## FHIR for Research
+
+-   <mark>[FHIR from 10,000 Feet](/modules/fhir-from-10000-ft.qmd)</mark>
+-   [FHIR from 1,000 Feet](/modules/fhir-from-1000-ft.qmd)
+-   <mark>[Real-World Research Using FHIR](/modules/fhir-research.qmd)</mark>
+-   [Key FHIR Resources](/modules/key-fhir-resources.qmd)
+-   [Accessing FHIR Data High Level](#)
+-   [Brief History of FHIR](#)
+-   [Terminology Introduction](/modules/terminology.qmd)
+-   [Common Data Models & FHIR](#)
+-   [The FHIR Community & Documentation](/modules/fhir-community.qmd)
+
+## SMART on FHIR
+
+-   [*FHIR from 10,000 feet*](/modules/fhir-from-10000-ft.qmd)
+-   <mark>[SMART on FHIR high level overview](#)</mark>
+-   <mark>[Real-world research using SMART on FHIR](#)</mark>
+-   [Technical quick start](#)
+
+## Data Modeling in FHIR
+
+-   [*FHIR from 10,000 feet*](/modules/fhir-from-10000-ft.qmd)
+-   [*Key FHIR Resources*](/modules/key-fhir-resources.qmd)
+-   [*Terminology Introduction*](/modules/key-fhir-resources.qmd)
+-   <mark>[Real world FHIR specifications](#)</mark>
+-   [Reading a FHIR specification](#)
+-   [*Terminology Introduction*](/modules/terminology.qmd)
+-   [Writing a FHIR specification](#)
+-   [API-focused FHIR Resources](#)

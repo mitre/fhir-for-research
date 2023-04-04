@@ -1,0 +1,19 @@
+---
+title: "Common Data Models"
+
+area:
+  name: Overview
+topic:
+  name: FHIR for Research
+
+roles:
+  - Investigator
+  - Research Leaders
+  - Informaticist
+  - Software Engineer
+  - Clinician Scientist/Trainee
+
+learning_objectives:
+  - question: tbd
+    answer: tbd
+---
