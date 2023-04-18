@@ -7,11 +7,11 @@ The **Overview** provides an introduction to FHIR for research, and details on t
 
 Select your [role](/roles.html) to <mark>highlight</mark> the content that is most relevant to you:
 
-<a href="#">Investigator</a> |
-<a href="#" style="font-weight: bold; text-decoration: none;"><mark>Research Leader</mark></a> |
-<a href="#">Informaticist</a> |
-<a href="#">Software Engineer</a> |
-<a href="#">Clinician Scientist/Trainee</a>
+<a href="#" data-role="investigator">Investigator</a> |
+<a href="#" data-role="research-leader" class="fw-bold text-decoration-none"><mark>Research Leader</mark></a> |
+<a href="#" data-role="informaticist">Informaticist</a> |
+<a href="#" data-role="software-engineer">Software Engineer</a> |
+<a href="#" data-role="clinician-scientist">Clinician Scientist/Trainee</a>
 
 ## FHIR for Research
 
@@ -42,3 +42,99 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 -   [*Terminology Introduction*](/modules/terminology.qmd)
 -   [Writing a FHIR specification](#)
 -   [API-focused FHIR Resources](#)
+
+<script src="../modules/mappings.js"></script>
+<script>
+
+/* constant variable role_module_map: array<object> [
+ *   {
+ *     role: string
+ *     modules: array<string> (substring of each html link such that it uniquely identifies a module)
+ *   }
+ * ]
+ *
+ * TODO: ideally extract this from each qmd file's frontmatter, or define this in one json file and let each file build off of it
+ *
+ */
+const all_modules = document.querySelectorAll("section>ul>li");
+
+/* select_modules(string)
+ *   highlights modules corresponding to role via role_module_map
+ *   param: string - role name in lower kebab case
+ */
+function select_modules(string) {
+    // remove all highlights
+    all_modules.forEach((li_node) => {
+        //console.log("removing highlight for ", li_node);
+
+        var mark_node = li_node.firstChild;
+        var a_node = mark_node.firstChild;
+
+        if( mark_node.nodeName == "MARK" ) {
+            li_node.removeChild(mark_node);
+            li_node.appendChild(a_node);
+        }
+    });
+
+    // add highlights based on role_module_map
+    role_module_map.forEach((mapping) => {
+        if( mapping.role == string ) {
+            mapping.modules.forEach((interest_module) => {
+                document.querySelectorAll(`[href*="${interest_module}"]`).forEach((interest_a_node) => {
+
+                    //console.log("selecting module ", interest_a_node);
+
+                    var interest_li_node = interest_a_node.parentNode;
+                    var mark_node = document.createElement("mark");
+                    interest_li_node.appendChild(mark_node);
+                    mark_node.appendChild(interest_a_node);
+
+                    //console.log("appended ", interest_a_node, " to ", mark_node);
+                });
+            });
+            return;
+        }
+    })
+}
+
+
+/* select_role(string)
+ *   clears any previous selected roles
+ *   highlights the selected role
+ */
+function select_role(string) {
+    document.querySelectorAll("[data-role]").forEach((a_node) => {
+        a_node.classList.remove("fw-bold");
+        a_node.classList.remove("text-decoration-none");
+
+        var mark_node = a_node.firstChild;
+        var text_node = mark_node.firstChild;
+
+        if( mark_node.nodeName == "MARK" ) {
+            a_node.removeChild(mark_node);
+            a_node.appendChild(text_node);
+        }
+    });
+
+    var selected_a_node = document.querySelector(`[data-role="${string}"]`);
+    selected_a_node.classList.add("fw-bold");
+    selected_a_node.classList.add("text-decoration-none");
+
+    var text_node = selected_a_node.firstChild;
+    var mark_node = document.createElement("mark");
+
+    selected_a_node.appendChild(mark_node);
+    mark_node.appendChild(text_node);
+}
+
+
+// trigger role selection on clicking <a data-role=...>
+document.querySelectorAll("a[data-role]").forEach((role_link) => {
+    role_link.addEventListener("click", (e) => {
+        var role = e.target.dataset.role;
+        select_role(role);
+        select_modules(role);
+    });
+});
+
+</script>

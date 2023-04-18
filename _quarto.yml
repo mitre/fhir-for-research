@@ -5,6 +5,7 @@ project:
     - "*.qmd"
     - "!cache/" # naming this _cache should work instead, but did not in testing https://community.rstudio.com/t/quarto-equivalent-to-exclude-yaml-command-in-distill/148758/2
     - "!README.md"
+    - "!script/"
 
 website:
   title: "FHIR for Research"
@@ -42,19 +43,15 @@ website:
               text: "Real World Research"
             - modules/key-fhir-resources.qmd
             - text: "Accessing FHIR Data"
-            - text: History of FHIR
+            - modules/fhir-history.qmd
             - modules/terminology.qmd
             - text: Common Data Models
             - file: modules/fhir-community.qmd
               text: Community & Documentation
         - section: "SMART on FHIR"
           contents:
-            - text: Introduction
-            - text: Real World Research
-            - text: Technical Quick Start
-            # - modules/smart-on-fhir-intro.qmd
-            # - modules/smart-on-fhir-research.qmd
-            # - modules/smart-on-fhir-technical-quick-start.qmd
+            - modules/smart-on-fhir-intro.qmd
+            - modules/smart-on-fhir-tech.qmd
 
     - id: working-with-data
       title: Working With Data

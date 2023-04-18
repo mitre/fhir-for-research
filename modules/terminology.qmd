@@ -13,17 +13,17 @@ roles:
   - Clinician Scientist/Trainee
 
 learning_objectives:
-  - question: What key role does standardized terminology play in enabling health data interoperability?
-    answer: Standardized terminology is essential in allowing data to move across systems while maintaining shared meaning.
+  - question: What key role does standard terminology play in enabling health data interoperability?
+    answer: Standard terminology allows data to move across systems while maintaining shared meaning.
   - question: What are some use cases for terminology in research?
-    answer: Several are discussed above, including enabling automatic cohort building and more efficiently aggregating data across different systems or institutions.
+    answer: Use cases include helping researchers automatically build cohorts and aggregating data across different systems or institutions.
   - question: What are the key FHIR resources related to terminology?
     answer: CodeSystems define a specific terminology and its concepts; ValueSets identify a subset of relevant concepts from one or more code systems; ConceptMaps map one set of concepts onto another.
 ---
 
-Terminology is a critical component of interoperability of clinical data, allowing "the ability to represent concepts in an unambiguous manner between a sender and receiver of information" [@himss_terminology].
+Terminology is critical for interoperability between clinical systems, representing "concepts in an unambiguous manner between a sender and receiver of information" [@himss_terminology].
 
-Terminology in health informatics fundamentally consists of mappings between **concepts** and **codes**, defined within a **code system**.
+Terminology in health informatics consists of mappings between **concepts** and **codes** that are defined within a **code system**.
 
 ::: callout-note
 ## Definitions
@@ -36,22 +36,22 @@ Concept
 
 Code
 
-:   A series of letters, numbers, or symbols assigned a concept for identification or classification.
+:   A series of letters, numbers, or symbols assigned to a concept for identification or classification.
 
-    Codes are typically machine-readable, allowing for unambiguous identification of the related concept.
+    Codes are machine-readable, allowing systems to unambiguously identify the related concept.
 
     For example, the [ICD-11](https://icd.who.int/en) code `EJ40` refers to the concept "[Sunburn](https://icd.who.int/browse11/l-m/en#/http%3A%2F%2Fid.who.int%2Ficd%2Fentity%2F318744822)".
 
 Code system
 
-:   A predefined, limited list of concepts and their corresponding codes. Code systems often also include metadata like relationships between concepts or more detailed human-readable descriptions.
+:   A predefined, limited list of concepts and their corresponding codes. Code systems often include metadata like relationships between concepts and detailed human-readable descriptions.
 
-    Code systems may also be known as "coding systems" or "controlled vocabularies".
+    [ICD-11](https://icd.who.int/en) is an example of a code system.
 
-    ICD-11, mentioned above, is an example of a code system. Other examples are discussed below.
+    Other names for code systems include "coding systems" or "controlled vocabularies".
 :::
 
-The same concept may appear in multiple code systems, necessitating mappings between these concepts.[^1]
+The same concept may appear in multiple code systems. Implementers create mappings to relate concepts that exist in different code systems.[^1]
 
 [^1]: The [ConceptMap FHIR resource](https://www.hl7.org/fhir/conceptmap.html) supports mapping concepts across code systems. See below for details.
 
@@ -59,9 +59,11 @@ The same concept may appear in multiple code systems, necessitating mappings bet
 
 Using standard terminologies allows researchers to access, exchange, organize, and utilize health data in a consistent and reliable way.
 
-For example, using a standardized terminology to identify conditions in a problem list allows for automated cohort building based on the presence or absence of a specific set of conditions.
+For example, using a standard terminology for conditions in a problem list lets systems build cohorts based on the presence or absence of a specific set of conditions.
 
-Standardized terminology also allows for combining data from multiple different systems and institutions, though care must still be taken to ensure concept meanings are implemented consistently. [Semantic interoperability](https://en.wikipedia.org/wiki/Semantic_interoperability) is the term used by informaticists to describe systems that can exchange data with "unambiguous, shared meaning."
+Standard terminology also lets applications combine data from multiple systems and institutions, though implementers must still ensure concept meanings are used consistently.[^2]
+
+[^2]: [Semantic interoperability](https://en.wikipedia.org/wiki/Semantic_interoperability) is the term used by informaticists to describe systems that can exchange data with "unambiguous, shared meaning."
 
 FHIR supports defining code systems, mapping between them, and "binding" a FHIR data element to a specific subset of concepts from selected code systems.
 
@@ -69,28 +71,28 @@ FHIR supports defining code systems, mapping between them, and "binding" a FHIR 
 
 Health data often contains codes from the following code systems:
 
--   [LOINC](https://loinc.org/) (Logical Observation Identifiers Names and Codes)
+-   [**LOINC**](https://loinc.org/): Logical Observation Identifiers Names and Codes
 
--   [SNOMED CT](https://www.snomed.org/) (Systematized Nomenclature of Medicine--Clinical Terms)
+-   [**SNOMED CT**](https://www.snomed.org/): Systematized Nomenclature of Medicine--Clinical Terms
 
--   [ICD](https://www.who.int/standards/classifications/classification-of-diseases) (International Statistical Classification of Diseases and Related Health Problems)
+-   [**ICD**](https://www.who.int/standards/classifications/classification-of-diseases): International Statistical Classification of Diseases and Related Health Problems
 
--   [RxNorm](https://www.nlm.nih.gov/research/umls/rxnorm/index.html) (Medical prescription Normalized)
+-   [**RxNorm**](https://www.nlm.nih.gov/research/umls/rxnorm/index.html): Medical prescription Normalized
 
--   [CVX](https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx) (Vaccine administered)
+-   [**CVX**](https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx): Vaccine administered
 
 Below are details about each of these code systems. Additionally, [HIMSS provides a longer list of common code systems](https://www.himss.org/terminology-standards).
 
 ### LOINC
 
-LOINC is a common language for identifying health measurements, observations, and documents. It often represents the "question" that an observation asks, with other standards (such as SNOMED CT; described next) representing the "answer." The Regenstrief Institute, which maintains LOINC, calls it "the global lingua franca for identifying tests and observations." [@loinc_get_started]
+LOINC identifies health measurements, observations, and documents. It often represents the "question" of an observation, with other standards representing the "answer" (such as SNOMED CT). The Regenstrief Institute, which maintains LOINC, calls it "the global lingua franca for identifying tests and observations." [@loinc_get_started]
 
 #### Structure
 
-A LOINC code distinguishes a given observation (test ordered, survey question, or clinical document) across six dimensions known as **Parts** [@loinc_term_basics]. The table below defines each Part, and provides an example using the LOINC concept identified by the code [`806-0`](https://loinc.org/806-0), which represents *a manual count of white blood cells in cerebral spinal fluid specimen*.
+A LOINC code distinguishes a given observation (test ordered, survey question, or clinical document) across six dimensions known as **Parts** [@loinc_term_basics]<!--FIX: broken reference --LDC -->. The table below defines each Part and provides an example using the LOINC concept *a manual count of white blood cells in cerebral spinal fluid specimen* with code [`806-0`](https://loinc.org/806-0).
 
 | LOINC Part          | Definition                                                                                                                                                 | Example                        |
-|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+|-------------|-----------------------------------------------|-------------|
 | Component (Analyte) | The substance or entity being measured                                                                                                                     | Leukocytes (white blood cells) |
 | Property            | The characteristic or attribute of the analyte                                                                                                             | NCnc (Number concentration)    |
 | Time                | The interval of time over which an observation was made                                                                                                    | Pt (Point in time)             |
@@ -98,17 +100,17 @@ A LOINC code distinguishes a given observation (test ordered, survey question, o
 | Scale               | How the observation value is quantified or expressed: quantitative, ordinal, nominal                                                                       | Qn (Quantitative)              |
 | Method              | (Optional) A high-level classification of how the observation was made. Only needed when the technique affects the clinical interpretation of the results. | Manual Count                   |
 
-There are three different human-readable descriptions that LOINC creates for each of its concepts concept [@loinc_term_basics]:
+LOINC creates three different human-readable descriptions for each of its concepts [@loinc_term_basics]:
 
-| Text Label (Name)          | Example for [`806-0`](https://loinc.org/806-0) (test above)      |
-|----------------------------|------------------------------------------------------------------|
-| Fully-Specified Name (FSN) | Leukocytes: NCnc: Pt: CSF: Qn: Manual count                      |
-| Long Common Name           | Leukocytes \[#/volume\] in Cerebral spinal fluid by Manual count |
-| Short Name                 | WBC \# CSF Manual                                                |
+| Text Label (Name)          | Example for LOINC [`806-0`](https://loinc.org/806-0) (test above) |
+|----------------------|--------------------------------------------------|
+| Fully-Specified Name (FSN) | Leukocytes: NCnc: Pt: CSF: Qn: Manual count                       |
+| Long Common Name           | Leukocytes \[#/volume\] in Cerebral spinal fluid by Manual count  |
+| Short Name                 | WBC \# CSF Manual                                                 |
 
 ### SNOMED CT
 
-SNOMED CT is a clinical terminology standard that is developed by **SNOMED International**. It can be viewed as the "answer" for a test or measurement (where LOINC would often specify the "question" answered by a SNOMED concept). [SNOMED International further details the utility of SNOMED CT](https://www.snomed.org/five-step-briefing) as follows:
+[SNOMED CT](https://www.snomed.org/) is a clinical terminology standard developed by **SNOMED International**. SNOMED CT is often the "answer" for a test or measurement (where LOINC would be the "question"). [SNOMED International further details the utility of SNOMED CT](https://www.snomed.org/five-step-briefing) as follows:
 
 > SNOMED CT:
 >
@@ -122,21 +124,23 @@ SNOMED CT is a clinical terminology standard that is developed by **SNOMED Inter
 
 SNOMED CT is comprised of [@snomed]:
 
--   **Concepts**: Unique clinical meaning that is referenced with a unique computer readable numeric identifier. Can have multiple descriptions.
+-   **Concepts**: Unique clinical meaning with a computer readable code. Can have multiple descriptions.
 
--   **Descriptions**: Human readable phrases that describe a concept (what a doctor would read).
+-   **Descriptions**: Human readable explanation of a concept (what a doctor would read).
 
--   **Relationships**: Correlation between related concepts, i.e. "synonyms." Provides computer readable definitions of concepts and allow for data to be searched for in a variety of ways.
+-   **Relationships**: Correlation between related concepts, i.e., "synonyms." Provides computer readable definitions of concepts and supports data searches.
 
     There are two main types of relationships in SNOMED CT:
 
     -   **Hierarchical relationships** establish each SNOMED CT concept as a child of a more general concept. Each concept in SNOMED CT has at least one hierarchical relationship. For example, `840533007` (SARS-CoV-2) has an `is a` relationship with its parent, `415360003` (SARS coronavirus), which in turn `is a` `868196001` (Subgenus Sarbecovirus).
 
-    -   **Attribute relationships** define non-hierarchical relationships between two concepts; each concept can have as many attribute relationships as needed. For example, `399150003` (PCR test for SARS) has a `Component` relationship with `415360003` (SARS coronavirus).[^2]
+    -   **Attribute relationships** define non-hierarchical relationships between two concepts. Concepts can have as many attribute relationships as needed. For example, `399150003` (PCR test for SARS) has a `Component` relationship with `415360003` (SARS coronavirus).[^3]
 
-[^2]: SNOMED CT relationship types are defined by SNOMED concepts. In this case, "Component" is represented by the [SNOMED CT code `246093002`](https://browser.ihtsdotools.org/?perspective=full&conceptId1=246093002&edition=MAIN/2023-02-28&release=&languages=en) .
+[^3]: SNOMED CT relationship types are defined by SNOMED concepts. In this case, "Component" is represented by the [SNOMED CT code `246093002`](https://browser.ihtsdotools.org/?perspective=full&conceptId1=246093002&edition=MAIN/2023-02-28&release=&languages=en) .
 
-Below is an example how SNOMED might represent a condition (acute post-streptococcal glomerulenephritis) and its associated relationships: <!--# FIX for Blake to do: Add citation for diagram: adapted from "Georgia Tech Online Health Informatics MS course video" —MM 3/23/23 11:50 AM -->
+Below is an example of how SNOMED might represent a condition (acute post-streptococcal glomerulenephritis) and its associated relationships:[^4]
+
+[^4]: Adapted from [SNOMED CT - Georgia Tech - Health Informatics in the Cloud](https://youtu.be/OqFILtre8Dc?t=118) (YouTube).
 
 ```{mermaid}
 flowchart BT
@@ -159,49 +163,21 @@ flowchart BT
     C --> |is a|A
 ```
 
-### ICD
+### ICD-10
 
-[ICD](https://www.who.int/standards/classifications/classification-of-diseases) is a medical classification list that contains codes for diseases, signs and symptoms, abnormal findings, complaints, social circumstances, and external causes of injury or diseases. [The WHO, who publishes ICD, writes](https://www.who.int/standards/classifications/classification-of-diseases):
+[ICD](https://www.who.int/standards/classifications/classification-of-diseases) is a medical classification list that contains codes for diseases, signs and symptoms, abnormal findings, complaints, social circumstances, and external causes of injury or diseases. [The WHO, which publishes ICD, writes](https://www.who.int/standards/classifications/classification-of-diseases):
 
 > Clinical terms coded with ICD are the main basis for health recording and statistics on disease in primary, secondary and tertiary care, as well as on cause of death certificates. These data and statistics support payment systems, service planning, administration of quality and safety, and health services research. Diagnostic guidance linked to categories of ICD also standardizes data collection and enables large scale research.
 
-ICD-10 is currently widely used, having replaced ICD-9 in the US in the 2010s. ICD-11 is the latest version of ICD, with active use beginning in January 2022.
+ICD-10 is widely used and replaced ICD-9 in the US in the 2010s. ICD-11 is the latest version of ICD, with active use beginning in January 2022.
 
-#### ICD-10 structure
+#### Structure
 
 An ICD-10 code can range between 3 and 7 alphanumeric characters and has three major parts [@icd_10]:
 
-1.  **Category**: A three character code that always begins with one letter that is followed by two numbers. This code describes the general type of injury or disease.
-2.  **Subclassification** (optional): To further specify an injury or disease, the three-character alphanumeric category code can be followed by a decimal point and up to three different levels of classification to further explain the cause, manifestation, location, severity, and type of injury or disease. This code section can be up to 3 numeric characters, with each added character adding more specificity.
-3.  **Extension** (optional): This final code section is one of three letters that describe the type of encounter a given injury or disease. It will always be the 7th character and directly follows the subclassification numbers, not requiring a decimal point to separate it. It can either be A (initial encounter), D (subsequent encounter), or S (sequila).
-
-::: {.callout-caution collapse="true"}
-## Expand to view ICD-10 categories
-
-| Range    | Topic                                                                                               |
-|----------|-----------------------------------------------------------------------------------------------------|
-| A00-B99  | Certain infections and parasitic diseases                                                           |
-| C00-D49  | Neoplasms                                                                                           |
-| D50-D89  | Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism |
-| E00-E89  | Endocrine, nutritional and metabolic diseases                                                       |
-| F01-F99  | Mental, Behavioral and Neurodevelopmental disorders                                                 |
-| G00-G99  | Diseases of the nervous system                                                                      |
-| H00-H59  | Diseases of the eye and adnexa                                                                      |
-| H60-H95  | Diseases of the ear and mastoid process                                                             |
-| I00-I99  | Diseases of the circulatory system                                                                  |
-| J00-J99  | Diseases of the respiratory system                                                                  |
-| K00-K95  | Diseases of the digestive system                                                                    |
-| L00-L99  | Diseases of the skin and subcutaneous tissue                                                        |
-| M00-M99  | Diseases of the musculoskeletal system and connective tissue                                        |
-| N00-N99  | Diseases of the genitourinary system                                                                |
-| O00- O9A | Pregnancy, childbirth, and puerperium                                                               |
-| P00-P96  | Certain conditions originating in the perinatal period                                              |
-| Q00-Q99  | Congenital malformations, deformations and chromosomal abnormalities                                |
-| R00-R99  | Symptoms, signs, and abnormal clinical laboratory findings, not elsewhere classified                |
-| S00-T88  | Injury, poisoning, and certain other consequences of external causes                                |
-| V00-Y99  | External causes of morbidity                                                                        |
-| Z00-Z99  | Factors influencing health status and contact with health services                                  |
-:::
+-   **Category**: A letter followed by two numbers, which describes the general type of injury or disease.
+-   **Subclassification** (optional): Up to three digits, further specifying an injury or disease. The subclassification follows the category after a decimal point. Each digit of the subclassification adds more specificity, explaining the cause, manifestation, location, severity, and type of injury or disease.
+-   **Extension** (optional): One of three letters describing the type of encounter for a given injury or disease: A (initial encounter), D (subsequent encounter), or S (sequila). The extension follows the subclassification.
 
 Below is an example of different levels of specificity for an ICD-10 code [@icd_10]. The injury is a *closed fracture of distal phalanx of right index finger*.
 
@@ -243,7 +219,8 @@ Its scope includes the names of prescription and many over-the-counter drugs app
 
 NLM completes the following three steps when classifying a drug [@rx_norm_nih]:
 
-1.  **Group source data**: When NLM receives drug names with different formats that refer to the same medication, it groups them all together and refers to them as **synonyms**. This group of synonyms is called a **concept**. Below are examples of different synonyms that all refer to the same concept:
+1.  **Group source data**: When NLM receives drug names with different formats that refer to the same medication, it groups them all together and refers to them as **synonyms**. A group of synonyms is called a **concept**. Below are examples of synonyms that refer to the same concept:
+
     -   Naproxen Tab 250 MG
 
     -   Naproxen 250mg tablet (product)
@@ -253,23 +230,28 @@ NLM completes the following three steps when classifying a drug [@rx_norm_nih]:
     -   Naproxen 250 MILLIGRAM In 1 TABLET ORAL TABLET
 
     -   NAPROXEN 250MG TAB,UD \[VA Product\]
-2.  **Create normalized name for a concept**: After synonyms are grouped into a concept, RxNorm then creates a normalized name for it detailing the ingredient, strength, and dose form. If the drug is branded or in a pack, then those are also included. For the concept above, the RxNorm normalized name is "Naproxen 250 MG Oral Tablet." The branded version is "Naproxen 250 MG Oral Tablet \[Prosaid\]." The general format for an RxNorm normalized name is dependent on two factors: (1) generic vs. branded, and (2) single vs. pack. Below summarizes the general formats for each scenario:
-    -   Generic drugs - Ingredient Strength Dose Form
 
-    -   Branded drugs - Ingredient Strength Dose Form \[Brand Name\]
+2.  **Create a normalized name for a concept**: After grouping synonyms into a concept, RxNorm creates a normalized name with the ingredient, strength, and dose form. The name also includes if the drug is branded or in a pack. For the concept above, the RxNorm normalized name is "Naproxen 250 MG Oral Tablet." The branded version is "Naproxen 250 MG Oral Tablet \[Prosaid\]."
 
-    -   Generic drug packs - {# (Ingredient Strength Dose Form) / \# (Ingredient Strength Dose Form)} Pack
+    The general format for an RxNorm normalized name depends on two factors: (1) generic vs. branded, and (2) single vs. pack. Below summarizes the general formats for each scenario:
 
-    -   Branded drug packs - {# (Ingredient Strength Dose Form) / \# (Ingredient Strength Dose Form)} Pack \[Brand Name\]
-3.  **Assign concept unique identifier (RXCUI)**: The RXCUI is a numeric identifier that is a code assigned to a given concept. For example, the RXCUI for the above concept example is `198013`.
+    -   Generic drugs: Ingredient Strength Dose Form
 
-RxNorm normalized names can have different levels of specificity, defined by the **term type (TTY)**. For example, depending on the TTY, an RxNorm normalized name might only include the ingredient, might only include the dose form, or one of many combinations of descriptors.
+    -   Branded drugs: Ingredient Strength Dose Form \[Brand Name\]
 
-::: {.callout-caution collapse="true"}
+    -   Generic drug packs: {# (Ingredient Strength Dose Form) / \# (Ingredient Strength Dose Form)} Pack
+
+    -   Branded drug packs: {# (Ingredient Strength Dose Form) / \# (Ingredient Strength Dose Form)} Pack \[Brand Name\]
+
+3.  **Assign a concept unique identifier (RXCUI)**: The RXCUI is a numeric identifier that is a code assigned to a given concept. For example, the RXCUI for the above concept example is `198013`.
+
+RxNorm normalized names have different levels of specificity, defined by the **term type (TTY)**. For example, depending on the TTY, an RxNorm normalized name might only include the ingredient, might only include the dose form, or one of many combinations of descriptors.
+
+::: {.callout-note collapse="true"}
 ## Expand to view the different TTYs
 
 | TTY  | Name                              | Description                                                                                                                                                                                        | Example                                                                                                                                                                                                |
-|:-----|:----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------|:----------|:------------------------|:------------------------|
 | IN   | Ingredient                        | A compound or moiety that gives the drug its distinctive clinical properties. Ingredients generally use the United States Adopted Name (USAN).                                                     | Fluoxetine                                                                                                                                                                                             |
 | PIN  | Precise Ingredient                | A specified form of the ingredient that may or may not be clinically active. Most precise ingredients are salt or isomer forms.                                                                    | Fluoxetine Hydrochloride                                                                                                                                                                               |
 | MIN  | Multiple Ingredients              | Two or more ingredients appearing together in a single drug preparation, created from SCDF. In rare cases when IN/PIN or PIN/PIN combinations of the same base ingredient exist, created from SCD. | Fluoxetine / Olanzapine                                                                                                                                                                                |
@@ -293,9 +275,9 @@ RxNorm normalized names can have different levels of specificity, defined by the
 
 ### CVX
 
-[CVX](https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx) is a standard terminology for both active and inactive vaccines in the US. It is developed and maintained by the CDC's National Center of Immunization and Respiratory Diseases (NCIRD). Inactive vaccine CVX codes allow for the analysis of historical immunization records. [@cvx]
+[CVX](https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx) is a standard terminology for vaccines in the US. It is developed and maintained by the CDC's National Center of Immunization and Respiratory Diseases (NCIRD).[@cvx]
 
-Concepts in CVX are assigned a short numeric code (e.g., `207` for Moderna's initial COVID-19 vaccine). Each vaccine also has a short description, a full name, and a status (e.g. `Active` or `Inactive`).
+Concepts in CVX are assigned a short numeric code (e.g., `207` for Moderna's initial COVID-19 vaccine). Each vaccine also has a short description, a full name, and a status (e.g., `Active` or `Inactive`).
 
 CVX codes are also [mapped into groups](https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=vg) by disease targeted, and to [vaccine manufacturers](https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=tradename).
 
@@ -303,41 +285,27 @@ CVX codes are also [mapped into groups](https://www2a.cdc.gov/vaccines/iis/iisst
 
 There are three key FHIR resources for terminology:
 
-+--------------------------------------------------------+-------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-| FHIR Resource                                          | Description                                                                   | Example                                                                                                                                       | Potential research applications                                                                                                                  |
-+========================================================+===============================================================================+===============================================================================================================================================+==================================================================================================================================================+
-| [CodeSystem](https://www.hl7.org/fhir/codesystem.html) | Describes a code system, its concepts, and the codes identifying the concepts | The [LOINC code system](https://loinc.org/fhir/)                                                                                              | -   Identifying which code system a given code comes from                                                                                        |
-|                                                        |                                                                               |                                                                                                                                               |                                                                                                                                                  |
-|                                                        |                                                                               |                                                                                                                                               | -   Looking up the concept definition or other metadata associated with a given code                                                             |
-|                                                        |                                                                               |                                                                                                                                               |                                                                                                                                                  |
-|                                                        |                                                                               |                                                                                                                                               | -   Using concept relationship metadata to reason about or filter data                                                                           |
-+--------------------------------------------------------+-------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-| [ValueSet](https://www.hl7.org/fhir/valueset.html)     | Specifies a specific set of codes from code system(s)                         | [LOINC concepts identifying types of cancer staging systems](https://hl7.org/fhir/us/mcode/STU2/ValueSet-mcode-cancer-staging-system-vs.html) | -   Curating a list of concepts for use in a particular context                                                                                  |
-|                                                        |                                                                               |                                                                                                                                               |                                                                                                                                                  |
-|                                                        |                                                                               |                                                                                                                                               | -   Identifying a specific set of concepts from specific code systems allowed in a data element                                                  |
-|                                                        |                                                                               |                                                                                                                                               |                                                                                                                                                  |
-|                                                        |                                                                               |                                                                                                                                               | -   Validating that FHIR-formatted data have only the expected codes                                                                             |
-+--------------------------------------------------------+-------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-| [ConceptMap](https://www.hl7.org/fhir/conceptmap.html) | Identifies relationships between sets of concepts                             | [Mapping from SNOMED CT to ICD-10](https://www.hl7.org/fhir/R4B/conceptmap-103.html)                                                          | -   Creating mappings between two different code systems (e.g., mapping ICD-9 codes in historical records to ICD-10)                             |
-|                                                        |                                                                               |                                                                                                                                               |                                                                                                                                                  |
-|                                                        |                                                                               |                                                                                                                                               | -   Mapping a custom code system (e.g., custom diagnosis codes for a hospital) to a standardized code system for multi-hospital data aggregation |
-+--------------------------------------------------------+-------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+-   [**CodeSystem resource**](https://www.hl7.org/fhir/codesystem.html): Describes a code system, its concepts, and the codes identifying the concepts. E.g., the [LOINC code system](https://loinc.org/fhir/).
+-   [**ValueSet resource**](https://www.hl7.org/fhir/valueset.html): Specifies a specific set of codes from code system(s). E.g., [LOINC concepts identifying types of cancer staging systems](https://hl7.org/fhir/us/mcode/STU2/ValueSet-mcode-cancer-staging-system-vs.html).
+-   [**ConceptMap resource**](https://www.hl7.org/fhir/conceptmap.html): Identifies relationships between sets of concepts. E.g., [Mapping from SNOMED CT to ICD-10](https://www.hl7.org/fhir/R4B/conceptmap-103.html)
+
+We review these resources in detail below.
 
 ### CodeSystem resource details
 
-The [CodeSystem FHIR resource](https://www.hl7.org/fhir/codesystem.html) defines an organized, managed collection of concepts that belong to a given terminology system. CodeSystems are used to computably represent properties of the standardized terminologies discussed above (like LOINC and ICD-10). These properties include:
+The [CodeSystem FHIR resource](https://www.hl7.org/fhir/codesystem.html) defines an organized, managed collection of concepts that belong to a given terminology system. The CodeSystem resource represents properties of standard terminologies (like LOINC and ICD-10) in a computable format. These properties include:
 
--   The canonical identifier for the code system (typically a URL like `http://loinc.org` for LOINC, or an [OID](https://en.wikipedia.org/wiki/Object_identifier) (e.g., `2.16.840.1.113883.6.1` , which also [represents LOINC](https://loinc.org/oids/2.16.840.1.113883.6.1/))
+-   The canonical identifier for the code system (typically a URL like `http://loinc.org` for LOINC, or an [OID](https://en.wikipedia.org/wiki/Object_identifier) like `2.16.840.1.113883.6.1` (which also [represents LOINC](https://loinc.org/oids/2.16.840.1.113883.6.1/))
 
 -   Version
 
--   The concepts defined by the code system (i.e., a list of codes for concepts and their human-readable descriptions)
+-   The concepts defined by the code system
 
 -   Publication metadata like a human-readable description, copyright information, and publication date
 
--   Some key properties of the code system itself, such as whether it exhibits concept permanence, whether it defines a [compositional grammar](https://www.hl7.org/fhir/R4B/codesystem-definitions.html#CodeSystem.compositional), and whether the codes that it defines are case sensitive
+-   Properties of the code system, such as concept permanence, case-sensitivity, and if it defines a [compositional grammar](https://www.hl7.org/fhir/R4B/codesystem-definitions.html#CodeSystem.compositional).
 
-Here's an example of what an instance of a CodeSystem FHIR resource looks like:
+Here's an example of a CodeSystem FHIR resource:
 
 ``` json
 {
@@ -421,13 +389,19 @@ Here's an example of what an instance of a CodeSystem FHIR resource looks like:
 }
 ```
 
+#### Research applications
+
+Potential research applications include:
+
+-   Identifying which code system a given code comes from.
+-   Looking up the concept definition or other metadata associated with a given code.
+-   Using concept relationship metadata to reason about or filter data.
+
 ### ValueSet resource details
 
-The [ValueSet FHIR resource](https://www.hl7.org/fhir/valueset.html) "specifies a set of codes drawn from one or more code systems, intended for use in a particular context." ValueSets don't refer directly to CodeSystems; rather, they [identify](https://www.hl7.org/fhir/valueset-definitions.html#ValueSet.compose.include.system) the relevant CodeSystem by its unique canonical URI.
+The [ValueSet FHIR resource](https://www.hl7.org/fhir/valueset.html) "specifies a set of codes drawn from one or more code systems, intended for use in a particular context." ValueSets don't refer directly to CodeSystems; rather, they [identify](https://www.hl7.org/fhir/valueset-definitions.html#ValueSet.compose.include.system) the relevant CodeSystem by its URI.
 
-Here's an example of what an instance of a ValueSet FHIR resource looks like:
-
-::: {.callout-caution collapse="true"} \## Expand to view an example of a `ValueSet` FHIR Resource that specifies the value set of "All CPT Values" from the code system SNOMED CT
+Here's an example of a ValueSet FHIR resource:
 
 ``` json
 {
@@ -478,11 +452,17 @@ Here's an example of what an instance of a ValueSet FHIR resource looks like:
 }
 ```
 
+#### Research applications
+
+Potential research applications include:
+
+-   Curating a list of concepts for use in a particular context.
+-   Identifying a specific set of concepts from specific code systems allowed in a data element.
+-   Validating that FHIR-formatted data have only the expected codes.
+
 ### ConceptMap
 
-The [ConceptMap FHIR resource](https://www.hl7.org/fhir/conceptmap.html) provides a mapping from one set of concepts to other concepts. The example below maps SNOMED CT to ICD-10 using an instance of the ConceptMap resource:
-
-::: {.callout-caution collapse="true"} \## Expand to view an example of a `ConceptMap` FHIR Resource that maps SNOMED CT to ICD-10
+The [ConceptMap FHIR resource](https://www.hl7.org/fhir/conceptmap.html) maps a set of concepts to other concepts. The example below maps SNOMED CT to ICD-10 using an instance of the ConceptMap resource:
 
 ``` json
 {
@@ -548,3 +528,10 @@ The [ConceptMap FHIR resource](https://www.hl7.org/fhir/conceptmap.html) provide
   }]
 }
 ```
+
+#### Research applications
+
+Potential research applications include:
+
+-   Creating mappings between two different code systems (e.g., mapping ICD-9 codes in historical records to ICD-10).
+-   Mapping a custom code system (e.g., custom diagnosis codes for a hospital) to a standardized code system for multi-hospital data aggregation.

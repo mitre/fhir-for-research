@@ -30,3 +30,13 @@ body {
   font-weight: normal !important;
   border-bottom: none !important;
 }
+
+// Highlight the currently open page in the sidebar
+.sidebar-item-text.sidebar-link.active {
+  font-weight: bold;
+}
+
+// Make sure citation popovers are not bolded even if the citation itself is bolded
+.citation div[data-tippy-root] {
+  font-weight: normal;
+}

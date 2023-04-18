@@ -27,21 +27,21 @@ FHIR has an active community of users who engage in discussions and offer advice
 
 The [HL7](https://hl7.org) FHIR community consists of developers, maintainers, and implementers who engage with the [FHIR specification](https://hl7.org/fhir/). Community-members work in many environments including:
 
-- Clinical settings
-- Health-focused companies and non-profits
-- Local, state, and federal health agencies
+-   Clinical settings
+-   Health-focused companies and non-profits
+-   Local, state, and federal health agencies
 
-Because [FHIR](https://hl7.org/fhir/) is an open-source specification, most of HL7's FHIR work is done publicly, and anyone can participate. The FHIR community also develops many [FHIR Implementation Guides (IGs)](http://fhir.org/guides/registry/) with the same public approach. 
+Because [FHIR](https://hl7.org/fhir/) is an open-source specification, most of HL7's FHIR work is done publicly, and anyone can participate. The FHIR community also develops many [FHIR Implementation Guides (IGs)](http://fhir.org/guides/registry/) with the same public approach.
 
 This openness makes members of the community accessible to implementers and developers who want to:
 
-- Ask questions.
-- Follow the progress of work.
-- Contribute to the work through the channels described below.
+-   Ask questions.
+-   Follow the progress of work.
+-   Contribute to the work through the channels described below.
 
 ### HL7 Work Groups
 
-HL7 specifications and many FHIR Implementation Guides are developed as [**HL7 Projects**](http://www.hl7.org/special/Committees/projman/searchableProjectIndex.cfm?action=list). HL7 Projects are efforts that are developed under the guidance of one or more [HL7 Work Groups](https://confluence.hl7.org/pages/viewpage.action?pageId=4489802). 
+HL7 specifications and many FHIR Implementation Guides are developed as [**HL7 Projects**](http://www.hl7.org/special/Committees/projman/searchableProjectIndex.cfm?action=list). HL7 Projects are efforts that are developed under the guidance of one or more [HL7 Work Groups](https://confluence.hl7.org/pages/viewpage.action?pageId=4489802).
 
 [Work Groups](https://confluence.hl7.org/pages/viewpage.action?pageId=4489802) are:
 
@@ -55,7 +55,7 @@ Work Groups also meet in-person or hybrid at [HL7 Working Group Meetings](https:
 
 #### Getting started with Work Groups
 
-The fastest way to get started in a Work Group is to join its [conference call](http://www.hl7.org/concalls/CallDirectory.aspx) and ask to introduce yourself. 
+The fastest way to get started in a Work Group is to join its [conference call](http://www.hl7.org/concalls/CallDirectory.aspx) and ask to introduce yourself.
 
 Alternatively (or additionally), join the Work Group's [mailing list](https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions) and reach out to the group's leadership to introduce yourself. You can also use the mailing list to request future agenda items.
 
@@ -106,6 +106,28 @@ The [Connectathon FAQs](https://confluence.hl7.org/display/FHIR/HL7+FHIR+Connect
 First time attendees must watch the [FHIR Training for Beginners Newcomer Orientation](https://vimeo.com/542197402/8fb80fea04).
 
 Each Connectathon hosts a virtual Participant Information Session several weeks before the event. The Participant Information Session includes information about which Tracks are available, how to connect with Track Leads, and how to prepare your sandbox environment for testing. For an example of what to expect, a recording of the [January 2023 Connectathon Participant Information Session](https://www.youtube.com/watch?v=hA_cW2gG7wE) is available, as well as the [check lists](https://confluence.hl7.org/display/FHIR/2023+-+01+Connectathon+32) for attendees and Track Leads.
+
+### FHIR Accelerators
+
+In addition to developing the FHIR standard, [HL7](https://hl7.org) has a [FHIR Accelerator](https://www.hl7.org/about/fhir-accelerator/) program to "assist communities and collaborative groups across the global health care spectrum in the creation and adoption of high quality FHIR Implementation Guides or other standard artifacts to move toward the realization of global health data interoperability."
+
+FHIR Accelerators drive adoption of FHIR for specific use cases, including:
+
+-   [CodeX](https://www.hl7.org/codex/): Standardizing cancer data
+
+-   [Da Vinci](https://www.hl7.org/about/davinci/): Establishing a process for addressing value-based care delivery
+
+-   [Gravity](https://www.hl7.org/gravity/): Standardizing social determinants of health
+
+-   [Helios](https://www.hl7.org/helios/): Obtaining data for public health via FHIR
+
+-   [Vulcan](https://www.hl7.org/vulcan/): Obtaining data for research via FHIR
+
+Researchers may be especially interested in [Vulcan](https://www.hl7.org/vulcan/). This presentation from [FHIR DevDays 2022](https://www.devdays.com/devdays-international-hybrid-edition-2022/presentations/) provides an overview of Vulcan's current activity ([PDF slides](https://www.devdays.com/wp-content/uploads/2022/08/220608-HughGlover-VulcanBoldlyGoing-Hugh-Glover.pdf)):
+
+{{< video https://www.youtube.com/embed/-rVop9vw608 >}}
+
+More information on the [FHIR to OMOP project that is part of Vulcan can be found here](https://confluence.hl7.org/display/VA/FHIR+to+OMOP).
 
 ## HL7 FHIR resources
 
