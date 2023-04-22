@@ -35,6 +35,8 @@ pages:
   stage: deploy
   script:
     - quarto render
+    # Work around https://github.com/quarto-dev/quarto-cli/issues/3892
+    - cp modules/images/*.mp4 public/modules/images/
   artifacts:
     paths:
       - public
@@ -60,7 +62,8 @@ ci:
 
   script:
     - quarto render --site-url https://${CI_PROJECT_NAMESPACE}.pages.mitre.org/-/${CI_PROJECT_NAME}/-/jobs/$CI_JOB_ID/artifacts/public/
-
+    # Work around https://github.com/quarto-dev/quarto-cli/issues/3892
+    - cp modules/images/*.mp4 public/modules/images/
   tags:
     - pages
   rules:

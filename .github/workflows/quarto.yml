@@ -64,6 +64,11 @@ jobs:
 
           echo "HTML files processed successfully!"
 
+      # Work around https://github.com/quarto-dev/quarto-cli/issues/3892
+      - name: Manually copy over MP4 files
+        run: |
+          cp modules/images/*.mp4 public/modules/images/
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
