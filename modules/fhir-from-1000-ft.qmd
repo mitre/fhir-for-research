@@ -1,11 +1,6 @@
 ---
 title: "FHIR from 1,000 Feet"
 
-area:
-  name: Overview
-topic:
-  name: FHIR for Research
-
 roles:
   - Investigator
   - Informaticist
@@ -24,36 +19,34 @@ learning_objectives:
 ::: callout-caution
 ## Did you read FHIR from 10,000 Feet?
 
-This is the second part of our introduction to FHIR for research. You should read [FHIR from 10,000 Feet](..//10-intro–intro-part-1-what-is-fhir/index.html) first if you haven't already.
+This is part two of our introduction to FHIR for research. Read part one, [FHIR from 10,000 Feet](..//10-intro–intro-part-1-what-is-fhir/index.html), if you haven't already.
 
-This module goes into greater depth on how FHIR works from a technical standpoint, and will be of greatest interest to those who are interested in leading or implementing research using FHIR.
+This module looks at how FHIR works from a technical standpoint, and is targeted to those interested in leading or implementing research using FHIR.
 :::
 
 ## The structure of FHIR
 
-ONC (Office of the National Coordinator for Health IT)'s [FHIR Fact Sheet](https://www.healthit.gov/sites/default/files/page/2021-04/What%20Is%20FHIR%20Fact%20Sheet.pdf) describes the core capabilities of FHIR:
+The FHIR specification groups data elements into "[resources](https://www.hl7.org/fhir/resource.html)," like [Patient](https://www.hl7.org/fhir/patient.html) for representing demographics and administrative information about an individual, and [Observation](https://www.hl7.org/fhir/observation.html) for representing measurements and assertions about a patient or other subject.
 
-> FHIR's API is a RESTful, or REpresentational State Transfer, approach to data exchange. REST defines categories of data, or "Resources," to exchange data. The philosophy behind FHIR is to create a set of Resources that, individually or in combination, satisfy most common use cases. The Patient Resource, for example, includes demographic data related to a patient, such as their name, address, and phone number. Resources also improves granular data retrieval, so that a request returns just the relevant data rather than a full record or document that itself must then be searched.
->
-> Once they are modified for specific requirements using FHIR's built-in capabilities, combinations of Resources are brought together in an Implementation Guide to address a specific use case, such as a provider directory or patient-reported outcomes. This structure lends itself well to expansion beyond FHIR's core capabilities.
+FHIR implementers can constrain what information gets included in a FHIR resource or use FHIR extensions to add information to a resource. They can also specify which FHIR resources should be used together for their use case. They share these constraints, extensions, and combinations with others through an Implementation Guide.
 
-Below is a screenshot of the [Patient resource](https://www.hl7.org/fhir/R4B/patient.html) from the FHIR specification (`R4B` version) on HL7's FHIR documentation website:
+Below is a screenshot of the [Patient resource](https://www.hl7.org/fhir/R4B/patient.html) from the FHIR specification (`R4B` version):
 
 ::: column-page-inset
 [![](images/R4_Patient.png){fig-alt="Screenshot of Resource Contents table of the Patient resource in the FHIR R4B specification"}](https://www.hl7.org/fhir/R4B/patient.html)
 :::
 
-This view of a FHIR resource will become very familiar to you if you spend time working with FHIR specifications.[^1] It shows the hierarchy of elements (i.e., data fields) in the FHIR resource, starting with the name of the FHIR resource ("Patient"). Elements may be only one level deep (like `Patient.birthDate`) or nested (like `Patient.contact.name`).
+All FHIR resources have a Resource Content table.[^1] The table shows the hierarchy of elements in the FHIR resource. Elements might be one level deep (like `Patient.birthDate`) or nested (like `Patient.contact.name`).
 
-[^1]: More information on this table is found in [Key FHIR Resources](key-fhir-resources.qmd).
+[^1]: Find more information on this table in [Key FHIR Resources](key-fhir-resources.qmd).
 
-Each element has properties that appear in the `Flag`, `Card.` (short for "Carnality"), and `Type` columns. The details of these additional properties are beyond the scope of this module; see [FHIR Resources](key-fhir-resources.qmd) for more information.
+Each element has properties that appear in the `Flag`, `Card.` (short for "Cardinality"), and `Type` columns. The details of these properties are beyond the scope of this module; see [Key FHIR Resources](key-fhir-resources.qmd) for more information.
 
-Elements also have short descriptions (`Description & Constraints`) as well as longer descriptions (accessible by clicking on the element's name; [see the details of `Patient.gender` for an example](https://www.hl7.org/fhir/R4B/patient-definitions.html#Patient.gender)).
+Elements also have short descriptions (`Description & Constraints`) as well as longer descriptions. To see the longer description, click on the element's name (e.g., see the [details of `Patient.gender`](https://www.hl7.org/fhir/R4B/patient-definitions.html#Patient.gender)).
 
-When a FHIR resource is created and populated with data, we call this an **instance** of the FHIR resource. An instance of the `Patient` resource would assign `Patient.name` to a value like `Andy Smith`. Instances are created in a format like [JSON](https://en.wikipedia.org/wiki/JSON) or [XML](https://en.wikipedia.org/wiki/XML) -- to see an example of this, expand the box below.
+When a FHIR resource is created and populated with data, we call this an **instance** of the FHIR resource. An instance of the `Patient` resource would assign `Patient.name` to a value like `Andy Smith`. Instances are formatted in [JSON](https://en.wikipedia.org/wiki/JSON) or [XML](https://en.wikipedia.org/wiki/XML). To see an example of a patient instance formatted as JSON, expand the box below.
 
-::: {.callout-caution collapse="true"}
+::: {.callout-note collapse="true"}
 ## JSON format FHIR `Patient` instance example
 
 Below is an example of a what a FHIR resource instance looks like in JSON format.
@@ -103,32 +96,32 @@ Below is an example of a what a FHIR resource instance looks like in JSON format
 
 ## Customizing FHIR
 
-FHIR balances the trade-off between customization and interoperability with [the 80/20 rule](http://www.healthintersections.com.au/?p=1924): the core FHIR specification typically includes data elements only if 80% of relevant systems will implement it. The remaining 20% of data elements are handled through [FHIR extensions](https://www.hl7.org/fhir/extensibility.html) (discussed below). <!-- This paragraph is quoted in fhir-history.qmd -- any changes here should be synchronized there manually. -->
+The FHIR specification follows [the 80/20 rule](http://www.healthintersections.com.au/?p=1924) to determine which data elements are included in a resource: data elements are typically included only if 80% of relevant systems will use them. Less common data needs are handled through [FHIR extensions](https://www.hl7.org/fhir/extensibility.html) (discussed below). This means that FHIR-enabled systems will implement *most* common data elements consistently.<!-- This paragraph is quoted in fhir-history.qmd -- any changes here should be synchronized there manually. -->
 
-To maximize applicability, FHIR resources are designed to minimize constraints by default. Constraints are restrictions on how specific data elements can (or cannot) be populated: for example, requiring that `Patient.birthDate` is filled in. Hypothetically, if the base FHIR `Patient` resource did required `birthDate` to be filled in, this would make it impossible to use an instance of `Patient` to represent data that, for example, uses age in years rather date of birth for privacy reasons.
+To maximize usability, data elements contained in FHIR resources have minimal constraints. **Constraints** restrict how a data element can be populated. For example, a constraint on Patient resource might require that `Patient.birthDate` be populated. However, some systems record a patient's age in years rather than date of birth for privacy reasons. If the constraint on `Patient.birthDate` existed, those system would not be able to use the Patient resource.
 
-However, some use cases may in fact require `Patient.birthDate` to always be populated. Use case-specific constraints can be defined on top of the base FHIR specification through a process called **profiling**. The output of profiling is an **Implementation Guide (IG)**, which is a collection of **profiles** that build on top of the FHIR specification (or other IGs).
+However, some use cases may require `Patient.birthDate` be populated. To achieve this, implementers can define use case-specific constraints on top of the base FHIR specification through **profiling**. The output of profiling is an **Implementation Guide (IG)**, which is a collection of **profiles** that build on top of the FHIR specification (or other IGs).
 
 ### Example: customizing Patient in US Core
 
-The [US Core FHIR IG](https://www.hl7.org/fhir/us/core/) ("US Core" hereafter) defines a FHIR implementation for [USCDI](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi), and is widely used in the US as the basis for FHIR implementations (in other words, EHRs in the US that support FHIR are likely also conformant with US Core).
+The [US Core FHIR IG](https://www.hl7.org/fhir/us/core/) (referred to as "US Core" below) defines a FHIR implementation for [USCDI](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi), and is widely used in the US as the basis for FHIR implementations. In other words, EHRs in the US that support FHIR are likely also conformant with US Core.
 
-US Core defines a [profile of Patient](https://hl7.org/fhir/us/core/StructureDefinition-us-core-patient.html), which allows the authors of US Core to do two things:
+US Core defines a [profile of Patient](https://hl7.org/fhir/us/core/StructureDefinition-us-core-patient.html), which does two things:
 
-1.  **Add constraints:** For example, [the Patient resource in base FHIR](https://www.hl7.org/fhir/R5/patient.html) does not require that the `name` element is populated. US Core's profile of Patient <mark>adds a constraint to make `name` required</mark>.[^2]
-2.  **Add extensions:** The base Patient resource in FHIR does not provide a way to capture patient race and ethnicity, which are extremely common data elements in US health data. US Core adds `Patient.us-core-race` and `Patient.us-core-ethnicity` extensions to provide a consistent, interoperable way to store these data.
+1.  **Adds constraints:** For example, [the Patient resource in base FHIR](https://www.hl7.org/fhir/R5/patient.html) does not require that the `name` element is populated. US Core's profile of Patient adds a constraint to make `name` required.[^2]
+2.  **Adds extensions:** The base Patient resource in FHIR does not provide a way to capture patient race and ethnicity, which are common data elements in US health data. US Core adds `Patient.us-core-race` and `Patient.us-core-ethnicity` extensions to provide a consistent, interoperable way to store these data.
 
-[^2]: You can see this in the "Card." (Cardinality) column for the `Patient.name` element on [the US Core Patient profile's "differential table"](https://hl7.org/fhir/us/core/STU5/StructureDefinition-us-core-patient.html#tabs-diff), which defines the changes this profile makes compared to the parent resource. More information on reading differential tables in IGs [is found here](data-modeling-reading-igs.qmd).
+[^2]: You can see this in the "Card." (Cardinality) column for the `Patient.name` element on [the US Core Patient profile's "differential table"](https://hl7.org/fhir/us/core/STU5/StructureDefinition-us-core-patient.html#tabs-diff), which defines the changes this profile makes compared to the parent resource. Find more information on reading differential tables in IGs [here](data-modeling-reading-igs.qmd).
 
-Many other FHIR IGs include profiles that are based on US Core rather than directly profiling FHIR resources. For example, the [mCODE IG](https://hl7.org/fhir/us/mcode/), which defines a core set of data elements for oncology EHR data includes a [CancerPatient profile](https://hl7.org/fhir/us/mcode/STU2/StructureDefinition-mcode-cancer-patient.html) that is based on US Core's Patient profile. Because US Core is widely implemented in EHRs, it may be beneficial to base any US-centric IGs off of US Core.
+Many other FHIR IGs include profiles that are based on US Core rather than directly on FHIR resources. For example, the [mCODE IG](https://hl7.org/fhir/us/mcode/), which defines a core set of data elements for oncology EHR data, includes a [CancerPatient profile](https://hl7.org/fhir/us/mcode/STU2/StructureDefinition-mcode-cancer-patient.html) that is based on US Core's Patient profile. Because US Core is widely implemented in US-based EHRs, it is helpful to base US-centric IGs off of US Core.
 
 ### Example: post-acute care data
 
-The [PACIO Project](https://pacioproject.org) is a post-acute care interoperability project that publishes several [FHIR profiles as part of an IG](http://hl7.org/fhir/us/pacio-fs/) to support more seamless exchange of relevant data.[^3]
+The [PACIO Project](https://pacioproject.org) is a post-acute care interoperability project that publishes [a FHIR IG](http://hl7.org/fhir/us/pacio-fs/) to support exchange of relevant data.[^3]
 
 [^3]: Note that the PACIO IG [includes US Core as a dependency](http://hl7.org/fhir/us/pacio-fs/STU1/#dependencies).
 
-The following table shows how PACIO approaches representing a narrative history of a patient's functional status[^4] in their IG:
+The following table shows how PACIO represents a narrative history of a patient's functional status[^4] in their IG:
 
 [^4]: [PACIO defines functional status](http://hl7.org/fhir/us/pacio-fs/STU1/index.html#functional-status) as:
 
@@ -136,72 +129,76 @@ The following table shows how PACIO approaches representing a narrative history 
 
     (Highlights added.)
 
-::: column-page-left
-+-----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| FHIR term | PACIO's approach using FHIR                                                                                                                                                  | Commentary                                                                                                                                                                 |
-+===========+==============================================================================================================================================================================+============================================================================================================================================================================+
-| Resource  | Functional status data are represented with the [Observation](https://www.hl7.org/fhir/observation.html) FHIR resource.                                                      | "Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns\..."[^5]                                  |
-+-----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Profile   | PACIO provides a [Narrative History of Functional Status profile](http://hl7.org/fhir/us/pacio-fs/STU1/StructureDefinition-pacio-nhfs.html) of the Observation resource.     | Adds constraints like:                                                                                                                                                     |
-|           |                                                                                                                                                                              |                                                                                                                                                                            |
-|           |                                                                                                                                                                              | -   Require `performer` element to indicate who performed the assessment                                                                                                   |
-|           |                                                                                                                                                                              |                                                                                                                                                                            |
-|           |                                                                                                                                                                              | -   Identifying functional status narrative records with [LOINC](https://loinc.org/get-started/what-loinc-is/) concept `10158-4` (History of Functional status Narrative). |
-+-----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Extension | Two extensions are defined by this profile:                                                                                                                                  | The base Observation resource does not have a mechanism for capturing these types of data.                                                                                 |
-|           |                                                                                                                                                                              |                                                                                                                                                                            |
-|           | 1.  [event-location](http://hl7.org/fhir/us/pacio-fs/STU1/StructureDefinition-event-location.html) indicates where the observed event occured                                |                                                                                                                                                                            |
-|           | 2.  [assistance-required](http://hl7.org/fhir/us/pacio-fs/StructureDefinition/assistance-required) indicates the level of assistance needed by the patient during assessment |                                                                                                                                                                            |
-+-----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+::: column-page-right
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| FHIR term | PACIO's approach using FHIR                                                                                                                                                   | Commentary                                                                                                                                                                 |
++===========+===============================================================================================================================================================================+============================================================================================================================================================================+
+| Resource  | Functional status data are represented with the [Observation](https://www.hl7.org/fhir/observation.html) FHIR resource.                                                       | "Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns\..."[^5]                                  |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Profile   | PACIO provides a [Narrative History of Functional Status profile](http://hl7.org/fhir/us/pacio-fs/STU1/StructureDefinition-pacio-nhfs.html) of the Observation resource.      | Adds constraints like:                                                                                                                                                     |
+|           |                                                                                                                                                                               |                                                                                                                                                                            |
+|           |                                                                                                                                                                               | -   Require `performer` element to indicate who performed the assessment                                                                                                   |
+|           |                                                                                                                                                                               |                                                                                                                                                                            |
+|           |                                                                                                                                                                               | -   Identifying functional status narrative records with [LOINC](https://loinc.org/get-started/what-loinc-is/) concept `10158-4` (History of Functional status Narrative). |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Extension | Two extensions are defined by this profile:                                                                                                                                   | The base Observation resource does not have a mechanism for capturing these types of data.                                                                                 |
+|           |                                                                                                                                                                               |                                                                                                                                                                            |
+|           | 1.  [event-location](http://hl7.org/fhir/us/pacio-fs/STU1/StructureDefinition-event-location.html) indicates where the observed event occurred.                               |                                                                                                                                                                            |
+|           | 2.  [assistance-required](http://hl7.org/fhir/us/pacio-fs/StructureDefinition/assistance-required) indicates the level of assistance needed by the patient during assessment. |                                                                                                                                                                            |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 : {tbl-colwidths="\[20,40,40\]"}
 :::
 
 [^5]: From the [FHIR specification's description of the Observation resource](http://hl7.org/fhir/5.0.0-draft-final/observation.html).
 
+In general, a concept like "narrative history of a patient's functional status" will be represented by one or more profiles of FHIR resources in a FHRI IG, each with a set of relevant constraints and (if necessary) extensions.
+
+Note that extensions can make interoperability more difficult compared to using data elements in the base FHIR resources, so they should be used only when needed.
+
 ### Customizing FHIR and research
 
 There are two research considerations for customizing FHIR:
 
-1.  **Are there existing FHIR IGs that are relevant?** For example, oncology clinical trails might be able to take advantage of the [mCODE IG](https://hl7.org/fhir/us/mcode/). Some other potentially relevant IGs [are described here](data-modeling-real-world-igs.qmd).
+1.  **Are there existing FHIR IGs that are relevant?** For example, oncology clinical trials might be able to take advantage of the [mCODE IG](https://hl7.org/fhir/us/mcode/). Find other potentially relevant IGs [here](data-modeling-real-world-igs.qmd).
 2.  **Would creating a FHIR IG provide value?** For research that uses FHIR-formatted data, creating a study-specific IG provides a way to easily define element definitions and required data elements. More information [on writing IGs is here](data-modeling-writing-igs.qmd).
 
 ## Connecting systems together: the FHIR API
 
-In addition to providing a standard way to represent and store data (in instances of FHIR resources, as described above), FHIR provides a standard way for systems to request and send instances of FHIR resources to each other.
+FHIR not only provides a standard way to represent data using FHIR resources, it also provides a standard way for systems to communicate.
 
-This standard communication approach is called an API (short for [Application Program Interface](https://en.wikipedia.org/wiki/API)). As mentioned in [Part 1](fhir-from-10000-ft.qmd), FHIR's API uses a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)ful approach, which is a widely used API paradigm throughout the technology industry. More specifics on FHIR's API can be found in the [Accessing FHIR Data module](modules/10-intro--accessing-fhir-data).
+This standard communication approach is called an API (short for [Application Program Interface](https://en.wikipedia.org/wiki/API)). As mentioned in [Part 1](fhir-from-10000-ft.qmd), FHIR's API uses a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)ful approach, which is a widely used throughout the technology industry. Find more specifics on FHIR's API in the [Accessing FHIR Data module](modules/10-intro--accessing-fhir-data).
 
-Here is a high-level diagram showing how FHIR's API can connect systems to each other:
+The diagram below shows how FHIR's API connects systems to each other:
 
 ![](images/fhir_information_flow.png)
 
-For example, a FHIR Client (like the Apple Health app on an iPhone) can request data from a FHIR server using the "RESTful API over HTTP." FHIR provides a standardized approach to this so that the Apple Health app can use the same request regardless of which FHIR server they are contacting.
+For example, a FHIR Client (like the Apple Health app on an iPhone) can request data from a FHIR server using the "RESTful API over HTTP." FHIR standardizes the request so the Apple Health app can use the same request regardless of which FHIR server they contact.
 
-Like with FHIR resources, the standard FHIR API is not meant to define all necessary operations for every use case. FHIR Implementation Guides (IGs) can also define additional API capabilities needed for a specific use case.
+Like with FHIR resources, the standard FHIR API doesn't define all necessary operations for every use case. FHIR Implementation Guides (IGs) can also define additional API capabilities for a specific use case.
 
 ## Research implications
 
-Using FHIR for research practically depends on the relevant systems supporting FHIR and institutions providing researchers access. Additionally, not all systems may support FHIR in the same way: for example, accessing functional status data may require system-level support of PACIO's Implementation Guide or another IG on top of basic FHIR support.
+Using FHIR for research depends on whether the relevant systems support FHIR and whether researchers will have access to those systems. Additionally, not all systems support FHIR in the same way. For example, some systems provide only basic FHIR support, while others may require system-level support of PACIO's IG.
 
-If the necessary FHIR support exists or can feasibly be added, researchers may benefit in several ways by using FHIR. This is illustrated below with a comparison of common research-related tasks using (a) FHIR to access data and (b) accessing data via a custom one-off extract:
+If the necessary FHIR support exists or can be added, researchers may benefit by using FHIR. The table below illustrates the benefits by comparing common research-related tasks using (a) FHIR to access data and (b) accessing data via a custom one-off extract:
 
-::: column-page-left
-+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
-| Task                                         | Via FHIR                                                                                                                                                                       | Via custom data extract                                                 |
-+==============================================+================================================================================================================================================================================+=========================================================================+
-| Defining data dictionary                     | e.g., PACIO's FHIR IG could be used directly, or extended as needed                                                                                                            | Create custom data dictionary from scratch in Excel                     |
-+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
-| Ensuring data consistency                    | FHIR data elements have defined types, helping to ensure consistency with date formats, units, etc.                                                                            | Depends on implementation of extract                                    |
-|                                              |                                                                                                                                                                                |                                                                         |
-|                                              | FHIR allows for defining a list of valid choices for a specific element                                                                                                        |                                                                         |
-+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
-| Checking data quality                        | Automated tools check for resource instance conformance against FHIR profiles                                                                                                  | Manual                                                                  |
-+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
-| Loading data into analysis software          | Convert from JSON with known schema and element types; analysis code can be feasibly tested ahead of time with automatically generated synthetic data in FHIR format           | Data format at least partially unknown until final extract is delivered |
-+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
-| Integrate data with third-party applications | [SMART on FHIR](smart-on-fhir-intro.qmd) provides an authentication and authorization mechanism to access FHIR data, a standardized API for requesting and receiving FHIR data | No standard approach                                                    |
-+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+
+::: column-page-right
++----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
+| Task                                         | Via FHIR                                                                                                                                                                            | Via custom data extract                                                  |
++==============================================+=====================================================================================================================================================================================+==========================================================================+
+| Defining data dictionary                     | Use PACIO's FHIR IG or another existing IG directly, or extend as needed.                                                                                                           | Create a custom data dictionary from scratch in Excel.                   |
++----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
+| Ensuring data consistency                    | FHIR data elements have defined types, helping to ensure consistency with date formats, units, etc.                                                                                 | Depends on implementation of extract.                                    |
+|                                              |                                                                                                                                                                                     |                                                                          |
+|                                              | FHIR allows for defining a list of valid choices for a specific element.                                                                                                            |                                                                          |
++----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
+| Checking data quality                        | Automated tools check for resource instance conformance against FHIR profiles.                                                                                                      | Manual.                                                                  |
++----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
+| Loading data into analysis software          | Convert from JSON with known schema and element types; analysis code can be feasibly tested ahead of time with automatically generated synthetic data in FHIR format.               | Data format at least partially unknown until final extract is delivered. |
++----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
+| Integrate data with third-party applications | [SMART on FHIR](smart-on-fhir-intro.qmd) provides an authentication and authorization mechanism to access FHIR data, and a standardized API for requesting and receiving FHIR data. | No standard approach,                                                    |
++----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
 
 : {tbl-colwidths="\[20,40,40\]"}
 :::
@@ -214,4 +211,4 @@ Building on this introduction to how FHIR works, you may be interested in readin
 
 -   The Observation resource was discussed above. [FHIR Resources](#) covers more of the common FHIR resources that are frequently used.
 
--   The section on data modeling in FHIR, starting with [Real World IGs](data-modeling-real-world-igs.qmd), provides additional information on IGs fo interest, how to read IGs, and how to write IGs.
+-   The section on data modeling in FHIR, starting with [Real World IGs](data-modeling-real-world-igs.qmd), provides additional information on IGs of interest, how to read IGs, and how to write IGs.

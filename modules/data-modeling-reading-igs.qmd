@@ -1,19 +1,19 @@
 ---
-title: Reading IGs
-
-area:
-  name: Overview
-topic:
-  name: FHIR Data Modeling
+title: Reading FHIR Implementation Guides
 
 roles:
   - Investigator
-  - Research Leaders
   - Informaticist
   - Software Engineer
   - Clinician Scientist/Trainee
-
-learning_objectives:
-  - question: Question here
-    answer: Answer here
 ---
+
+FHIR Implementation Guides (IGs) define a "[set of rules of how a particular interoperability or standards problem is solved](https://www.hl7.org/fhir/R5/implementationguide.html)."
+
+IGs are published as web pages (like the [ones listed here](data-modeling-real-world-igs.qmd)) that include both human-readable and machine-readable versions of the rules. For example, the [human-readable version of US Core's Patient profile](http://hl7.org/fhir/us/core/structuredefinition-us-core-patient.html) and [the machine-readable version](http://hl7.org/fhir/us/core/StructureDefinition-us-core-patient.profile.json.html) are published alongside each other in the US Core IG. Additionally, IGs typically include substantial narrative content describing the problem they are addressing and providing additional context for their rules.
+
+Researchers who are working with FHIR will likely need to read FHIR IGs, including those that are not specifically designed for research purposes (like [US Core](http://hl7.org/fhir/us/core/)).
+
+FHIR IGs typically share a common structure and format (especially those published through HL7). The [CodeX FHIR Accelerator](https://codex.hl7.org) has published a [set of comprehensive resources on IG authoring](https://fshschool.org/courses/) that includes a detailed explanation of how to read and understand these common elements across IGs. Please use the button below to open this resource in a new window:
+
+<a class="btn-success" style="margin-left: 1rem" href="https://fshschool.org/courses/fsh-seminar/01-reading-an-ig.html" target="_blank">Open "Reading an IG" </a>

@@ -92,6 +92,10 @@
   color: red;
 }
 
+.json_view__value--type-object, .json_view__value--type-array {
+  color: #ccc;
+}
+
 
 /* Learning objectives/key points */
 #learning-objectives .answer {

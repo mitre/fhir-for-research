@@ -7,17 +7,17 @@ The **Overview** provides an introduction to FHIR for research, and details on t
 
 Select your [role](/roles.html) to <mark>highlight</mark> the content that is most relevant to you:
 
-<a href="#" data-role="investigator">Investigator</a> |
-<a href="#" data-role="research-leader" class="fw-bold text-decoration-none"><mark>Research Leader</mark></a> |
-<a href="#" data-role="informaticist">Informaticist</a> |
-<a href="#" data-role="software-engineer">Software Engineer</a> |
-<a href="#" data-role="clinician-scientist">Clinician Scientist/Trainee</a>
+<a href="#" class="btn-role" data-role="investigator">Investigator</a>
+<a href="#" class="btn-role" data-role="research-leader" class="fw-bold text-decoration-none">Research Leader</a>
+<a href="#" class="btn-role" data-role="informaticist">Informaticist</a>
+<a href="#" class="btn-role" data-role="software-engineer">Software Engineer</a>
+<a href="#" class="btn-role" data-role="clinician-scientist">Clinician Scientist/Trainee</a>
 
 ## FHIR for Research
 
--   <mark>[FHIR from 10,000 Feet](/modules/fhir-from-10000-ft.qmd)</mark>
+-   [FHIR from 10,000 Feet](/modules/fhir-from-10000-ft.qmd)
 -   [FHIR from 1,000 Feet](/modules/fhir-from-1000-ft.qmd)
--   <mark>[Real-World Research Using FHIR](/modules/fhir-research.qmd)</mark>
+-   [Real-World Research Using FHIR](/modules/fhir-research.qmd)
 -   [Key FHIR Resources](/modules/key-fhir-resources.qmd)
 -   [Accessing FHIR Data High Level](#)
 -   [Brief History of FHIR](#)
@@ -28,8 +28,8 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 ## SMART on FHIR
 
 -   [*FHIR from 10,000 feet*](/modules/fhir-from-10000-ft.qmd)
--   <mark>[SMART on FHIR high level overview](#)</mark>
--   <mark>[Real-world research using SMART on FHIR](#)</mark>
+-   [SMART on FHIR high level overview](#)
+-   [Real-world research using SMART on FHIR](#)
 -   [Technical quick start](#)
 
 ## Data Modeling in FHIR
@@ -37,8 +37,8 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 -   [*FHIR from 10,000 feet*](/modules/fhir-from-10000-ft.qmd)
 -   [*Key FHIR Resources*](/modules/key-fhir-resources.qmd)
 -   [*Terminology Introduction*](/modules/key-fhir-resources.qmd)
--   <mark>[Real world FHIR specifications](#)</mark>
--   [Reading a FHIR specification](#)
+-   [Reading a FHIR specification](/modules/data-modeling-reading-igs.qmd)
+-   [Real world FHIR specifications](/modules/data-modeling-real-world-igs.qmd)
 -   [*Terminology Introduction*](/modules/terminology.qmd)
 -   [Writing a FHIR specification](#)
 -   [API-focused FHIR Resources](#)

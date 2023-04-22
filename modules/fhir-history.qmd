@@ -67,9 +67,7 @@ HL7 developed FHIR in the early 2010s to provide a more interoperable alternativ
 
 Recall from [FHIR from 1,000 Feet](fhir-from-1000-ft.qmd) that:
 
-> FHIR balances the trade-off between customization and interoperability with [the 80/20 rule](http://www.healthintersections.com.au/?p=1924): the core FHIR specification typically includes data elements only if 80% of relevant systems will implement it. The remaining 20% of data elements are handled through [FHIR extensions](https://www.hl7.org/fhir/extensibility.html).
-
-This means that FHIR-enabled systems will implement *most* common data elements consistently.
+> The FHIR specification follows [the 80/20 rule](http://www.healthintersections.com.au/?p=1924) to determine which data elements are included in a resource: data elements are typically included only if 80% of relevant systems will use them. Less common data needs are handled through [FHIR extensions](https://www.hl7.org/fhir/extensibility.html). This means that FHIR-enabled systems will implement *most* common data elements consistently.
 
 In late 2014, HL7 released the first official version of FHIR. By 2015, 87% of hospitals in the US were using FHIR certified EHRs as seen below. [@2015_fhir_adoption]
 

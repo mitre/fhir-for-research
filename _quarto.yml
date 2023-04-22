@@ -52,6 +52,15 @@ website:
           contents:
             - modules/smart-on-fhir-intro.qmd
             - modules/smart-on-fhir-tech.qmd
+        - section: "Data Modeling in FHIR"
+          contents:
+            - file: modules/data-modeling-reading-igs.qmd
+              text: Reading IGs
+            - file: modules/data-modeling-real-world-igs.qmd
+              text: Real World IGs
+            - file: modules/data-modeling-writing-igs.qmd
+              text: Writing IGs
+            - modules/data-modeling-api-resources.qmd
 
     - id: working-with-data
       title: Working With Data

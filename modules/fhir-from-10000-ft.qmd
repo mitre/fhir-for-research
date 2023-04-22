@@ -85,7 +85,7 @@ For more background, please see the [Fundamental Principles of FHIR](https://con
 
 ## FHIR provides a uniform data model and API for sharing data
 
-The FHIR specification provides an extensible set of "[resources](https://www.hl7.org/fhir/resource.html) to structure different types of data, like [Patient](https://www.hl7.org/fhir/patient.html) for representing demographics and administrative information about an individual, and [Observation](https://www.hl7.org/fhir/observation.html) for representing measurements and assertions about a patient or other subject.
+The FHIR specification provides an extensible set of "[resources](https://www.hl7.org/fhir/resource.html)" to structure different types of data, like [Patient](https://www.hl7.org/fhir/patient.html) for representing demographics and administrative information about an individual, and [Observation](https://www.hl7.org/fhir/observation.html) for representing measurements and assertions about a patient or other subject.
 
 These FHIR resources are [designed to include data elements that cover the majority of use cases](http://www.healthintersections.com.au/?p=1924), and the FHIR specification provides [mechanisms](https://www.hl7.org/fhir/extensibility.html) for extending data models when necessary.
 

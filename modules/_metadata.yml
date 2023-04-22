@@ -9,3 +9,4 @@ toc: true
 editor: visual
 number-sections: true
 number-depth: 3
+tbl-cap-location: bottom
