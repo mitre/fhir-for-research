@@ -7,12 +7,15 @@ roles:
   - Informaticist
   - Software Engineer
   - Clinician Scientist/Trainee
+  
+learning_objectives2:
+  - Review existing FHIR IGs that may be relevant to researchers.
 ---
 
 FHIR Implementation Guides (IGs) provide a mechanism for use-case specific customization of the FHIR specification.
 
 ::: {.callout-tip appearance="minimal"}
-Please see [the "Customizing FHIR" section in FHIR from 1,000 Feet](fhir-from-1000-ft.qmd#customizing-fhir) for a high-level overview of FHIR IGs and profiling.
+Please see [the "Customizing FHIR" section in FHIR from 1,000 Feet](fhir-from-1000-ft.qmd#customizing-fhir) for a high-level overview of FHIR IGs and profiling. [Reading IGs](data-modeling-reading.igs.qmd) provides additional details.
 :::
 
 Examples of FHIR IGs that may be of interest to researchers are listed below. This is not meant to be an exhaustive list, but rather to demonstrate the scope of the IGs that have been published and identify some of the key IGs (identified with ⭐️) to be aware of in the FHIR ecosystem. A [full list of IGs published through HL7 is available here](http://www.fhir.org/guides/registry/), and additional IGs may be published outside of HL7.

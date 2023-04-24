@@ -41,13 +41,14 @@ website:
             - modules/fhir-from-1000-ft.qmd
             - file: modules/fhir-research.qmd
               text: "Real World Research"
-            - modules/key-fhir-resources.qmd
-            - text: "Accessing FHIR Data"
             - modules/fhir-history.qmd
             - modules/terminology.qmd
-            - text: Common Data Models
+            - modules/cdms.qmd
             - file: modules/fhir-community.qmd
               text: Community & Documentation
+            - modules/key-fhir-resources.qmd
+            - file: modules/fhir-accessing-data.qmd
+              text: Using the FHIR API
         - section: "SMART on FHIR"
           contents:
             - modules/smart-on-fhir-intro.qmd
@@ -60,7 +61,6 @@ website:
               text: Real World IGs
             - file: modules/data-modeling-writing-igs.qmd
               text: Writing IGs
-            - modules/data-modeling-api-resources.qmd
 
     - id: working-with-data
       title: Working With Data

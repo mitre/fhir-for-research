@@ -18,30 +18,25 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 -   [FHIR from 10,000 Feet](/modules/fhir-from-10000-ft.qmd)
 -   [FHIR from 1,000 Feet](/modules/fhir-from-1000-ft.qmd)
 -   [Real-World Research Using FHIR](/modules/fhir-research.qmd)
--   [Key FHIR Resources](/modules/key-fhir-resources.qmd)
--   [Accessing FHIR Data High Level](#)
--   [Brief History of FHIR](#)
+-   [Brief History of FHIR](/modules/fhir-history.qmd)
 -   [Terminology Introduction](/modules/terminology.qmd)
--   [Common Data Models & FHIR](#)
+-   [Common Data Models & FHIR](/modules/cdms.qmd)
+-   [Key FHIR Resources](/modules/key-fhir-resources.qmd)
+-   [Using the FHIR API to Access Data](/modules/fhir-accessing-data.qmd)
 -   [The FHIR Community & Documentation](/modules/fhir-community.qmd)
 
 ## SMART on FHIR
 
--   [*FHIR from 10,000 feet*](/modules/fhir-from-10000-ft.qmd)
--   [SMART on FHIR high level overview](#)
--   [Real-world research using SMART on FHIR](#)
--   [Technical quick start](#)
+-   *Recommended: complete highlighted "FHIR for Research" modules for your role first*
+-   [High Level Overview](/modules/smart-on-fhir-intro.qmd)
+-   [Technical Quick Start](/modules/smart-on-fhir-tech.qmd)
 
 ## Data Modeling in FHIR
 
--   [*FHIR from 10,000 feet*](/modules/fhir-from-10000-ft.qmd)
--   [*Key FHIR Resources*](/modules/key-fhir-resources.qmd)
--   [*Terminology Introduction*](/modules/key-fhir-resources.qmd)
+-   *Recommended: complete highlighted "FHIR for Research" modules for your role first*
 -   [Reading a FHIR specification](/modules/data-modeling-reading-igs.qmd)
 -   [Real world FHIR specifications](/modules/data-modeling-real-world-igs.qmd)
--   [*Terminology Introduction*](/modules/terminology.qmd)
--   [Writing a FHIR specification](#)
--   [API-focused FHIR Resources](#)
+-   [Writing a FHIR specification](/modules/data-modeling-writing-igs.qmd)
 
 <script src="../modules/mappings.js"></script>
 <script>

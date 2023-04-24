@@ -24,11 +24,6 @@ Each module needs frontmatter like the following:
     ---
     title: FHIR From 1,000 Feet
 
-    area:
-      name: Overview
-    topic:
-      name: FHIR for Research
-
     roles:
       - Informaticist
       - Software Engineer
@@ -84,7 +79,95 @@ From [Microsoft's style guide](https://learn.microsoft.com/en-us/style-guide/gra
 
 > Change your password (Instead of *We recommend that you change your password.*)
 >
-> That didn't work. Try again. (Instead of *We weren't able to run the Solution Checker. Try running it again.*)
+> That didn’t work. Try again. (Instead of _We weren’t able to run the Solution Checker. Try running it again._)
+
+
+## Editing for clarity and brevity
+
+### Check each paragraph for the following:
+
+- Each paragraph has a purpose.
+  - **What is this paragraph telling you?** If you can't easily answer that question or the answer is the same as a nearby paragraph, remove or rewrite the paragraph.
+
+- Each sentence supports this purpose.
+  - **How does this sentence tie into the purpose of the paragraph?** If you can't easily answer the question, then remove the sentence or move it to a new paragraph.
+
+- Each sentence has a unique purpose.
+  - **What is this sentence telling you?** If it's the same thing as a previous sentence, consider removing.
+  - Exceptions are when the repetition:
+    - is intentional to solidify understanding
+    - provides a new perspective
+
+- Each sentence or phrase is meaningful.
+  - **Does the meaning of the paragraph change if you remove the sentence or phrase?** If not, remove.
+  - **Example** "At its most basic definition, terminology in IT refers to a code mapping to a concept."
+    - You can remove _"At its most basic definition"_ without losing meaning.
+
+### Check each sentence for the following:
+
+- Each word has a unique purpose.
+  - **If you remove the word, does the meaning of the sentence change?** If not, remove the word.
+  - **Example** "These meet virtually on a weekly basis for a conference call."
+    - _virtually_ and _conference call_ are redundant: only one is necessary.
+
+- "Very" and "really" are absent.
+  - **Ctrl-f for "very" and "really".** Remove these words.
+  - If necessary, replace the verb or adjective with a more description verb or adjective.
+    - **Examples** "It's really good."
+      - "It's excellent."
+
+- [Adverbs are rare.](https://www.writingforward.com/writing-tips/avoid-adverbs) Use them only when you can't replace them with a more descriptive verb.
+  - **Ctrl-f for "ly".** For each adverb you find:
+    - **Does the meaning of the sentence change if you remove the adverb?** If not, remove.
+    - **Can you replace the modified verb with a more descriptive verb and remove the adverb?** Use a thesaurus for this. If so, replace the verb and remove the adverb.
+    - If you can't remove or replace the adverb, keep it.
+  - **Example** "developing multiple Resources specifically for that purpose."
+    - _specifically_ is unnecessary.
+  - **Example** "There is only one hierarchical relationship attribute."
+    - _only_ is redundant to _one_.
+  - **Example** "She ran quickly"
+    - "She sprinted"
+  - **Example** "Adverbs and adjectives appear infrequently."
+    - "Adverbs and adjectives are rare."
+
+- [Nominalizations are rare.](https://blog.wordvice.com/improve-writing-edit-nominalizations/) (Nominalizations are verbs that have become nouns. They often end in "ion" or "ing")
+  - **Ctrl-f for "ion" or "ing".** Does this word have a verb as a root? If so, can you replace the verb/"ion"-word combination with the root verb?
+  - **Example** "The sentence provides an explanation."
+    - _explanation_ is a nominalization of _to explain_. You can rewrite this sentence as "The sentence explains."
+  - **Example** "Her understanding of the situation meant that they could proceed."
+    - _understanding_ is a nominalization of _to understand_. You can rewrite this sentence as "Because she understood the situation, they could proceed."
+
+- Sentences are simple, as long as simplicity doesn't reduce readability.
+  - **Look for sentences with 2 or more commas (where the commas aren't part of a list).**
+  - **Does the sentence have multiple purposes?** If so, try dividing it into two separate sentences.
+    - **Example** "After they went to the park, they drove to a restaurant, and at the restaurant, they had dinner."
+      - The sentence says what they did after the park, _and_ what they did at the restaurant.
+      - "After they went to the park, they drove to a restaurant. At the restaurant, they had dinner."
+  - **Can you reorganize or rewrite the sentence to use fewer commas?**
+    - **Example** "In many cases, the reverse mappings are valid, but this cannot be assumed to be the case."
+      - "Reverse mappings are sometimes valid, but not always."
+      - or just "Reverse mappings may not be valid."
+    - **Example** "Using standard terminology should be a simple and logical step in health IT. However, with the complexities of many diagnoses systems, clinical narrative transferred via PDF format, various coding systems, and the cost of digitizing volumes of reference material/dictionaries, it isn't as easy as you would think."
+      - "Using standard terminology is more difficult than expected given:
+        - the complexities of many diagnoses systems,
+        - clinical narrative transferred via PDF format,
+        - various coding systems, and
+        - the cost of digitizing volumes of reference material/dictionaries"
+  - **Is the concept split into two parts with something in the middle?** If so, move whatever is in the middle at the beginning or end.
+    - **Example** "Her dog, who was so cute, chased the ball."
+      - "who was so cute" divides "Her dog chased the ball" in half.
+      - "Her adorable dog chased the ball." is better.
+
+- **You avoid jargon**
+  - **Example** "Note in the first row that Patient also has a type, which gives inheritence of additional attributes we'll discuss below."
+    - _inheritance_ is a software development concept that likely won't be easily understood by people who aren't already familiar with HL7 data types or software development.
+    - Instead, define _inheritance_ inline or use a different word.
+
+- **You use [plain language](https://www.plainlanguage.gov/).** [You use simpler words where the simple word has the same meaning.](https://www.plainlanguage.gov/guidelines/words/use-simple-words-phrases/)
+  - **Example** [Try words like "use" instead of "utilize," "about" instead of "approximately" and "try" instead of "attempt."](https://zapier.com/blog/plain-language/)
+  - **Example**
+    - [Original: "It is suggested that the wire should be connected to the terminal by the engineer when the switch-box assembly is completed."](https://zapier.com/blog/plain-language/)
+    - [Simplified: "We suggest that you connect the wire to the terminal when you finish assembling the switch-box."](https://zapier.com/blog/plain-language/)
 
 ## Structure
 

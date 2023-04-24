@@ -59,10 +59,32 @@ $for(learning_objectives)$
     <div class="answer">$learning_objectives.answer$</div>
 </li>
 $endfor$
-
 </ol>
 </div>
 </div>
+$endif$
+
+$if(learning_objectives2)$
+<div class="callout-tip callout callout-style-default callout-captioned" id="learning-objectives">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Learning objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+$for(learning_objectives2)$
+<li>
+    $learning_objectives2$
+</li>
+$endfor$
+</ol>
+</div>
+</div>
+$endif$
 
 <div class="callout-note callout callout-style-simple no-icon callout-captioned" id="relevant-roles">
 <div class="callout-header d-flex align-content-center">
@@ -81,12 +103,14 @@ $endfor$
 </ul>
 </div>
 </div>
-$endif$
 <!-- End learning objectives block -->
 
 <!-- Hack to add key points block at end of page-->
+$if(learning_objectives)$
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+  // Only run if answers are set.
+  if (!document.querySelector('li[data-no-answer="true"]')) {
     // Create a clone of element with id ddl_1:
     let clone = document.querySelector('#learning-objectives').cloneNode( true );
 
@@ -104,7 +128,8 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector('#key-points .callout-caption-container').textContent = 'Key points';
     document.querySelector('#key-points .prompt').textContent = 'The learning objective questions are below, along with their answers:'
     document.querySelector('#key-points .target-roles-container').remove();
-
+  }
 });
 </script>
+$endif$
 <!-- End hack to add key points block at end of page-->

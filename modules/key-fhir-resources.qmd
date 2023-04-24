@@ -24,11 +24,11 @@ Resources are the key building blocks of FHIR. A [**FHIR resource**](https://www
 
 [^1]: When systems exchange information with unambiguous and shared meaning, it is called [semantic interoperability](https://en.wikipedia.org/wiki/Semantic_interoperability).
 
-### Core elements
+## Core elements
 
 The FHIR core v4.3.0 (also known as Revision 4B, or R4B) defines [140 resources](https://hl7.org/fhir/R4B/resourcelist.html) that allow for healthcare interoperability. The [HL7 FHIR specification](https://hl7.org/fhir) gives a well-structured summary of FHIR's core resources:
 
-[![The organization of FHIR's core resources. From [HL7's FHIR specification](https://hl7.org/fhir/R4B).](images/fhir-index.png){fig-alt="Screenshot from the FHIR specification showing the organization of FHIR resources. Level 1: basic framework on which the specification is built. Level 2: Supporting implementation and binding to external specifications. Level 3: Linking to real world concepts in the healthcare system. Level 4: Record-keeping and and Data Exchange for the healthcare process. Level 5: Providing the ability to reason about the healthcare process."}](https://hl7.org/fhir/R4B)
+[![The organization of FHIR's core resources. From \[HL7's FHIR specification\](https://hl7.org/fhir/R4B).](images/fhir-index.png){fig-alt="Screenshot from the FHIR specification showing the organization of FHIR resources. Level 1: basic framework on which the specification is built. Level 2: Supporting implementation and binding to external specifications. Level 3: Linking to real world concepts in the healthcare system. Level 4: Record-keeping and and Data Exchange for the healthcare process. Level 5: Providing the ability to reason about the healthcare process."}](https://hl7.org/fhir/R4B)
 
 As shown above, the FHIR core resources are organized into 5 levels:
 
@@ -36,7 +36,7 @@ As shown above, the FHIR core resources are organized into 5 levels:
 -   **Levels 3 and 4** include intuitive FHIR resources information such as `Patient` or `Observation`.
 -   **Level 5** includes abstract FHIR resources such as clinical workflows with the intended use of [Clinical Decision Support](https://www.healthit.gov/topic/safety/clinical-decision-support).
 
-### Representation
+## Representation
 
 A FHIR resource may be encoded in different standard formats like [JSON and XML](https://hl7.org/fhir/formats.html#wire). These format are used throughout the software industry, not just in healthcare. Using standard formats allows common programming languages and software tools to process FHIR resources.[^2]
 
@@ -62,17 +62,17 @@ XML looks like this:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <Patient xmlns="http://hl7.org/fhir">
-    	<id value="example"/>
-    	<name>
-    		<use value="official"/>
-    		<family value="Chalmers"/>
-    		<given value="Peter"/>
-    		<given value="James"/>
-    	</name>
+        <id value="example"/>
+        <name>
+            <use value="official"/>
+            <family value="Chalmers"/>
+            <given value="Peter"/>
+            <given value="James"/>
+        </name>
     </Patient>
 :::
 
-### Design
+## Design
 
 The critical concepts across the FHIR resource design are:
 
@@ -85,7 +85,7 @@ FHIR resources support the concepts above and follow [object-oriented principles
 
 To understand how FHIR accomplishes this, let's examine the [Patient resource](https://hl7.org/fhir/patient.html).
 
-## The Patient resource: An introduction to the FHIR resource structure
+## The Patient resource
 
 Here is a [FHIR structure table](https://hl7.org/fhir/formats.html#table) for the [Patient resource](https://hl7.org/fhir/patient.html#resource):
 
