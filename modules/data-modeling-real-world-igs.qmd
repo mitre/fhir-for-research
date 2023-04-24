@@ -3,11 +3,10 @@ title: Real World Implementation Guides
 
 roles:
   - Investigator
-  - Research Leaders
   - Informaticist
   - Software Engineer
   - Clinician Scientist/Trainee
-  
+
 learning_objectives2:
   - Review existing FHIR IGs that may be relevant to researchers.
 ---

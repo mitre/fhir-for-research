@@ -38,7 +38,7 @@ Many of the IGs listed in [Real World IGs](data-modeling-real-world-igs.qmd) are
 
 ## How is an IG created?
 
-The [CodeX FHIR Accelerator](https://codex.hl7.org) has published a [set of comprehensive resources on IG authoring](https://fshschool.org/courses/) that includes a detailed explanation of how to author FHIR IGs. **Please use the button below to open this resource in a new window:**
+The [CodeX FHIR Accelerator](https://codex.hl7.org) has published a [set of comprehensive resources on IG authoring](https://fshschool.org/courses/) that includes a detailed explanation of how to author FHIR IGs. If you are interested in creating a FHIR IG, **please use the button below to open this resource in a new window:**
 
 <a class="btn-success" style="margin-left: 1rem" href="https://fshschool.org/courses/fsh-seminar/02-creating-an-ig.html" target="_blank">Open <strong>FSH Seminar \> Creating an IG</strong> materials →</a>
 

@@ -7,8 +7,10 @@ topic:
   name: FHIR for Research
 
 roles:
+  - Investigator
   - Informaticist
   - Software Engineer
+  - Clinician Scientist/Trainee
 
 learning_objectives:
   - question: "How can I get involved with the FHIR community?"
