@@ -24,6 +24,7 @@ before_script:
   - Rscript -e "renv::restore()"
 # end renv cache
   - apt-get install -y python3-pip
+  - apt-get install -y libharfbuzz-dev libfribidi-dev # For "textshaping" in R
   - python3 -m pip install -r requirements.txt
 
 workflow:

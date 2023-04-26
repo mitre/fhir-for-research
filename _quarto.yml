@@ -73,14 +73,32 @@ website:
           text: Working With Data
         - section: "Tabular Analysis"
           contents:
-            - modules/tabular-real-world.qmd
-            - modules/tabular-from-fhir.qmd
-            - modules/tabular-retrieving-and-subsetting.qmd
+            - file: modules/tabular-intro.qmd
+              text: Introduction
+            - file: modules/tabular-python.qmd
+              text: Using Python
+            - file: modules/tabular-r.qmd
+              text: Using R
         - section: "REDCap With FHIR"
           contents:
             - modules/redcap-intro.qmd
             - modules/redcap-best-practices.qmd
             - modules/redcap-example.qmd
+
+    - id: advanced-topics
+      title: Advanced Topics
+      style: floating
+      search: false
+      align: left
+      collapse-level: 2
+      contents:
+        - file: sections/advanced-topics.qmd
+          text: Advanced Topics
+        - section: "Synthetic Data"
+          contents:
+            - modules/synthea-overview.qmd
+            - modules/synthea-customizing.qmd
+            - modules/synthea-test-server.qmd
 
 
 
