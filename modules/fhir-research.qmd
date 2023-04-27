@@ -52,7 +52,7 @@ FHIR can be used to integrate third-party applications with EHRs using [SMART on
 
 SMART on FHIR can also be used to provide patients access to their clinical data directly from their provider's EHR. As of April 2023, we did not find examples of this capability in research.
 
-REDCap, a survey tool that can be used with EHRs in the clinical workflow, can also be used with FHIR. For more information on using REDCap with FHIR, please see the [introductory REDCap page](redcap-example.qmd).
+REDCap, a survey tool that can be used with EHRs in the clinical workflow, can also be used with FHIR. For more information on using REDCap with FHIR, please see the [introductory REDCap page](redcap-intro.qmd).
 
 ## Other references
 
@@ -86,7 +86,7 @@ Below is a list of studies that used FHIR in some way. These may help you come u
     -   @Ploner_Prokosch_2020
     -   @Chatterjee_Pahari_Prinz_2022
 -   REDCap
-    -   The [REDCap examples page](redcap-example.qmd)
+    -   The [REDCap introduction page](redcap-intro.qmd)
     -   @Metke-Jimenez_Hansen_2019
 -   Reviews of studies that use FHIR
     -   @duda2022

@@ -21,8 +21,17 @@
   border-left-color: #bbb;
 }
 
-/* json viewer css */
+.btn-outline-custom {
+  color: #20558a;
+  border-color: #20558a;
+}
 
+.btn-outline-custom:hover {
+  color: white;
+  background-color: #20558a;
+}
+
+/* json viewer css */
 .json_view {
   font-family: monospace;
   font-size: 16px;

@@ -1,5 +1,5 @@
 ---
-title: "FHIR Resources"
+title: "Key FHIR Resources"
 
 area:
   name: Overview
@@ -13,9 +13,9 @@ roles:
 
 learning_objectives:
   - question: What are three key FHIR resources?
-    answer: Patient, Observation, and Bundle. 
+    answer: Patient, Observation, and Bundle.
   - question: How are FHIR resources defined?
-    answer: FHIR resources are defined in a structure table that lists out each attribute's name, flags, cardinality, type, constraints, and descriptions. 
+    answer: FHIR resources are defined in a structure table that lists out each attribute's name, flags, cardinality, type, constraints, and descriptions.
   - question: How do FHIR resources support interoperability?
     answer: A FHIR resource's attributes are rigorously defined, which allows systems to transfer medical information without loss of meaning.
 ---

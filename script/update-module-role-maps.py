@@ -3,9 +3,9 @@ import glob
 import yaml
 import json
 
+
 # Set the path to ../modules/ relative to the location of the script
-path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..",
-                    "modules")
+path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "modules")
 
 # Define the role to slug mapping
 role_mapping = {
@@ -18,6 +18,45 @@ role_mapping = {
 
 # Define the role module map
 role_module_map = []
+
+# Load data from _quarto.yml sidebar
+#sidebar = None;
+#with open(os.path.join(path, '..', '_quarto.yml'), 'r') as f:
+#    quarto_data = yaml.safe_load(f.read().strip());
+#    sidebar = quarto_data['website']['sidebar']
+
+#print(str(quarto_data['website']['sidebar'][0]))
+
+# Extract data
+#for item in sidebar:
+#    if isinstance(item, str): # direct link item
+#        pass # save order, extract title from frontmatter
+#    elif isinstance(item, dict) and item.has_key?('text'):
+#        pass # save order and title
+#    elif isinstance(item, dict) and item.has_key?('contents'):
+#        pass # recurse
+#    else:
+#        pass
+
+# Read in the _quarto.yml file
+quarto_file = os.path.join(path, "..", "_quarto.yml")
+with open(quarto_file, "r") as f:
+    try:
+        quarto_yaml = yaml.safe_load(f)
+    except yaml.YAMLError as e:
+        print(e)
+
+# Collapse sidebar down to just the filenames so we can get the ordering
+a = [menu['contents'] for menu in quarto_yaml['website']['sidebar']]
+a = [item for sublist in a for item in sublist] # Flatten - https://stackoverflow.com/questions/952914/
+b = [x['contents'] for x in a if type(x) is dict and 'contents' in x]
+b = [item for sublist in b for item in sublist] # Flatten - https://stackoverflow.com/questions/952914/
+c = [x if type(x) is dict else {'file': x} for x in b]
+ordering = {x['file'].replace('modules/', '').replace('.qmd', ''): x for x in c}
+
+for pos, k in enumerate(ordering.keys()):
+    ordering[k]['position'] = pos
+
 
 # Loop through each Markdown file in the path
 for filename in glob.glob(os.path.join(path, "*.qmd")):
@@ -40,19 +79,31 @@ for filename in glob.glob(os.path.join(path, "*.qmd")):
                     existing_role = next(
                         (r for r in role_module_map if r["role"] == role_slug),
                         None)
-                    if existing_role:
-                        existing_role["modules"].append(
-                            os.path.splitext(os.path.basename(filename))[0])
-                    else:
+                    module_slug = os.path.splitext(os.path.basename(filename))[0]
+                    text = ordering[module_slug].get('text', frontmatter['title'])
+                    if text == "Introduction":
+                        text = frontmatter['title']
+                    entry = {
+                        "slug": module_slug,
+                        "position": ordering[module_slug]['position'],
+                        "text": text
+                    }
+                    if not existing_role:
                         role_module_map.append({
                             "role":
                             role_slug,
-                            "modules":
-                            [os.path.splitext(os.path.basename(filename))[0]]
+                            "modules": [entry]
                         })
+
+                    else:
+                        existing_role["modules"].append(entry)
 
 # Sort the role module map by role
 role_module_map = sorted(role_module_map, key=lambda r: r["role"])
+
+# Sort within roles by position
+for m in role_module_map:
+    m['modules'] = sorted(m['modules'], key=lambda r: r["position"])
 
 # Convert the role module map to a JavaScript variable
 js_var = "const role_module_map = " + json.dumps(role_module_map, indent=2) + ";"

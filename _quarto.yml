@@ -46,7 +46,8 @@ website:
             - modules/cdms.qmd
             - file: modules/fhir-community.qmd
               text: Community & Documentation
-            - modules/key-fhir-resources.qmd
+            - file: modules/key-fhir-resources.qmd
+              text: FHIR Resources
             - file: modules/fhir-accessing-data.qmd
               text: Using the FHIR API
         - section: "SMART on FHIR"
@@ -79,11 +80,12 @@ website:
               text: Using Python
             - file: modules/tabular-r.qmd
               text: Using R
-        - section: "REDCap With FHIR"
+        - section: "REDCap"
           contents:
-            - modules/redcap-intro.qmd
-            - modules/redcap-best-practices.qmd
-            - modules/redcap-example.qmd
+            - file: modules/redcap-intro.qmd
+              text: Introduction
+            - file: modules/redcap-fhir.qmd
+              text: REDCap on FHIR
 
     - id: advanced-topics
       title: Advanced Topics
@@ -96,16 +98,22 @@ website:
           text: Advanced Topics
         - section: "Synthetic Data"
           contents:
-            - modules/synthea-overview.qmd
-            - modules/synthea-customizing.qmd
-            - modules/synthea-test-server.qmd
-
+            - file: modules/synthea-overview.qmd
+              text: "Synthea Overview"
+            - file: modules/synthea-customizing.qmd
+              text: Customizing Synthea
+            - file: modules/synthea-test-server.qmd
+              text: FHIR Test Server
+        - fhir-versions.qmd
+        - contribute.qmd
+        - style-guide.qmd
 
 
   page-footer:
     center:
       - text: "&copy; 2023 The MITRE Corporation / <a href=\"https://github.com/mitre/fhir-for-research/README.md\">License information</a><br>Approved for Public Release / Case #23-0966"
 
+  page-navigation: true
 
 
 format:

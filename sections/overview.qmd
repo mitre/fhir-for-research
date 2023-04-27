@@ -8,7 +8,7 @@ The **Overview** provides an introduction to FHIR for research, and details on t
 Select your [role](/roles.html) to <mark>highlight</mark> the content that is most relevant to you:
 
 <a href="#" class="btn-role" data-role="investigator">Investigator</a>
-<a href="#" class="btn-role" data-role="research-leader" class="fw-bold text-decoration-none">Research Leader</a>
+<a href="#" class="btn-role" data-role="research-leader">Research Leader</a>
 <a href="#" class="btn-role" data-role="informaticist">Informaticist</a>
 <a href="#" class="btn-role" data-role="software-engineer">Software Engineer</a>
 <a href="#" class="btn-role" data-role="clinician-scientist">Clinician Scientist/Trainee</a>
@@ -21,9 +21,9 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 -   [Brief History of FHIR](/modules/fhir-history.qmd)
 -   [Terminology Introduction](/modules/terminology.qmd)
 -   [Common Data Models & FHIR](/modules/cdms.qmd)
+-   [The FHIR Community & Documentation](/modules/fhir-community.qmd)
 -   [Key FHIR Resources](/modules/key-fhir-resources.qmd)
 -   [Using the FHIR API to Access Data](/modules/fhir-accessing-data.qmd)
--   [The FHIR Community & Documentation](/modules/fhir-community.qmd)
 
 ## SMART on FHIR
 
@@ -38,19 +38,8 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 -   [Real world FHIR specifications](/modules/data-modeling-real-world-igs.qmd)
 -   [Writing a FHIR specification](/modules/data-modeling-writing-igs.qmd)
 
-<script src="../modules/mappings.js"></script>
-<script>
+<script type="module">
 
-/* constant variable role_module_map: array<object> [
- *   {
- *     role: string
- *     modules: array<string> (substring of each html link such that it uniquely identifies a module)
- *   }
- * ]
- *
- * TODO: ideally extract this from each qmd file's frontmatter, or define this in one json file and let each file build off of it
- *
- */
 const all_modules = document.querySelectorAll("section>ul>li");
 
 /* select_modules(string)
@@ -60,8 +49,6 @@ const all_modules = document.querySelectorAll("section>ul>li");
 function select_modules(string) {
     // remove all highlights
     all_modules.forEach((li_node) => {
-        //console.log("removing highlight for ", li_node);
-
         var mark_node = li_node.firstChild;
         var a_node = mark_node.firstChild;
 
@@ -75,7 +62,7 @@ function select_modules(string) {
     role_module_map.forEach((mapping) => {
         if( mapping.role == string ) {
             mapping.modules.forEach((interest_module) => {
-                document.querySelectorAll(`[href*="${interest_module}"]`).forEach((interest_a_node) => {
+                document.querySelectorAll(`li [href*="${interest_module.slug}"]`).forEach((interest_a_node) => {
 
                     //console.log("selecting module ", interest_a_node);
 
@@ -93,33 +80,30 @@ function select_modules(string) {
 }
 
 
-/* select_role(string)
+/* Possible Roles:
+ *   investigator
+ *   research-leader
+ *   informaticist
+ *   software-engineer
+ *   clinician-scientist
+ */
+
+/* select_role(role)
  *   clears any previous selected roles
  *   highlights the selected role
+ *   sets the corresponding cookie
  */
-function select_role(string) {
+function select_role(role) {
+    store.setItem("role", role);
+
     document.querySelectorAll("[data-role]").forEach((a_node) => {
-        a_node.classList.remove("fw-bold");
-        a_node.classList.remove("text-decoration-none");
-
-        var mark_node = a_node.firstChild;
-        var text_node = mark_node.firstChild;
-
-        if( mark_node.nodeName == "MARK" ) {
-            a_node.removeChild(mark_node);
-            a_node.appendChild(text_node);
-        }
+        a_node.classList.remove("btn", "btn-sm", "btn-secondary", "fw-bold", "rounded");
+        a_node.classList.add("btn-role");
     });
 
-    var selected_a_node = document.querySelector(`[data-role="${string}"]`);
-    selected_a_node.classList.add("fw-bold");
-    selected_a_node.classList.add("text-decoration-none");
-
-    var text_node = selected_a_node.firstChild;
-    var mark_node = document.createElement("mark");
-
-    selected_a_node.appendChild(mark_node);
-    mark_node.appendChild(text_node);
+    var selected_a_node = document.querySelector(`[data-role="${role}"]`);
+    selected_a_node.classList.add("btn", "btn-sm", "btn-secondary", "fw-bold", "rounded");
+    selected_a_node.classList.remove("btn-role");
 }
 
 
@@ -131,5 +115,18 @@ document.querySelectorAll("a[data-role]").forEach((role_link) => {
         select_modules(role);
     });
 });
+
+// execute select_role and select_modules once to make sure the page is aligned with cookie
+// or set cookie if it is unset
+if( store.getItem("role") ) {
+    select_role(store.getItem("role"));
+    select_modules(store.getItem("role"));
+}
+else {
+    const DEFAULT_ROLE = "research-leader";
+
+    select_role(DEFAULT_ROLE);
+    select_modules(DEFAULT_ROLE);
+}
 
 </script>

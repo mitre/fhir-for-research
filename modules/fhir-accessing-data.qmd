@@ -197,7 +197,7 @@ Note that rather than including the ID as part of the URL like in `GET https://h
 
 This request also uses the [`_revinclude` parameter](https://www.hl7.org/fhir/search.html#_include), which tells the FHIR server to follow the "reverse link" to identify instances of Observation where the reference in `Observation.patient` refers to one of the instances of Patient returned by the search.
 
-The response to a `search` interaction is an instance of the [Bundle](https://www.hl7.org/fhir/bundle.html) resource, which contains the instances of the Patient and Observation resources returned by the server in response to the search. More information on Bundle can be found in [Key FHIR Resources](fhir-resources.qmd#the-bundle-resource).
+The response to a `search` interaction is an instance of the [Bundle](https://www.hl7.org/fhir/bundle.html) resource, which contains the instances of the Patient and Observation resources returned by the server in response to the search. More information on Bundle can be found in [Key FHIR Resources](key-fhir-resources.qmd#the-bundle-resource).
 
 Depending on your query, the response may be too large for the sever to easily return all at once. In this case, the server may employ [paging](http://www.hl7.org/fhir/http.html#paging) to split up the response. If it does, the response will include an entry in the `link` element that indicate the URL that provides the `relation="next"` page. To retrieve all the results, you will need to issue a `GET` request to the `next` URLs on each page of results. The last page of results will not have a `next` URL populated.
 

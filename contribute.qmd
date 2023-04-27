@@ -4,13 +4,22 @@ toc: false
 sidebar: false
 ---
 
-Contributions including error corrections and updates are welcomed, and may be made through the [GitHub repository](#) containing the source code for this site.
+Contributions including error corrections and updates are welcomed, and may be made through the [GitHub repository](https://github.com/mitre/fhir-for-research) containing the source code for this site.
 
-Please [see here for more information on the mechanics of contributing](#), and review the [style guide](style-guide.html).
+Please see below, and review the [Style Guide](style-guide.qmd).
 
-If you believe you have found an error, [please open an issue here](#) or email [???@???.???](#).
+If you believe you have found an error, [please open an issue here](https://github.com/mitre/fhir-for-research/issues/new).
 
-## More information
+## Editing this website
 
--   [How to Edit This Website](#/modules/meta-contributing.qmd)
--   [Forking and "Upstreaming" Contributions](#/modules/meta-forking.qmd)
+The content for this website is stored on [GitHub](https://github.com/mitre/fhir-for-research). Anyone with a free GitHub account may suggest changes to the website by [editing a page via GitHub's website and creating a pull request](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files).
+
+If you wish to edit locally on your computer, you may wish to use the [RStudio IDE](https://posit.co/products/open-source/rstudio/), which natively supports [Quarto](https://quarto.org/). Quarto is the engine used to generate this website from [Quarto-flavored Markdown](https://quarto.org/docs/authoring/markdown-basics.html) files. More information is found in the [README file](https://github.com/mitre/fhir-for-research#readme).
+
+## Customizing this website
+
+This website is made available [under an open source license](https://github.com/mitre/fhir-for-research/blob/main/LICENSE), and can be modified for your own purposes as long as the terms of the license are followed.
+
+You can customize this website by [forking the repository on GitHub](https://docs.github.com/en/get-started/quickstart/fork-a-repo). This will create a linked copy of the existing website under your own GitHub account. You can then modify the content, and (optionally) contribute your changes back to the [parent repository](https://github.com/mitre/fhir-for-research) via a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests). Enhancements or corrections to the content of this website are welcomed!
+
+The [modules on this website](https://github.com/mitre/fhir-for-research/tree/main/modules) are intended to be relatively stand-alone, allowing them to be extracted for topic-specific training or other purposes.
