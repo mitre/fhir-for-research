@@ -378,10 +378,21 @@ document.addEventListener("DOMContentLoaded", function() {
         if( mapping.role == role ) {
             for(let i=0; i<mapping.modules.length; i++) {
                 if( mapping.modules[i].slug == current_module_slug ) {
-                    prev_href = (i > 0) ? `/modules/${mapping.modules[i-1].slug}.html` : null;
+                    function slug_to_url(slug) {
+                        if( window.location.path.includes('modules') ) {
+                            // replace "modules/*" in current url with "modules/<slug>.html"
+                            return window.location.tostring().replace(/modules\/.*/, "modules/" + slug);
+                        }
+                        else {
+                            // this case is irrelevant since pREV/Next buttons are only role-based in modules
+                            return window.location.toString() + "/modules/" + slug;
+                        }
+                    }
+                    
+                    prev_href = (i > 0) ? slug_to_url(mapping.modules[i-1].slug) : null;
                     prev_text = (i > 0) ? mapping.modules[i-1].text : null;
 
-                    next_href = (i+1 < mapping.modules.length) ? `/modules/${mapping.modules[i+1].slug}.html` : null;
+                    next_href = (i+1 < mapping.modules.length) ? slug_to_url(mapping.modules[i+1].slug) : null;
                     next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;
                 
                     console.log("DEBUG 2");
