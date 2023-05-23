@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.290">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>FHIR for Research - Customizing Synthea Data</title>
+<title>Customizing Synthea Data – FHIR® for Research Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../modules/synthea-test-server.html" rel="next">
-<link href="../modules/synthea-overview.html" rel="prev">
+<link href="../modules/synthea-running.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -80,8 +80,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,8 +95,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <!-- head.html -->
@@ -143,63 +150,63 @@ var store = initLocalStorage();
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index">
-    <span class="navbar-title">FHIR for Research</span>
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="..">
+    <span class="navbar-title">FHIR® for Research Documentation</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../sections/overview" rel="" target="">
- <span class="menu-text">Overview</span></a>
+    <a class="nav-link" href="../sections/overview"> 
+<span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../sections/working-with-data" rel="" target="">
- <span class="menu-text">Working With Data</span></a>
+    <a class="nav-link" href="../sections/working-with-data"> 
+<span class="menu-text">Working With Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../sections/advanced-topics" rel="" target="" aria-current="page">
- <span class="menu-text">Advanced Topics</span></a>
+    <a class="nav-link active" href="../sections/advanced-topics" aria-current="page"> 
+<span class="menu-text">Advanced Topics</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../contribute" rel="" target="">
- <span class="menu-text">Contributions &amp; Corrections</span></a>
+    <a class="nav-link" href="../contribute"> 
+<span class="menu-text">Questions &amp; Contributions</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/mitre/fhir-for-research" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/mitre/fhir-for-research"> <i class="bi bi-github" role="img" aria-label="View the GitHub repository for this site">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/synthea-overview">Synthetic Data</a></li><li class="breadcrumb-item"><a href="../modules/synthea-customizing">Customizing Synthea</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/synthea-overview">Synthetic Data</a></li><li class="breadcrumb-item"><a href="../modules/synthea-customizing">Customizing Synthea</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -210,9 +217,9 @@ var store = initLocalStorage();
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Synthetic Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -221,6 +228,12 @@ var store = initLocalStorage();
   <div class="sidebar-item-container"> 
   <a href="../modules/synthea-overview" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Synthea Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/synthea-running" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Running Synthea</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -245,12 +258,6 @@ var store = initLocalStorage();
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contribute" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contributions &amp; Corrections</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../style-guide" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Style Guide</span></a>
   </div>
@@ -258,24 +265,25 @@ var store = initLocalStorage();
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#creating-and-editing-modules" id="toc-creating-and-editing-modules" class="nav-link active" data-scroll-target="#creating-and-editing-modules"><span class="header-section-number">1</span> Creating and Editing Modules</a>
+  <li><a href="#modules" id="toc-modules" class="nav-link active" data-scroll-target="#modules"><span class="header-section-number">1</span> Modules</a>
   <ul class="collapse">
-  <li><a href="#creating-a-new-module" id="toc-creating-a-new-module" class="nav-link" data-scroll-target="#creating-a-new-module"><span class="header-section-number">1.1</span> Creating a New Module</a></li>
-  <li><a href="#editing-an-existing-module" id="toc-editing-an-existing-module" class="nav-link" data-scroll-target="#editing-an-existing-module"><span class="header-section-number">1.2</span> Editing an Existing Module</a></li>
-  <li><a href="#loading-modules-into-synthea" id="toc-loading-modules-into-synthea" class="nav-link" data-scroll-target="#loading-modules-into-synthea"><span class="header-section-number">1.3</span> Loading Modules Into Synthea</a></li>
+  <li><a href="#creating-and-editing-modules" id="toc-creating-and-editing-modules" class="nav-link" data-scroll-target="#creating-and-editing-modules"><span class="header-section-number">1.1</span> Creating and Editing Modules</a></li>
+  <li><a href="#creating-a-new-module" id="toc-creating-a-new-module" class="nav-link" data-scroll-target="#creating-a-new-module"><span class="header-section-number">1.2</span> Creating a New Module</a></li>
+  <li><a href="#editing-an-existing-module" id="toc-editing-an-existing-module" class="nav-link" data-scroll-target="#editing-an-existing-module"><span class="header-section-number">1.3</span> Editing an Existing Module</a></li>
+  <li><a href="#loading-modules-into-synthea" id="toc-loading-modules-into-synthea" class="nav-link" data-scroll-target="#loading-modules-into-synthea"><span class="header-section-number">1.4</span> Loading Modules Into Synthea</a></li>
   </ul></li>
   <li><a href="#keep-modules" id="toc-keep-modules" class="nav-link" data-scroll-target="#keep-modules"><span class="header-section-number">2</span> Keep Modules</a></li>
   <li><a href="#modifying-demographics" id="toc-modifying-demographics" class="nav-link" data-scroll-target="#modifying-demographics"><span class="header-section-number">3</span> Modifying demographics</a></li>
   <li><a href="#module-overrides" id="toc-module-overrides" class="nav-link" data-scroll-target="#module-overrides"><span class="header-section-number">4</span> Module Overrides</a></li>
   <li><a href="#flexporter" id="toc-flexporter" class="nav-link" data-scroll-target="#flexporter"><span class="header-section-number">5</span> Flexporter</a></li>
-  <li><a href="#free-form-tools" id="toc-free-form-tools" class="nav-link" data-scroll-target="#free-form-tools"><span class="header-section-number">6</span> Free-form tools</a></li>
+  <li><a href="#other-tools" id="toc-other-tools" class="nav-link" data-scroll-target="#other-tools"><span class="header-section-number">6</span> Other tools</a></li>
   </ul>
 </nav>
     </div>
@@ -285,18 +293,6 @@ var store = initLocalStorage();
 <header id="title-block-header">
 <!--
 -->
-
-  <div class="callout callout-style-default callout-warning callout-titled">
-    <div class="callout-header d-flex align-content-center">
-      <div class="callout-icon-container"><i class="callout-icon"></i></div>
-      <div class="callout-title-container flex-fill">
-        Under active development
-      </div>
-    </div>
-    <div class="callout-body-container callout-body">
-      <p>The content on this website is under active development. Please proceed with caution.</p>
-    </div>
-  </div>
 
 <h1 class="title display-7">Customizing Synthea Data</h1>
 
@@ -344,27 +340,45 @@ Relevant roles:
 <!-- Hack to add key points block at end of page-->
 <!-- End hack to add key points block at end of page-->
 
+
 <p>While data generated by Synthea may be valuable for a number of different use cases, out of the box it may not address everyone’s. If your needs are completely different from what Synthea offers then it might not be the best option, but if the data is close and just needs a <em>little bit</em> more, there are multiple approaches to customizing it. The best approach will depend on the specifics of your use case.</p>
-<p>This page describes a few of the options available for customizing output from Synthea. No Java programming experience required.</p>
-<section id="creating-and-editing-modules" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="creating-and-editing-modules"><span class="header-section-number">1</span> Creating and Editing Modules</h2>
+<p>This page describes in detail a few of the options available for customizing output from Synthea, and is meant for people who actually intend to customize data. No Java programming experience required, but you should be familiar with the basics of Synthea so make sure to read <a href="synthea-overview">Synthea Overview</a> and <a href="synthea-running">Running Synthea</a> first, and you should be comfortable modifying text-based files and using the command line.</p>
+<section id="modules" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="modules"><span class="header-section-number">1</span> Modules</h2>
+<p>By default, Synthea includes dozens of modules representing the progression and treatment of common diseases and determinants of health. Synthea modules are either <strong>top-level modules</strong>, also referred to as <strong>core modules</strong>, which will run for every patient in the simulation starting at birth, or <strong>submodules</strong>, which are only run when specifically invoked from another module via a specific state. The set of modules is not fixed; users can create, edit, or delete modules as needed.</p>
+<p>There are three fundamental concepts involved in the modules:</p>
+<ul>
+<li><strong>States</strong>, which can be broken down further into:
+<ul>
+<li><strong>Clinical States</strong>, which represent events related to the patient’s health care. A clinical state will nearly always result in one or more entries being added to the patient’s record.</li>
+<li><strong>Control States</strong>, which drive the progression and flow through the module. For example, delays and guards will pause the module for some amount of time.</li>
+</ul></li>
+<li><strong>Transitions</strong>, which represent the connections between states. States may transition directly to another state, or they may branch to multiple states, where the path the patient takes may vary based on different logical conditions or weighted random chance.</li>
+<li><strong>Logical Conditions</strong>, which are tests against aspects of the patient, their health record, or their path through the modules, which can be “true” or “false”.</li>
+</ul>
+<p>The Synthea wiki details all of the available options for <a href="https://github.com/synthetichealth/synthea/wiki/Generic-Module-Framework%3A-States">States</a>, <a href="https://github.com/synthetichealth/synthea/wiki/Generic-Module-Framework%3A-Transitions">Transitions</a>, and <a href="https://github.com/synthetichealth/synthea/wiki/Generic-Module-Framework%3A-Logic">Logical Conditions</a>.</p>
+<p>During the generation process, Synthea will process each module individually, one state at a time. States will process and transition to the next state immediately, with the following exceptions: - Terminal states represent the end of the module. - Delay states, where the module will continue only after the specified amount of time has passed. - Guard states, where the module will continue only after the given logical condition becomes true. - Encounter states of type “wellness”, where the module will determine when to enter the encounter using a schedule based on the patient’s age and current symptoms.</p>
+<section id="creating-and-editing-modules" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="creating-and-editing-modules"><span class="header-section-number">1.1</span> Creating and Editing Modules</h3>
 <p>For the most detailed and up-to-date guidance on creating and editing modules, see <a href="https://github.com/synthetichealth/synthea/wiki/Generic-Module-Framework">the Generic Module Framework section on the Synthea wiki</a>.</p>
 <p>While the module JSONs can technically be written by hand, we strongly recommend using <a href="https://synthetichealth.github.io/module-builder/">the Module Builder</a> to edit modules graphically.</p>
 <p>Before starting with the module builder, we recommend watching a <a href="https://www.youtube.com/watch?v=cOfI6FOKv0s">short video introduction to the Module Builder</a>, and reading through a <a href="https://github.com/synthetichealth/synthea/wiki/Module-Builder-Tutorial">module builder tutorial on the Synthea Wiki</a>.</p>
-<section id="creating-a-new-module" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="creating-a-new-module"><span class="header-section-number">1.1</span> Creating a New Module</h3>
+</section>
+<section id="creating-a-new-module" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="creating-a-new-module"><span class="header-section-number">1.2</span> Creating a New Module</h3>
 <p>In the Module Builder, click the “New Module” button in the upper left. This will open a new tab in the builder with the simplest possible module: an Initial state that transitions directly to a Terminal state.</p>
-<p><img src="images/module_builder_start.png" class="quarto-discovered-preview-image img-fluid"></p>
+<p><img src="images/module_builder_start.png" class="img-fluid"></p>
 <p>Either state can be clicked on to select it and change the name, type, transition, or other properties via the sidebar. As you familiarize yourself with the module builder, try clicking on the various fields to see what options are available. No changes here can directly affect Synthea, so don’t worry, it is completely impossible to break anything (though it is possible to lose work, so we recommend downloading work-in-progress modules to a file often). If you make a mistake, nearly any change can be undone with the Undo button.</p>
-<p>To add new states to the module, click the “+ Add State” button in the upper right of the editor. This will do slightly different things based on what is currently selected in the module graph:</p>
+<p>To add new states to the module, click the “+ Add State” button in the upper right of the editor. Note this will do slightly different things based on what is currently selected in the module graph:</p>
 <ul>
 <li>If nothing is selected, the new state will be added off to the side. You must manually connect other states to it, and it to other states by editing the transitions.</li>
 <li>If a state is selected, the new state will be added “at the end” of the selected state. The selected state will now transition directly to the new state, and the new state will have the original transition from the selected state.</li>
 <li>If a transition arrow is selected, the new state will be added “inside” the transition. The transition will now point to the new state, and the new state will transition directly to the original target of the transition.</li>
 </ul>
+<p>Again, the new state can be clicked on to select it and change the name, type, transition, or other properties via the sidebar. Different options and fields will appear depending on the state and transition type selected.</p>
 </section>
-<section id="editing-an-existing-module" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="editing-an-existing-module"><span class="header-section-number">1.2</span> Editing an Existing Module</h3>
+<section id="editing-an-existing-module" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="editing-an-existing-module"><span class="header-section-number">1.3</span> Editing an Existing Module</h3>
 <p>To load an existing module for editing, first click the “Open Module” button at the top of the Module Builder. From the load module screen there are a few options:</p>
 <ul>
 <li>The “Core Modules” and “Submodules” are a good first step for exploring the various modules available.</li>
@@ -374,9 +388,9 @@ Relevant roles:
 </ul>
 <p>Once a module is loaded, you can add, edit, or remove states just as you would if you were creating a new module. Note that no matter how you load a module into the module builder, you are editing a copy. As before, this means you should feel free to experiment without worrying about breaking anything, but do download your module regularly to make sure you don’t lose work if something goes wrong.</p>
 </section>
-<section id="loading-modules-into-synthea" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="loading-modules-into-synthea"><span class="header-section-number">1.3</span> Loading Modules Into Synthea</h3>
-<p>Modules in Synthea are stored in the <code>src/main/resources/modules</code> folder under the base <code>synthea</code> directory. Submodules are stored in further subfolders under this. If your new or modified module is a top-level module and is expected to run for all patients starting at birth, make sure it is in the <code>src/main/resources/modules</code> folder. If you are modifying an existing module, make sure the name is exactly the same (in terms of capitalization, spaces vs underscores, etc) and you completely replace the file in its original location.</p>
+<section id="loading-modules-into-synthea" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="loading-modules-into-synthea"><span class="header-section-number">1.4</span> Loading Modules Into Synthea</h3>
+<p>Top-level modules in Synthea are stored in the <code>src/main/resources/modules</code> folder under the base <code>synthea</code> directory. Submodules are stored in further subfolders under this. If your new or modified module is a top-level module and is expected to run for all patients starting at birth, make sure it is in the <code>src/main/resources/modules</code> folder. If you are modifying an existing module, make sure the name is exactly the same (in terms of capitalization, spaces vs underscores, etc) and you completely replace the file in its original location.</p>
 <p>Once your module has been loaded, no special command line flags are necessary. Simply re-run Synthea with your desired configuration and it should pick up the new module immediately.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -439,6 +453,19 @@ Warning
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">run_synthea</span> <span class="at">-k</span> must_have_diabetes.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now patients exported to any output format will only be patients matching the defined criteria from the Keep Module.</p>
 <p>Note that only one Keep Module may be used at a time, however the logic within it can be as complex as you need.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you only need patients with some active clinical criteria, such as Conditions or Medications, the <a href="https://synthetichealth.github.io/spt/#/customizer">Synthea Toolkit</a> contains a minimal editor for creating this type of simple Keep Module quickly. For anything more complex, use the full <a href="https://synthetichealth.github.io/module-builder/">Module Builder</a> instead.</p>
+</div>
+</div>
 <p>More information on Keep Modules is available <a href="https://github.com/synthetichealth/synthea/wiki/Keep-Patients-Module">on the Synthea wiki</a>.</p>
 </section>
 <section id="modifying-demographics" class="level2" data-number="3">
@@ -453,15 +480,16 @@ Warning
 <h2 data-number="4" class="anchored" data-anchor-id="module-overrides"><span class="header-section-number">4</span> Module Overrides</h2>
 <p>Module Overrides allow you to set specific values in a module, such as transition probabilities, without having to edit and replace the entire module. This makes it suitable for use with the Basic setup of Synthea.</p>
 <p>Module overrides are defined using a Java properties file, where each key is the path to a specific field within a module, and the value is the new value to set for that field.</p>
-<pre><code>(module file path)\:\:(jsonpath to value) = (new value)</code></pre>
+<pre><code>(module file path)\:\:(json path to value) = (new value)</code></pre>
 <p>For instance, to change the prevalence of Appendicitis among males from the default 8.6% to 100% (imagine an example use case of “a population of all patients who have had an appendectomy”), you could use an override file containing the following line:</p>
 <pre><code>appendicitis.json\:\:$['states']['Male']['distributed_transition'][0]['distribution'] = 1.0</code></pre>
-<p>This corresponds to setting the highlighted transition on the Appendicitis module to 100%: <img src="images/module_override.png" class="img-fluid"></p>
+<p>This sequence of field names and indices uniquely identifies the field in the module JSON, and corresponds to setting the highlighted transition on the Appendicitis module to 100%: <img src="images/module_override.png" class="img-fluid"></p>
 <p>An overrides file may be saved anywhere, but for ease of use we recommend placing it directly in the base synthea folder or a subfolder, with the extension <code>.properties</code>.</p>
 <p>Assuming the file <code>overrides.properties</code> is in the subfolder <code>output</code>, run Synthea as follows:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">run_synthea</span> <span class="at">--module_override</span><span class="op">=</span>./output/overrides.properties</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If using the Developer setup of Synthea, you can generate a template of a module override file with the “overrides” gradle task, for instance:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gradlew</span> overrides <span class="at">-PincludeModules</span><span class="op">=</span>appendicitis.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./gradlew</span> overrides <span class="at">-PincludeModules</span><span class="op">=</span>appendicitis.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Note: if running on Windows, use <code>.\gradlew.bat</code> instead of <code>./gradlew</code></strong>. <code>gradlew</code> here is a reference to the <a href="https://gradle.org/">Gradle</a> build tool which Synthea uses.</p>
 <p>This creates an overrides file at <code>./output/overrides.properties</code> containing the following:</p>
 <pre><code>appendicitis.json\:\:$['states']['Male']['distributed_transition'][0]['distribution'] = 0.086
 appendicitis.json\:\:$['states']['Male']['distributed_transition'][1]['distribution'] = 0.914
@@ -479,9 +507,9 @@ appendicitis.json\:\:$['states']['Appendicitis']['distributed_transition'][1]['d
 <section id="flexporter" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="flexporter"><span class="header-section-number">5</span> Flexporter</h2>
 <p>The Flexible Exporter, aka “Flexporter” is an experimental feature that allows for arbitrary customizations in Synthea.</p>
-<p>The Flexporter works using a YAML-based mapping file to define transformations that are applied to each patient record that is exported. Transformations generally contain a location, represented in <a href="https://hl7.org/fhir/fhirpath.html">FHIRPath</a>, and a value to put at that location.</p>
+<p>The Flexporter works using a <a href="https://yaml.org/">YAML</a>-based mapping file to define transformations that are applied to each patient record. Transformations generally contain a location, represented in <a href="https://hl7.org/fhir/fhirpath.html">FHIRPath</a>, and a value to put at that location.</p>
 <p>As with other customization features built into Synthea, the Flexporter is intended to tweak Synthea data, not radically transform it. Common situations where the Flexporter will be most valuable are situations where specific fields or resource types are needed but not exported. (For instance, imagine a use case that requires an <code>Appointment</code> resource prior to every <code>Encounter</code>. Synthea out of the box supports <code>Encounter</code> resources but not <code>Appointment</code>.) The Flexporter is intended to support a number of different use cases, but since it is impossible to predict every possible use case in advance, there are things that are outside the capability of the Flexporter.</p>
-<p>As of April 2023, the Flexporter supports the following types of actions:</p>
+<p>As of June 2023, the Flexporter supports the following types of actions:</p>
 <ul>
 <li><code>apply_profiles</code>: Adds a given profile URI to the <code>meta.profile</code> field on resources matching the given FHIRPath</li>
 <li><code>set_values</code>: Set values on fields on resources that already exist within the <code>Bundle</code></li>
@@ -554,8 +582,8 @@ appendicitis.json\:\:$['states']['Appendicitis']['distributed_transition'][1]['d
 <div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">run_synthea</span> <span class="at">-fm</span> ./src/test/resources/flexporter/qicore_common.yaml <span class="at">-fm</span> additional_fields.yaml<span class="kw">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Full detail on the mapping file specification and using the Flexporter is available <a href="https://github.com/synthetichealth/synthea/wiki/Flexporter">on the Synthea wiki</a></p>
 </section>
-<section id="free-form-tools" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="free-form-tools"><span class="header-section-number">6</span> Free-form tools</h2>
+<section id="other-tools" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="other-tools"><span class="header-section-number">6</span> Other tools</h2>
 <p>Finally, if all else fails, other languages such as Python, JavaScript, or R can allow you to write your own scripts and tools to filter and modify the data created by Synthea as you see fit. The ecosystem is too broad to get into detail here, but some libraries of note that may be helpful are:</p>
 <ul>
 <li>JavaScript
@@ -579,6 +607,15 @@ appendicitis.json\:\:$['states']['Appendicitis']['distributed_transition'][1]['d
 </main> <!-- /main -->
 <!-- scripts.html -->
 <!-- any content in this file is inserted right before </body> -->
+
+<!-- Fix a11y issues with side menu -->
+<script>
+const elements = document.querySelectorAll('.sidebar-menu-container a.sidebar-item-text[data-bs-toggle="collapse"], .sidebar-menu-container a.sidebar-item-toggle[data-bs-toggle="collapse"]')
+
+elements.forEach(element => {
+    element.setAttribute('role', 'group');
+});
+</script>
 
 <!-- fancy json code viewer -->
 <script type="text/javascript" src="https://unpkg.com/dompurify@3.0.1/dist/purify.min.js"></script> <!-- load JS Sanitizer -->
@@ -754,18 +791,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // Get next and prev modules data
     let prev_href, prev_text;
     let next_href, next_text;
+
     role_module_map.forEach((mapping) => {
         if( mapping.role == role ) {
             for(let i=0; i<mapping.modules.length; i++) {
                 if( mapping.modules[i].slug == current_module_slug ) {
                     function slug_to_url(slug) {
-                        if( window.location.path.includes('modules') ) {
-                            // replace "modules/*" in current url with "modules/<slug>.html"
-                            return window.location.tostring().replace(/modules\/.*/, "modules/" + slug);
+                        if( window.location.pathname.includes('modules') ) {
+                            // replace "modules/*" in current URL with "modules/<slug>.html"
+                            return window.location.toString().replace(/modules\/.*/, "modules/" + slug + ".html");
                         }
                         else {
-                            // this case is irrelevant since pREV/Next buttons are only role-based in modules
-                            return window.location.toString() + "/modules/" + slug;
+                            // this case is irrelevant since prev/next buttons are only role-based in modules
+                            return window.location.toString() + "/modules/" + slug + ".html";
                         }
                     }
                     
@@ -773,23 +811,18 @@ document.addEventListener("DOMContentLoaded", function() {
                     prev_text = (i > 0) ? mapping.modules[i-1].text : null;
 
                     next_href = (i+1 < mapping.modules.length) ? slug_to_url(mapping.modules[i+1].slug) : null;
-                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;
-                
-                    console.log("DEBUG 2");
-
+                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;                
                 }
             }
         }
     });
+
 
     // Overwrite prev link
     if( prev_href ) {
         const prev_link_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link");
         const prev_text_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link .nav-page-text");
         if( prev_link_elmt ) {
-
-
-            console.log("DEBUG 3");
 
             prev_link_elmt.href = prev_href
             //prev_link_elmt.classList.add("btn", "btn-outline-custom", "rounded");
@@ -802,8 +835,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if( next_href ) {
         const next_link_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link");
         const next_text_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link .nav-page-text");
-
-        console.log("DEBUG 4");
 
         if( next_link_elmt ) {
             next_link_elmt.href = next_href;
@@ -820,25 +851,45 @@ document.addEventListener("DOMContentLoaded", function() {
         key_points.insertAdjacentElement("afterend", page_nav);
     }
 
-    console.log("DEBUG 10");
-
 });
 
 
 // Override style of Quarto page navigation (prev/next buttons)
 document.addEventListener("DOMContentLoaded", function() {
 
-    console.log("DEBUG 20");
-
     const page_navigators = document.querySelectorAll(".pagination-link");
     page_navigators.forEach((node) => {
-        console.log("DEBUG 21");
 
         node.classList.add("btn", "btn-outline-custom", "rounded");
         node.parentNode.classList.remove("nav-page");
         node.parentNode.parentNode.style.gridRow = "initial";
     });
 });
+
+// Set external links to open in a new tab
+document.addEventListener("DOMContentLoaded", function() {
+    var all_links = document.querySelectorAll('a');
+    for (var i = 0; i < all_links.length; i++){
+        var a = all_links[i];
+        if(a.hostname != location.hostname) {
+                a.target = '_blank';
+        }
+    }
+})
+
+</script>
+
+<!-- Fancy Box -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Fancybox.bind("[data-fancybox]", {
+            Toolbar: {
+                enabled: true,
+            }
+        });
+    })
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -875,18 +926,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -918,11 +958,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mitre\.github\.io\/fhir-for-research\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -932,8 +1011,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -945,7 +1033,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -989,6 +1200,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1014,6 +1226,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1075,12 +1313,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../modules/synthea-overview" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Synthea Overview</span>
+      <a href="../modules/synthea-running" class="pagination-link" aria-label="Running Synthea">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Running Synthea</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../modules/synthea-test-server" class="pagination-link">
+      <a href="../modules/synthea-test-server" class="pagination-link" aria-label="FHIR Test Server">
         <span class="nav-page-text">FHIR Test Server</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1092,17 +1330,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
- © 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966
-  </li>  
-</ul>
-    </div>
+<p>© 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966<br><br>HL7® and FHIR® are the registered trademarks of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the HL7 and FHIR trademarks does not constitute an HL7 endorsement of this website.</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 

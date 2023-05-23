@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.290">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>FHIR for Research - Analyzing FHIR Data in a Tabular Format With R</title>
+<title>Analyzing FHIR Data in a Tabular Format With R – FHIR® for Research Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -80,8 +80,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,8 +95,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <!-- head.html -->
@@ -134,7 +141,6 @@ var store = initLocalStorage();
 </script>
 
 
-
 <link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
@@ -146,63 +152,63 @@ var store = initLocalStorage();
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index">
-    <span class="navbar-title">FHIR for Research</span>
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="..">
+    <span class="navbar-title">FHIR® for Research Documentation</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../sections/overview" rel="" target="">
- <span class="menu-text">Overview</span></a>
+    <a class="nav-link" href="../sections/overview"> 
+<span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../sections/working-with-data" rel="" target="" aria-current="page">
- <span class="menu-text">Working With Data</span></a>
+    <a class="nav-link active" href="../sections/working-with-data" aria-current="page"> 
+<span class="menu-text">Working With Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../sections/advanced-topics" rel="" target="">
- <span class="menu-text">Advanced Topics</span></a>
+    <a class="nav-link" href="../sections/advanced-topics"> 
+<span class="menu-text">Advanced Topics</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../contribute" rel="" target="">
- <span class="menu-text">Contributions &amp; Corrections</span></a>
+    <a class="nav-link" href="../contribute"> 
+<span class="menu-text">Questions &amp; Contributions</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/mitre/fhir-for-research" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/mitre/fhir-for-research"> <i class="bi bi-github" role="img" aria-label="View the GitHub repository for this site">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/tabular-intro">Tabular Analysis</a></li><li class="breadcrumb-item"><a href="../modules/tabular-r">Using R</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/tabular-intro">Tabular Analysis</a></li><li class="breadcrumb-item"><a href="../modules/tabular-r">Using R</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -213,9 +219,9 @@ var store = initLocalStorage();
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Tabular Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -242,9 +248,9 @@ var store = initLocalStorage();
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">REDCap</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -263,10 +269,33 @@ var store = initLocalStorage();
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bulk Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../webinars/bulk-data" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction Webinar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workshops/bulk-data" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workshop</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -288,18 +317,6 @@ var store = initLocalStorage();
 <header id="title-block-header">
 <!--
 -->
-
-  <div class="callout callout-style-default callout-warning callout-titled">
-    <div class="callout-header d-flex align-content-center">
-      <div class="callout-icon-container"><i class="callout-icon"></i></div>
-      <div class="callout-title-container flex-fill">
-        Under active development
-      </div>
-    </div>
-    <div class="callout-body-container callout-body">
-      <p>The content on this website is under active development. Please proceed with caution.</p>
-    </div>
-  </div>
 
 <h1 class="title display-7">Analyzing FHIR Data in a Tabular Format With R</h1>
 
@@ -348,6 +365,7 @@ Relevant roles:
 <!-- Hack to add key points block at end of page-->
 <!-- End hack to add key points block at end of page-->
 
+
 <p>Data analysis approaches in R typically uses <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Data-frames-1">data frames</a> to store tabular data. There are two primary approaches to loading FHIR-formatted data into Pandas DataFrames:</p>
 <ol type="1">
 <li><p>Writing R code to manually convert FHIR instances in JSON format into data frames.</p></li>
@@ -366,40 +384,28 @@ Relevant roles:
 <section id="retrieving-fhir-data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="retrieving-fhir-data"><span class="header-section-number">2</span> Retrieving FHIR data</h2>
 <p>Once your environment is set up, you can run the following R code to retrieve instances of the Patient resource from a test server:</p>
-<div class="cell" data-hash="tabular-r_cache/html/unnamed-chunk-1_af79b607d205fd2ca6dc30c75f1368ab">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load dependencies</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fhircrackr)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Not strictly necessary, but helpful for working with data in R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.2     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.1     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the URL of the FHIR server and the request that will be made</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>request <span class="ot">&lt;-</span> <span class="fu">fhir_url</span>(<span class="at">url =</span> <span class="st">"https://api.logicahealth.org/FHIRResearchSynthea/open"</span>, <span class="at">resource =</span> <span class="st">"Patient"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform the request</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>patient_bundle <span class="ot">&lt;-</span> <span class="fu">fhir_search</span>(<span class="at">request =</span> request, <span class="at">max_bundles =</span> <span class="dv">1</span>, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># This method defines the mapping from FHIR to data frame columns.</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># If the `cols` argument is omitted, all data elements will be included in the data frame.</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to R data frame</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>df_patient <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>df_patient <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Not strictly necessary, but helpful for working with data in R</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the URL of the FHIR server and the request that will be made</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>request <span class="ot">&lt;-</span> <span class="fu">fhir_url</span>(<span class="at">url =</span> <span class="st">"https://api.logicahealth.org/FHIRResearchSynthea/open"</span>, <span class="at">resource =</span> <span class="st">"Patient"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform the request</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>patient_bundle <span class="ot">&lt;-</span> <span class="fu">fhir_search</span>(<span class="at">request =</span> request, <span class="at">max_bundles =</span> <span class="dv">1</span>, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># This method defines the mapping from FHIR to data frame columns.</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># If the `cols` argument is omitted, all data elements will be included in the data frame.</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to R data frame</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>df_patient <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>df_patient <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["address.city"],"name":[1],"type":["chr"],"align":["left"]},{"label":["address.country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["address.extension"],"name":[3],"type":["chr"],"align":["left"]},{"label":["address.extension.extension"],"name":[4],"type":["chr"],"align":["left"]},{"label":["address.extension.extension.valueDecimal"],"name":[5],"type":["chr"],"align":["left"]},{"label":["address.line"],"name":[6],"type":["chr"],"align":["left"]},{"label":["address.postalCode"],"name":[7],"type":["chr"],"align":["left"]},{"label":["address.state"],"name":[8],"type":["chr"],"align":["left"]},{"label":["birthDate"],"name":[9],"type":["chr"],"align":["left"]},{"label":["communication.language.coding.code"],"name":[10],"type":["chr"],"align":["left"]},{"label":["communication.language.coding.display"],"name":[11],"type":["chr"],"align":["left"]},{"label":["communication.language.coding.system"],"name":[12],"type":["chr"],"align":["left"]},{"label":["communication.language.text"],"name":[13],"type":["chr"],"align":["left"]},{"label":["deceasedDateTime"],"name":[14],"type":["chr"],"align":["left"]},{"label":["extension"],"name":[15],"type":["chr"],"align":["left"]},{"label":["extension.extension"],"name":[16],"type":["chr"],"align":["left"]},{"label":["extension.extension.valueCoding.code"],"name":[17],"type":["chr"],"align":["left"]},{"label":["extension.extension.valueCoding.display"],"name":[18],"type":["chr"],"align":["left"]},{"label":["extension.extension.valueCoding.system"],"name":[19],"type":["chr"],"align":["left"]},{"label":["extension.extension.valueString"],"name":[20],"type":["chr"],"align":["left"]},{"label":["extension.valueAddress.city"],"name":[21],"type":["chr"],"align":["left"]},{"label":["extension.valueAddress.country"],"name":[22],"type":["chr"],"align":["left"]},{"label":["extension.valueAddress.state"],"name":[23],"type":["chr"],"align":["left"]},{"label":["extension.valueCode"],"name":[24],"type":["chr"],"align":["left"]},{"label":["extension.valueDecimal"],"name":[25],"type":["chr"],"align":["left"]},{"label":["extension.valueString"],"name":[26],"type":["chr"],"align":["left"]},{"label":["gender"],"name":[27],"type":["chr"],"align":["left"]},{"label":["id"],"name":[28],"type":["chr"],"align":["left"]},{"label":["identifier.system"],"name":[29],"type":["chr"],"align":["left"]},{"label":["identifier.type.coding.code"],"name":[30],"type":["chr"],"align":["left"]},{"label":["identifier.type.coding.display"],"name":[31],"type":["chr"],"align":["left"]},{"label":["identifier.type.coding.system"],"name":[32],"type":["chr"],"align":["left"]},{"label":["identifier.type.text"],"name":[33],"type":["chr"],"align":["left"]},{"label":["identifier.value"],"name":[34],"type":["chr"],"align":["left"]},{"label":["maritalStatus.coding.code"],"name":[35],"type":["chr"],"align":["left"]},{"label":["maritalStatus.coding.display"],"name":[36],"type":["chr"],"align":["left"]},{"label":["maritalStatus.coding.system"],"name":[37],"type":["chr"],"align":["left"]},{"label":["maritalStatus.text"],"name":[38],"type":["chr"],"align":["left"]},{"label":["meta.lastUpdated"],"name":[39],"type":["chr"],"align":["left"]},{"label":["meta.source"],"name":[40],"type":["chr"],"align":["left"]},{"label":["meta.versionId"],"name":[41],"type":["chr"],"align":["left"]},{"label":["multipleBirthBoolean"],"name":[42],"type":["chr"],"align":["left"]},{"label":["multipleBirthInteger"],"name":[43],"type":["chr"],"align":["left"]},{"label":["name.family"],"name":[44],"type":["chr"],"align":["left"]},{"label":["name.given"],"name":[45],"type":["chr"],"align":["left"]},{"label":["name.prefix"],"name":[46],"type":["chr"],"align":["left"]},{"label":["name.use"],"name":[47],"type":["chr"],"align":["left"]},{"label":["telecom.system"],"name":[48],"type":["chr"],"align":["left"]},{"label":["telecom.use"],"name":[49],"type":["chr"],"align":["left"]},{"label":["telecom.value"],"name":[50],"type":["chr"],"align":["left"]},{"label":["text.status"],"name":[51],"type":["chr"],"align":["left"]}],"data":[{"1":"Needham","2":"US","3":"http://hl7.org/fhir/StructureDefinition/geolocation","4":"latitude:::longitude","5":"42.319304553912225:::-71.17365303910063","6":"545 Tromp Port Unit 55","7":"02492","8":"Massachusetts","9":"1955-10-09","10":"en-US","11":"English","12":"urn:ietf:bcp:47","13":"English","14":"NA","15":"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race:::http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity:::http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName:::http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex:::http://hl7.org/fhir/StructureDefinition/patient-birthPlace:::http://synthetichealth.github.io/synthea/disability-adjusted-life-years:::http://synthetichealth.github.io/synthea/quality-adjusted-life-years","16":"ombCategory:::text:::ombCategory:::text","17":"2054-5:::2186-5","18":"Black or African American:::Not Hispanic or Latino","19":"urn:oid:2.16.840.1.113883.6.238:::urn:oid:2.16.840.1.113883.6.238","20":"Black or African American:::Not Hispanic or Latino","21":"Lawrence","22":"US","23":"Massachusetts","24":"M","25":"0.09827400029822156:::62.90172599970178","26":"Delois358 Hintz995","27":"male","28":"1","29":"https://github.com/synthetichealth/synthea:::http://hospital.smarthealthit.org:::http://hl7.org/fhir/sid/us-ssn:::urn:oid:2.16.840.1.113883.4.3.25:::http://standardhealthrecord.org/fhir/StructureDefinition/passportNumber","30":"MR:::SS:::DL:::PPN","31":"Medical Record Number:::Social Security Number:::Driver's License:::Passport Number","32":"http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203","33":"Medical Record Number:::Social Security Number:::Driver's License:::Passport Number","34":"439b24b4-6f25-4093-b101-47a39bd061ca:::439b24b4-6f25-4093-b101-47a39bd061ca:::999-57-3355:::S99925942:::X42032818X","35":"M","36":"M","37":"http://terminology.hl7.org/CodeSystem/v3-MaritalStatus","38":"M","39":"2023-04-06T20:52:11.000+00:00","40":"#wQwWCylvgEiNKNbB","41":"1","42":"false","43":"NA","44":"Moen819","45":"Willian804","46":"Mr.","47":"official","48":"phone","49":"home","50":"555-135-7303","51":"generated","_rn_":"1"},{"1":"Worcester","2":"US","3":"http://hl7.org/fhir/StructureDefinition/geolocation","4":"latitude:::longitude","5":"42.320791335534174:::-71.74935945200963","6":"455 Shanahan Route Suite 70","7":"01545","8":"Massachusetts","9":"2017-12-02","10":"en-US","11":"English","12":"urn:ietf:bcp:47","13":"English","14":"NA","15":"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race:::http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity:::http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName:::http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex:::http://hl7.org/fhir/StructureDefinition/patient-birthPlace:::http://synthetichealth.github.io/synthea/disability-adjusted-life-years:::http://synthetichealth.github.io/synthea/quality-adjusted-life-years","16":"ombCategory:::text:::ombCategory:::text","17":"2054-5:::2186-5","18":"Black or African American:::Not Hispanic or Latino","19":"urn:oid:2.16.840.1.113883.6.238:::urn:oid:2.16.840.1.113883.6.238","20":"Black or African American:::Not Hispanic or Latino","21":"New Bedford","22":"US","23":"Massachusetts","24":"F","25":"0.0:::1.0","26":"Lenita591 Klein929","27":"female","28":"180","29":"https://github.com/synthetichealth/synthea:::http://hospital.smarthealthit.org:::http://hl7.org/fhir/sid/us-ssn","30":"MR:::SS","31":"Medical Record Number:::Social Security Number","32":"http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203","33":"Medical Record Number:::Social Security Number","34":"99285aac-e5e3-4f5b-857d-f67271c97304:::99285aac-e5e3-4f5b-857d-f67271c97304:::999-62-8033","35":"S","36":"Never Married","37":"http://terminology.hl7.org/CodeSystem/v3-MaritalStatus","38":"Never Married","39":"2023-04-06T20:53:35.000+00:00","40":"#N1sYXaxE6wGQilNA","41":"1","42":"false","43":"NA","44":"Lind531","45":"Roselia779","46":"NA","47":"official","48":"phone","49":"home","50":"555-412-9390","51":"generated","_rn_":"2"},{"1":"Taunton","2":"US","3":"http://hl7.org/fhir/StructureDefinition/geolocation","4":"latitude:::longitude","5":"41.93879298871088:::-71.06682353144593","6":"894 Brakus Bypass","7":"02718","8":"Massachusetts","9":"1945-12-10","10":"en-US","11":"English","12":"urn:ietf:bcp:47","13":"English","14":"NA","15":"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race:::http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity:::http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName:::http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex:::http://hl7.org/fhir/StructureDefinition/patient-birthPlace:::http://synthetichealth.github.io/synthea/disability-adjusted-life-years:::http://synthetichealth.github.io/synthea/quality-adjusted-life-years","16":"ombCategory:::text:::ombCategory:::text","17":"2106-3:::2186-5","18":"White:::Not Hispanic or Latino","19":"urn:oid:2.16.840.1.113883.6.238:::urn:oid:2.16.840.1.113883.6.238","20":"White:::Not Hispanic or Latino","21":"Billerica","22":"US","23":"Massachusetts","24":"M","25":"14.062655945052095:::58.93734405494791","26":"Deadra347 Borer986","27":"male","28":"293","29":"https://github.com/synthetichealth/synthea:::http://hospital.smarthealthit.org:::http://hl7.org/fhir/sid/us-ssn:::urn:oid:2.16.840.1.113883.4.3.25:::http://standardhealthrecord.org/fhir/StructureDefinition/passportNumber","30":"MR:::SS:::DL:::PPN","31":"Medical Record Number:::Social Security Number:::Driver's License:::Passport Number","32":"http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203","33":"Medical Record Number:::Social Security Number:::Driver's License:::Passport Number","34":"2fa15bc7-8866-461a-9000-f739e425860a:::2fa15bc7-8866-461a-9000-f739e425860a:::999-93-7537:::S99948707:::X14078167X","35":"S","36":"S","37":"http://terminology.hl7.org/CodeSystem/v3-MaritalStatus","38":"S","39":"2023-04-06T20:56:31.000+00:00","40":"#ZAAeVXzDXxeetcQS","41":"1","42":"false","43":"NA","44":"Brekke496","45":"Aaron697","46":"Mr.","47":"official","48":"phone","49":"home","50":"555-677-3119","51":"generated","_rn_":"3"},{"1":"Taunton","2":"US","3":"http://hl7.org/fhir/StructureDefinition/geolocation","4":"latitude:::longitude","5":"41.93879298871088:::-71.06682353144593","6":"894 Brakus Bypass","7":"02718","8":"Massachusetts","9":"1945-12-10","10":"en-US","11":"English","12":"urn:ietf:bcp:47","13":"English","14":"NA","15":"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race:::http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity:::http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName:::http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex:::http://hl7.org/fhir/StructureDefinition/patient-birthPlace:::http://synthetichealth.github.io/synthea/disability-adjusted-life-years:::http://synthetichealth.github.io/synthea/quality-adjusted-life-years","16":"ombCategory:::text:::ombCategory:::text","17":"2106-3:::2186-5","18":"White:::Not Hispanic or Latino","19":"urn:oid:2.16.840.1.113883.6.238:::urn:oid:2.16.840.1.113883.6.238","20":"White:::Not Hispanic or Latino","21":"Billerica","22":"US","23":"Massachusetts","24":"M","25":"14.062655945052095:::58.93734405494791","26":"Deadra347 Borer986","27":"male","28":"612","29":"https://github.com/synthetichealth/synthea:::http://hospital.smarthealthit.org:::http://hl7.org/fhir/sid/us-ssn:::urn:oid:2.16.840.1.113883.4.3.25:::http://standardhealthrecord.org/fhir/StructureDefinition/passportNumber","30":"MR:::SS:::DL:::PPN","31":"Medical Record Number:::Social Security Number:::Driver's License:::Passport Number","32":"http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203","33":"Medical Record Number:::Social Security Number:::Driver's License:::Passport Number","34":"2fa15bc7-8866-461a-9000-f739e425860a:::2fa15bc7-8866-461a-9000-f739e425860a:::999-93-7537:::S99948707:::X14078167X","35":"S","36":"S","37":"http://terminology.hl7.org/CodeSystem/v3-MaritalStatus","38":"S","39":"2023-04-06T20:57:01.000+00:00","40":"#sTSlRxyopDL1X4fa","41":"1","42":"false","43":"NA","44":"Brekke496","45":"Aaron697","46":"Mr.","47":"official","48":"phone","49":"home","50":"555-677-3119","51":"generated","_rn_":"4"},{"1":"Taunton","2":"US","3":"http://hl7.org/fhir/StructureDefinition/geolocation","4":"latitude:::longitude","5":"41.93879298871088:::-71.06682353144593","6":"894 Brakus Bypass","7":"02718","8":"Massachusetts","9":"1945-12-10","10":"en-US","11":"English","12":"urn:ietf:bcp:47","13":"English","14":"NA","15":"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race:::http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity:::http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName:::http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex:::http://hl7.org/fhir/StructureDefinition/patient-birthPlace:::http://synthetichealth.github.io/synthea/disability-adjusted-life-years:::http://synthetichealth.github.io/synthea/quality-adjusted-life-years","16":"ombCategory:::text:::ombCategory:::text","17":"2106-3:::2186-5","18":"White:::Not Hispanic or Latino","19":"urn:oid:2.16.840.1.113883.6.238:::urn:oid:2.16.840.1.113883.6.238","20":"White:::Not Hispanic or Latino","21":"Billerica","22":"US","23":"Massachusetts","24":"M","25":"14.062655945052095:::58.93734405494791","26":"Deadra347 Borer986","27":"male","28":"931","29":"https://github.com/synthetichealth/synthea:::http://hospital.smarthealthit.org:::http://hl7.org/fhir/sid/us-ssn:::urn:oid:2.16.840.1.113883.4.3.25:::http://standardhealthrecord.org/fhir/StructureDefinition/passportNumber","30":"MR:::SS:::DL:::PPN","31":"Medical Record Number:::Social Security Number:::Driver's License:::Passport Number","32":"http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203","33":"Medical Record Number:::Social Security Number:::Driver's License:::Passport Number","34":"2fa15bc7-8866-461a-9000-f739e425860a:::2fa15bc7-8866-461a-9000-f739e425860a:::999-93-7537:::S99948707:::X14078167X","35":"S","36":"S","37":"http://terminology.hl7.org/CodeSystem/v3-MaritalStatus","38":"S","39":"2023-04-06T20:57:13.000+00:00","40":"#ElqD7MaHoYuk6qSo","41":"1","42":"false","43":"NA","44":"Brekke496","45":"Aaron697","46":"Mr.","47":"official","48":"phone","49":"home","50":"555-677-3119","51":"generated","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -408,8 +414,8 @@ Relevant roles:
 </div>
 </div>
 <p>It is easier to see the contents of this DataFrame by printing out its first row vertically:</p>
-<div class="cell" data-hash="tabular-r_cache/html/unnamed-chunk-2_f35de3ea4a4eaf8093aa81c43f5c044a">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_patient[<span class="dv">1</span>,] <span class="sc">%&gt;%</span> t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_patient[<span class="dv">1</span>,] <span class="sc">%&gt;%</span> t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                         1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 address.city                             "Needham"                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
@@ -517,24 +523,23 @@ text.status                              "generated"                            
 </tbody>
 </table>
 <p>…you could use the following code:</p>
-<div class="cell" data-hash="tabular-r_cache/html/unnamed-chunk-3_ab51ac4740b1b5f4d8e5a4fd889439dd">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">id =</span> <span class="st">"id"</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">gender =</span> <span class="st">"gender"</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">date_of_birth =</span> <span class="st">"birthDate"</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Rather than having fhircrackr concatenate all `Patient.maritalStatus` values</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># into one cell, you can select a specific value with XPath:</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">marital_status =</span> <span class="st">"maritalStatus/coding[1]/code"</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>df_patient <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose=</span><span class="dv">0</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>df_patient <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">id =</span> <span class="st">"id"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">gender =</span> <span class="st">"gender"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">date_of_birth =</span> <span class="st">"birthDate"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Rather than having fhircrackr concatenate all `Patient.maritalStatus` values</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># into one cell, you can select a specific value with XPath:</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">marital_status =</span> <span class="st">"maritalStatus/coding[1]/code"</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>df_patient <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose=</span><span class="dv">0</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>df_patient <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["gender"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date_of_birth"],"name":[3],"type":["chr"],"align":["left"]},{"label":["marital_status"],"name":[4],"type":["lgl"],"align":["right"]},{"label":["NA"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"male","3":"1955-10-09","4":"NA","5":"M","_rn_":"1"},{"1":"180","2":"female","3":"2017-12-02","4":"NA","5":"S","_rn_":"2"},{"1":"293","2":"male","3":"1945-12-10","4":"NA","5":"S","_rn_":"3"},{"1":"612","2":"male","3":"1945-12-10","4":"NA","5":"S","_rn_":"4"},{"1":"931","2":"male","3":"1945-12-10","4":"NA","5":"S","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -547,10 +552,10 @@ text.status                              "generated"                            
 <ol type="1">
 <li><p>Look at the FHIR specification or the relevant <a href="../modules/data-modeling-reading-igs">FHIR Implementation Guide</a> to determine the paths of available data elements. For example, the <a href="https://www.hl7.org/fhir/patient.html">Patient page in the FHIR specification</a> describes the elements and their hierarchy for instances of Patient.</p></li>
 <li><p>Print out the raw data returned by the FHIR server. Fhircrackr uses XML-formatted data, and the following code will print out one of the instances of Patient requested above:</p>
-<div class="cell" data-hash="tabular-r_cache/html/unnamed-chunk-4_40220caccacb99e1b314ff53656a0c73">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>xml2<span class="sc">::</span><span class="fu">xml_find_first</span>(<span class="at">x =</span> patient_bundle[[<span class="dv">1</span>]], <span class="at">xpath =</span> <span class="st">"./entry[1]/resource"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  paste0 <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  cat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>xml2<span class="sc">::</span><span class="fu">xml_find_first</span>(<span class="at">x =</span> patient_bundle[[<span class="dv">1</span>]], <span class="at">xpath =</span> <span class="st">"./entry[1]/resource"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  paste0 <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  cat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;resource&gt;
   &lt;Patient&gt;
@@ -716,28 +721,27 @@ text.status                              "generated"                            
 <h2 data-number="4" class="anchored" data-anchor-id="elements-with-multiple-sub-values"><span class="header-section-number">4</span> Elements with multiple sub-values</h2>
 <p>There are multiple <code>identifier[N].value</code> values for each instance of Patient in this dataset. By default, fhircrackr will concatenate these into a single cell per row, delimited with <code>:::</code> (this is configurable; use <code>fhir_table_description(..., sep = ' | ', ...)</code> to delimit with <code>|</code> instead).</p>
 <p>Fhircrackr provides some tools to split up multiple values stored in the same cell into separate rows in a “long” data frame:</p>
-<div class="cell" data-hash="tabular-r_cache/html/unnamed-chunk-5_4211e399d1f7a04d2b121a9a7f8bad57">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Prefix values in cells with indices to facilitate handling cells that contain</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># multiple values</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">brackets =</span> <span class="fu">c</span>(<span class="st">"["</span>, <span class="st">"]"</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>df_patient_indexed <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>df_patient_identifiers <span class="ot">&lt;-</span> <span class="fu">fhir_melt</span>(</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">indexed_data_frame =</span> df_patient_indexed,</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns            =</span> <span class="fu">c</span>(<span class="st">"identifier.type.text"</span>, <span class="st">"identifier.value"</span>),</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>   <span class="at">brackets           =</span> <span class="fu">c</span>(<span class="st">"["</span>, <span class="st">"]"</span>),</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">sep                =</span> <span class="st">":::"</span>,</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">all_columns        =</span> <span class="cn">FALSE</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>df_patient_identifiers <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Prefix values in cells with indices to facilitate handling cells that contain</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># multiple values</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">brackets =</span> <span class="fu">c</span>(<span class="st">"["</span>, <span class="st">"]"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>df_patient_indexed <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>df_patient_identifiers <span class="ot">&lt;-</span> <span class="fu">fhir_melt</span>(</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">indexed_data_frame =</span> df_patient_indexed,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns            =</span> <span class="fu">c</span>(<span class="st">"identifier.type.text"</span>, <span class="st">"identifier.value"</span>),</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>   <span class="at">brackets           =</span> <span class="fu">c</span>(<span class="st">"["</span>, <span class="st">"]"</span>),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">sep                =</span> <span class="st">":::"</span>,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">all_columns        =</span> <span class="cn">FALSE</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>df_patient_identifiers <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["resource_identifier"],"name":[1],"type":["int"],"align":["right"]},{"label":["identifier.type.text"],"name":[2],"type":["chr"],"align":["left"]},{"label":["identifier.value"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"NA","3":"[1]439b24b4-6f25-4093-b101-47a39bd061ca","_rn_":"1"},{"1":"1","2":"[1.1]Medical Record Number","3":"[1]439b24b4-6f25-4093-b101-47a39bd061ca","_rn_":"2"},{"1":"1","2":"[1.1]Social Security Number","3":"[1]999-57-3355","_rn_":"3"},{"1":"1","2":"[1.1]Driver's License","3":"[1]S99925942","_rn_":"4"},{"1":"1","2":"[1.1]Passport Number","3":"[1]X42032818X","_rn_":"5"},{"1":"2","2":"NA","3":"[1]99285aac-e5e3-4f5b-857d-f67271c97304","_rn_":"6"},{"1":"2","2":"[1.1]Medical Record Number","3":"[1]99285aac-e5e3-4f5b-857d-f67271c97304","_rn_":"7"},{"1":"2","2":"[1.1]Social Security Number","3":"[1]999-62-8033","_rn_":"8"},{"1":"3","2":"NA","3":"[1]2fa15bc7-8866-461a-9000-f739e425860a","_rn_":"9"},{"1":"3","2":"[1.1]Medical Record Number","3":"[1]2fa15bc7-8866-461a-9000-f739e425860a","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -746,12 +750,11 @@ text.status                              "generated"                            
 </div>
 </div>
 <p>The <code>df_patient_identifiers</code> data frame printed above has one row for each value of <code>Patient.identifier</code> for each instance of Patient. The in-cell indices (surrounded by <code>[ ]</code>) can be removed:</p>
-<div class="cell" data-hash="tabular-r_cache/html/unnamed-chunk-6_dcaa5d394b5c228596ed1d56a1de24eb">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_patient_identifiers <span class="ot">&lt;-</span> <span class="fu">fhir_rm_indices</span>(<span class="at">indexed_data_frame =</span> df_patient_identifiers, <span class="at">brackets =</span> <span class="fu">c</span>(<span class="st">"["</span>, <span class="st">"]"</span>))</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_patient_identifiers <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_patient_identifiers <span class="ot">&lt;-</span> <span class="fu">fhir_rm_indices</span>(<span class="at">indexed_data_frame =</span> df_patient_identifiers, <span class="at">brackets =</span> <span class="fu">c</span>(<span class="st">"["</span>, <span class="st">"]"</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df_patient_identifiers <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["resource_identifier"],"name":[1],"type":["chr"],"align":["left"]},{"label":["identifier.type.text"],"name":[2],"type":["chr"],"align":["left"]},{"label":["identifier.value"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"NA","3":"439b24b4-6f25-4093-b101-47a39bd061ca","_rn_":"1"},{"1":"1","2":"Medical Record Number","3":"439b24b4-6f25-4093-b101-47a39bd061ca","_rn_":"2"},{"1":"1","2":"Social Security Number","3":"999-57-3355","_rn_":"3"},{"1":"1","2":"Driver's License","3":"S99925942","_rn_":"4"},{"1":"1","2":"Passport Number","3":"X42032818X","_rn_":"5"},{"1":"2","2":"NA","3":"99285aac-e5e3-4f5b-857d-f67271c97304","_rn_":"6"},{"1":"2","2":"Medical Record Number","3":"99285aac-e5e3-4f5b-857d-f67271c97304","_rn_":"7"},{"1":"2","2":"Social Security Number","3":"999-62-8033","_rn_":"8"},{"1":"3","2":"NA","3":"2fa15bc7-8866-461a-9000-f739e425860a","_rn_":"9"},{"1":"3","2":"Medical Record Number","3":"2fa15bc7-8866-461a-9000-f739e425860a","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -760,34 +763,33 @@ text.status                              "generated"                            
 </div>
 </div>
 <p>These can then be merged back into the original data frame as needed. For example, if you want to include the synthetic “Social Security Number” in the original data:</p>
-<div class="cell" data-hash="tabular-r_cache/html/unnamed-chunk-7_95cdecb858576b3104f5fc1243ecd5a6">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_patient <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add in row numbers for joining</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_number =</span> <span class="fu">row_number</span>()</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    df_patient_identifiers <span class="sc">%&gt;%</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Note: this assumes there is just one social security number for each patient in the data.</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>      <span class="co"># If this was not true, it would be necessary to remove extra data before joining so there</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>      <span class="co"># was one row per patient.</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(<span class="st">`</span><span class="at">identifier.type.text</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Social Security Number"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rename</span>(</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"ssn"</span> <span class="ot">=</span> <span class="st">"identifier.value"</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">%&gt;%</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Exclude the `identifier.type.text` column so it doesn't appear in the joined data frame</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(resource_identifier, ssn) <span class="sc">%&gt;%</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Fhircrackr generates the `resource_identifier` column as a string, but it needs to be</span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>      <span class="co"># an integer for joining.</span></span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">resource_identifier =</span> <span class="fu">as.integer</span>(resource_identifier))</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    ,</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">by=</span><span class="fu">c</span>(<span class="st">"row_number"</span> <span class="ot">=</span> <span class="st">"resource_identifier"</span>)</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_patient <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add in row numbers for joining</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_number =</span> <span class="fu">row_number</span>()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    df_patient_identifiers <span class="sc">%&gt;%</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Note: this assumes there is just one social security number for each patient in the data.</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>      <span class="co"># If this was not true, it would be necessary to remove extra data before joining so there</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>      <span class="co"># was one row per patient.</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(<span class="st">`</span><span class="at">identifier.type.text</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Social Security Number"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rename</span>(</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"ssn"</span> <span class="ot">=</span> <span class="st">"identifier.value"</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Exclude the `identifier.type.text` column so it doesn't appear in the joined data frame</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(resource_identifier, ssn) <span class="sc">%&gt;%</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Fhircrackr generates the `resource_identifier` column as a string, but it needs to be</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>      <span class="co"># an integer for joining.</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">resource_identifier =</span> <span class="fu">as.integer</span>(resource_identifier))</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">by=</span><span class="fu">c</span>(<span class="st">"row_number"</span> <span class="ot">=</span> <span class="st">"resource_identifier"</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["gender"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date_of_birth"],"name":[3],"type":["chr"],"align":["left"]},{"label":["marital_status"],"name":[4],"type":["lgl"],"align":["right"]},{"label":["NA"],"name":[5],"type":["chr"],"align":["left"]},{"label":["row_number"],"name":[6],"type":["int"],"align":["right"]},{"label":["ssn"],"name":[7],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"male","3":"1955-10-09","4":"NA","5":"M","6":"1","7":"999-57-3355","_rn_":"1"},{"1":"180","2":"female","3":"2017-12-02","4":"NA","5":"S","6":"2","7":"999-62-8033","_rn_":"2"},{"1":"293","2":"male","3":"1945-12-10","4":"NA","5":"S","6":"3","7":"999-93-7537","_rn_":"3"},{"1":"612","2":"male","3":"1945-12-10","4":"NA","5":"S","6":"4","7":"999-93-7537","_rn_":"4"},{"1":"931","2":"male","3":"1945-12-10","4":"NA","5":"S","6":"5","7":"999-93-7537","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -801,37 +803,37 @@ text.status                              "generated"                            
 <h2 data-number="5" class="anchored" data-anchor-id="retrieving-related-data"><span class="header-section-number">5</span> Retrieving related data</h2>
 <p>To retrieve instances of related resources, additional <code>request_params</code> can be added. See <a href="../modules/fhir-accessing-data.html#multiple-types-of-resources">Using the FHIR API to Access Data</a> for more information on constructing the parameters for FHIR search interactions.</p>
 <p>In the example below, instances of Patient and instances of related Observation resources are requested:</p>
-<div class="cell" data-hash="tabular-r_cache/html/unnamed-chunk-8_f04e92e23a654fa49516a589daa17792">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>request <span class="ot">&lt;-</span> <span class="fu">fhir_url</span>(</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">url =</span> <span class="st">"https://api.logicahealth.org/FHIRResearchSynthea/open"</span>,</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">parameters =</span> <span class="fu">c</span>(</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"_revinclude"</span> <span class="ot">=</span> <span class="st">"Observation:patient"</span>,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"_count"</span> <span class="ot">=</span> <span class="st">"10"</span> <span class="co"># Limit the number of patients returned to 10</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">fhir_search</span>(<span class="at">request =</span> request, <span class="at">max_bundles =</span> <span class="dv">1</span>, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">id =</span> <span class="st">"id"</span>,</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">gender =</span> <span class="st">"gender"</span>,</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">date_of_birth =</span> <span class="st">"birthDate"</span>,</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">marital_status =</span> <span class="st">"maritalStatus/coding[1]/code"</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>df_patient <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>table_desc_observation <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Observation"</span></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>df_observation <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> response, <span class="at">design =</span> table_desc_observation, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>df_observation <span class="sc">%&gt;%</span> glimpse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>request <span class="ot">&lt;-</span> <span class="fu">fhir_url</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">url =</span> <span class="st">"https://api.logicahealth.org/FHIRResearchSynthea/open"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">parameters =</span> <span class="fu">c</span>(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"_revinclude"</span> <span class="ot">=</span> <span class="st">"Observation:patient"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"_count"</span> <span class="ot">=</span> <span class="st">"10"</span> <span class="co"># Limit the number of patients returned to 10</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">fhir_search</span>(<span class="at">request =</span> request, <span class="at">max_bundles =</span> <span class="dv">1</span>, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">id =</span> <span class="st">"id"</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">gender =</span> <span class="st">"gender"</span>,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">date_of_birth =</span> <span class="st">"birthDate"</span>,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">marital_status =</span> <span class="st">"maritalStatus/coding[1]/code"</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>df_patient <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>table_desc_observation <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Observation"</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>df_observation <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> response, <span class="at">design =</span> table_desc_observation, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>df_observation <span class="sc">%&gt;%</span> glimpse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,464
 Columns: 32
@@ -870,40 +872,40 @@ $ valueQuantity.value                 &lt;chr&gt; "42.97979680881811", "18.82356
 </div>
 </div>
 <p>This includes many different kinds of observations. The <code>Observation.code</code> element identifies the type of Observation. In this case,<code>http://loinc.org|72166-2</code> is the LOINC for smoking status. To get smoking status records identified by this LOINC:</p>
-<div class="cell" data-hash="tabular-r_cache/html/unnamed-chunk-9_a1be93d78dee339f1ec78cbbf0a425e5">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>request <span class="ot">&lt;-</span> <span class="fu">fhir_url</span>(</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">url =</span> <span class="st">"https://api.logicahealth.org/FHIRResearchSynthea/open"</span>,</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Observation"</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">parameters =</span> <span class="fu">c</span>(</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_include"</span> <span class="ot">=</span> <span class="st">"Observation:patient"</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"code"</span> <span class="ot">=</span> <span class="st">"http://loinc.org|72166-2"</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># `max_bundles = 1` limits the responses to a subset of Observations for the purposes of</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># this example -- this argument can be removed to get all relevant Observations/Patients (but</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co"># the query takes longer to run)</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">fhir_search</span>(<span class="at">request =</span> request, <span class="at">max_bundles =</span> <span class="dv">1</span>, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(</span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">id =</span> <span class="st">"id"</span>,</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">gender =</span> <span class="st">"gender"</span>,</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">date_of_birth =</span> <span class="st">"birthDate"</span>,</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">marital_status =</span> <span class="st">"maritalStatus/coding[1]/code"</span></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>df_patient <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>table_desc_observation <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Observation"</span></span>
-<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>df_observation <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> response, <span class="at">design =</span> table_desc_observation, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
-<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>df_observation <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>request <span class="ot">&lt;-</span> <span class="fu">fhir_url</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">url =</span> <span class="st">"https://api.logicahealth.org/FHIRResearchSynthea/open"</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Observation"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">parameters =</span> <span class="fu">c</span>(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_include"</span> <span class="ot">=</span> <span class="st">"Observation:patient"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"code"</span> <span class="ot">=</span> <span class="st">"http://loinc.org|72166-2"</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># `max_bundles = 1` limits the responses to a subset of Observations for the purposes of</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># this example -- this argument can be removed to get all relevant Observations/Patients (but</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># the query takes longer to run)</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">fhir_search</span>(<span class="at">request =</span> request, <span class="at">max_bundles =</span> <span class="dv">1</span>, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">id =</span> <span class="st">"id"</span>,</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">gender =</span> <span class="st">"gender"</span>,</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">date_of_birth =</span> <span class="st">"birthDate"</span>,</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">marital_status =</span> <span class="st">"maritalStatus/coding[1]/code"</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>df_patient <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>table_desc_observation <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Observation"</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>df_observation <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> response, <span class="at">design =</span> table_desc_observation, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>df_observation <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 50
 Columns: 20
@@ -942,6 +944,15 @@ $ valueCodeableConcept.text           &lt;chr&gt; "Never smoker", "Never smoker"
 </main> <!-- /main -->
 <!-- scripts.html -->
 <!-- any content in this file is inserted right before </body> -->
+
+<!-- Fix a11y issues with side menu -->
+<script>
+const elements = document.querySelectorAll('.sidebar-menu-container a.sidebar-item-text[data-bs-toggle="collapse"], .sidebar-menu-container a.sidebar-item-toggle[data-bs-toggle="collapse"]')
+
+elements.forEach(element => {
+    element.setAttribute('role', 'group');
+});
+</script>
 
 <!-- fancy json code viewer -->
 <script type="text/javascript" src="https://unpkg.com/dompurify@3.0.1/dist/purify.min.js"></script> <!-- load JS Sanitizer -->
@@ -1117,18 +1128,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // Get next and prev modules data
     let prev_href, prev_text;
     let next_href, next_text;
+
     role_module_map.forEach((mapping) => {
         if( mapping.role == role ) {
             for(let i=0; i<mapping.modules.length; i++) {
                 if( mapping.modules[i].slug == current_module_slug ) {
                     function slug_to_url(slug) {
-                        if( window.location.path.includes('modules') ) {
-                            // replace "modules/*" in current url with "modules/<slug>.html"
-                            return window.location.tostring().replace(/modules\/.*/, "modules/" + slug);
+                        if( window.location.pathname.includes('modules') ) {
+                            // replace "modules/*" in current URL with "modules/<slug>.html"
+                            return window.location.toString().replace(/modules\/.*/, "modules/" + slug + ".html");
                         }
                         else {
-                            // this case is irrelevant since pREV/Next buttons are only role-based in modules
-                            return window.location.toString() + "/modules/" + slug;
+                            // this case is irrelevant since prev/next buttons are only role-based in modules
+                            return window.location.toString() + "/modules/" + slug + ".html";
                         }
                     }
                     
@@ -1136,23 +1148,18 @@ document.addEventListener("DOMContentLoaded", function() {
                     prev_text = (i > 0) ? mapping.modules[i-1].text : null;
 
                     next_href = (i+1 < mapping.modules.length) ? slug_to_url(mapping.modules[i+1].slug) : null;
-                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;
-                
-                    console.log("DEBUG 2");
-
+                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;                
                 }
             }
         }
     });
+
 
     // Overwrite prev link
     if( prev_href ) {
         const prev_link_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link");
         const prev_text_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link .nav-page-text");
         if( prev_link_elmt ) {
-
-
-            console.log("DEBUG 3");
 
             prev_link_elmt.href = prev_href
             //prev_link_elmt.classList.add("btn", "btn-outline-custom", "rounded");
@@ -1165,8 +1172,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if( next_href ) {
         const next_link_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link");
         const next_text_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link .nav-page-text");
-
-        console.log("DEBUG 4");
 
         if( next_link_elmt ) {
             next_link_elmt.href = next_href;
@@ -1183,25 +1188,45 @@ document.addEventListener("DOMContentLoaded", function() {
         key_points.insertAdjacentElement("afterend", page_nav);
     }
 
-    console.log("DEBUG 10");
-
 });
 
 
 // Override style of Quarto page navigation (prev/next buttons)
 document.addEventListener("DOMContentLoaded", function() {
 
-    console.log("DEBUG 20");
-
     const page_navigators = document.querySelectorAll(".pagination-link");
     page_navigators.forEach((node) => {
-        console.log("DEBUG 21");
 
         node.classList.add("btn", "btn-outline-custom", "rounded");
         node.parentNode.classList.remove("nav-page");
         node.parentNode.parentNode.style.gridRow = "initial";
     });
 });
+
+// Set external links to open in a new tab
+document.addEventListener("DOMContentLoaded", function() {
+    var all_links = document.querySelectorAll('a');
+    for (var i = 0; i < all_links.length; i++){
+        var a = all_links[i];
+        if(a.hostname != location.hostname) {
+                a.target = '_blank';
+        }
+    }
+})
+
+</script>
+
+<!-- Fancy Box -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Fancybox.bind("[data-fancybox]", {
+            Toolbar: {
+                enabled: true,
+            }
+        });
+    })
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1238,18 +1263,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1281,11 +1295,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mitre\.github\.io\/fhir-for-research\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1295,8 +1348,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1308,7 +1370,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1352,6 +1537,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1377,6 +1563,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1438,12 +1650,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../modules/tabular-python" class="pagination-link">
+      <a href="../modules/tabular-python" class="pagination-link" aria-label="Using Python">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Using Python</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../modules/redcap-intro" class="pagination-link">
+      <a href="../modules/redcap-intro" class="pagination-link" aria-label="Introduction">
         <span class="nav-page-text">Introduction</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1455,17 +1667,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
- © 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966
-  </li>  
-</ul>
-    </div>
+<p>© 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966<br><br>HL7® and FHIR® are the registered trademarks of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the HL7 and FHIR trademarks does not constitute an HL7 endorsement of this website.</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 

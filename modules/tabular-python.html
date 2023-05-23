@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.290">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>FHIR for Research - Analyzing FHIR Data in a Tabular Format With Python</title>
+<title>Analyzing FHIR Data in a Tabular Format With Python – FHIR® for Research Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -80,8 +80,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,8 +95,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <!-- head.html -->
@@ -135,7 +142,7 @@ var store = initLocalStorage();
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
@@ -146,63 +153,63 @@ var store = initLocalStorage();
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index">
-    <span class="navbar-title">FHIR for Research</span>
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="..">
+    <span class="navbar-title">FHIR® for Research Documentation</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../sections/overview" rel="" target="">
- <span class="menu-text">Overview</span></a>
+    <a class="nav-link" href="../sections/overview"> 
+<span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../sections/working-with-data" rel="" target="" aria-current="page">
- <span class="menu-text">Working With Data</span></a>
+    <a class="nav-link active" href="../sections/working-with-data" aria-current="page"> 
+<span class="menu-text">Working With Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../sections/advanced-topics" rel="" target="">
- <span class="menu-text">Advanced Topics</span></a>
+    <a class="nav-link" href="../sections/advanced-topics"> 
+<span class="menu-text">Advanced Topics</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../contribute" rel="" target="">
- <span class="menu-text">Contributions &amp; Corrections</span></a>
+    <a class="nav-link" href="../contribute"> 
+<span class="menu-text">Questions &amp; Contributions</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/mitre/fhir-for-research" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/mitre/fhir-for-research"> <i class="bi bi-github" role="img" aria-label="View the GitHub repository for this site">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/tabular-intro">Tabular Analysis</a></li><li class="breadcrumb-item"><a href="../modules/tabular-python">Using Python</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/tabular-intro">Tabular Analysis</a></li><li class="breadcrumb-item"><a href="../modules/tabular-python">Using Python</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -213,9 +220,9 @@ var store = initLocalStorage();
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Tabular Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -242,9 +249,9 @@ var store = initLocalStorage();
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">REDCap</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -263,10 +270,33 @@ var store = initLocalStorage();
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bulk Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../webinars/bulk-data" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction Webinar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workshops/bulk-data" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workshop</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -288,18 +318,6 @@ var store = initLocalStorage();
 <header id="title-block-header">
 <!--
 -->
-
-  <div class="callout callout-style-default callout-warning callout-titled">
-    <div class="callout-header d-flex align-content-center">
-      <div class="callout-icon-container"><i class="callout-icon"></i></div>
-      <div class="callout-title-container flex-fill">
-        Under active development
-      </div>
-    </div>
-    <div class="callout-body-container callout-body">
-      <p>The content on this website is under active development. Please proceed with caution.</p>
-    </div>
-  </div>
 
 <h1 class="title display-7">Analyzing FHIR Data in a Tabular Format With Python</h1>
 
@@ -348,6 +366,7 @@ Relevant roles:
 <!-- Hack to add key points block at end of page-->
 <!-- End hack to add key points block at end of page-->
 
+
 <p>Data analysis approaches in Python often use <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">Pandas DataFrames</a> to store tabular data. There are two primary approaches to loading FHIR-formatted data into Pandas DataFrames:</p>
 <ol type="1">
 <li><p>Writing Python code to manually convert FHIR instances in JSON format into DataFrames.</p>
@@ -367,7 +386,7 @@ Relevant roles:
 <section id="retrieving-fhir-data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="retrieving-fhir-data"><span class="header-section-number">2</span> Retrieving FHIR data</h2>
 <p>Once your environment is set up, you can run the following Python code to retrieve instances of the Patient resource from a test server:</p>
-<div class="cell" data-execution_count="2">
+<div id="25bb6a93" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load dependencies</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fhir_pyrate <span class="im">import</span> Pirate</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -398,13 +417,7 @@ Relevant roles:
 <pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Patient?_count=10</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Query (Patient):   0%|          | 0/1 [00:00&lt;?, ?it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query (Patient): 100%|██████████| 1/1 [00:00&lt;00:00, 722.04it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
+<pre><code>Query (Patient):   0%|          | 0/1 [00:00&lt;?, ?it/s]Query (Patient): 100%|██████████| 1/1 [00:00&lt;00:00, 889.19it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
@@ -566,10 +579,10 @@ Relevant roles:
 </div>
 </div>
 <p>It is easier to see the contents of this DataFrame by printing out its first row vertically:</p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first row of the DataFrame vertically for easier reading.</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_rows'</span>, <span class="dv">100</span>)  <span class="co"># Show all rows</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">1</span>).T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="388b4561" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first row of the DataFrame vertically for easier reading.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_rows'</span>, <span class="dv">100</span>)  <span class="co"># Show all rows</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">1</span>).T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
@@ -965,32 +978,26 @@ Relevant roles:
 </tbody>
 </table>
 <p>…you could use the following code:</p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate and perform the FHIR search interaction in a single function call</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> search.steal_bundles_to_dataframe(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    resource_type<span class="op">=</span><span class="st">'Patient'</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    request_params<span class="op">=</span>{</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_count"</span>: <span class="dv">10</span>  <span class="co"># Get 10 instances per page</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    num_pages<span class="op">=</span><span class="dv">1</span>,  <span class="co"># Get 1 page (so a total of 10 instances)</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    fhir_paths<span class="op">=</span>[</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"id"</span>, <span class="st">"identifier[0].value"</span>),</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"gender"</span>, <span class="st">"gender"</span>),</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"date_of_birth"</span>, <span class="st">"birthDate"</span>),</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"marital_status"</span>, <span class="st">"maritalStatus.coding[0].code"</span>)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    ])</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8b263978" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate and perform the FHIR search interaction in a single function call</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> search.steal_bundles_to_dataframe(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    resource_type<span class="op">=</span><span class="st">'Patient'</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    request_params<span class="op">=</span>{</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_count"</span>: <span class="dv">10</span>  <span class="co"># Get 10 instances per page</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    num_pages<span class="op">=</span><span class="dv">1</span>,  <span class="co"># Get 1 page (so a total of 10 instances)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    fhir_paths<span class="op">=</span>[</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"id"</span>, <span class="st">"identifier[0].value"</span>),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"gender"</span>, <span class="st">"gender"</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"date_of_birth"</span>, <span class="st">"birthDate"</span>),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"marital_status"</span>, <span class="st">"maritalStatus.coding[0].code"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    ])</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Patient?_count=10</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Patient):   0%|          | 0/1 [00:00&lt;?, ?it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Patient): 100%|██████████| 1/1 [00:00&lt;00:00, 198.33it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
+<pre><code>Query &amp; Build DF (Patient):   0%|          | 0/1 [00:00&lt;?, ?it/s]Query &amp; Build DF (Patient): 100%|██████████| 1/1 [00:00&lt;00:00, 247.70it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -1088,30 +1095,24 @@ Relevant roles:
 <section id="elements-with-multiple-sub-values" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="elements-with-multiple-sub-values"><span class="header-section-number">4</span> Elements with multiple sub-values</h2>
 <p>There are multiple <code>identifier[N].value</code> values for each instance of Patient in this dataset.</p>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate and perform the FHIR search interaction in a single function call</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> search.steal_bundles_to_dataframe(</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    resource_type<span class="op">=</span><span class="st">'Patient'</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    request_params<span class="op">=</span>{</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_count"</span>: <span class="dv">10</span>  <span class="co"># Get 10 instances per page</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    num_pages<span class="op">=</span><span class="dv">1</span>,  <span class="co"># Get 1 page (so a total of 10 instances)</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    fhir_paths<span class="op">=</span>[</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"id"</span>, <span class="st">"identifier[0].value"</span>),</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"identifiers"</span>, <span class="st">"identifier.value"</span>)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    ])</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="16b98c90" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate and perform the FHIR search interaction in a single function call</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> search.steal_bundles_to_dataframe(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    resource_type<span class="op">=</span><span class="st">'Patient'</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    request_params<span class="op">=</span>{</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_count"</span>: <span class="dv">10</span>  <span class="co"># Get 10 instances per page</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    num_pages<span class="op">=</span><span class="dv">1</span>,  <span class="co"># Get 1 page (so a total of 10 instances)</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    fhir_paths<span class="op">=</span>[</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"id"</span>, <span class="st">"identifier[0].value"</span>),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"identifiers"</span>, <span class="st">"identifier.value"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    ])</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Patient?_count=10</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Patient):   0%|          | 0/1 [00:00&lt;?, ?it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Patient): 100%|██████████| 1/1 [00:00&lt;00:00, 684.45it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
+<pre><code>Query &amp; Build DF (Patient):   0%|          | 0/1 [00:00&lt;?, ?it/s]Query &amp; Build DF (Patient): 100%|██████████| 1/1 [00:00&lt;00:00, 484.95it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -1183,12 +1184,12 @@ Relevant roles:
 </div>
 </div>
 <p>To convert to separate columns, you can do the following:</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df.join(</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    pd.DataFrame(</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>        df.pop(<span class="st">'identifiers'</span>).values.tolist()</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    ).add_prefix(<span class="st">'identifier_'</span>)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="238e96a7" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df.join(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    pd.DataFrame(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        df.pop(<span class="st">'identifiers'</span>).values.tolist()</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    ).add_prefix(<span class="st">'identifier_'</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
@@ -1308,38 +1309,32 @@ Relevant roles:
 <h2 data-number="5" class="anchored" data-anchor-id="retrieving-related-data"><span class="header-section-number">5</span> Retrieving related data</h2>
 <p>To retrieve instances of related resources, additional <code>request_params</code> can be added. See <a href="../modules/fhir-accessing-data.html#multiple-types-of-resources">Using the FHIR API to Access Data</a> for more information on constructing the parameters for FHIR search interactions.</p>
 <p>In the example below, instances of Patient and instances of related Observation resources are requested:</p>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate and perform the FHIR search interaction in a single function call</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> search.steal_bundles_to_dataframe(</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    resource_type<span class="op">=</span><span class="st">'Patient'</span>,</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    request_params<span class="op">=</span>{</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Get instances of Observation where `Observation.patient` refers to a fetched Patient instance</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_revinclude"</span>: <span class="st">"Observation:patient"</span>,</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_count"</span>: <span class="dv">10</span>  <span class="co"># Get 10 instances per page</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    num_pages<span class="op">=</span><span class="dv">1</span>,  <span class="co"># Get 1 page (so a total of 10 instances)</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co"># `dfs` is a dictionary where the key is the FHIR resource type, and the value is the DataFrame</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Split these into separate variables for easy access:</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>df_patients <span class="op">=</span> dfs[<span class="st">'Patient'</span>]</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>df_observations <span class="op">=</span> dfs[<span class="st">'Observation'</span>]</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the first row of the Observations DataFrame</span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>df_observations.head(<span class="dv">1</span>).T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="73fb1134" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate and perform the FHIR search interaction in a single function call</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> search.steal_bundles_to_dataframe(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    resource_type<span class="op">=</span><span class="st">'Patient'</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    request_params<span class="op">=</span>{</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Get instances of Observation where `Observation.patient` refers to a fetched Patient instance</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_revinclude"</span>: <span class="st">"Observation:patient"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_count"</span>: <span class="dv">10</span>  <span class="co"># Get 10 instances per page</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    num_pages<span class="op">=</span><span class="dv">1</span>,  <span class="co"># Get 1 page (so a total of 10 instances)</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># `dfs` is a dictionary where the key is the FHIR resource type, and the value is the DataFrame</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Split these into separate variables for easy access:</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>df_patients <span class="op">=</span> dfs[<span class="st">'Patient'</span>]</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>df_observations <span class="op">=</span> dfs[<span class="st">'Observation'</span>]</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the first row of the Observations DataFrame</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>df_observations.head(<span class="dv">1</span>).T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Patient?_count=10&amp;_revinclude=Observation:patient</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Patient):   0%|          | 0/1 [00:00&lt;?, ?it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Patient): 100%|██████████| 1/1 [00:00&lt;00:00, 43.19it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
+<pre><code>Query &amp; Build DF (Patient):   0%|          | 0/1 [00:00&lt;?, ?it/s]Query &amp; Build DF (Patient): 100%|██████████| 1/1 [00:00&lt;00:00, 26.69it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -1525,186 +1520,70 @@ Relevant roles:
 </div>
 <p>As of April 2023, FHIR-PYrate <a href="https://github.com/UMEssen/FHIR-PYrate#bundles_to_dataframe">does not have a good approach to <code>fhir_paths</code> for searches that return instances of multiple FHIR resource types</a>.</p>
 <p>To work around this, you can also iterate over all the rows in a DataFrame and request related resources using <a href="https://github.com/UMEssen/FHIR-PYrate#trade_rows_for_bundles"><code>trade_rows_for_bundles()</code></a>:</p>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_observations2 <span class="op">=</span> search.trade_rows_for_dataframe(</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    df_patients,</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    resource_type<span class="op">=</span><span class="st">"Observation"</span>,</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Limit to 10 instances of Observation per patient</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    request_params<span class="op">=</span>{</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_count"</span>: <span class="st">"10"</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    num_pages<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Load Observations where `Observation.subject` references the instance of Patient</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># identified by `id` in the `df_patients` DataFrame</span></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    df_constraints<span class="op">=</span>{<span class="st">"subject"</span>: <span class="st">"id"</span>},</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    fhir_paths<span class="op">=</span>[</span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"observation_id"</span>, <span class="st">"id"</span>),</span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"patient"</span>, <span class="st">"subject.reference"</span>),</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"status"</span>, <span class="st">"status"</span>),</span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"code"</span>, <span class="st">"code.coding[0].code"</span>),</span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"code_display"</span>, <span class="st">"code.coding[0].display"</span>),</span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"value"</span>, <span class="st">"valueQuantity.value"</span>),</span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"value_units"</span>, <span class="st">"valueQuantity.unit"</span>),</span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"datetime"</span>, <span class="st">"effectiveDateTime"</span>)</span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the first row of the Observations DataFrame</span></span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>df_observations2.head(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d90e2631" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_observations2 <span class="op">=</span> search.trade_rows_for_dataframe(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    df_patients,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    resource_type<span class="op">=</span><span class="st">"Observation"</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Limit to 10 instances of Observation per patient</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    request_params<span class="op">=</span>{</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_count"</span>: <span class="st">"10"</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    num_pages<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Load Observations where `Observation.subject` references the instance of Patient</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># identified by `id` in the `df_patients` DataFrame</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    df_constraints<span class="op">=</span>{<span class="st">"subject"</span>: <span class="st">"id"</span>},</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    fhir_paths<span class="op">=</span>[</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"observation_id"</span>, <span class="st">"id"</span>),</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"patient"</span>, <span class="st">"subject.reference"</span>),</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"status"</span>, <span class="st">"status"</span>),</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"code"</span>, <span class="st">"code.coding[0].code"</span>),</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"code_display"</span>, <span class="st">"code.coding[0].display"</span>),</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"value"</span>, <span class="st">"valueQuantity.value"</span>),</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"value_units"</span>, <span class="st">"valueQuantity.unit"</span>),</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"datetime"</span>, <span class="st">"effectiveDateTime"</span>)</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the first row of the Observations DataFrame</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>df_observations2.head(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):   0%|          | 0/10 [00:00&lt;?, ?it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>                                                                      </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):   0%|          | 0/10 [00:00&lt;?, ?it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  10%|█         | 1/10 [00:00&lt;00:02,  3.37it/s]</code></pre>
+<pre><code>Query &amp; Build DF (Observation):   0%|          | 0/10 [00:00&lt;?, ?it/s]                                                                      Query &amp; Build DF (Observation):   0%|          | 0/10 [00:00&lt;?, ?it/s]Query &amp; Build DF (Observation):  10%|█         | 1/10 [00:00&lt;00:01,  5.10it/s]                                                                              Query &amp; Build DF (Observation):  10%|█         | 1/10 [00:00&lt;00:01,  5.10it/s]Query &amp; Build DF (Observation):  20%|██        | 2/10 [00:00&lt;00:01,  5.89it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=1</code></pre>
+<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=1
+https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=180</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  10%|█         | 1/10 [00:00&lt;00:02,  3.37it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  20%|██        | 2/10 [00:00&lt;00:02,  3.48it/s]</code></pre>
+<pre><code>                                                                              Query &amp; Build DF (Observation):  20%|██        | 2/10 [00:00&lt;00:01,  5.89it/s]Query &amp; Build DF (Observation):  30%|███       | 3/10 [00:00&lt;00:01,  4.36it/s]                                                                              Query &amp; Build DF (Observation):  30%|███       | 3/10 [00:00&lt;00:01,  4.36it/s]Query &amp; Build DF (Observation):  40%|████      | 4/10 [00:00&lt;00:01,  4.81it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=180</code></pre>
+<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=293
+https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=612</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  20%|██        | 2/10 [00:00&lt;00:02,  3.48it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  30%|███       | 3/10 [00:00&lt;00:02,  3.23it/s]</code></pre>
+<pre><code>                                                                              Query &amp; Build DF (Observation):  40%|████      | 4/10 [00:00&lt;00:01,  4.81it/s]Query &amp; Build DF (Observation):  50%|█████     | 5/10 [00:00&lt;00:00,  5.11it/s]                                                                              Query &amp; Build DF (Observation):  50%|█████     | 5/10 [00:01&lt;00:00,  5.11it/s]Query &amp; Build DF (Observation):  60%|██████    | 6/10 [00:01&lt;00:00,  5.25it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=293</code></pre>
+<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=931
+https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=1250</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  30%|███       | 3/10 [00:01&lt;00:02,  3.23it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  40%|████      | 4/10 [00:01&lt;00:01,  3.35it/s]</code></pre>
+<pre><code>                                                                              Query &amp; Build DF (Observation):  60%|██████    | 6/10 [00:01&lt;00:00,  5.25it/s]Query &amp; Build DF (Observation):  70%|███████   | 7/10 [00:01&lt;00:00,  5.45it/s]                                                                              Query &amp; Build DF (Observation):  70%|███████   | 7/10 [00:01&lt;00:00,  5.45it/s]Query &amp; Build DF (Observation):  80%|████████  | 8/10 [00:01&lt;00:00,  5.64it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=612</code></pre>
+<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=1806
+https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=1989</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  40%|████      | 4/10 [00:01&lt;00:01,  3.35it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  50%|█████     | 5/10 [00:01&lt;00:01,  3.36it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=931</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  50%|█████     | 5/10 [00:01&lt;00:01,  3.36it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  60%|██████    | 6/10 [00:01&lt;00:01,  2.73it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=1250</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  60%|██████    | 6/10 [00:02&lt;00:01,  2.73it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  70%|███████   | 7/10 [00:02&lt;00:01,  2.99it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=1806</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  70%|███████   | 7/10 [00:02&lt;00:01,  2.99it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  80%|████████  | 8/10 [00:02&lt;00:00,  3.27it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=1989</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  80%|████████  | 8/10 [00:02&lt;00:00,  3.27it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  90%|█████████ | 9/10 [00:02&lt;00:00,  2.96it/s]</code></pre>
+<pre><code>                                                                              Query &amp; Build DF (Observation):  80%|████████  | 8/10 [00:01&lt;00:00,  5.64it/s]Query &amp; Build DF (Observation):  90%|█████████ | 9/10 [00:01&lt;00:00,  5.65it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=2172</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  90%|█████████ | 9/10 [00:03&lt;00:00,  2.96it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation): 100%|██████████| 10/10 [00:03&lt;00:00,  3.09it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation): 100%|██████████| 10/10 [00:03&lt;00:00,  3.12it/s]</code></pre>
+<pre><code>                                                                              Query &amp; Build DF (Observation):  90%|█████████ | 9/10 [00:01&lt;00:00,  5.65it/s]Query &amp; Build DF (Observation): 100%|██████████| 10/10 [00:01&lt;00:00,  5.16it/s]Query &amp; Build DF (Observation): 100%|██████████| 10/10 [00:01&lt;00:00,  5.21it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;subject=2370</code></pre>
@@ -1919,190 +1798,74 @@ Relevant roles:
 </div>
 </div>
 <p>Note that this will only display <code>value</code> for instances of Observation that record a value in <code>Observation.valueQuantity</code>. Typically, you would filter by <code>Observation.code</code> and then choose the appropriate data type for <code>Observation.value[x]</code> to import. For example, <code>http://loinc.org|72166-2</code> is the LOINC for smoking status. To get smoking status records for all patients in <code>df_patients</code>:</p>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>df_observations2 <span class="op">=</span> search.trade_rows_for_dataframe(</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>    df_patients,</span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>    resource_type<span class="op">=</span><span class="st">"Observation"</span>,</span>
-<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Limit to 10 instances of Observation per patient</span></span>
-<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a>    request_params<span class="op">=</span>{</span>
-<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_count"</span>: <span class="st">"10"</span>,</span>
-<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"code"</span>: <span class="st">"http://loinc.org|72166-2"</span></span>
-<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a>    num_pages<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-12"><a href="#cb78-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Load Observations where `Observation.subject` references the instance of Patient</span></span>
-<span id="cb78-13"><a href="#cb78-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># identified by `id` in the `df_patients` DataFrame</span></span>
-<span id="cb78-14"><a href="#cb78-14" aria-hidden="true" tabindex="-1"></a>    df_constraints<span class="op">=</span>{<span class="st">"subject"</span>: <span class="st">"id"</span>},</span>
-<span id="cb78-15"><a href="#cb78-15" aria-hidden="true" tabindex="-1"></a>    fhir_paths<span class="op">=</span>[</span>
-<span id="cb78-16"><a href="#cb78-16" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"observation_id"</span>, <span class="st">"id"</span>),</span>
-<span id="cb78-17"><a href="#cb78-17" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"patient"</span>, <span class="st">"subject.reference"</span>),</span>
-<span id="cb78-18"><a href="#cb78-18" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"status"</span>, <span class="st">"status"</span>),</span>
-<span id="cb78-19"><a href="#cb78-19" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"code"</span>, <span class="st">"code.coding[0].code"</span>),</span>
-<span id="cb78-20"><a href="#cb78-20" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"code_display"</span>, <span class="st">"code.coding[0].display"</span>),</span>
-<span id="cb78-21"><a href="#cb78-21" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"value"</span>, <span class="st">"valueCodeableConcept.coding[0].code"</span>),</span>
-<span id="cb78-22"><a href="#cb78-22" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"value_display"</span>, <span class="st">"valueCodeableConcept.coding[0].display"</span>),</span>
-<span id="cb78-23"><a href="#cb78-23" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"datetime"</span>, <span class="st">"effectiveDateTime"</span>)</span>
-<span id="cb78-24"><a href="#cb78-24" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb78-25"><a href="#cb78-25" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb78-26"><a href="#cb78-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-27"><a href="#cb78-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the first row of the Observations DataFrame</span></span>
-<span id="cb78-28"><a href="#cb78-28" aria-hidden="true" tabindex="-1"></a>df_observations2.head(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="51eced42" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_observations2 <span class="op">=</span> search.trade_rows_for_dataframe(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    df_patients,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    resource_type<span class="op">=</span><span class="st">"Observation"</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Limit to 10 instances of Observation per patient</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    request_params<span class="op">=</span>{</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_count"</span>: <span class="st">"10"</span>,</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"code"</span>: <span class="st">"http://loinc.org|72166-2"</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    num_pages<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Load Observations where `Observation.subject` references the instance of Patient</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># identified by `id` in the `df_patients` DataFrame</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    df_constraints<span class="op">=</span>{<span class="st">"subject"</span>: <span class="st">"id"</span>},</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    fhir_paths<span class="op">=</span>[</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"observation_id"</span>, <span class="st">"id"</span>),</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"patient"</span>, <span class="st">"subject.reference"</span>),</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"status"</span>, <span class="st">"status"</span>),</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"code"</span>, <span class="st">"code.coding[0].code"</span>),</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"code_display"</span>, <span class="st">"code.coding[0].display"</span>),</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"value"</span>, <span class="st">"valueCodeableConcept.coding[0].code"</span>),</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"value_display"</span>, <span class="st">"valueCodeableConcept.coding[0].display"</span>),</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>      (<span class="st">"datetime"</span>, <span class="st">"effectiveDateTime"</span>)</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the first row of the Observations DataFrame</span></span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>df_observations2.head(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):   0%|          | 0/10 [00:00&lt;?, ?it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>                                                                      </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):   0%|          | 0/10 [00:00&lt;?, ?it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  10%|█         | 1/10 [00:00&lt;00:02,  3.81it/s]</code></pre>
+<pre><code>Query &amp; Build DF (Observation):   0%|          | 0/10 [00:00&lt;?, ?it/s]                                                                      Query &amp; Build DF (Observation):   0%|          | 0/10 [00:00&lt;?, ?it/s]Query &amp; Build DF (Observation):  10%|█         | 1/10 [00:00&lt;00:01,  6.20it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=1</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  10%|█         | 1/10 [00:00&lt;00:02,  3.81it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  20%|██        | 2/10 [00:00&lt;00:02,  3.86it/s]</code></pre>
+<pre><code>                                                                              Query &amp; Build DF (Observation):  10%|█         | 1/10 [00:00&lt;00:01,  6.20it/s]Query &amp; Build DF (Observation):  20%|██        | 2/10 [00:00&lt;00:01,  4.52it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=180</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  20%|██        | 2/10 [00:00&lt;00:02,  3.86it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  30%|███       | 3/10 [00:00&lt;00:01,  3.95it/s]</code></pre>
+<pre><code>                                                                              Query &amp; Build DF (Observation):  20%|██        | 2/10 [00:00&lt;00:01,  4.52it/s]Query &amp; Build DF (Observation):  30%|███       | 3/10 [00:00&lt;00:01,  4.42it/s]                                                                              Query &amp; Build DF (Observation):  30%|███       | 3/10 [00:00&lt;00:01,  4.42it/s]Query &amp; Build DF (Observation):  40%|████      | 4/10 [00:00&lt;00:01,  5.11it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=293</code></pre>
+<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=293
+https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=612</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  30%|███       | 3/10 [00:01&lt;00:01,  3.95it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  40%|████      | 4/10 [00:01&lt;00:01,  3.97it/s]</code></pre>
+<pre><code>                                                                              Query &amp; Build DF (Observation):  40%|████      | 4/10 [00:00&lt;00:01,  5.11it/s]Query &amp; Build DF (Observation):  50%|█████     | 5/10 [00:00&lt;00:00,  5.62it/s]                                                                              Query &amp; Build DF (Observation):  50%|█████     | 5/10 [00:01&lt;00:00,  5.62it/s]Query &amp; Build DF (Observation):  60%|██████    | 6/10 [00:01&lt;00:00,  5.79it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=612</code></pre>
+<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=931
+https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=1250</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  40%|████      | 4/10 [00:01&lt;00:01,  3.97it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  50%|█████     | 5/10 [00:01&lt;00:01,  4.11it/s]</code></pre>
+<pre><code>                                                                              Query &amp; Build DF (Observation):  60%|██████    | 6/10 [00:01&lt;00:00,  5.79it/s]Query &amp; Build DF (Observation):  70%|███████   | 7/10 [00:01&lt;00:00,  6.09it/s]                                                                              Query &amp; Build DF (Observation):  70%|███████   | 7/10 [00:01&lt;00:00,  6.09it/s]Query &amp; Build DF (Observation):  80%|████████  | 8/10 [00:01&lt;00:00,  6.24it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=931</code></pre>
+<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=1806
+https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=1989</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  50%|█████     | 5/10 [00:01&lt;00:01,  4.11it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  60%|██████    | 6/10 [00:01&lt;00:01,  3.89it/s]</code></pre>
+<pre><code>                                                                              Query &amp; Build DF (Observation):  80%|████████  | 8/10 [00:01&lt;00:00,  6.24it/s]Query &amp; Build DF (Observation):  90%|█████████ | 9/10 [00:01&lt;00:00,  6.08it/s]                                                                              Query &amp; Build DF (Observation):  90%|█████████ | 9/10 [00:01&lt;00:00,  6.08it/s]Query &amp; Build DF (Observation): 100%|██████████| 10/10 [00:01&lt;00:00,  6.23it/s]Query &amp; Build DF (Observation): 100%|██████████| 10/10 [00:01&lt;00:00,  5.75it/s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=1250</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  60%|██████    | 6/10 [00:01&lt;00:01,  3.89it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  70%|███████   | 7/10 [00:01&lt;00:00,  3.77it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=1806</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  70%|███████   | 7/10 [00:02&lt;00:00,  3.77it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  80%|████████  | 8/10 [00:02&lt;00:00,  3.71it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=1989</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  80%|████████  | 8/10 [00:02&lt;00:00,  3.71it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  90%|█████████ | 9/10 [00:02&lt;00:00,  3.67it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=2172</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>                                                                              </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation):  90%|█████████ | 9/10 [00:02&lt;00:00,  3.67it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation): 100%|██████████| 10/10 [00:02&lt;00:00,  3.63it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Query &amp; Build DF (Observation): 100%|██████████| 10/10 [00:02&lt;00:00,  3.77it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=2370</code></pre>
+<pre><code>https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=2172
+https://api.logicahealth.org/FHIRResearchSynthea/open/Observation?_count=10&amp;code=http://loinc.org|72166-2&amp;subject=2370</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code></code></pre>
@@ -2327,6 +2090,15 @@ Relevant roles:
 <!-- scripts.html -->
 <!-- any content in this file is inserted right before </body> -->
 
+<!-- Fix a11y issues with side menu -->
+<script>
+const elements = document.querySelectorAll('.sidebar-menu-container a.sidebar-item-text[data-bs-toggle="collapse"], .sidebar-menu-container a.sidebar-item-toggle[data-bs-toggle="collapse"]')
+
+elements.forEach(element => {
+    element.setAttribute('role', 'group');
+});
+</script>
+
 <!-- fancy json code viewer -->
 <script type="text/javascript" src="https://unpkg.com/dompurify@3.0.1/dist/purify.min.js"></script> <!-- load JS Sanitizer -->
 <script>
@@ -2501,18 +2273,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // Get next and prev modules data
     let prev_href, prev_text;
     let next_href, next_text;
+
     role_module_map.forEach((mapping) => {
         if( mapping.role == role ) {
             for(let i=0; i<mapping.modules.length; i++) {
                 if( mapping.modules[i].slug == current_module_slug ) {
                     function slug_to_url(slug) {
-                        if( window.location.path.includes('modules') ) {
-                            // replace "modules/*" in current url with "modules/<slug>.html"
-                            return window.location.tostring().replace(/modules\/.*/, "modules/" + slug);
+                        if( window.location.pathname.includes('modules') ) {
+                            // replace "modules/*" in current URL with "modules/<slug>.html"
+                            return window.location.toString().replace(/modules\/.*/, "modules/" + slug + ".html");
                         }
                         else {
-                            // this case is irrelevant since pREV/Next buttons are only role-based in modules
-                            return window.location.toString() + "/modules/" + slug;
+                            // this case is irrelevant since prev/next buttons are only role-based in modules
+                            return window.location.toString() + "/modules/" + slug + ".html";
                         }
                     }
                     
@@ -2520,23 +2293,18 @@ document.addEventListener("DOMContentLoaded", function() {
                     prev_text = (i > 0) ? mapping.modules[i-1].text : null;
 
                     next_href = (i+1 < mapping.modules.length) ? slug_to_url(mapping.modules[i+1].slug) : null;
-                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;
-                
-                    console.log("DEBUG 2");
-
+                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;                
                 }
             }
         }
     });
+
 
     // Overwrite prev link
     if( prev_href ) {
         const prev_link_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link");
         const prev_text_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link .nav-page-text");
         if( prev_link_elmt ) {
-
-
-            console.log("DEBUG 3");
 
             prev_link_elmt.href = prev_href
             //prev_link_elmt.classList.add("btn", "btn-outline-custom", "rounded");
@@ -2549,8 +2317,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if( next_href ) {
         const next_link_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link");
         const next_text_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link .nav-page-text");
-
-        console.log("DEBUG 4");
 
         if( next_link_elmt ) {
             next_link_elmt.href = next_href;
@@ -2567,25 +2333,45 @@ document.addEventListener("DOMContentLoaded", function() {
         key_points.insertAdjacentElement("afterend", page_nav);
     }
 
-    console.log("DEBUG 10");
-
 });
 
 
 // Override style of Quarto page navigation (prev/next buttons)
 document.addEventListener("DOMContentLoaded", function() {
 
-    console.log("DEBUG 20");
-
     const page_navigators = document.querySelectorAll(".pagination-link");
     page_navigators.forEach((node) => {
-        console.log("DEBUG 21");
 
         node.classList.add("btn", "btn-outline-custom", "rounded");
         node.parentNode.classList.remove("nav-page");
         node.parentNode.parentNode.style.gridRow = "initial";
     });
 });
+
+// Set external links to open in a new tab
+document.addEventListener("DOMContentLoaded", function() {
+    var all_links = document.querySelectorAll('a');
+    for (var i = 0; i < all_links.length; i++){
+        var a = all_links[i];
+        if(a.hostname != location.hostname) {
+                a.target = '_blank';
+        }
+    }
+})
+
+</script>
+
+<!-- Fancy Box -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Fancybox.bind("[data-fancybox]", {
+            Toolbar: {
+                enabled: true,
+            }
+        });
+    })
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -2622,18 +2408,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2665,11 +2440,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mitre\.github\.io\/fhir-for-research\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2679,8 +2493,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2692,7 +2515,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2736,6 +2682,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2761,6 +2708,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2822,12 +2795,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../modules/tabular-intro" class="pagination-link">
+      <a href="../modules/tabular-intro" class="pagination-link" aria-label="Introduction">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../modules/tabular-r" class="pagination-link">
+      <a href="../modules/tabular-r" class="pagination-link" aria-label="Using R">
         <span class="nav-page-text">Using R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -2839,17 +2812,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
- © 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966
-  </li>  
-</ul>
-    </div>
+<p>© 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966<br><br>HL7® and FHIR® are the registered trademarks of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the HL7 and FHIR trademarks does not constitute an HL7 endorsement of this website.</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.290">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>FHIR for Research - FHIR Community &amp; Resources</title>
+<title>FHIR Community &amp; Resources – FHIR® for Research Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -46,8 +46,13 @@ ul.task-list li input[type="checkbox"] {
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,8 +61,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <!-- head.html -->
@@ -109,63 +116,63 @@ var store = initLocalStorage();
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index">
-    <span class="navbar-title">FHIR for Research</span>
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="..">
+    <span class="navbar-title">FHIR® for Research Documentation</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../sections/overview" rel="" target="" aria-current="page">
- <span class="menu-text">Overview</span></a>
+    <a class="nav-link active" href="../sections/overview" aria-current="page"> 
+<span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../sections/working-with-data" rel="" target="">
- <span class="menu-text">Working With Data</span></a>
+    <a class="nav-link" href="../sections/working-with-data"> 
+<span class="menu-text">Working With Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../sections/advanced-topics" rel="" target="">
- <span class="menu-text">Advanced Topics</span></a>
+    <a class="nav-link" href="../sections/advanced-topics"> 
+<span class="menu-text">Advanced Topics</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../contribute" rel="" target="">
- <span class="menu-text">Contributions &amp; Corrections</span></a>
+    <a class="nav-link" href="../contribute"> 
+<span class="menu-text">Questions &amp; Contributions</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/mitre/fhir-for-research" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/mitre/fhir-for-research"> <i class="bi bi-github" role="img" aria-label="View the GitHub repository for this site">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/fhir-from-10000-ft">FHIR for Research</a></li><li class="breadcrumb-item"><a href="../modules/fhir-community">Community &amp; Documentation</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/fhir-from-10000-ft">FHIR for Research</a></li><li class="breadcrumb-item"><a href="../modules/fhir-community">Community &amp; Documentation</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -176,9 +183,9 @@ var store = initLocalStorage();
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">FHIR for Research</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -204,7 +211,7 @@ var store = initLocalStorage();
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/fhir-history" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FHIR History</span></a>
+ <span class="menu-text">History of FHIR</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -237,13 +244,19 @@ var store = initLocalStorage();
  <span class="menu-text">Using the FHIR API</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/genomics" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Genomics Data &amp; FHIR</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">SMART on FHIR</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -260,13 +273,19 @@ var store = initLocalStorage();
  <span class="menu-text">Technical Details</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workshops/smart-on-fhir" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workshop</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Data Modeling in FHIR</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -294,7 +313,7 @@ var store = initLocalStorage();
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -305,8 +324,8 @@ var store = initLocalStorage();
   <li><a href="#the-hl7-fhir-community" id="toc-the-hl7-fhir-community" class="nav-link" data-scroll-target="#the-hl7-fhir-community"><span class="header-section-number">2</span> The HL7 FHIR community</a>
   <ul class="collapse">
   <li><a href="#hl7-work-groups" id="toc-hl7-work-groups" class="nav-link" data-scroll-target="#hl7-work-groups"><span class="header-section-number">2.1</span> HL7 Work Groups</a></li>
-  <li><a href="#zulip-chat.fhir.org" id="toc-zulip-chat.fhir.org" class="nav-link" data-scroll-target="#zulip-chat.fhir.org"><span class="header-section-number">2.2</span> Zulip (chat.fhir.org)</a></li>
-  <li><a href="#connectathons" id="toc-connectathons" class="nav-link" data-scroll-target="#connectathons"><span class="header-section-number">2.3</span> Connectathons</a></li>
+  <li><a href="#chat-fhir-org" id="toc-chat-fhir-org" class="nav-link" data-scroll-target="#chat-fhir-org"><span class="header-section-number">2.2</span> Zulip (chat.fhir.org)</a></li>
+  <li><a href="#hl7-fhir-connectathons" id="toc-hl7-fhir-connectathons" class="nav-link" data-scroll-target="#hl7-fhir-connectathons"><span class="header-section-number">2.3</span> HL7 FHIR Connectathons</a></li>
   <li><a href="#fhir-accelerators" id="toc-fhir-accelerators" class="nav-link" data-scroll-target="#fhir-accelerators"><span class="header-section-number">2.4</span> FHIR Accelerators</a></li>
   </ul></li>
   <li><a href="#hl7-fhir-resources" id="toc-hl7-fhir-resources" class="nav-link" data-scroll-target="#hl7-fhir-resources"><span class="header-section-number">3</span> HL7 FHIR resources</a>
@@ -315,6 +334,16 @@ var store = initLocalStorage();
   <li><a href="#hl7-jira" id="toc-hl7-jira" class="nav-link" data-scroll-target="#hl7-jira"><span class="header-section-number">3.2</span> HL7 Jira</a></li>
   <li><a href="#fhir-community-forum" id="toc-fhir-community-forum" class="nav-link" data-scroll-target="#fhir-community-forum"><span class="header-section-number">3.3</span> FHIR Community Forum</a></li>
   <li><a href="#stackoverflow-on-fhir" id="toc-stackoverflow-on-fhir" class="nav-link" data-scroll-target="#stackoverflow-on-fhir"><span class="header-section-number">3.4</span> StackOverflow on FHIR</a></li>
+  </ul></li>
+  <li><a href="#navigating-the-hl7-standards-development-process" id="toc-navigating-the-hl7-standards-development-process" class="nav-link" data-scroll-target="#navigating-the-hl7-standards-development-process"><span class="header-section-number">4</span> Navigating the HL7 standards development process</a>
+  <ul class="collapse">
+  <li><a href="#hl7-balloting-in-the-standards-development-process" id="toc-hl7-balloting-in-the-standards-development-process" class="nav-link" data-scroll-target="#hl7-balloting-in-the-standards-development-process"><span class="header-section-number">4.1</span> HL7 balloting in the standards development process</a></li>
+  <li><a href="#ballot-levels" id="toc-ballot-levels" class="nav-link" data-scroll-target="#ballot-levels"><span class="header-section-number">4.2</span> HL7 ballot process and levels</a></li>
+  <li><a href="#hl7-ballot-examples" id="toc-hl7-ballot-examples" class="nav-link" data-scroll-target="#hl7-ballot-examples"><span class="header-section-number">4.3</span> HL7 ballot examples</a></li>
+  <li><a href="#pros-of-balloting-through-hl7" id="toc-pros-of-balloting-through-hl7" class="nav-link" data-scroll-target="#pros-of-balloting-through-hl7"><span class="header-section-number">4.4</span> Pros of balloting through HL7</a></li>
+  <li><a href="#cons-of-balloting-through-hl7" id="toc-cons-of-balloting-through-hl7" class="nav-link" data-scroll-target="#cons-of-balloting-through-hl7"><span class="header-section-number">4.5</span> Cons of balloting through HL7</a></li>
+  <li><a href="#balloting-and-research" id="toc-balloting-and-research" class="nav-link" data-scroll-target="#balloting-and-research"><span class="header-section-number">4.6</span> Balloting implications for researchers</a></li>
+  <li><a href="#more-information-on-balloting" id="toc-more-information-on-balloting" class="nav-link" data-scroll-target="#more-information-on-balloting"><span class="header-section-number">4.7</span> More information on balloting</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -332,18 +361,6 @@ var store = initLocalStorage();
 </nav>
 -->
 
-  <div class="callout callout-style-default callout-warning callout-titled">
-    <div class="callout-header d-flex align-content-center">
-      <div class="callout-icon-container"><i class="callout-icon"></i></div>
-      <div class="callout-title-container flex-fill">
-        Under active development
-      </div>
-    </div>
-    <div class="callout-body-container callout-body">
-      <p>The content on this website is under active development. Please proceed with caution.</p>
-    </div>
-  </div>
-
 <h1 class="title display-7">FHIR Community &amp; Resources</h1>
 
 </header>
@@ -359,19 +376,10 @@ Learning objectives
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p class="prompt">After reading this module, you will be able to answer the following questions:</p>
 <ol type="1">
 <li>
-    How can I get involved with the FHIR community?
-    <div class="answer">You can interact with the FHIR community through <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=4489802">Work Groups</a>, Zulip (<a href="chat.fhir.org">chat.fhir.org</a>), and <a href="https://confluence.hl7.org/display/FHIR/Connectathons">Connectathons</a>.</div>
-</li>
-<li>
-    Where can I ask FHIR related questions?
-    <div class="answer">Zulip (<a href="https://chat.fhir.org">chat.fhir.org</a>), the <a href="http://community.fhir.org">FHIR Community Forum</a>, and <a href="https://stackoverflow.com/questions/tagged/hl7_fhir">StackOverflow</a> are great places to ask FHIR-related questions.</div>
-</li>
-<li>
-    Where can I find more information on HL7?
-    <div class="answer">HL7 resources are primarily found in <a href="https://confluence.hl7.org">HL7 Confluence</a> and project status can be seen in <a href="https://jira.hl7.org/secure/Dashboard.jspa">HL7 Jira</a>.</div>
+    Describe how to get involved or seek assistance from the FHIR community.
+    <div class="answer">Options for engaging with the FHIR community include <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=4489802">HL7 Work Groups</a>, Zulip (<a href="https://chat.fhir.org" class="uri">https://chat.fhir.org</a>), and <a href="https://confluence.hl7.org/display/FHIR/Connectathons">HL7 Connectathons</a>.</div>
 </li>
 </ol>
 </div>
@@ -425,9 +433,10 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <!-- End hack to add key points block at end of page-->
 
+
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>FHIR has an active community of users who engage in discussions and offer advice. This module will introduce you to the HL7 and FHIR community, offer suggestions on where to ask questions, and clarify the various touchpoints and engagement opportunities.</p>
+<p>FHIR has an active community of users who engage in discussions and offer advice. This module will introduce you to the HL7® and FHIR community, offer suggestions on where to ask questions, and clarify the various touchpoints and engagement opportunities.</p>
 </section>
 <section id="the-hl7-fhir-community" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="the-hl7-fhir-community"><span class="header-section-number">2</span> The HL7 FHIR community</h2>
@@ -437,7 +446,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <li>Health-focused companies and non-profits</li>
 <li>Local, state, and federal health agencies</li>
 </ul>
-<p>Because <a href="https://hl7.org/fhir/">FHIR</a> is an open-source specification, most of HL7’s FHIR work is done publicly, and anyone can participate. The FHIR community also develops many <a href="http://fhir.org/guides/registry/">FHIR Implementation Guides (IGs)</a> with the same public approach.</p>
+<p>Because <a href="https://hl7.org/fhir/">FHIR</a> is an open-source specification, most of HL7’s FHIR work is done publicly, and anyone may <a href="https://confluence.hl7.org/display/HL7/Participating+in+HL7">participate</a>. The FHIR community also develops many <a href="../modules/data-modeling-reading-igs">Implementation Guides (IGs)</a> that may be found at the <a href="http://fhir.org/guides/registry/">FHIR Implementation Guide Registry</a> with the same public approach.</p>
 <p>This openness makes members of the community accessible to implementers and developers who want to:</p>
 <ul>
 <li>Ask questions.</li>
@@ -451,27 +460,27 @@ document.addEventListener("DOMContentLoaded", function() {
 <blockquote class="blockquote">
 <p>…the bodies within HL7 that take on responsibility for developing and maintaining standards. They are where the “work” of HL7 gets done. HL7 has many work groups covering the spectrum of the healthcare space. All work groups are open to participation by anyone with an interest in their content.</p>
 </blockquote>
-<p>HL7 Work Groups consist of subject matter experts and other stakeholders. Each Work Group has a <a href="https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions">mailing list</a> that you can join to communicate with the Work Group, including asking for time on an upcoming conference call. Work Groups also post conference call agendas on their Confluence sites (see the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=4489802">Work Group directory</a> for Confluence links).</p>
+<p>HL7 Work Groups consist of subject matter experts and other stakeholders. Each Work Group has a <a href="https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions">mailing list</a> that may be joined to communicate with the Work Group, including asking for time on an upcoming conference call. Work Groups also post conference call agendas on their Confluence sites (see the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=4489802">Work Group directory</a> for Confluence links).</p>
 <p>Each Work Group lists their <a href="http://www.hl7.org/Special/committees/index.cfm?ref=nav">associated projects</a>. Work Groups typically meet on a weekly basis for a <a href="http://www.hl7.org/concalls/CallDirectory.aspx">conference call</a>. There is a core leadership team for each Work Group that facilitates meetings. Attendees vary depending on agenda content.</p>
 <p>Work Groups also meet in-person or hybrid at <a href="https://www.hl7.org/events/workgroupmeetings.cfm?ref=nav">HL7 Working Group Meetings</a>, which are held three times per year.</p>
-<section id="getting-started-with-work-groups" class="level4">
-<h4 class="anchored" data-anchor-id="getting-started-with-work-groups">Getting started with Work Groups</h4>
+<section id="work-group-meetings" class="level4">
+<h4 class="anchored" data-anchor-id="work-group-meetings">Getting started with Work Groups</h4>
 <p>The fastest way to get started in a Work Group is to join its <a href="http://www.hl7.org/concalls/CallDirectory.aspx">conference call</a> and ask to introduce yourself.</p>
-<p>Alternatively (or additionally), join the Work Group’s <a href="https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions">mailing list</a> and reach out to the group’s leadership to introduce yourself. You can also use the mailing list to request future agenda items.</p>
+<p>Alternatively (or additionally), join the Work Group’s <a href="https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions">mailing list</a> and reach out to the group’s leadership to introduce yourself. You may also use the mailing list to request future agenda items.</p>
 </section>
 <section id="tips-for-attending-work-group-meetings" class="level4">
 <h4 class="anchored" data-anchor-id="tips-for-attending-work-group-meetings">Tips for attending Work Group meetings:</h4>
 <ul>
 <li><p>Ask to be on the agenda ahead of the meeting to get specific questions addressed.</p></li>
 <li><p>Be prepared to discuss your agenda item(s). Agendas are available ahead of the meeting on the Work Group’s Confluence page.</p></li>
-<li><p>Share your expertise. To ensure that new projects and specifications can be used by the community, Work Groups require input from a variety of stakeholders.</p></li>
+<li><p>Share your expertise. To ensure that new projects and specifications may be used by the community, Work Groups require input from a variety of stakeholders.</p></li>
 </ul>
 </section>
 </section>
-<section id="zulip-chat.fhir.org" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="zulip-chat.fhir.org"><span class="header-section-number">2.2</span> Zulip (chat.fhir.org)</h3>
+<section id="chat-fhir-org" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="chat-fhir-org"><span class="header-section-number">2.2</span> Zulip (chat.fhir.org)</h3>
 <p>Zulip (<a href="https://chat.fhir.org">chat.fhir.org</a>) is an asynchronous communication platform like Slack or Teams messaging. Anyone may join. The platform is a valuable resource for asking questions and connecting with others with similar projects or objectives.</p>
-<p>Zulip has “streams” (like “channels” on Slack) for general topics like <a href="https://chat.fhir.org/#narrow/stream/179252-IG-creation">Implementation Guide development</a> and <a href="https://chat.fhir.org/#narrow/stream/179202-terminology">Terminology</a>, as well as domain-specific topics like <a href="https://chat.fhir.org/#narrow/stream/179234-Cancer-Interoperability">Cancer Interoperability</a>. Users post comments or questions inside a stream, and others respond. You can find applicable streams by searching for your topic or browsing through the stream list.</p>
+<p>Zulip has “streams” (like “channels” on Slack) for general topics like <a href="https://chat.fhir.org/#narrow/stream/179252-IG-creation">Implementation Guide development</a> and <a href="https://chat.fhir.org/#narrow/stream/179202-terminology">Terminology</a>, as well as domain-specific topics like <a href="https://chat.fhir.org/#narrow/stream/179234-Cancer-Interoperability">Cancer Interoperability</a>. Users post comments or questions inside a stream, and others respond. You may find applicable streams by searching for a topic or browsing through the stream list.</p>
 <section id="getting-started-with-zulip" class="level4">
 <h4 class="anchored" data-anchor-id="getting-started-with-zulip">Getting started with Zulip</h4>
 <p>Before using Zulip, review HL7’s <a href="https://confluence.hl7.org/display/FHIR/Chat.fhir.org+Community+Expectations">community expectations</a>.</p>
@@ -485,13 +494,13 @@ document.addEventListener("DOMContentLoaded", function() {
 </ul>
 </section>
 </section>
-<section id="connectathons" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="connectathons"><span class="header-section-number">2.3</span> Connectathons</h3>
-<p><a href="https://confluence.hl7.org/display/FHIR/Connectathons">Connectathons</a> are events that connect contributors and community members to test FHIR technology. HL7 describes a <a href="https://confluence.hl7.org/display/FHIR/Connectathons">Connectathon</a> as:</p>
+<section id="hl7-fhir-connectathons" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="hl7-fhir-connectathons"><span class="header-section-number">2.3</span> HL7 FHIR Connectathons</h3>
+<p><a href="https://confluence.hl7.org/display/FHIR/Connectathons">HL7 FHIR Connectathons</a> are events that connect contributors and community members to test FHIR technology. HL7 describes a <a href="https://confluence.hl7.org/display/FHIR/Connectathons">Connectathon</a> as:</p>
 <blockquote class="blockquote">
 <p>…an event that is centered on developing the HL7 FHIR Specification including resources, profiles and implementation guides. The purpose of a Connectathon is to prove that the specification is complete and facilitate FHIR implementation guide maturity.</p>
 </blockquote>
-<p>Three Connectathons are held each year, either as in-person events or as virtual meetings. Anyone can <a href="https://confluence.hl7.org/display/FHIR/Connectathons">attend as a participant</a> or submit a proposal to be a <a href="https://confluence.hl7.org/display/FHIR/Connectathon+Track+Lead+Responsibilities">Track Lead</a>. Connectathon Track Leads share their specification or resource for implementers to test and offer feedback. A complete list of the Tracks is posted before the Connectathon. You can also view offerings from <a href="https://confluence.hl7.org/display/FHIR/Previous+Connectathons">previous Connectathons</a>.</p>
+<p>Three Connectathons are held each year, either as in-person events or as virtual meetings. Anyone may <a href="https://confluence.hl7.org/display/FHIR/Connectathons">attend as a participant</a> or submit a proposal to be a <a href="https://confluence.hl7.org/display/FHIR/Connectathon+Track+Lead+Responsibilities">Track Lead</a>. Connectathon Track Leads share their specification or resource for implementers to test and offer feedback. A complete list of the Tracks is posted before the Connectathon. You may also view offerings from <a href="https://confluence.hl7.org/display/FHIR/Previous+Connectathons">previous Connectathons</a>.</p>
 <section id="getting-started" class="level4">
 <h4 class="anchored" data-anchor-id="getting-started">Getting started</h4>
 <p>Find information about upcoming Connectathons on <a href="https://www.hl7.org/events/fhir-connectathon/">HL7’s Connectathon events page</a> or the <a href="https://confluence.hl7.org/display/FHIR/Connectathons">Connectathon Confluence page</a>.</p>
@@ -534,7 +543,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </section>
 <section id="fhir-community-forum" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="fhir-community-forum"><span class="header-section-number">3.3</span> FHIR Community Forum</h3>
-<p>FHIR implementation and development discussions occur in the <a href="http://community.fhir.org/">FHIR Community Forum</a>. The <a href="http://community.fhir.org/t/welcome-to-the-fhir-community-forum/8">FHIR Community Forum</a> is a place to ask questions like:</p>
+<p>While the <a href="http://community.fhir.org/">FHIR Community Forum</a> is no longer active as a discussion platform, the posts have been archived for historical reference. You will find posts to previous questions like:</p>
 <blockquote class="blockquote">
 <ul>
 <li>How do I do [x]? where [x] is any kind of use of FHIR at all</li>
@@ -543,11 +552,87 @@ document.addEventListener("DOMContentLoaded", function() {
 <li>What does everyone think about [making some change to the FHIR specification]?</li>
 </ul>
 </blockquote>
-<p>Although the FHIR Community Forum is monitored, Zulip (<a href="https://chat.fhir.org">chat.fhir.org</a>) serves a similar purpose and is more active.</p>
+<p>The FHIR Community Forum is no longer used or monitored. All discussion has transitioned to Zulip (<a href="https://chat.fhir.org">chat.fhir.org</a>).</p>
 </section>
 <section id="stackoverflow-on-fhir" class="level3" data-number="3.4">
 <h3 data-number="3.4" class="anchored" data-anchor-id="stackoverflow-on-fhir"><span class="header-section-number">3.4</span> StackOverflow on FHIR</h3>
 <p><a href="https://stackoverflow.com/">StackOverflow</a> is a third-party forum for asking and answering technical questions. HL7 FHIR is one of the topics discussed on StackOverflow, in addition to many other technologies unrelated to health. Use the <a href="https://stackoverflow.com/questions/tagged/hl7_fhir">hl7-fhir tag</a> for developer and programming questions about reference FHIR implementations.</p>
+</section>
+</section>
+<section id="navigating-the-hl7-standards-development-process" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="navigating-the-hl7-standards-development-process"><span class="header-section-number">4</span> Navigating the HL7 standards development process</h2>
+<p>The standards development process requires walking a fine line between adoptability and thoroughness. HL7 describes the balance of the <a href="https://confluence.hl7.org/display/HL7/Understanding+the+Standards+Process#:~:text=HL7%20ensures%20that%20all%20content,help%20to%20retain%20institutional%20knowledge">standards process</a>:</p>
+<blockquote class="blockquote">
+<p>Spend too little time and energy and the standard is unlikely to be fit for purpose or see much adoption. Take too long or require too much investment and the community will move on before the specification is declared “fit for use”.</p>
+</blockquote>
+<section id="hl7-balloting-in-the-standards-development-process" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="hl7-balloting-in-the-standards-development-process"><span class="header-section-number">4.1</span> HL7 balloting in the standards development process</h3>
+<p><a href="https://confluence.hl7.org/display/HL7/HL7+Balloting">HL7 balloting</a> is defined as:</p>
+<blockquote class="blockquote">
+<p>…the formal process that HL7 uses to get feedback and comments on specifications prior to publication. Rules governing balloting are defined in both <a href="http://www.hl7.org/documentcenter/public./membership/HL7_Governance_and_Operations_Manual.pdf">HL7’s Governance and Operations Manual</a> and in the <a href="http://www.hl7.org/documentcenter/public/procedures/HL7_Essential_Requirements.pdf">HL7 Essential Requirements</a>. These, in turn, are governed by the expectations of the American National Standards Institute (ANSI) which accredits HL7 as a standards development organization and enforces rules around the openness and fairness of approval processes. The objective of balloting is to actively seek feedback on a proposed standard and to ensure that the community that will be governed by that standard is in agreement with the expectations set by the standard.</p>
+</blockquote>
+</section>
+<section id="ballot-levels" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="ballot-levels"><span class="header-section-number">4.2</span> HL7 ballot process and levels</h3>
+<p>For a project that wants to pursue the HL7 balloting process, the first step is to <a href="https://confluence.hl7.org/display/HL7/How+to+Create+and+Review+a+Project+Proposal">create an HL7 Project Proposal</a>. Project Proposals are reviewed by HL7 co-chairs and approved by a sponsoring Work Group that fits with the content or subject matter for the proposal. After the Project Proposal is approved by the sponsoring Work Group, a <a href="https://confluence.hl7.org/display/HL7/How+to+Create+a+Project+Scope+Statement+in+JIRA">Project Scope Statement</a>, which includes more detailed information about the proposed project, must be submitted and reviewed.</p>
+<p>The next step in the <a href="https://confluence.hl7.org/display/HL7/HL7+Balloting">balloting process</a> is to begin IG development. There are four levels of ballots:</p>
+<ol type="1">
+<li><strong>For Comment</strong>: opportunity for developers to solicit feedback early in the development process</li>
+<li><strong>Informative</strong>: used to vet content that is non-binding, like recommendations and guidance for implementers</li>
+<li><strong>Standard for Trial Use (STU)</strong>: for vetting content that will be binding on implementers. IGs in this ballot period are ready to be used but have not been widely implemented.</li>
+<li><strong>Normative</strong>: this stage is the final ballot level and once the requirements are meant, IGs at this level are authoritative. A high level of consensus is required to meet the normative status since any changes are binding.</li>
+</ol>
+<p>During a ballot, a specification is “frozen” for a specified period of time to give balloters time to submit comments to raise issues or propose changes. Balloters may cast votes to publish the specification. The sponsoring Work Group will review the comments to resolve issues raised during a ballot.</p>
+<p>The significance of the balloting process and ballot levels for researchers is discussed more in <a href="#balloting-and-research">Balloting implications for researchers</a>.</p>
+</section>
+<section id="hl7-ballot-examples" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="hl7-ballot-examples"><span class="header-section-number">4.3</span> HL7 ballot examples</h3>
+<p>Balloting is managed through two tools:</p>
+<ul>
+<li><a href="https://confluence.hl7.org/display/HL7/HL7+Ballot+Desktop">HL7 Ballot Desktop</a>: manages ballot announcements and captures the formal record of ballot submissions.</li>
+<li><a href="https://confluence.hl7.org/display/HL7/Jira+Ballot+Process">Jira Ballot Process</a>: manages comments and records the votes of balloters.</li>
+</ul>
+<p>Two research related IGs undergoing the HL7 balloting process are the following:</p>
+<ol type="1">
+<li><p>The <a href="http://hl7.org/fhir/us/mihr/index.html">Longitudinal Maternal &amp; Infant Health information for Research</a> IG supports maternal health researchers by defining a standard for aggregating and analyzing clinical information for birthing people and their infants. Researchers with the Eunice Kennedy Shriver National Institute of Child Health and Human Development (NICHD), part of the National Institutes of Health (NIH), co-authored the specification.</p></li>
+<li><p>The <a href="http://hl7.org/fhir/us/sirb/">Single Institutional Review Board (sIRB)</a> IG aims to facilitate multi-site research by combining individual IRB requirements into a single application process, lowering administrative burdens and expediting the research process.</p></li>
+</ol>
+</section>
+<section id="pros-of-balloting-through-hl7" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="pros-of-balloting-through-hl7"><span class="header-section-number">4.4</span> Pros of balloting through HL7</h3>
+<p>There are several benefits of balloting an IG through HL7, including <strong>visibility, implementation, and reusability</strong>:</p>
+<ul>
+<li><strong>Visibility</strong>: developing projects are socialized early and often throughout the balloting process, so many stakeholders within the HL7 community are aware of them</li>
+<li><strong>Implementation</strong>: greater visibility prevents standards from being developed in isolation. Successful implementation is more likely since there are many opportunities for the potential future implementors to offer input throughout the balloting process</li>
+<li><strong>Reusability</strong>: the combination of visibility and successful implementation supports reusability of the profiles within an IG, which is beneficial for the standards development process. Reusing existing IG content is conducive to interoperability.</li>
+</ul>
+</section>
+<section id="cons-of-balloting-through-hl7" class="level3" data-number="4.5">
+<h3 data-number="4.5" class="anchored" data-anchor-id="cons-of-balloting-through-hl7"><span class="header-section-number">4.5</span> Cons of balloting through HL7</h3>
+<p>Balloting through HL7 is not necessarily a requirement though and some use cases may find the significant time and effort required to complete the process too cumbersome. Reaching the Standards for Trial Use (STU) phase, where an IG can officially be trialed in a pilot-like environment, can take 1-2 years and then an additional 3 years before reaching the normative stage, where a standard is widely accepted and implemented. HL7 has some guidance on <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=104580055">publishing IGs outside of HL7</a></p>
+<p>Two IGs that were not balloted through HL7:</p>
+<ol type="1">
+<li><p>The <a href="https://nih-ncpi.github.io/ncpi-fhir-ig/index.html">NIH Cloud Platform Interoperability Effort (NCPI) FHIR Implementation Guide</a> (NCPI FHIR IG) is a relatively newer IG that is still under development. The IG aims to support data and knowledge-sharing among researchers by using FHIR as a standard, common model for representing data.</p></li>
+<li><p>The <a href="https://build.fhir.org/ig/OHSUCMP/htnu18ig/index.html">OHSU Hypertension Implementation Guide</a> is a patient-facing support tool for hypertension management. Funded by AHRQ, the IG uses <a href="../modules/smart-on-fhir-intro.html#cds-hooks">CDS Hooks</a>to support the clinical decision support logic.</p></li>
+</ol>
+</section>
+<section id="balloting-and-research" class="level3" data-number="4.6">
+<h3 data-number="4.6" class="anchored" data-anchor-id="balloting-and-research"><span class="header-section-number">4.6</span> Balloting implications for researchers</h3>
+<p>There are implications and considerations for researchers that may want to use an existing specification that is moving through the balloting process or ballot their own specification.</p>
+<ul>
+<li><strong>Consider the ballot level.</strong> Specifications that are earlier in the <a href="#ballot-levels">balloting stages</a> are more likely to change as they mature. It would be riskier to base a research project on the assumption that the IG will remain as it’s written.<br>
+</li>
+<li><strong>Is community consensus important?</strong> If garnering a strong community and consensus among the group is important to the success of a research effort, then balloting would likely help. Generally, adoption and implementation are more likely for IG’s that go through the balloting process. Particularly if industry support is desired, balloting is a great way to socialize an idea and unite interested stakeholders.</li>
+</ul>
+</section>
+<section id="more-information-on-balloting" class="level3" data-number="4.7">
+<h3 data-number="4.7" class="anchored" data-anchor-id="more-information-on-balloting"><span class="header-section-number">4.7</span> More information on balloting</h3>
+<p>The balloting process can be daunting and confusing after the first introduction. The following steps may help to clarify the process:</p>
+<ul>
+<li>Join a <a href="#work-group-meetings">Work Group meeting</a>.</li>
+<li>Join the <a href="#chat-fhir-org">chat.fhir.org</a> workspace, and particularly the <a href="https://chat.fhir.org/#narrow/stream/179257-Ballot-QA">#Ballot-QA</a> stream to read previous questions and answers or ask new questions.</li>
+<li>Connect with others in the HL7 community that have worked on balloted specifications, either through <a href="https://chat.fhir.org">chat.fhir.org</a> or through the Confluence work space. The community is vast and friendly; asking someone for advice may save you from sifting through Confluence to find the answer.</li>
+</ul>
 
 
 </section>
@@ -556,6 +641,15 @@ document.addEventListener("DOMContentLoaded", function() {
 </main> <!-- /main -->
 <!-- scripts.html -->
 <!-- any content in this file is inserted right before </body> -->
+
+<!-- Fix a11y issues with side menu -->
+<script>
+const elements = document.querySelectorAll('.sidebar-menu-container a.sidebar-item-text[data-bs-toggle="collapse"], .sidebar-menu-container a.sidebar-item-toggle[data-bs-toggle="collapse"]')
+
+elements.forEach(element => {
+    element.setAttribute('role', 'group');
+});
+</script>
 
 <!-- fancy json code viewer -->
 <script type="text/javascript" src="https://unpkg.com/dompurify@3.0.1/dist/purify.min.js"></script> <!-- load JS Sanitizer -->
@@ -731,18 +825,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // Get next and prev modules data
     let prev_href, prev_text;
     let next_href, next_text;
+
     role_module_map.forEach((mapping) => {
         if( mapping.role == role ) {
             for(let i=0; i<mapping.modules.length; i++) {
                 if( mapping.modules[i].slug == current_module_slug ) {
                     function slug_to_url(slug) {
-                        if( window.location.path.includes('modules') ) {
-                            // replace "modules/*" in current url with "modules/<slug>.html"
-                            return window.location.tostring().replace(/modules\/.*/, "modules/" + slug);
+                        if( window.location.pathname.includes('modules') ) {
+                            // replace "modules/*" in current URL with "modules/<slug>.html"
+                            return window.location.toString().replace(/modules\/.*/, "modules/" + slug + ".html");
                         }
                         else {
-                            // this case is irrelevant since pREV/Next buttons are only role-based in modules
-                            return window.location.toString() + "/modules/" + slug;
+                            // this case is irrelevant since prev/next buttons are only role-based in modules
+                            return window.location.toString() + "/modules/" + slug + ".html";
                         }
                     }
                     
@@ -750,23 +845,18 @@ document.addEventListener("DOMContentLoaded", function() {
                     prev_text = (i > 0) ? mapping.modules[i-1].text : null;
 
                     next_href = (i+1 < mapping.modules.length) ? slug_to_url(mapping.modules[i+1].slug) : null;
-                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;
-                
-                    console.log("DEBUG 2");
-
+                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;                
                 }
             }
         }
     });
+
 
     // Overwrite prev link
     if( prev_href ) {
         const prev_link_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link");
         const prev_text_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link .nav-page-text");
         if( prev_link_elmt ) {
-
-
-            console.log("DEBUG 3");
 
             prev_link_elmt.href = prev_href
             //prev_link_elmt.classList.add("btn", "btn-outline-custom", "rounded");
@@ -779,8 +869,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if( next_href ) {
         const next_link_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link");
         const next_text_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link .nav-page-text");
-
-        console.log("DEBUG 4");
 
         if( next_link_elmt ) {
             next_link_elmt.href = next_href;
@@ -797,25 +885,45 @@ document.addEventListener("DOMContentLoaded", function() {
         key_points.insertAdjacentElement("afterend", page_nav);
     }
 
-    console.log("DEBUG 10");
-
 });
 
 
 // Override style of Quarto page navigation (prev/next buttons)
 document.addEventListener("DOMContentLoaded", function() {
 
-    console.log("DEBUG 20");
-
     const page_navigators = document.querySelectorAll(".pagination-link");
     page_navigators.forEach((node) => {
-        console.log("DEBUG 21");
 
         node.classList.add("btn", "btn-outline-custom", "rounded");
         node.parentNode.classList.remove("nav-page");
         node.parentNode.parentNode.style.gridRow = "initial";
     });
 });
+
+// Set external links to open in a new tab
+document.addEventListener("DOMContentLoaded", function() {
+    var all_links = document.querySelectorAll('a');
+    for (var i = 0; i < all_links.length; i++){
+        var a = all_links[i];
+        if(a.hostname != location.hostname) {
+                a.target = '_blank';
+        }
+    }
+})
+
+</script>
+
+<!-- Fancy Box -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Fancybox.bind("[data-fancybox]", {
+            Toolbar: {
+                enabled: true,
+            }
+        });
+    })
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -852,18 +960,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -895,11 +992,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mitre\.github\.io\/fhir-for-research\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -909,8 +1045,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -922,7 +1067,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -966,6 +1234,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -991,6 +1260,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1052,12 +1347,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../modules/cdms" class="pagination-link">
+      <a href="../modules/cdms" class="pagination-link" aria-label="Common Data Models">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Common Data Models</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../modules/key-fhir-resources" class="pagination-link">
+      <a href="../modules/key-fhir-resources" class="pagination-link" aria-label="FHIR Resources">
         <span class="nav-page-text">FHIR Resources</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1069,17 +1364,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
- © 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966
-  </li>  
-</ul>
-    </div>
+<p>© 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966<br><br>HL7® and FHIR® are the registered trademarks of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the HL7 and FHIR trademarks does not constitute an HL7 endorsement of this website.</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 

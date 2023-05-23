@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.290">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>FHIR for Research - Technical Details</title>
+<title>Technical Details – FHIR® for Research Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -83,7 +84,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../modules/data-modeling-reading-igs.html" rel="next">
+<link href="../workshops/smart-on-fhir/index.html" rel="next">
 <link href="../modules/smart-on-fhir-intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -101,8 +102,13 @@ div.csl-indent {
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -111,8 +117,10 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <!-- head.html -->
@@ -167,63 +175,63 @@ var store = initLocalStorage();
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index">
-    <span class="navbar-title">FHIR for Research</span>
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="..">
+    <span class="navbar-title">FHIR® for Research Documentation</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../sections/overview" rel="" target="" aria-current="page">
- <span class="menu-text">Overview</span></a>
+    <a class="nav-link active" href="../sections/overview" aria-current="page"> 
+<span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../sections/working-with-data" rel="" target="">
- <span class="menu-text">Working With Data</span></a>
+    <a class="nav-link" href="../sections/working-with-data"> 
+<span class="menu-text">Working With Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../sections/advanced-topics" rel="" target="">
- <span class="menu-text">Advanced Topics</span></a>
+    <a class="nav-link" href="../sections/advanced-topics"> 
+<span class="menu-text">Advanced Topics</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../contribute" rel="" target="">
- <span class="menu-text">Contributions &amp; Corrections</span></a>
+    <a class="nav-link" href="../contribute"> 
+<span class="menu-text">Questions &amp; Contributions</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/mitre/fhir-for-research" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/mitre/fhir-for-research"> <i class="bi bi-github" role="img" aria-label="View the GitHub repository for this site">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/smart-on-fhir-intro">SMART on FHIR</a></li><li class="breadcrumb-item"><a href="../modules/smart-on-fhir-tech">Technical Details</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/smart-on-fhir-intro">SMART on FHIR</a></li><li class="breadcrumb-item"><a href="../modules/smart-on-fhir-tech">Technical Details</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -234,9 +242,9 @@ var store = initLocalStorage();
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">FHIR for Research</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -262,7 +270,7 @@ var store = initLocalStorage();
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/fhir-history" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FHIR History</span></a>
+ <span class="menu-text">History of FHIR</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -295,13 +303,19 @@ var store = initLocalStorage();
  <span class="menu-text">Using the FHIR API</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/genomics" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Genomics Data &amp; FHIR</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">SMART on FHIR</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -318,13 +332,19 @@ var store = initLocalStorage();
  <span class="menu-text">Technical Details</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workshops/smart-on-fhir" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workshop</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Data Modeling in FHIR</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -352,7 +372,7 @@ var store = initLocalStorage();
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -383,18 +403,6 @@ var store = initLocalStorage();
 <!--
 -->
 
-  <div class="callout callout-style-default callout-warning callout-titled">
-    <div class="callout-header d-flex align-content-center">
-      <div class="callout-icon-container"><i class="callout-icon"></i></div>
-      <div class="callout-title-container flex-fill">
-        Under active development
-      </div>
-    </div>
-    <div class="callout-body-container callout-body">
-      <p>The content on this website is under active development. Please proceed with caution.</p>
-    </div>
-  </div>
-
 <h1 class="title display-7">Technical Details</h1>
 
 </header>
@@ -421,6 +429,7 @@ Relevant roles:
 
 <!-- Hack to add key points block at end of page-->
 <!-- End hack to add key points block at end of page-->
+
 
 <p>This module is meant for technical users who would like to start working hands-on with SMART on FHIR. Read the <a href="../modules/smart-on-fhir-intro">SMART on FHIR Introduction</a> before continuing.</p>
 <section id="high-level-technical-considerations" class="level2" data-number="1">
@@ -454,13 +463,13 @@ Relevant roles:
 <li><p><a href="https://fire.ly/fhir-api/">.NET</a>: FHIR client library from Firely</p></li>
 </ul>
 </blockquote>
-<p>HL7’s Confluence site also has a list of <a href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">FHIR-related software libraries</a>.</p>
+<p>HL7®’s Confluence site also has a list of <a href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">FHIR-related software libraries</a>.</p>
 <p>You can create a SMART on FHIR application without relying on third-party libraries, but using a third-party library will likely save development time.</p>
 </section>
 <section id="security-and-privacy" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="security-and-privacy"><span class="header-section-number">1.3</span> Security and privacy</h3>
 <p>FHIR servers will likely return health data that can be linked to an individual. If so, <a href="https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html">rules around handling Protected Health Information (PHI)</a> apply. Your institution’s <a href="https://www.hhs.gov/ohrp/education-and-outreach/online-education/human-research-protection-training/lesson-3-what-are-irbs/index.html">IRB</a> will also have policies for handling sensitive patient data used in research.</p>
-<p>Determine the security and privacy approach for health data early in your design process before working with any real patient data. You can use synthetic data and a test FHIR server during development and testing.</p>
+<p>Determine the security and privacy approach for health data early in your design process before working with any real patient data. You can use synthetic data and a <a href="../modules/smart-on-fhir-tech">test FHIR server</a> during development and testing.</p>
 </section>
 <section id="human-centered-design" class="level3" data-number="1.4">
 <h3 data-number="1.4" class="anchored" data-anchor-id="human-centered-design"><span class="header-section-number">1.4</span> Human-centered design</h3>
@@ -497,16 +506,16 @@ Relevant roles:
 <section id="step-2-create-the-launch-page" class="level4">
 <h4 class="anchored" data-anchor-id="step-2-create-the-launch-page">Step 2: Create the launch page</h4>
 <p>Add the following content to <code>launch.html</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;head&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;meta</span> <span class="er">charset</span><span class="ot">=</span><span class="st">"UTF-8"</span> <span class="kw">/&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;title&gt;</span>Launch My APP<span class="kw">&lt;/title&gt;</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"UTF-8"</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Launch My APP<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- Use the SMART on FHIR JavaScript library to handle authorization --&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;script</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"</span><span class="kw">&gt;&lt;/script&gt;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/head&gt;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;body&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;script&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            FHIR<span class="op">.</span><span class="at">oauth2</span><span class="op">.</span><span class="fu">authorize</span>({</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>              <span class="co">// The client_id that you should have obtained after registering a client at</span></span>
@@ -528,53 +537,53 @@ Relevant roles:
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>              <span class="co">// will not automatically map to the "index.html" file in that directory.</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>              <span class="dt">redirectUri</span><span class="op">:</span> <span class="st">"index.html"</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>            })<span class="op">;</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/script&gt;</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/body&gt;</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/html&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that the <a href="https://docs.smarthealthit.org/client-js/api.html#authorizeoptionsoptions-promisenever"><code>FHIR.oauth2.authorize()</code></a> method will automatically redirect back to the authorization server (<code>launch.smarthealthit.org</code> for this example). This means that you will never see this page rendered in your browser.</p>
 </section>
 <section id="step-3-create-the-app-page" class="level4">
 <h4 class="anchored" data-anchor-id="step-3-create-the-app-page">Step 3: Create the “app” page</h4>
 <p>Add the following contents to <code>index.html</code>. This will be the testing “app” for this example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html</span> <span class="er">lang</span><span class="ot">=</span><span class="st">"en"</span><span class="kw">&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;head&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;meta</span> <span class="er">charset</span><span class="ot">=</span><span class="st">"utf-8"</span><span class="kw">&gt;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;meta</span> <span class="er">name</span><span class="ot">=</span><span class="st">"viewport"</span> <span class="er">content</span><span class="ot">=</span><span class="st">"width=device-width, initial-scale=1"</span><span class="kw">&gt;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;title&gt;</span>Example SMART App<span class="kw">&lt;/title&gt;</span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">"en"</span><span class="dt">&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">"viewport"</span><span class="ot"> content</span><span class="op">=</span><span class="st">"width=device-width, initial-scale=1"</span><span class="dt">&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Example SMART App<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- Use the SMART on FHIR JavaScript library --&gt;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;script</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"</span><span class="kw">&gt;&lt;/script&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- Use Bootstrap for styling --&gt;</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"stylesheet"</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"</span><span class="kw">&gt;</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;style&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">"stylesheet"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"</span><span class="dt">&gt;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            <span class="co">/* Additional styling for text boxes that will show JSON data */</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            <span class="pp">#patient</span><span class="op">,</span> <span class="pp">#meds</span> {</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                <span class="kw">font-family</span>: Monaco<span class="op">,</span> <span class="dv">monospace</span><span class="op">;</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                <span class="kw">white-space</span>: <span class="dv">pre</span><span class="op">;</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                <span class="kw">font-size</span>: <span class="dv">13</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                <span class="kw">height</span>: <span class="dv">38</span><span class="dt">vh</span><span class="op">;</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                <span class="kw">overflow</span>: <span class="dv">scroll</span><span class="op">;</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                <span class="kw">border</span>: <span class="dv">1</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">#CCC</span><span class="op">;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                <span class="kw">font-family</span><span class="ch">:</span> <span class="dv">Monaco</span><span class="op">,</span> <span class="dv">monospace</span><span class="op">;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                <span class="kw">white-space</span><span class="ch">:</span> <span class="dv">pre</span><span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">13</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                <span class="kw">height</span><span class="ch">:</span> <span class="dv">38</span><span class="dt">vh</span><span class="op">;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                <span class="kw">overflow</span><span class="ch">:</span> <span class="dv">scroll</span><span class="op">;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                <span class="kw">border</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">#CCC</span><span class="op">;</span></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>            }</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/style&gt;</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/head&gt;</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;body&gt;</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;nav</span> <span class="er">class</span><span class="ot">=</span><span class="st">"navbar bg-primary"</span> <span class="er">style</span><span class="ot">=</span><span class="st">"margin-bottom: 2vh"</span><span class="kw">&gt;</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>          <span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">"container-fluid"</span><span class="kw">&gt;</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;span</span> <span class="er">class</span><span class="ot">=</span><span class="st">"navbar-brand mb-0 h1 text-white"</span><span class="kw">&gt;</span>Example SMART on FHIR Application<span class="kw">&lt;/span&gt;</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>          <span class="kw">&lt;/div&gt;</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/nav&gt;</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">"container"</span><span class="kw">&gt;</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;h4&gt;</span>Current Patient<span class="kw">&lt;/h4&gt;</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;div</span> <span class="er">id</span><span class="ot">=</span><span class="st">"patient"</span><span class="kw">&gt;</span>Loading...<span class="kw">&lt;/div&gt;</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;br/&gt;</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;h4&gt;</span>Medications<span class="kw">&lt;/h4&gt;</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;div</span> <span class="er">id</span><span class="ot">=</span><span class="st">"meds"</span><span class="kw">&gt;</span>Loading...<span class="kw">&lt;/div&gt;</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">"text/javascript"</span><span class="kw">&gt;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">nav</span><span class="ot"> class</span><span class="op">=</span><span class="st">"navbar bg-primary"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"margin-bottom: 2vh"</span><span class="dt">&gt;</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"container-fluid"</span><span class="dt">&gt;</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"navbar-brand mb-0 h1 text-white"</span><span class="dt">&gt;</span>Example SMART on FHIR Application<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">nav</span><span class="dt">&gt;</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"container"</span><span class="dt">&gt;</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">h4</span><span class="dt">&gt;</span>Current Patient<span class="dt">&lt;/</span><span class="kw">h4</span><span class="dt">&gt;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">"patient"</span><span class="dt">&gt;</span>Loading...<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">/&gt;</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">h4</span><span class="dt">&gt;</span>Medications<span class="dt">&lt;/</span><span class="kw">h4</span><span class="dt">&gt;</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">"meds"</span><span class="dt">&gt;</span>Loading...<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">"text/javascript"</span><span class="dt">&gt;</span></span>
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>                FHIR<span class="op">.</span><span class="at">oauth2</span><span class="op">.</span><span class="fu">ready</span>()<span class="op">.</span><span class="fu">then</span>(<span class="kw">function</span>(client) {</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>                    <span class="co">// Render the current patient (or any error)</span></span>
 <span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>                    client<span class="op">.</span><span class="at">patient</span><span class="op">.</span><span class="fu">read</span>()<span class="op">.</span><span class="fu">then</span>(</span>
 <span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>                        <span class="kw">function</span>(pt) {</span>
@@ -584,13 +593,13 @@ Relevant roles:
 <span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>                            <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"patient"</span>)<span class="op">.</span><span class="at">innerText</span> <span class="op">=</span> error<span class="op">.</span><span class="at">stack</span><span class="op">;</span></span>
 <span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>                        }</span>
 <span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>                    )<span class="op">;</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>                    <span class="co">// Get MedicationRequests for the selected patient</span></span>
 <span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>                    client<span class="op">.</span><span class="fu">request</span>(<span class="st">"/MedicationRequest?patient="</span> <span class="op">+</span> client<span class="op">.</span><span class="at">patient</span><span class="op">.</span><span class="at">id</span><span class="op">,</span> {</span>
 <span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">resolveReferences</span><span class="op">:</span> [ <span class="st">"medicationReference"</span> ]<span class="op">,</span></span>
 <span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">graph</span><span class="op">:</span> <span class="kw">true</span></span>
 <span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>                    })</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>                    <span class="co">// Reject if no MedicationRequests are found</span></span>
 <span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">then</span>(<span class="kw">function</span>(data) {</span>
 <span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">if</span> (<span class="op">!</span>data<span class="op">.</span><span class="at">entry</span> <span class="op">||</span> <span class="op">!</span>data<span class="op">.</span><span class="at">entry</span><span class="op">.</span><span class="at">length</span>) {</span>
@@ -598,7 +607,7 @@ Relevant roles:
 <span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>                        }</span>
 <span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">return</span> data<span class="op">.</span><span class="at">entry</span><span class="op">;</span></span>
 <span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>                    })</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>                    <span class="co">// Render the current patient's medications (or any error)</span></span>
 <span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">then</span>(</span>
@@ -611,10 +620,10 @@ Relevant roles:
 <span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>                    )<span class="op">;</span></span>
 <span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>                })<span class="op">.</span><span class="fu">catch</span>(<span class="bu">console</span><span class="op">.</span><span class="fu">error</span>)<span class="op">;</span></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;/script&gt;</span></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/div&gt;</span></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/body&gt;</span></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/html&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="step-4-run-a-local-web-server" class="level4">
 <h4 class="anchored" data-anchor-id="step-4-run-a-local-web-server">Step 4: Run a local web server</h4>
@@ -627,25 +636,33 @@ Relevant roles:
 </ol>
 <p>For more information on using Python as a local web server, review <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server#running_a_simple_local_http_server">Mozilla’s test server guide</a>. If you don’t have Python, you can use <a href="https://apidock.com/ruby/Object/httpd">Ruby</a> or <a href="https://github.com/http-party/http-server">a Node package</a>.</p>
 <p>Once you are running the server, navigate to <a href="http://localhost:8000"><code>http://localhost:8000</code></a>. You should see a page that looks like this:</p>
-<p><img src="images/smart-on-fhir-loading.png" class="quarto-discovered-preview-image img-fluid" alt="Screenshot showing example SMART on FHIR application, displaying &quot;loading...&quot; for the patient and medication data."></p>
+<p><img src="images/smart-on-fhir-loading.png" class="img-fluid" alt="Screenshot showing example SMART on FHIR application, displaying &quot;loading...&quot; for the patient and medication data."></p>
 <p><strong>Note:</strong> data will not load by opening <code>index.html</code> in your browser. To load data, you must go through the EHR launch flow (see next step).</p>
 </section>
 <section id="step-5-test-with-launch.smarthealthit.org" class="level4">
 <h4 class="anchored" data-anchor-id="step-5-test-with-launch.smarthealthit.org">Step 5: Test with launch.smarthealthit.org</h4>
-<p>Go to <a href="https://launch.smarthealthit.org" class="uri">https://launch.smarthealthit.org</a>, enter <code>localhost:8000/launch.html</code> for in the “App’s Launch URL” field, and click “Launch”.</p>
+<p>Go to <a href="https://launch.smarthealthit.org" class="uri">https://launch.smarthealthit.org</a>, enter <code>http://localhost:8000/launch.html</code> for in the “App’s Launch URL” field, and click “Launch”.</p>
 <p>You should see the following happen:</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="images/smart-on-fhir-flow.mp4"></video></div>
+<!-- THIS FAILS  -->
+<!-- see https://github.com/quarto-dev/quarto-cli/issues/3892, it gets fixed in Quarto 1.3, but below is workaround -->
+<p><video src="images/smart-on-fhir-flow.mp4" class="img-fluid" alt="video showing SMART-on-FHIR flow" controls=""><a href="images/smart-on-fhir-flow.mp4">Video</a></video></p>
 </section>
 </section>
 <section id="explanation" class="level3 page-columns page-full" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="explanation"><span class="header-section-number">2.3</span> App launch process explanation</h3>
 <p>Here’s a visual diagram of the process that occurs when you launch your example application with <code>launch.smarthealthit.org</code>:</p>
-<div class="column-page-inset-right">
-<div class="cell">
+<div class="column-body">
+<div class="fancybox-figure" data-fancybox="" data-caption="Diagram showing the workflow for a SMART on FHIR EHR launch" data-src="#mermaidImage" style="margin-bottom: 0.5em" data-type="clone">
+<figure class="figure" style="width: 100%;">
+<div id="mermaidImage">
+<div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
+<p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">sequenceDiagram
+    accTitle: Diagram showing the workflow for a SMART on FHIR EHR launch
+    %%{init:{'sequence':{'messageFontSize': 30, 'actorFontSize': 30}}}%%
     participant A as localhost:8000/launch.html
     participant B as launch.smarthealthit.org
     participant C as localhost:8000/index.html
@@ -664,10 +681,25 @@ Relevant roles:
     D --&gt;&gt; C: Response with MedicationRequest JSON
 </pre>
 </div>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
 </div>
+<figcaption>
+Click to enlarge
+</figcaption>
+</figure>
+</div>
+</div>
+<style>
+.mermaid-js {
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif !important;
+height: inherit !important;
+}
+</style>
 <p>Here are the details of this process:</p>
 <ol type="1">
 <li><p>You trigger the application launch by clicking “Launch” on <code>launch.smarthealthit.org</code>. This simulates an EHR user triggering a SMART on FHIR app launch using a link in the EHR.</p>
@@ -681,7 +713,7 @@ Relevant roles:
 </blockquote></li>
 <li><p><code>http://localhost:8000/launch.html</code> loads in your browser, and <a href="https://docs.smarthealthit.org/client-js/api.html#authorizeoptionsoptions-promisenever"><code>FHIR.oauth2.authorize()</code></a> is called with the options defined in <code>launch.html</code>’s source code. The <code>authorize()</code> method <a href="https://hl7.org/fhir/smart-app-launch/STU2/app-launch.html#obtain-authorization-code">obtains an authorization code</a> from the testing server’s “authorize” endpoint. In this case, it does this by triggering a browser redirect to <code>https://launch.smarthealthit.org/v/r4/auth/authorize</code> with <a href="https://hl7.org/fhir/smart-app-launch/STU2/app-launch.html#obtain-authorization-code">a number of parameters</a>.</p></li>
 <li><p>Your browser loads a page on the <code>launch.smarthealthit.org</code> server simulating provider log-in and patient selection. (Note: If this application was being used in a real-world EHR, the provider would be logged in through the EHR and the selected patient would be whichever patient the provider was viewing when they launched the app in the EHR.)</p>
-<p>This dummy flow gathers the information needed for <code>launch.smarthealthit.org</code> to provide the example application with the authorization code. It does this by redirecting your browser to <code>localhost:8000/index.html?code=...&amp;state=...</code>. It knows to take you to <code>localhost:8000/index.html</code> because you specified the parameter <code>redirectUri: "index.html"</code> in the source code of <code>launch.html</code>.</p></li>
+<p>This dummy flow gathers the information needed for <code>launch.smarthealthit.org</code> to provide the example application with the authorization code. It does this by redirecting your browser to <code>http://localhost:8000/index.html?code=...&amp;state=...</code>. It knows to take you to <code>http://localhost:8000/index.html</code> because you specified the parameter <code>redirectUri: "index.html"</code> in the source code of <code>launch.html</code>.</p></li>
 <li><p><code>http://localhost:8000/index.html</code> loads in your browser and calls <a href="http://docs.smarthealthit.org/client-js/api.html#readyoptions---promiseclient"><code>FHIR.oauth2.ready()</code></a>. This creates a <a href="http://docs.smarthealthit.org/client-js/client"><code>Client</code></a> instance that handles <a href="https://hl7.org/fhir/smart-app-launch/STU2/app-launch.html#obtain-access-token">obtaining</a> and refreshing the OAuth access token needed to authorize access to the FHIR server, and making requests to the FHIR server with the proper headers.</p>
 <p>In this case, a call is made to <code>https://launch.smarthealthit.org/v/r4/auth/token</code>, which responds with the authorization token that must be passed along with any requests for FHIR data.</p></li>
 <li><p><code>http://localhost:8000/index.html</code> calls <code>client.patient.read()</code> to request the Patient resource instance from the FHIR server (in this case, this results in a call to <code>https://launch.smarthealthit.org/v/r4/fhir/Patient/39234650-0229-4aee-975b-c8ee68bab40b</code>) and displays the raw JSON returned by the server. Note that the <code>read()</code> method automatically includes the authorization token from (4).</p></li>
@@ -708,13 +740,22 @@ Relevant roles:
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-gottgens2021" class="csl-entry" role="listitem">
 Göttgens, Irene, and Sabine Oertelt-Prigione. 2021. <span>“The Application of Human-Centered Design Approaches in Health Research and Innovation: A Narrative Review of Current Practices.”</span> <em>JMIR mHealth and uHealth</em> 9 (12): e28102. <a href="https://doi.org/10.2196/28102">https://doi.org/10.2196/28102</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <!-- scripts.html -->
 <!-- any content in this file is inserted right before </body> -->
+
+<!-- Fix a11y issues with side menu -->
+<script>
+const elements = document.querySelectorAll('.sidebar-menu-container a.sidebar-item-text[data-bs-toggle="collapse"], .sidebar-menu-container a.sidebar-item-toggle[data-bs-toggle="collapse"]')
+
+elements.forEach(element => {
+    element.setAttribute('role', 'group');
+});
+</script>
 
 <!-- fancy json code viewer -->
 <script type="text/javascript" src="https://unpkg.com/dompurify@3.0.1/dist/purify.min.js"></script> <!-- load JS Sanitizer -->
@@ -890,18 +931,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // Get next and prev modules data
     let prev_href, prev_text;
     let next_href, next_text;
+
     role_module_map.forEach((mapping) => {
         if( mapping.role == role ) {
             for(let i=0; i<mapping.modules.length; i++) {
                 if( mapping.modules[i].slug == current_module_slug ) {
                     function slug_to_url(slug) {
-                        if( window.location.path.includes('modules') ) {
-                            // replace "modules/*" in current url with "modules/<slug>.html"
-                            return window.location.tostring().replace(/modules\/.*/, "modules/" + slug);
+                        if( window.location.pathname.includes('modules') ) {
+                            // replace "modules/*" in current URL with "modules/<slug>.html"
+                            return window.location.toString().replace(/modules\/.*/, "modules/" + slug + ".html");
                         }
                         else {
-                            // this case is irrelevant since pREV/Next buttons are only role-based in modules
-                            return window.location.toString() + "/modules/" + slug;
+                            // this case is irrelevant since prev/next buttons are only role-based in modules
+                            return window.location.toString() + "/modules/" + slug + ".html";
                         }
                     }
                     
@@ -909,23 +951,18 @@ document.addEventListener("DOMContentLoaded", function() {
                     prev_text = (i > 0) ? mapping.modules[i-1].text : null;
 
                     next_href = (i+1 < mapping.modules.length) ? slug_to_url(mapping.modules[i+1].slug) : null;
-                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;
-                
-                    console.log("DEBUG 2");
-
+                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;                
                 }
             }
         }
     });
+
 
     // Overwrite prev link
     if( prev_href ) {
         const prev_link_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link");
         const prev_text_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link .nav-page-text");
         if( prev_link_elmt ) {
-
-
-            console.log("DEBUG 3");
 
             prev_link_elmt.href = prev_href
             //prev_link_elmt.classList.add("btn", "btn-outline-custom", "rounded");
@@ -938,8 +975,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if( next_href ) {
         const next_link_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link");
         const next_text_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link .nav-page-text");
-
-        console.log("DEBUG 4");
 
         if( next_link_elmt ) {
             next_link_elmt.href = next_href;
@@ -956,25 +991,45 @@ document.addEventListener("DOMContentLoaded", function() {
         key_points.insertAdjacentElement("afterend", page_nav);
     }
 
-    console.log("DEBUG 10");
-
 });
 
 
 // Override style of Quarto page navigation (prev/next buttons)
 document.addEventListener("DOMContentLoaded", function() {
 
-    console.log("DEBUG 20");
-
     const page_navigators = document.querySelectorAll(".pagination-link");
     page_navigators.forEach((node) => {
-        console.log("DEBUG 21");
 
         node.classList.add("btn", "btn-outline-custom", "rounded");
         node.parentNode.classList.remove("nav-page");
         node.parentNode.parentNode.style.gridRow = "initial";
     });
 });
+
+// Set external links to open in a new tab
+document.addEventListener("DOMContentLoaded", function() {
+    var all_links = document.querySelectorAll('a');
+    for (var i = 0; i < all_links.length; i++){
+        var a = all_links[i];
+        if(a.hostname != location.hostname) {
+                a.target = '_blank';
+        }
+    }
+})
+
+</script>
+
+<!-- Fancy Box -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Fancybox.bind("[data-fancybox]", {
+            Toolbar: {
+                enabled: true,
+            }
+        });
+    })
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1011,18 +1066,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1054,11 +1098,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mitre\.github\.io\/fhir-for-research\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1068,8 +1151,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1081,7 +1173,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1125,6 +1340,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1150,6 +1366,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1211,13 +1453,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../modules/smart-on-fhir-intro" class="pagination-link">
+      <a href="../modules/smart-on-fhir-intro" class="pagination-link" aria-label="Introduction">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../modules/data-modeling-reading-igs" class="pagination-link">
-        <span class="nav-page-text">Reading IGs</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../workshops/smart-on-fhir" class="pagination-link" aria-label="Workshop">
+        <span class="nav-page-text">Workshop</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1228,18 +1470,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
- © 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966
-  </li>  
-</ul>
-    </div>
+<p>© 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966<br><br>HL7® and FHIR® are the registered trademarks of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the HL7 and FHIR trademarks does not constitute an HL7 endorsement of this website.</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
 <script>videojs(video_shortcode_videojs_video1);</script>
+
 
 
 

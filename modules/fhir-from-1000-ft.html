@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.290">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>FHIR for Research - FHIR from 1,000 Feet</title>
+<title>FHIR from 1,000 Feet – FHIR® for Research Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -80,8 +80,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,8 +95,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <!-- head.html -->
@@ -143,63 +150,63 @@ var store = initLocalStorage();
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index">
-    <span class="navbar-title">FHIR for Research</span>
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="..">
+    <span class="navbar-title">FHIR® for Research Documentation</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../sections/overview" rel="" target="" aria-current="page">
- <span class="menu-text">Overview</span></a>
+    <a class="nav-link active" href="../sections/overview" aria-current="page"> 
+<span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../sections/working-with-data" rel="" target="">
- <span class="menu-text">Working With Data</span></a>
+    <a class="nav-link" href="../sections/working-with-data"> 
+<span class="menu-text">Working With Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../sections/advanced-topics" rel="" target="">
- <span class="menu-text">Advanced Topics</span></a>
+    <a class="nav-link" href="../sections/advanced-topics"> 
+<span class="menu-text">Advanced Topics</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../contribute" rel="" target="">
- <span class="menu-text">Contributions &amp; Corrections</span></a>
+    <a class="nav-link" href="../contribute"> 
+<span class="menu-text">Questions &amp; Contributions</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/mitre/fhir-for-research" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/mitre/fhir-for-research"> <i class="bi bi-github" role="img" aria-label="View the GitHub repository for this site">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/fhir-from-10000-ft">FHIR for Research</a></li><li class="breadcrumb-item"><a href="../modules/fhir-from-1000-ft">FHIR from 1,000 Feet</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/fhir-from-10000-ft">FHIR for Research</a></li><li class="breadcrumb-item"><a href="../modules/fhir-from-1000-ft">FHIR from 1,000 Feet</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -210,9 +217,9 @@ var store = initLocalStorage();
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">FHIR for Research</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -238,7 +245,7 @@ var store = initLocalStorage();
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/fhir-history" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FHIR History</span></a>
+ <span class="menu-text">History of FHIR</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -271,13 +278,19 @@ var store = initLocalStorage();
  <span class="menu-text">Using the FHIR API</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/genomics" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Genomics Data &amp; FHIR</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">SMART on FHIR</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -294,13 +307,19 @@ var store = initLocalStorage();
  <span class="menu-text">Technical Details</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../workshops/smart-on-fhir" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workshop</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Data Modeling in FHIR</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -328,7 +347,7 @@ var store = initLocalStorage();
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -349,23 +368,11 @@ var store = initLocalStorage();
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header">
 <!--
 -->
-
-  <div class="callout callout-style-default callout-warning callout-titled">
-    <div class="callout-header d-flex align-content-center">
-      <div class="callout-icon-container"><i class="callout-icon"></i></div>
-      <div class="callout-title-container flex-fill">
-        Under active development
-      </div>
-    </div>
-    <div class="callout-body-container callout-body">
-      <p>The content on this website is under active development. Please proceed with caution.</p>
-    </div>
-  </div>
 
 <h1 class="title display-7">FHIR from 1,000 Feet</h1>
 
@@ -382,19 +389,18 @@ Learning objectives
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p class="prompt">After reading this module, you will be able to answer the following questions:</p>
 <ol type="1">
 <li>
-    What is the role of resources in FHIR?
+    Summarize the role of resources in FHIR.
     <div class="answer">Resources are categories of data in FHIR, and are used to store and retrieve a specific type of data in a pre-defined structure.</div>
 </li>
 <li>
-    How can FHIR be customized, and why is this important?
+    Describe how FHIR can be customized and why it is important.
     <div class="answer">FHIR can be customized through a process called profiling, where FHIR resources are constrained and extended. This allows FHIR to be used for a wide variety of use cases, including applications that were not imagined by FHIR’s creators.</div>
 </li>
 <li>
-    What is the FHIR API?
-    <div class="answer">It is a standard way for systems to request and send instances of resources to each other.</div>
+    Explain the purpose of the FHIR API.
+    <div class="answer">The FHIR API is a standard way for systems to request and send instances of resources to each other.</div>
 </li>
 </ol>
 </div>
@@ -448,6 +454,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <!-- End hack to add key points block at end of page-->
 
+
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -458,19 +465,20 @@ Did you read FHIR from 10,000 Feet?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is part two of our introduction to FHIR for research. Read part one, <a href="..//10-intro–intro-part-1-what-is-fhir/index">FHIR from 10,000 Feet</a>, if you haven’t already.</p>
+<p>This is part two of our introduction to FHIR for research. Read part one, <a href="../modules/fhir-from-10000-ft">FHIR from 10,000 Feet</a>, if you haven’t already.</p>
 <p>This module looks at how FHIR works from a technical standpoint, and is targeted to those interested in leading or implementing research using FHIR.</p>
 </div>
 </div>
-<section id="the-structure-of-fhir" class="level2 page-columns page-full" data-number="1">
+<section id="the-structure-of-fhir" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="the-structure-of-fhir"><span class="header-section-number">1</span> The structure of FHIR</h2>
 <p>The FHIR specification groups data elements into “<a href="https://www.hl7.org/fhir/resource.html">resources</a>,” like <a href="https://www.hl7.org/fhir/patient.html">Patient</a> for representing demographics and administrative information about an individual, and <a href="https://www.hl7.org/fhir/observation.html">Observation</a> for representing measurements and assertions about a patient or other subject.</p>
-<p>FHIR implementers can constrain what information gets included in a FHIR resource or use FHIR extensions to add information to a resource. They can also specify which FHIR resources should be used together for their use case. They share these constraints, extensions, and combinations with others through an Implementation Guide.</p>
+<p>FHIR implementers can constrain what information gets included in a FHIR resource or use FHIR extensions to add information to a resource. They can also specify which FHIR resources should be used together for their use case. They share these constraints, extensions, and combinations with others through an <a href="../modules/data-modeling-reading-igs">Implementation Guide (IG)</a>.</p>
 <p>Below is a screenshot of the <a href="https://www.hl7.org/fhir/R4B/patient.html">Patient resource</a> from the FHIR specification (<code>R4B</code> version):</p>
-<div class="column-page-inset">
+<div class="fancybox-figure" data-fancybox="images/R4_Patient.png" data-src="images/R4_Patient.png" data-caption="<a href='https://www.hl7.org/fhir/R4B/patient.html' target='_blank'>https://www.hl7.org/fhir/R4B/patient.html</a>">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://www.hl7.org/fhir/R4B/patient.html"><img src="images/R4_Patient.png" class="quarto-discovered-preview-image img-fluid figure-img" alt="Screenshot of Resource Contents table of the Patient resource in the FHIR R4B specification"></a></p>
+<p><a href="images/R4_Patient.png"><img src="images/R4_Patient.png" class="img-fluid figure-img" alt="Screenshot of Resource Contents table of the Patient resource in the FHIR R4B specification"></a></p>
+<figcaption>Click to enlarge</figcaption>
 </figure>
 </div>
 </div>
@@ -534,11 +542,11 @@ JSON format FHIR <code>Patient</code> instance example
 </div>
 </div>
 </section>
-<section id="customizing-fhir" class="level2 page-columns page-full" data-number="2">
+<section id="customizing-fhir" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="customizing-fhir"><span class="header-section-number">2</span> Customizing FHIR</h2>
 <p>The FHIR specification follows <a href="http://www.healthintersections.com.au/?p=1924">the 80/20 rule</a> to determine which data elements are included in a resource: data elements are typically included only if 80% of relevant systems will use them. Less common data needs are handled through <a href="https://www.hl7.org/fhir/extensibility.html">FHIR extensions</a> (discussed below). This means that FHIR-enabled systems will implement <em>most</em> common data elements consistently.<!-- This paragraph is quoted in fhir-history.qmd -- any changes here should be synchronized there manually. --></p>
 <p>To maximize usability, data elements contained in FHIR resources have minimal constraints. <strong>Constraints</strong> restrict how a data element can be populated. For example, a constraint on Patient resource might require that <code>Patient.birthDate</code> be populated. However, some systems record a patient’s age in years rather than date of birth for privacy reasons. If the constraint on <code>Patient.birthDate</code> existed, those system would not be able to use the Patient resource.</p>
-<p>However, some use cases may require <code>Patient.birthDate</code> be populated. To achieve this, implementers can define use case-specific constraints on top of the base FHIR specification through <strong>profiling</strong>. The output of profiling is an <strong>Implementation Guide (IG)</strong>, which is a collection of <strong>profiles</strong> that build on top of the FHIR specification (or other IGs).</p>
+<p>However, some use cases may require <code>Patient.birthDate</code> be populated. To achieve this, implementers can define use case-specific constraints on top of the base FHIR specification through <strong>profiling</strong>. The output of profiling is an <a href="../modules/data-modeling-reading-igs">Implementation Guide (IG)</a>, which is a collection of <strong>profiles</strong> that build on top of the FHIR specification (or other IGs).</p>
 <section id="example-customizing-patient-in-us-core" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="example-customizing-patient-in-us-core"><span class="header-section-number">2.1</span> Example: customizing Patient in US Core</h3>
 <p>The <a href="https://www.hl7.org/fhir/us/core/">US Core FHIR IG</a> (referred to as “US Core” below) defines a FHIR implementation for <a href="https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi">USCDI</a>, and is widely used in the US as the basis for FHIR implementations. In other words, EHRs in the US that support FHIR are likely also conformant with US Core.</p>
@@ -549,11 +557,11 @@ JSON format FHIR <code>Patient</code> instance example
 </ol>
 <p>Many other FHIR IGs include profiles that are based on US Core rather than directly on FHIR resources. For example, the <a href="https://hl7.org/fhir/us/mcode/">mCODE IG</a>, which defines a core set of data elements for oncology EHR data, includes a <a href="https://hl7.org/fhir/us/mcode/STU2/StructureDefinition-mcode-cancer-patient.html">CancerPatient profile</a> that is based on US Core’s Patient profile. Because US Core is widely implemented in US-based EHRs, it is helpful to base US-centric IGs off of US Core.</p>
 </section>
-<section id="example-post-acute-care-data" class="level3 page-columns page-full" data-number="2.2">
+<section id="example-post-acute-care-data" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="example-post-acute-care-data"><span class="header-section-number">2.2</span> Example: post-acute care data</h3>
 <p>The <a href="https://pacioproject.org">PACIO Project</a> is a post-acute care interoperability project that publishes <a href="http://hl7.org/fhir/us/pacio-fs/">a FHIR IG</a> to support exchange of relevant data.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <p>The following table shows how PACIO represents a narrative history of a patient’s functional status<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> in their IG:</p>
-<div class="column-page-right">
+<div class="content-body">
 <table class="table">
 <colgroup>
 <col style="width: 20%">
@@ -601,25 +609,25 @@ JSON format FHIR <code>Patient</code> instance example
 <h3 data-number="2.3" class="anchored" data-anchor-id="customizing-fhir-and-research"><span class="header-section-number">2.3</span> Customizing FHIR and research</h3>
 <p>There are two research considerations for customizing FHIR:</p>
 <ol type="1">
-<li><strong>Are there existing FHIR IGs that are relevant?</strong> For example, oncology clinical trials might be able to take advantage of the <a href="https://hl7.org/fhir/us/mcode/">mCODE IG</a>. Find other potentially relevant IGs <a href="../modules/data-modeling-real-world-igs">here</a>.</li>
-<li><strong>Would creating a FHIR IG provide value?</strong> For research that uses FHIR-formatted data, creating a study-specific IG provides a way to easily define element definitions and required data elements. More information <a href="../modules/data-modeling-writing-igs">on writing IGs is here</a>.</li>
+<li><strong>Are there existing FHIR Implementation Guides that are relevant?</strong> For example, oncology clinical trials might be able to take advantage of the <a href="https://hl7.org/fhir/us/mcode/">mCODE IG</a>. Find other potentially relevant IGs <a href="../modules/data-modeling-real-world-igs">here</a>.</li>
+<li><strong>Would creating a FHIR Implementation Guide provide value?</strong> For research that uses FHIR-formatted data, creating a study-specific IG provides a way to easily define element definitions and required data elements. More information <a href="../modules/data-modeling-writing-igs">on writing IGs is here</a>.</li>
 </ol>
 </section>
 </section>
 <section id="connecting-systems-together-the-fhir-api" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="connecting-systems-together-the-fhir-api"><span class="header-section-number">3</span> Connecting systems together: the FHIR API</h2>
 <p>FHIR not only provides a standard way to represent data using FHIR resources, it also provides a standard way for systems to communicate.</p>
-<p>This standard communication approach is called an API (short for <a href="https://en.wikipedia.org/wiki/API">Application Program Interface</a>). As mentioned in <a href="../modules/fhir-from-10000-ft">Part 1</a>, FHIR’s API uses a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>ful approach, which is a widely used throughout the technology industry. Find more specifics on FHIR’s API in the <a href="modules/10-intro--accessing-fhir-data">Accessing FHIR Data module</a>.</p>
+<p>This standard communication approach is called an API (short for <a href="https://en.wikipedia.org/wiki/API">Application Program Interface</a>). As mentioned in <a href="../modules/fhir-from-10000-ft">Part 1</a>, FHIR’s API uses a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>ful approach, which is a widely used throughout the technology industry. Find more specifics on FHIR’s API in the <a href="../modules/fhir-accessing-data">Accessing FHIR Data module</a>.</p>
 <p>The diagram below shows how FHIR’s API connects systems to each other:</p>
 <p><img src="images/fhir_information_flow.png" class="img-fluid"></p>
 <p>For example, a FHIR Client (like the Apple Health app on an iPhone) can request data from a FHIR server using the “RESTful API over HTTP.” FHIR standardizes the request so the Apple Health app can use the same request regardless of which FHIR server they contact.</p>
-<p>Like with FHIR resources, the standard FHIR API doesn’t define all necessary operations for every use case. FHIR Implementation Guides (IGs) can also define additional API capabilities for a specific use case.</p>
+<p>Like with FHIR resources, the standard FHIR API doesn’t define all necessary operations for every use case. FHIR <a href="../modules/data-modeling-reading-igs">Implementation Guides (IGs)</a> can also define additional API capabilities for a specific use case.</p>
 </section>
-<section id="research-implications" class="level2 page-columns page-full" data-number="4">
+<section id="research-implications" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="research-implications"><span class="header-section-number">4</span> Research implications</h2>
 <p>Using FHIR for research depends on whether the relevant systems support FHIR and whether researchers will have access to those systems. Additionally, not all systems support FHIR in the same way. For example, some systems provide only basic FHIR support, while others may require system-level support of PACIO’s IG.</p>
 <p>If the necessary FHIR support exists or can be added, researchers may benefit by using FHIR. The table below illustrates the benefits by comparing common research-related tasks using (a) FHIR to access data and (b) accessing data via a custom one-off extract:</p>
-<div class="column-page-right">
+<div class="content-body">
 <table class="table">
 <colgroup>
 <col style="width: 20%">
@@ -693,6 +701,15 @@ JSON format FHIR <code>Patient</code> instance example
 </section></div></main> <!-- /main -->
 <!-- scripts.html -->
 <!-- any content in this file is inserted right before </body> -->
+
+<!-- Fix a11y issues with side menu -->
+<script>
+const elements = document.querySelectorAll('.sidebar-menu-container a.sidebar-item-text[data-bs-toggle="collapse"], .sidebar-menu-container a.sidebar-item-toggle[data-bs-toggle="collapse"]')
+
+elements.forEach(element => {
+    element.setAttribute('role', 'group');
+});
+</script>
 
 <!-- fancy json code viewer -->
 <script type="text/javascript" src="https://unpkg.com/dompurify@3.0.1/dist/purify.min.js"></script> <!-- load JS Sanitizer -->
@@ -868,18 +885,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // Get next and prev modules data
     let prev_href, prev_text;
     let next_href, next_text;
+
     role_module_map.forEach((mapping) => {
         if( mapping.role == role ) {
             for(let i=0; i<mapping.modules.length; i++) {
                 if( mapping.modules[i].slug == current_module_slug ) {
                     function slug_to_url(slug) {
-                        if( window.location.path.includes('modules') ) {
-                            // replace "modules/*" in current url with "modules/<slug>.html"
-                            return window.location.tostring().replace(/modules\/.*/, "modules/" + slug);
+                        if( window.location.pathname.includes('modules') ) {
+                            // replace "modules/*" in current URL with "modules/<slug>.html"
+                            return window.location.toString().replace(/modules\/.*/, "modules/" + slug + ".html");
                         }
                         else {
-                            // this case is irrelevant since pREV/Next buttons are only role-based in modules
-                            return window.location.toString() + "/modules/" + slug;
+                            // this case is irrelevant since prev/next buttons are only role-based in modules
+                            return window.location.toString() + "/modules/" + slug + ".html";
                         }
                     }
                     
@@ -887,23 +905,18 @@ document.addEventListener("DOMContentLoaded", function() {
                     prev_text = (i > 0) ? mapping.modules[i-1].text : null;
 
                     next_href = (i+1 < mapping.modules.length) ? slug_to_url(mapping.modules[i+1].slug) : null;
-                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;
-                
-                    console.log("DEBUG 2");
-
+                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;                
                 }
             }
         }
     });
+
 
     // Overwrite prev link
     if( prev_href ) {
         const prev_link_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link");
         const prev_text_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link .nav-page-text");
         if( prev_link_elmt ) {
-
-
-            console.log("DEBUG 3");
 
             prev_link_elmt.href = prev_href
             //prev_link_elmt.classList.add("btn", "btn-outline-custom", "rounded");
@@ -916,8 +929,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if( next_href ) {
         const next_link_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link");
         const next_text_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link .nav-page-text");
-
-        console.log("DEBUG 4");
 
         if( next_link_elmt ) {
             next_link_elmt.href = next_href;
@@ -934,25 +945,45 @@ document.addEventListener("DOMContentLoaded", function() {
         key_points.insertAdjacentElement("afterend", page_nav);
     }
 
-    console.log("DEBUG 10");
-
 });
 
 
 // Override style of Quarto page navigation (prev/next buttons)
 document.addEventListener("DOMContentLoaded", function() {
 
-    console.log("DEBUG 20");
-
     const page_navigators = document.querySelectorAll(".pagination-link");
     page_navigators.forEach((node) => {
-        console.log("DEBUG 21");
 
         node.classList.add("btn", "btn-outline-custom", "rounded");
         node.parentNode.classList.remove("nav-page");
         node.parentNode.parentNode.style.gridRow = "initial";
     });
 });
+
+// Set external links to open in a new tab
+document.addEventListener("DOMContentLoaded", function() {
+    var all_links = document.querySelectorAll('a');
+    for (var i = 0; i < all_links.length; i++){
+        var a = all_links[i];
+        if(a.hostname != location.hostname) {
+                a.target = '_blank';
+        }
+    }
+})
+
+</script>
+
+<!-- Fancy Box -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Fancybox.bind("[data-fancybox]", {
+            Toolbar: {
+                enabled: true,
+            }
+        });
+    })
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -989,18 +1020,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1032,11 +1052,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mitre\.github\.io\/fhir-for-research\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1046,8 +1105,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1059,7 +1127,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1103,6 +1294,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1128,6 +1320,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1189,12 +1407,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../modules/fhir-from-10000-ft" class="pagination-link">
+      <a href="../modules/fhir-from-10000-ft" class="pagination-link" aria-label="FHIR from 10,000 Feet">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">FHIR from 10,000 Feet</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../modules/fhir-research" class="pagination-link">
+      <a href="../modules/fhir-research" class="pagination-link" aria-label="Real World Research">
         <span class="nav-page-text">Real World Research</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1206,17 +1424,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
- © 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966
-  </li>  
-</ul>
-    </div>
+<p>© 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966<br><br>HL7® and FHIR® are the registered trademarks of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the HL7 and FHIR trademarks does not constitute an HL7 endorsement of this website.</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 
