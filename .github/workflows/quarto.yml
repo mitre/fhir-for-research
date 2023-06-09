@@ -32,6 +32,14 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get -y upgrade
+          sudo apt-get -y install libcurl4-openssl-dev # for "curl" R package
+          sudo apt-get install -y libharfbuzz-dev libfribidi-dev # for "text-shaping" R package
+          sudo apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev # for "ragg" R package
+
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
 

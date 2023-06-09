@@ -127,7 +127,7 @@ And in XML:
 
 ### Complex types example: `Patient.name`
 
-`Patient.name` is of complex type [HumanName](https://hl7.org/fhir/datatypes.html#HumanName). Complex types are FHIR resources and have their own structure table. Here's the one for HumanName: <!-- FIX Whatever you decide "Patient" should be above (with or without ``) should be applied to HumanName --LDC -->
+`Patient.name` is of complex type [HumanName](https://hl7.org/fhir/datatypes.html#HumanName). Complex types are FHIR resources and have their own structure table. Here's the one for HumanName: 
 
 [![The structure for Patient.name, which is a HumanName.](images/fhir-human-name-structure.png){.column-page-inset fig-alt="The structure for Patient.name, which is a HumanName. Go to https://hl7.org/fhir/datatypes.html#HumanName for a text version."}](https://hl7.org/fhir/datatypes.html#HumanName)
 
@@ -486,7 +486,7 @@ A [CapabilityStatement](https://hl7.org/fhir/capabilitystatement.html) is a reso
 CapabilityStatements provide information like:
 
 -   **`CapabilityStatement.url`:** The base URI for the FHIR server. This may also be the URI for capability statement itself, which includes the base URI for the server.
--   **`CapabilityStatement.fhirVersion`:** The FHIR version that the API conforms to. In this case, the server is running FHIR 4.3.0 (also known as FHIR R4B) **at the base URL**. A FHIR server may service multiple FHIR versions, but each FHIR API will be serviced at a different base URL (e.g., FHIR R4 at <https://fhir.example.com/R4/> and FHIR R4B at <https://fhir.example.com/R4B/>). <!-- FIX: It says "in this case...". is there supposed to be an example capability statement here? --LDC -->
+-   **`CapabilityStatement.fhirVersion`:** The FHIR version that the API conforms to. Note that a FHIR server may provide API endpoints for multiple FHIR versions simultaneously via API endpoint URLs like `https://fhir.example.com/R4/...` and `https://fhir.example.com/R5/...` for FHIR R4 and R5 respectively.
 -   **`CapabilityStatement.format`:** The [encoding formats](https://hl7.org/fhir/formats.html#wire) supported by the FHIR server. [FHIR queries](/modules/10-intro--accessing-fhir-data/) must specify one of these formats via the [HTTP `Accept` Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept).
 -   **`CapabilityStatement.implementationGuide`:** The [implementation guides (IG)](/modules/30-fhir-data-modeling--real-world-ig/) that the FHIR server conforms to. However, a server may be partially or fully compliant to an IG without listing it in the metadata.
 -   **`CapabilityStatement.rest[i].security.service`:** The [RESTful security services](http://hl7.org/fhir/valueset-restful-security-service.html#expansion) required to access data on this server. This example uses [SMART-on-FHIR](/modules/20-intro-smart-on-fhir--overview/), but other possibilities include [OAuth](https://oauth.net/) or [UDAP](https://www.udap.org/).

@@ -255,7 +255,7 @@ If you are interested in using the FHIR API to access data, you may want to revi
 
 -   The [general FHIR API documentation](https://www.hl7.org/fhir/http.html) and the documentation specific to the [`search` interaction](https://www.hl7.org/fhir/search.html) in the FHIR specification.
 
--   The modules converting from [FHIR to tabular format](tabular-from-fhir.qmd) if you are interested in extracting data from a FHIR server for analysis in software like R or Python/Pandas.
+-   The modules converting from [FHIR to tabular format](tabular-intro.qmd) if you are interested in extracting data from a FHIR server for analysis in software like R or Python/Pandas.
 
 -   NIH/ODSS training materials on using Python/Pandas to extract data from a FHIR server and integrate it with other data sources (note that R versions of these exercises are [also available](https://datascience.nih.gov/fhir-initiatives/researchers-training)):
 

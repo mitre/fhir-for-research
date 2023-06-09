@@ -8,6 +8,7 @@ sidebar: false
 ## Synthetic Data & FHIR Testing Servers
 
 -   [Synthea Synthetic Data Overview](/modules/synthea-overview.qmd)
+-   [Running Synthea](/modules/synthea-running.qmd)
 -   [Customizing Synthea](/modules/synthea-customizing.qmd)
 -   [Standing Up a FHIR Testing Server](/modules/synthea-test-server.qmd)
 

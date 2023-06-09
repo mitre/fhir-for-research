@@ -17,6 +17,12 @@ cache:
     - ${PIP_CACHE_DIR}/pip
 
 before_script:
+  - apt-get update -y
+  - apt-get install -y libharfbuzz-dev libfribidi-dev # For "textshaping" in R
+  # For "ragg" in R
+  - apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
+  - export PKG_CONFIG_PATH=/usr/lib/pkgconfig
+  - export PATH="$PATH:$PKG_CONFIG_PATH"
   # Move renv cache from Docker to project directory so it can get picked up by the GitLab cache
   # if it doesn't exist already
   - "[[ -d $RENV_PATHS_CACHE ]] || cp -r /root/.cache/R/renv/cache $RENV_PATHS_CACHE"
@@ -24,7 +30,6 @@ before_script:
   - Rscript -e "renv::restore()"
 # end renv cache
   - apt-get install -y python3-pip
-  - apt-get install -y libharfbuzz-dev libfribidi-dev # For "textshaping" in R
   - python3 -m pip install -r requirements.txt
 
 workflow:

@@ -89,7 +89,7 @@ LOINC identifies health measurements, observations, and documents. It often repr
 
 #### Structure
 
-A LOINC code distinguishes a given observation (test ordered, survey question, or clinical document) across six dimensions known as **Parts** [@loinc_term_basics]<!--FIX: broken reference --LDC -->. The table below defines each Part and provides an example using the LOINC concept *a manual count of white blood cells in cerebral spinal fluid specimen* with code [`806-0`](https://loinc.org/806-0).
+A LOINC code distinguishes a given observation (test ordered, survey question, or clinical document) across six dimensions known as **Parts** [@loinc_term_basics]. The table below defines each Part and provides an example using the LOINC concept *a manual count of white blood cells in cerebral spinal fluid specimen* with code [`806-0`](https://loinc.org/806-0).
 
 | LOINC Part          | Definition                                                                                                                                                 | Example                        |
 |-------------|-----------------------------------------------|-------------|

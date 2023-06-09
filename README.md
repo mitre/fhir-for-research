@@ -24,6 +24,8 @@ Then run `source python_env/bin/activate` to activate the `venv`, and the follow
 
 If you add a dependency, run `pip freeze > requirements.txt` to update the requirements file.
 
+Better git support for Jupyter Notebooks is provided by [`nbdime`](https://nbdime.readthedocs.io/) and configured via the `.gitattributes` file. For more information, see [here](https://nbdime.readthedocs.io/en/latest/vcs.html).
+
 ## Quick start
 
 - Clone this repository

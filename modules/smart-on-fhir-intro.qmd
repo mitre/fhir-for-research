@@ -37,7 +37,7 @@ SMART on FHIR can also help researchers integrate data into an EHR that the EHR 
 
 ### Accessing bulk data
 
-SMART on FHIR facilitated [Bulk Data Access](http://hl7.org/fhir/uv/bulkdata/) ([see below](#bulk-data-access)) may provide a new way for researchers to access population-level data. A researcher may want to gather population data from multiple institutions that do not store their data using a shared common data model<!--# link to section on CDMs -->. However, if these EHRs use FHIR, they likely use the widely implemented [US Core FHIR Implementation Guide](https://www.hl7.org/fhir/us/core/). SMART on FHIR with Bulk Data Access would enable researchers to access the data as US Core-conforming FHIR resource instances across these institutions.
+SMART on FHIR facilitated [Bulk Data Access](http://hl7.org/fhir/uv/bulkdata/) ([see below](#bulk-data-access)) may provide a new way for researchers to access population-level data. A researcher may want to gather population data from multiple institutions that do not store their data using a shared [common data model](cdms.qmd). However, if these EHRs use FHIR, they likely use the widely implemented [US Core FHIR Implementation Guide](https://www.hl7.org/fhir/us/core/). SMART on FHIR with Bulk Data Access would enable researchers to access the data as US Core-conforming FHIR resource instances across these institutions.
 
 Note, SMART on FHIR used for Bulk Data Access is relatively new and has not yet appeared in peer-reviewed research publications.
 
