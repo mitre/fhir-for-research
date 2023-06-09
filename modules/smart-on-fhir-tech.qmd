@@ -53,7 +53,7 @@ You can create a SMART on FHIR application without relying on third-party librar
 
 FHIR servers will likely return health data that can be linked to an individual. If so, [rules around handling Protected Health Information (PHI)](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html) apply. Your institution's [IRB](https://www.hhs.gov/ohrp/education-and-outreach/online-education/human-research-protection-training/lesson-3-what-are-irbs/index.html) will also have policies for handling sensitive patient data used in research.
 
-Determine the security and privacy approach for health data early in your design process before working with any real patient data. You can use synthetic data and a test FHIR server during development and testing.
+Determine the security and privacy approach for health data early in your design process before working with any real patient data. You can use synthetic data and a [test FHIR server](smart-on-fhir-tech.qmd) during development and testing.
 
 ### Human-centered design
 
@@ -241,11 +241,14 @@ Once you are running the server, navigate to [`http://localhost:8000`](http://lo
 
 #### Step 5: Test with launch.smarthealthit.org
 
-Go to <https://launch.smarthealthit.org>, enter `localhost:8000/launch.html` for in the "App's Launch URL" field, and click "Launch".
+Go to <https://launch.smarthealthit.org>, enter `http://localhost:8000/launch.html` for in the "App's Launch URL" field, and click "Launch".
 
 You should see the following happen:
 
-{{< video images/smart-on-fhir-flow.mp4 >}}
+<!-- THIS FAILS {{< video images/smart-on-fhir-flow.mp4 >}} -->
+<!-- see https://github.com/quarto-dev/quarto-cli/issues/3892, it gets fixed in Quarto 1.3, but below is workaround -->
+
+![](images/smart-on-fhir-flow.mp4){fig-alt="video showing SMART-on-FHIR flow"}
 
 ### App launch process explanation {#explanation}
 
@@ -288,7 +291,7 @@ Here are the details of this process:
 
 3.  Your browser loads a page on the `launch.smarthealthit.org` server simulating provider log-in and patient selection. (Note: If this application was being used in a real-world EHR, the provider would be logged in through the EHR and the selected patient would be whichever patient the provider was viewing when they launched the app in the EHR.)
 
-    This dummy flow gathers the information needed for `launch.smarthealthit.org` to provide the example application with the authorization code. It does this by redirecting your browser to `localhost:8000/index.html?code=...&state=...`. It knows to take you to `localhost:8000/index.html` because you specified the parameter `redirectUri: "index.html"` in the source code of `launch.html`.
+    This dummy flow gathers the information needed for `launch.smarthealthit.org` to provide the example application with the authorization code. It does this by redirecting your browser to `http://localhost:8000/index.html?code=...&state=...`. It knows to take you to `http://localhost:8000/index.html` because you specified the parameter `redirectUri: "index.html"` in the source code of `launch.html`.
 
 4.  `http://localhost:8000/index.html` loads in your browser and calls [`FHIR.oauth2.ready()`](http://docs.smarthealthit.org/client-js/api.html#readyoptions---promiseclient). This creates a [`Client`](http://docs.smarthealthit.org/client-js/client) instance that handles [obtaining](https://hl7.org/fhir/smart-app-launch/STU2/app-launch.html#obtain-access-token) and refreshing the OAuth access token needed to authorize access to the FHIR server, and making requests to the FHIR server with the proper headers.
 

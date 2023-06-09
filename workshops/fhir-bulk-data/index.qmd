@@ -1,0 +1,31 @@
+---
+title: FHIR Bulk Data Workshop
+
+toc: false
+number-sections: false
+---
+
+## Workshop slides
+
+```{=html}
+<iframe style="border: 3px solid #dee2e6; width: 100%; height: 475px;" src="slides.html"></iframe>
+```
+
+## Workshop notebook
+
+There are two ways to view this workshop:
+
+[A static version of the notebook can be found here](notebook.html).
+
+The full interactive version of the notebook can be run locally, by running the following sequence of commands in a terminal window, to install and launch the Jupyter environment. Note [Python](https://www.python.org/downloads/) is required to be installed first.
+
+```sh
+git clone
+cd fhir-for-research
+python -m venv venv/
+source venv/bin/activate
+pip install -r requirements.txt
+cd workshops/fhir-bulk-data
+python -m jupyter notebook
+```
+A browser window will pop up showing the "fhir-bulk-data" folder in Jupyter. Click on the `notebook.ipynb` to open it.

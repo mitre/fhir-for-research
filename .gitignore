@@ -12,3 +12,6 @@ public/
 
 # Ignore JabRef temp files
 bibliography.bib.*
+
+# Ignore Jupyter Checkpoints
+.ipynb_checkpoints

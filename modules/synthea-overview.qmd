@@ -261,7 +261,7 @@ At Synthea's core is a set of disease modules, representing the progression and 
 
 ![](images/synthea_example_module.png){fig-alt="A section of the Synthea Appendicitis module, demonstrating various state types and transitions available in Synthea modules"}
 
-Disease modules are **state transition machines** where each individual flows through the modules based on logical conditions and weighted randomness.
+Disease modules are **state transition machines** where each individual flows through the modules based on logical conditions and weighted randomness. Behind the scenes, modules are stored as [JavaScript Object Notation (JSON)](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) files, but nearly all users view or edit modules exclusively using a graphical interface called the [Synthea Module Builder](https://synthetichealth.github.io/module-builder/).
 
 Every synthetic patient starts in each module's Initial state at birth and immediately begins progressing through the module's **states**. Each state represents a spot where something happens. There are two broad categories of states: **control states**, which drive the flow of a patient through the module, for example:
 
@@ -299,12 +299,12 @@ The Synthea community encourages and welcomes users to create new modules repres
 :::
 
 
-You can view, modify, and create Synthea modules with no programming experience using the [Synthea Module Builder](https://synthetichealth.github.io/module-builder/). For more information, read [Customizing Synthea](/modules/70-synthetic-data--customizing-synthea/index.html) ). There is also a [short video introduction to the Module Builder](https://www.youtube.com/watch?v=cOfI6FOKv0s), and a [tutorial on the Synthea Wiki](https://github.com/synthetichealth/synthea/wiki/Module-Builder-Tutorial).
+You can view, modify, and create Synthea modules with no programming experience using the [Synthea Module Builder](https://synthetichealth.github.io/module-builder/). For more information, read [Customizing Synthea](synthea-customizing.html) ). There is also a [short video introduction to the Module Builder](https://www.youtube.com/watch?v=cOfI6FOKv0s), and a [tutorial on the Synthea Wiki](https://github.com/synthetichealth/synthea/wiki/Module-Builder-Tutorial).
 
 
 ## FHIR Resources
 
-Synthea generates basic FHIR resources: it includes required fields but rarely populates optional fields. If you require fields that Synthea doesn't populate, you can customize Synthea to add those fields. Read [Customizing Synthea](/modules/70-synthetic-data--customizing-synthea/index.html) for more information.
+Synthea generates basic FHIR resources: it includes required fields but rarely populates optional fields. If you require fields that Synthea doesn't populate, you can customize Synthea to add those fields. Read [Customizing Synthea](synthea-customizing.html) for more information.
 
 By default, Synthea exports one file per patient, as a [Bundle](https://www.hl7.org/fhir/bundle.html) with `type: transaction`. This Bundle contains a single [Patient](https://www.hl7.org/fhir/patient.html) resource as the first `entry`, followed by other patient-specific resources such as [Conditions](https://www.hl7.org/fhir/condition.html), [Observations](https://www.hl7.org/fhir/observation.html), [Procedures](https://www.hl7.org/fhir/procedure.html), etc, roughly grouped by [Encounter](https://www.hl7.org/fhir/encounter.html) in chronological order. Synthea exports [Organizations](https://www.hl7.org/fhir/organization.html) and [Practitioners](https://www.hl7.org/fhir/practitioner.html) separately since these resources may be referenced by multiple patients' resources. Synthea may also be configured to export [FHIR Bulk Data](https://hl7.org/fhir/uv/bulkdata/).
 
@@ -337,7 +337,7 @@ As of April 2023, Synthea can produce the following resource types:
 -  `Procedure`
 -  `Provenance`
 
-Note that not all patient records will contain instances of every resource type, and certain resource types will only be produced if certain settings are enabled. See [Customizing Synthea](/modules/70-synthetic-data--customizing-synthea/index.html) for more information on settings.
+Note that not all patient records will contain instances of every resource type, and certain resource types will only be produced if certain settings are enabled. See [Customizing Synthea](synthea-customizing.html) for more information on settings.
 
 
 ## Pre-generated Datasets
