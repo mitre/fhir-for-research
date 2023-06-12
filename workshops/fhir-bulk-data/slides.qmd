@@ -1,17 +1,18 @@
 ---
 format:
-  revealjs: 
+  revealjs:
     theme: [default, ../../slides.scss]
     preview-links: true
     slide-number: c/t
+    footer: "© 2023 The MITRE Corporation / Approved for Public Release / Case #23-0966"
 editor: visual
 ---
 
-# Introduction to FHIR Bulk Data
+# Introduction to FHIR Bulk Data {background-image="NIH_slide_background.png" background-size="cover" background-color="#20558A"}
 
 National Institutes of Health (NIH), Office of the Director (OD), Office of Data Science Strategy (ODSS)
 
-June 13, 2023
+<center>June 13, 2023</center>
 
 ## What is FHIR Bulk Data?
 
