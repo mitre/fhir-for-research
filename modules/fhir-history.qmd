@@ -55,9 +55,9 @@ More information on the [early history of HL7 and the development of V2 can be f
 
 ## HL7 V3
 
-HL7 Version 3 ("V3", released in 2005) was created to address limitations of V2. It adopted a more rigorous approach to data modeling (the [Reference Information Model](https://www.hl7.org/implement/standards/rim.cfm)), and used a common data format ([XML](https://en.wikipedia.org/wiki/XML)).
+HL7 Version 3 ("V3", released in 2005) was created to address limitations of V2. It included a more rigorous approach to data modeling (the [Reference Information Model](https://www.hl7.org/implement/standards/rim.cfm)), and used a common data format ([XML](https://en.wikipedia.org/wiki/XML)).
 
-However, V3 was not as widely adopted as V2, in part due to its complexity. However, the [C-CDA standard](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492) for clinical documents uses V3, which is widely implemented as part of [Meaningful Use criteria](https://www.healthit.gov/topic/standards-technology/consolidated-cda-overview).
+V3 was not as widely adopted as V2, in part due to its complexity. However, the [C-CDA standard](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492) for clinical documents uses V3, which is widely implemented as part of [Meaningful Use criteria](https://www.healthit.gov/topic/standards-technology/consolidated-cda-overview).
 
 ## FHIR
 
