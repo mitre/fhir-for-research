@@ -7,11 +7,7 @@ sidebar: false
 
 Select your [role](/roles.html) to <mark>highlight</mark> the content that is most relevant to you:
 
-<a href="#" class="btn-role" data-role="investigator">Investigator</a>
-<a href="#" class="btn-role" data-role="research-leader">Research Leader</a>
-<a href="#" class="btn-role" data-role="informaticist">Informaticist</a>
-<a href="#" class="btn-role" data-role="software-engineer">Software Engineer</a>
-<a href="#" class="btn-role" data-role="clinician-scientist">Clinician Scientist/Trainee</a>
+<a href="#" class="btn-role" data-role="investigator">Investigator</a> <a href="#" class="btn-role" data-role="research-leader">Research Leader</a> <a href="#" class="btn-role" data-role="informaticist">Informaticist</a> <a href="#" class="btn-role" data-role="software-engineer">Software Engineer</a> <a href="#" class="btn-role" data-role="clinician-scientist">Clinician Scientist/Trainee</a>
 
 ## Tabular Analysis
 
@@ -26,6 +22,11 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 -   [Introduction](/modules/redcap-intro.qmd)
 -   [REDCap on FHIR](/modules/redcap-fhir.qmd)
 
+## FHIR Bulk Data
+
+-   [FHIR Bulk Data workshop materials](/workshops/fhir-bulk-data/index.qmd)
+
+```{=html}
 <script type="module">
 /* same script from overview.qmd */
 const all_modules = document.querySelectorAll("section>ul>li");
@@ -118,3 +119,4 @@ else {
 }
 
 </script>
+```
