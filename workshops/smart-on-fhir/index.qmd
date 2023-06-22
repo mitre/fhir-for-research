@@ -10,5 +10,37 @@ number-sections: false
 ```{=html}
 <iframe style="border: 3px solid #dee2e6; width: 100%; height: 475px;" src="slides.html"></iframe>
 ```
+## SMART EHR Launch workflow
 
+::: column-page
+```{mermaid}
+sequenceDiagram
+    %%{init:{'sequence':{'messageFontSize': 30, 'actorFontSize': 30}}}%%
+    participant A as localhost:3000/launch.html
+    participant B as launch.smarthealthit.org
+    participant C as localhost:3000/index.html
+    participant D as FHIR Server
 
+    B ->> B: Launch triggered via test website
+    B ->> A: Launch requested
+    A ->> B: Authorization request
+    B ->> B: Dummy provider log-in and patient selection
+    B ->> C: Authorization granted
+    C ->> B: Access token request
+    B -->> C: Access token response
+    C ->> D: Request Patient
+    D -->> C: Response with Patient JSON
+    C ->> D: Request MedicationRequests
+    D -->> C: Response with MedicationRequest JSON
+```
+:::
+
+```{=html}
+<style>
+.mermaid-js {
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif !important;
+}
+</style>
+```
