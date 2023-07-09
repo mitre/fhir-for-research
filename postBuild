@@ -1,4 +1,4 @@
 #!/bin/bash
 
 curl --silent --location --fail https://github.com/quarto-dev/quarto-cli/releases/download/latest/quarto-linux-amd64.deb > /tmp/quarto.deb
-apt-get -qq install --yes --no-install-recommends /tmp/quarto.deb
+dpkg -i /tmp/quarto.deb
