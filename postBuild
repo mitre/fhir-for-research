@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb
-sudo gdebi quarto-linux-amd64.deb
+curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb
+gdebi quarto-linux-amd64.deb
