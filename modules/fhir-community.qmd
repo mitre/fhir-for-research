@@ -33,7 +33,7 @@ The [HL7](https://hl7.org) FHIR community consists of developers, maintainers, a
 -   Health-focused companies and non-profits
 -   Local, state, and federal health agencies
 
-Because [FHIR](https://hl7.org/fhir/) is an open-source specification, most of HL7's FHIR work is done publicly, and anyone can participate. The FHIR community also develops many [FHIR Implementation Guides (IGs)](http://fhir.org/guides/registry/) with the same public approach.
+Because [FHIR](https://hl7.org/fhir/) is an open-source specification, most of HL7's FHIR work is done publicly, and anyone can [participate](https://confluence.hl7.org/display/HL7/Participating+in+HL7). The FHIR community also develops many [FHIR Implementation Guides (IGs)](http://fhir.org/guides/registry/) with the same public approach.
 
 This openness makes members of the community accessible to implementers and developers who want to:
 
@@ -55,7 +55,7 @@ Each Work Group lists their [associated projects](http://www.hl7.org/Special/com
 
 Work Groups also meet in-person or hybrid at [HL7 Working Group Meetings](https://www.hl7.org/events/workgroupmeetings.cfm?ref=nav), which are held three times per year.
 
-#### Getting started with Work Groups
+#### Getting started with Work Groups {#work-group-meetings}
 
 The fastest way to get started in a Work Group is to join its [conference call](http://www.hl7.org/concalls/CallDirectory.aspx) and ask to introduce yourself.
 
@@ -69,7 +69,7 @@ Alternatively (or additionally), join the Work Group's [mailing list](https://co
 
 -   Share your expertise. To ensure that new projects and specifications can be used by the community, Work Groups require input from a variety of stakeholders.
 
-### Zulip (chat.fhir.org)
+### Zulip (chat.fhir.org) {#chat-fhir-org}
 
 Zulip ([chat.fhir.org](https://chat.fhir.org)) is an asynchronous communication platform like Slack or Teams messaging. Anyone may join. The platform is a valuable resource for asking questions and connecting with others with similar projects or objectives.
 
@@ -161,3 +161,52 @@ Although the FHIR Community Forum is monitored, Zulip ([chat.fhir.org](https://c
 ### StackOverflow on FHIR
 
 [StackOverflow](https://stackoverflow.com/) is a third-party forum for asking and answering technical questions. HL7 FHIR is one of the topics discussed on StackOverflow, in addition to many other technologies unrelated to health. Use the [hl7-fhir tag](https://stackoverflow.com/questions/tagged/hl7_fhir) for developer and programming questions about reference FHIR implementations.
+
+## Navigating the HL7 Standards Development Process
+
+The standards development process requires walking a fine line between adoptibility and thoroughness. HL7 describes the balance of the [standards process](https://confluence.hl7.org/display/HL7/Understanding+the+Standards+Process#:~:text=HL7%20ensures%20that%20all%20content,help%20to%20retain%20institutional%20knowledge):
+
+> Spend too little time and energy and the standard is unlikely to be fit for purpose or see much adoption.  Take too long or require too much investment and the 
+community will move on before the specification is declared “fit for use”.
+
+### Pros of Balloting Through HL7
+
+There are several benefits of balloting an IG through HL7, including **visibility, implementation, and reusability**:
+
+- **Visibility**: developing projects are socialized early and often throughout the balloting process, so many stakeholders within the HL7 community are aware of them
+- **Implementation**: greater visibility prevents standards from being developed in isolation. Successful implementation is more likely since there are many opportunities for the potential future implementators to offer input throughout the balloting process
+- **Reusability**: the combination of visibility and successful implementation supports reusability of the profiles within an IG, which is beneficial for the standards development process. Reusing existing IG content is conducive to interoperability.
+
+Two research-related IGs that are undergoing the HL7 balloting process:
+
+1. The [Longitudinal Maternal & Infant Health information for Research](http://hl7.org/fhir/us/mihr/index.html) IG supports maternal health researchers by defining a standard for aggregating and analyzing clinical information for birthing people and their infants. Researchers with the Eunice Kennedy Shriver National Institute of Child Health and Human Development (NICHD), part of the National Institutes of Health (NIH), co-authored the specification.
+
+2. The [Single Institutional Review Board (sIRB)](http://hl7.org/fhir/us/sirb/) IG aims to facilitate multi-site research by combining individual IRB requirements into a single application process, lowering administrative burdens and expediting the research process.
+
+### Cons of Balloting Through HL7
+
+Balloting through HL7 is not necessarily a requirement though and some use cases may find the significant time and effort required to complete the process too cumbersome. Reaching the Standards for Trial Use (STU) phase, where an IG can officially be trialed in a pilot-like environment, can take 1-2 years and then an additional 3 years before reaching the normative stage, where a standard is widely accepted and implemented.
+
+Two IGs that were not balloted through HL7:
+
+1. The [NIH Cloud Platform Interoperability Effort (NCPI) FHIR Implementation Guide](https://nih-ncpi.github.io/ncpi-fhir-ig/index.html) (NCPI FHIR IG) is a relatively newer IG that is still under development. The IG aims to support data and knowledge-sharing among researchers by using FHIR as a standard, common model for representing data.
+
+2. The [OHSU Hypertension Implementation Guide](https://build.fhir.org/ig/OHSUCMP/htnu18ig/index.html) is a patient-facing support tool for hypertension management. Funded by AHRQ, the IG uses [CDS Hooks](smart-on-fhir-intro/#cds-hooks)to support the clinical decision support logic.
+
+### Balloting Process
+
+For a project that wants to pursue the HL7 balloting process, the first step is to [create an HL7 Project Proposal](https://confluence.hl7.org/display/HL7/How+to+Create+and+Review+a+Project+Proposal). Project Proposals are reviewed by HL7 co-chairs and approved by a sponsoring Work Group that fits with the content or subject matter for the proposal. After the Project Proposal is approved by the sponsoring Work Group, a [Project Scope Statement](https://confluence.hl7.org/display/HL7/How+to+Create+a+Project+Scope+Statement+in+JIRA), which includes more detailed information about the proposed project, must be submitted and reviewed.
+
+The next step in the [balloting process](https://confluence.hl7.org/display/HL7/HL7+Balloting) is to begin development of an IG. There are four levels of ballots:
+
+1. **For Comment**: opportunity for developers to solicit feedback early in the development process 
+2. **Informative**: used to vet content that is non-binding, like recommendations and guidance for implementers
+3. **Standard for Trial Use (STU)**: for vetting content that will be binding on implementers. IGs in this ballot period are ready to be used, but have not been widely implemented.
+4. **Normative**: this stage is the final ballot level and once the requirements are meant, IGs at this level are considered to be authoritative. A high level of consensus is required to meet the normative status since any changes are binding.
+
+#### Getting started
+The balloting process can be daunting and confusing after the first introduction. The following steps may help to clarify the process:
+
+- Join a [Work Group meeting](#work-group-meetings).
+- Join the [chat.fhir.org](#chat-fhir-org) workspace, and particularly the [#Ballot-QA](https://chat.fhir.org/#narrow/stream/179257-Ballot-QA) stream to read previoues questions and answers or ask new questions. 
+- Connect with others in the HL7 community that have worked on balloted specifications, either through [chat.fhir.org](chat.fhir.org) or through the Confluence work space. The community is vast and friendly; asking someone for advice may save you from sifting through Confluence to find the answer.
