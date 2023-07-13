@@ -97,4 +97,4 @@ The FHIR specification also discusses [security concerns related to FHIR](https:
 
 These features of FHIR, along with its widespread adoption, enable researchers to access data in a standard and reproducible way. FHIR also facilitates direct data integration with other software (e.g., mobile apps), which would be difficult to accomplish otherwise.
 
-For more information, please see [FHIR from 1,000 Feet](../10-intro--intro-part-2-how-fhir-works/).
+For more information, please see [FHIR from 1,000 Feet](fhir-from-1000-ft.qmd).

@@ -31,6 +31,16 @@ Better git support for Jupyter Notebooks is provided by [`nbdime`](https://nbdim
 - Clone this repository
 - Run `quarto preview` (this will compile everything, start a local web server, and launch web browser to show the content form the server)
 
+## Checking for broken links
+
+This website contains a number of links to external websites. To identify broken links, the [linkchecker](https://linkchecker.github.io/linkchecker/) can be used:
+
+```sh
+linkchecker https://mitre.github.io/fhir-for-research/
+```
+
+To use a custom SSL certificate chain, modify `~/.config/linkchecker/linkcheckerrc` to set `sslverify` to the path of the `.crt` file.
+
 ----
 
 ## License

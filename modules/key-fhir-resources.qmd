@@ -159,7 +159,7 @@ In FHIR, all of these elements are, allowing for flexibility in how implementers
 
 Making elements optional balances flexibility with interoperability: this approach provides a standard location and encoding for the data element in question, without requiring *all* systems to populate it. This approach is used throughout the core FHIR resource definitions.
 
-This degree of flexibility is not helpful in all use cases. FHIR addresses this through [resource Profiles](https://hl7.org/fhir/profiling.html), which provide a way to computably describe use case-specific constraints (e.g., "all names must include a `family` element"). Profiles are collected in [Implementation Guides (IGs)](/modules/30-fhir-data-modeling--real-world-ig/) to provide a complete specification based on FHIR for a given use case.
+This degree of flexibility is not helpful in all use cases. FHIR addresses this through [resource Profiles](https://hl7.org/fhir/profiling.html), which provide a way to computably describe use case-specific constraints (e.g., "all names must include a `family` element"). Profiles are collected in [Implementation Guides (IGs)](data-modeling-real-world-igs.qmd) to provide a complete specification based on FHIR for a given use case.
 :::
 
 ### Choice elements example: `Patient.deceased[x]`
@@ -488,8 +488,8 @@ CapabilityStatements provide information like:
 -   **`CapabilityStatement.url`:** The base URI for the FHIR server. This may also be the URI for capability statement itself, which includes the base URI for the server.
 -   **`CapabilityStatement.fhirVersion`:** The FHIR version that the API conforms to. Note that a FHIR server may provide API endpoints for multiple FHIR versions simultaneously via API endpoint URLs like `https://fhir.example.com/R4/...` and `https://fhir.example.com/R5/...` for FHIR R4 and R5 respectively.
 -   **`CapabilityStatement.format`:** The [encoding formats](https://hl7.org/fhir/formats.html#wire) supported by the FHIR server. [FHIR queries](/modules/10-intro--accessing-fhir-data/) must specify one of these formats via the [HTTP `Accept` Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept).
--   **`CapabilityStatement.implementationGuide`:** The [implementation guides (IG)](/modules/30-fhir-data-modeling--real-world-ig/) that the FHIR server conforms to. However, a server may be partially or fully compliant to an IG without listing it in the metadata.
--   **`CapabilityStatement.rest[i].security.service`:** The [RESTful security services](http://hl7.org/fhir/valueset-restful-security-service.html#expansion) required to access data on this server. This example uses [SMART-on-FHIR](/modules/20-intro-smart-on-fhir--overview/), but other possibilities include [OAuth](https://oauth.net/) or [UDAP](https://www.udap.org/).
+-   **`CapabilityStatement.implementationGuide`:** The [implementation guides (IG)](data-modeling-real-world-igs.qmd) that the FHIR server conforms to. However, a server may be partially or fully compliant to an IG without listing it in the metadata.
+-   **`CapabilityStatement.rest[i].security.service`:** The [RESTful security services](http://hl7.org/fhir/valueset-restful-security-service.html#expansion) required to access data on this server. This example uses [SMART-on-FHIR](smart-on-fhir-intro.qmd), but other possibilities include [OAuth](https://oauth.net/) or [UDAP](https://www.udap.org/).
 -   **`CapabilityStatement.rest[i].resource.type`:** All FHIR resources supported by the server. Note: this does not include foundational resources such as `CapabilityStatement` or `Bundle`, but typically resources [level 3 and higher](https://hl7.org/fhir).
 -   **`CapabilityStatement.rest[i].resource.interaction`:** The [RESTful interactions](http://hl7.org/fhir/http.html) available for that resource by the server. For example, the [`search`](http://hl7.org/fhir/http.html#search) interaction is a RESTful API action available in FHIR. The `CapabilityStatement.rest[i].resource.searchParam` field specifies what search parameters are possible.
 
@@ -501,7 +501,7 @@ Properly implemented FHIR servers must provide an instance of CapabilityStatemen
 
 [Condition](https://hl7.org/fhir/condition.html)
 
-:   A problem, diagnosis, or clinical event. It should be the reason for a medical intervention and tie into a larger [clinical workflow](http://hl7.org/fhir/workflow.html). There is some use-case overlap with `Observation`; an [IG](/modules/30-fhir-data-modeling--real-world-ig/) will provide better guidance.
+:   A problem, diagnosis, or clinical event. It should be the reason for a medical intervention and tie into a larger [clinical workflow](http://hl7.org/fhir/workflow.html). There is some use-case overlap with `Observation`; an [IG](data-modeling-real-world-igs.qmd) will provide better guidance.
 
 [Procedure](https://hl7.org/fhir/procedure.html)
 

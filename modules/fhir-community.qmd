@@ -14,7 +14,7 @@ roles:
 
 learning_objectives:
   - question: "How can I get involved with the FHIR community?"
-    answer: "You can interact with the FHIR community through [Work Groups](https://confluence.hl7.org/pages/viewpage.action?pageId=4489802), Zulip ([chat.fhir.org](chat.fhir.org)), and [Connectathons](https://confluence.hl7.org/display/FHIR/Connectathons)."
+    answer: "You can interact with the FHIR community through [Work Groups](https://confluence.hl7.org/pages/viewpage.action?pageId=4489802), Zulip ([https://chat.fhir.org](chat.fhir.org)), and [Connectathons](https://confluence.hl7.org/display/FHIR/Connectathons)."
   - question: "Where can I ask FHIR related questions?"
     answer: "Zulip ([chat.fhir.org](https://chat.fhir.org)), the [FHIR Community Forum](http://community.fhir.org), and [StackOverflow](https://stackoverflow.com/questions/tagged/hl7_fhir) are great places to ask FHIR-related questions."
   - question: "Where can I find more information on HL7?"
