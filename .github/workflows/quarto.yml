@@ -59,7 +59,7 @@ jobs:
       - name: Render Quarto
         run: quarto render
 
-      - name: Remove .html extensions
+      - name: Remove .html extensions and /index from links
         run: |
           # Find all HTML files in the current directory and its subdirectories
           HTML_FILES=$(find . -type f -name "*.html")
@@ -68,6 +68,9 @@ jobs:
           for file in $HTML_FILES; do
               # Replace .html extension from <a> tags with empty string for relative links only
               sed -i 's/\(<a[^>]*href="\)\([^:"]*\)\.html\("[^>]*>\)/\1\2\3/g' $file
+
+              # Replace /some/path/index with /some/path
+              sed -i 's/\(<a[^>]*href="\)\([^:"]*\)\/index\("[^>]*>\)/\1\2\3/g' $file
           done
 
           echo "HTML files processed successfully!"
