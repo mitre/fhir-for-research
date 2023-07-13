@@ -1,0 +1,55 @@
+---
+title: Recomendations for a Capabiltiy Assessment
+
+area:
+  name: Overview
+topic:
+  name: FHIR for Research
+
+roles:
+  - TBD
+
+learning_objectives:
+  - question: "Why should I consider doing a capability assessment prior to hosting a FHIR-for-Research training session?"
+    answer: "A capabiltiy assessment is a good level-setting exercise to know what your trainee's current understanding of FHIR is and what they would like to learn."
+  - question: "What methods should I incorporate in a capability assessment?"
+    answer: "Both structured or unstructured interviews, and written surveys can be helpful methods for a capability assessment. The formats can be combined to allow for both discussion and thoughtful feedback."
+---
+
+## Introduction
+ 
+Prior to developing the self-paced learning resources, webinars, and workshops, MITRE conducted a capability assessment to evaluate the current knowledge and usage of FHIR for research at the selected IDeA-CTRs (referred to as “CTRs”). The assessment provided useful background knowledge as to what researchers already knew about FHIR, what they wanted to learn, how they might use FHIR in their research, and what additional support resources they had available. Findings from the capability assessment were used to tailor the content.   
+
+## Why
+
+## Methods
+
+1. Select a representative sample of people to connect with.
+    We spoke to a variety of people with different roles and a broad representation of CTRs in terms of states, regions, rural and urban sites, academic medical centers, community practice networks with small office practices, patient demographics, and research areas of interest. This ensured that the content would support different roles and that the most relevant modules could be tagged for certain roles to tailor the experience.
+
+    It may be helpful to connect with people that hold the following roles to build a well-rounded picture of what the capabilities and needs in a FHIR for Research workshop:
+
+      - Investigators/Researchers 
+      - Research leaders
+      - Informaticists
+      - Software Engineers
+      - Clinician Scientists/Trainees  
+
+2. Use a variety of outreach methods.
+    We used three methods to connect with the selected CTRs:
+
+      - 30-minute introductory calls with participating CTRs to better understand their use of FHIR for research purposes and their access to FHIR training resources. 
+      - Brief FHIR for research capacity building survey sent to one respondent (n=8) at each CTR to gather more information about site-level experience and interest in using FHIR for research.
+      - 60-minute listening sessions with key personnel from participating CTRs to discuss tools and resources that would best support their CTR in leveraging FHIR for research.
+
+    Using this combination of outreach methods meant we could connect with more individuals at the CTRs, and talk through some of their thoughts in more detail. While not all of this may be useful when adapting the approach to a more local level, still offering some mix of engagement options would 
+
+3. Adapt existing content in response to the observations.
+    Throughout the outreach process, identify common themes and observations from your discussions, surveys, and/or listening sessions. Based on the observations, consider adapting the existing workshops to fit the needs of your group of researchers. Examples of useful adaptations may include identifying relevant FHIR profiles to query in the FHIR Bulk Data workshop, or building a useful SMART app prototype in the SMART on FHIR workshop.
+
+4. Meet participants at their level of interest and engagement.
+    Not all training participants will need the same level of knowledge. When developing training resources, we designed content to start broad and approachable for people from many backgrounds. Then as the modules continued, the content became more technical and detailed. We replicated this in the webinar and workshops by beginning with an overview of the topic that was accessible to a wide variety of attendees, then jumping into the hands-on activity so folks that did not want to participate exit the meeting.
+
+
+
+## Getting Started
