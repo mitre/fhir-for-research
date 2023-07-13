@@ -149,14 +149,14 @@ Project work and specification development primarily occurs in [HL7 Jira](https:
 
 ### FHIR Community Forum
 
-FHIR implementation and development discussions occur in the [FHIR Community Forum](http://community.fhir.org/). The [FHIR Community Forum](http://community.fhir.org/t/welcome-to-the-fhir-community-forum/8) is a place to ask questions like:
+While the [FHIR Community Forum](http://community.fhir.org/) is no longer active as a discussion platform, the posts have been archived for historical reference. You will find posts to previous questions like:
 
 > -   How do I do \[x\]? where \[x\] is any kind of use of FHIR at all
 > -   Has anyone solved \[my problem\] with the specification? (Or is anyone interested in this?)
 > -   Why does FHIR work like it does?
 > -   What does everyone think about \[making some change to the FHIR specification\]?
 
-Although the FHIR Community Forum is monitored, Zulip ([chat.fhir.org](https://chat.fhir.org)) serves a similar purpose and is more active.
+The FHIR Community Forum is no longer used or monitored. All discussion has transitioned to Zulip ([chat.fhir.org](https://chat.fhir.org)).
 
 ### StackOverflow on FHIR
 
