@@ -164,7 +164,7 @@ The FHIR Community Forum is no longer used or monitored. All discussion has tran
 
 ## Navigating the HL7 standards development process
 
-The standards development process requires walking a fine line between adoptibility and thoroughness. HL7 describes the balance of the [standards process](https://confluence.hl7.org/display/HL7/Understanding+the+Standards+Process#:~:text=HL7%20ensures%20that%20all%20content,help%20to%20retain%20institutional%20knowledge):
+The standards development process requires walking a fine line between adoptability and thoroughness. HL7 describes the balance of the [standards process](https://confluence.hl7.org/display/HL7/Understanding+the+Standards+Process#:~:text=HL7%20ensures%20that%20all%20content,help%20to%20retain%20institutional%20knowledge):
 
 > Spend too little time and energy and the standard is unlikely to be fit for purpose or see much adoption.  Take too long or require too much investment and the 
 community will move on before the specification is declared “fit for use”.
@@ -174,10 +174,10 @@ community will move on before the specification is declared “fit for use”.
 There are several benefits of balloting an IG through HL7, including **visibility, implementation, and reusability**:
 
 - **Visibility**: developing projects are socialized early and often throughout the balloting process, so many stakeholders within the HL7 community are aware of them
-- **Implementation**: greater visibility prevents standards from being developed in isolation. Successful implementation is more likely since there are many opportunities for the potential future implementators to offer input throughout the balloting process
+- **Implementation**: greater visibility prevents standards from being developed in isolation. Successful implementation is more likely since there are many opportunities for the potential future implementors to offer input throughout the balloting process
 - **Reusability**: the combination of visibility and successful implementation supports reusability of the profiles within an IG, which is beneficial for the standards development process. Reusing existing IG content is conducive to interoperability.
 
-Two research-related IGs that are undergoing the HL7 balloting process:
+Two research related IGs that are undergoing the HL7 balloting process:
 
 1. The [Longitudinal Maternal & Infant Health information for Research](http://hl7.org/fhir/us/mihr/index.html) IG supports maternal health researchers by defining a standard for aggregating and analyzing clinical information for birthing people and their infants. Researchers with the Eunice Kennedy Shriver National Institute of Child Health and Human Development (NICHD), part of the National Institutes of Health (NIH), co-authored the specification.
 
@@ -201,12 +201,12 @@ The next step in the [balloting process](https://confluence.hl7.org/display/HL7/
 
 1. **For Comment**: opportunity for developers to solicit feedback early in the development process 
 2. **Informative**: used to vet content that is non-binding, like recommendations and guidance for implementers
-3. **Standard for Trial Use (STU)**: for vetting content that will be binding on implementers. IGs in this ballot period are ready to be used, but have not been widely implemented.
-4. **Normative**: this stage is the final ballot level and once the requirements are meant, IGs at this level are considered to be authoritative. A high level of consensus is required to meet the normative status since any changes are binding.
+3. **Standard for Trial Use (STU)**: for vetting content that will be binding on implementers. IGs in this ballot period are ready to be used but have not been widely implemented.
+4. **Normative**: this stage is the final ballot level and once the requirements are meant, IGs at this level are authoritative. A high level of consensus is required to meet the normative status since any changes are binding.
 
 #### Getting started
 The balloting process can be daunting and confusing after the first introduction. The following steps may help to clarify the process:
 
 - Join a [Work Group meeting](#work-group-meetings).
-- Join the [chat.fhir.org](#chat-fhir-org) workspace, and particularly the [#Ballot-QA](https://chat.fhir.org/#narrow/stream/179257-Ballot-QA) stream to read previoues questions and answers or ask new questions. 
+- Join the [chat.fhir.org](#chat-fhir-org) workspace, and particularly the [#Ballot-QA](https://chat.fhir.org/#narrow/stream/179257-Ballot-QA) stream to read previous questions and answers or ask new questions. 
 - Connect with others in the HL7 community that have worked on balloted specifications, either through [chat.fhir.org](chat.fhir.org) or through the Confluence work space. The community is vast and friendly; asking someone for advice may save you from sifting through Confluence to find the answer.
