@@ -18,16 +18,20 @@ learning_objectives:
 
 ## Introduction
  
-Prior to developing the self-paced learning resources, webinars, and workshops, MITRE conducted a capability assessment to evaluate the current knowledge and usage of FHIR for research at the selected IDeA-CTRs (referred to as “CTRs”). The assessment provided useful background knowledge as to what researchers already knew about FHIR, what they wanted to learn, how they might use FHIR in their research, and what additional support resources they had available. Findings from the capability assessment were used to tailor the content.   
+Prior to developing the self-paced learning resources, webinars, and workshops, a capability assessment was completed to evaluate the current knowledge and usage of FHIR for research at the selected IDeA-CTRs. A capability assessment is a structured approach for identifying the current level of understanding and skill sets relating to a topic.
 
-## Why
+## Why a Capability Assessment Can Be Helpful
 
-## Methods
+The assessment provided useful background as to what researchers already knew about FHIR, what they wanted to learn, and how they might use FHIR in their research. Findings from the capability assessment were used to identify modules for this site, associate different topics with different professional roles, and select topics for the hands-on workshop activities.
+
+A capability assessment may help you adapt existing course content to meet the needs and interests of your local IDeA-CTR community.
+
+## Recommendations
 
 1. Select a representative sample of people to connect with.
-    We spoke to a variety of people with different roles and a broad representation of CTRs in terms of states, regions, rural and urban sites, academic medical centers, community practice networks with small office practices, patient demographics, and research areas of interest. This ensured that the content would support different roles and that the most relevant modules could be tagged for certain roles to tailor the experience.
-
-    It may be helpful to connect with people that hold the following roles to build a well-rounded picture of what the capabilities and needs in a FHIR for Research workshop:
+    Speak with a broad representation of sites that may participate in the training like rural and urban sites, academic medical centers, community practice networks with small office practices, patient demographics, and research areas of interest. Including many types of sites and CTR-members will help to tailor training content and delivery to meet the needs of the CTR community.   
+    
+    Similarly, including a variety of roles in the assessment will ensure that content can support different roles. It may be helpful to connect with people that hold the following roles to build a well-rounded picture of what the capabilities and needs in a FHIR for Research workshop:
 
       - Investigators/Researchers 
       - Research leaders
@@ -36,20 +40,32 @@ Prior to developing the self-paced learning resources, webinars, and workshops, 
       - Clinician Scientists/Trainees  
 
 2. Use a variety of outreach methods.
-    We used three methods to connect with the selected CTRs:
+    The capability assessment completed before developing this course content used three methods to connect with the selected CTRs:
 
       - 30-minute introductory calls with participating CTRs to better understand their use of FHIR for research purposes and their access to FHIR training resources. 
       - Brief FHIR for research capacity building survey sent to one respondent (n=8) at each CTR to gather more information about site-level experience and interest in using FHIR for research.
       - 60-minute listening sessions with key personnel from participating CTRs to discuss tools and resources that would best support their CTR in leveraging FHIR for research.
 
-    Using this combination of outreach methods meant we could connect with more individuals at the CTRs, and talk through some of their thoughts in more detail. While not all of this may be useful when adapting the approach to a more local level, still offering some mix of engagement options would 
+    This combination of outreach methods meant we could connect with more individuals at the CTRs and talk through some of their thoughts in more detail. While not all of this may be useful when adapting the approach to a more local level, still offering some mix of engagement options would be useful when connecting with a variety of resesarchers.
 
 3. Adapt existing content in response to the observations.
-    Throughout the outreach process, identify common themes and observations from your discussions, surveys, and/or listening sessions. Based on the observations, consider adapting the existing workshops to fit the needs of your group of researchers. Examples of useful adaptations may include identifying relevant FHIR profiles to query in the FHIR Bulk Data workshop, or building a useful SMART app prototype in the SMART on FHIR workshop.
+    Throughout the outreach process, identify common themes and observations from your discussions, surveys, and/or listening sessions. Based on the observations, consider adapting the existing workshops to fit the needs of your group of researchers. Examples of useful adaptations may include:
+
+      - Identifying relevant FHIR profiles to export in the FHIR Bulk Data workshop.
+      - Aggregate specific data elements in the SMART on FHIR Applications workshop that are relevant to research topics.
 
 4. Meet participants at their level of interest and engagement.
-    Not all training participants will need the same level of knowledge. When developing training resources, we designed content to start broad and approachable for people from many backgrounds. Then as the modules continued, the content became more technical and detailed. We replicated this in the webinar and workshops by beginning with an overview of the topic that was accessible to a wide variety of attendees, then jumping into the hands-on activity so folks that did not want to participate exit the meeting.
-
-
+    Not all training participants will need the same level of knowledge about FHIR. When developing training resources, the content was designed to be approachable for people from many backgrounds. Then as the modules continued, the content became more technical and detailed. 
+    
+    This funnel approach was replicated in the webinar and workshops by beginning with an overview of the topic that was accessible to a wide variety of attendees, then continuing on to the more technical hands-on activity so folks who only wanted the outline of the topic could exit the meeting.
 
 ## Getting Started
+When setting up a capability assessment, the following steps will help kickoff the effort:
+
+- Identify interviewees
+- Set-up meetings with interviewees
+- Write survey questions if using a written format or structured interview. The written [Capability Assessment Questions](capability-assessment-survey.pdf) used for developing this course content is available as a guide.
+- Hold conversations with previously identified interviewees
+- Aggregate observations from conversations
+- Reach back to interviewees with follow-up questions if necessary
+- Adapt existing resources to support the technical needs and research interests identified in the prior conversations and surveys
