@@ -1,5 +1,5 @@
 ---
-title: Recomendations for a Capabiltiy Assessment
+title: Recommendations for a Capability Assessment
 
 area:
   name: Overview
@@ -11,7 +11,7 @@ roles:
 
 learning_objectives:
   - question: "Why should I consider doing a capability assessment prior to hosting a FHIR-for-Research training session?"
-    answer: "A capabiltiy assessment is a good level-setting exercise to know what your trainee's current understanding of FHIR is and what they would like to learn."
+    answer: "A capability assessment is a good level-setting exercise to know what your trainee's current understanding of FHIR is and what they would like to learn."
   - question: "What methods should I incorporate in a capability assessment?"
     answer: "Both structured or unstructured interviews, and written surveys can be helpful methods for a capability assessment. The formats can be combined to allow for both discussion and thoughtful feedback."
 ---
@@ -46,7 +46,7 @@ A capability assessment may help you adapt existing course content to meet the n
       - Brief FHIR for research capacity building survey sent to one respondent (n=8) at each CTR to gather more information about site-level experience and interest in using FHIR for research.
       - 60-minute listening sessions with key personnel from participating CTRs to discuss tools and resources that would best support their CTR in leveraging FHIR for research.
 
-    This combination of outreach methods meant we could connect with more individuals at the CTRs and talk through some of their thoughts in more detail. While not all of this may be useful when adapting the approach to a more local level, still offering some mix of engagement options would be useful when connecting with a variety of resesarchers.
+    This combination of outreach methods meant we could connect with more individuals at the CTRs and talk through some of their thoughts in more detail. While not all of this may be useful when adapting the approach to a more local level, still offering some mix of engagement options would be useful when connecting with a variety of researchers.
 
 3. Adapt existing content in response to the observations.
     Throughout the outreach process, identify common themes and observations from your discussions, surveys, and/or listening sessions. Based on the observations, consider adapting the existing workshops to fit the needs of your group of researchers. Examples of useful adaptations may include:
@@ -57,7 +57,7 @@ A capability assessment may help you adapt existing course content to meet the n
 4. Meet participants at their level of interest and engagement.
     Not all training participants will need the same level of knowledge about FHIR. When developing training resources, the content was designed to be approachable for people from many backgrounds. Then as the modules continued, the content became more technical and detailed. 
     
-    This funnel approach was replicated in the webinar and workshops by beginning with an overview of the topic that was accessible to a wide variety of attendees, then continuing on to the more technical hands-on activity so folks who only wanted the outline of the topic could exit the meeting.
+    This funnel approach was replicated in the webinar and workshops by beginning with an overview of the topic that was accessible to a wide variety of attendees, then continuing to the more technical hands-on activity so folks who only wanted the outline of the topic could exit the meeting.
 
 ## Getting Started
 When setting up a capability assessment, the following steps will help kickoff the effort:
