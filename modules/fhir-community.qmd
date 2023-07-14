@@ -162,14 +162,14 @@ The FHIR Community Forum is no longer used or monitored. All discussion has tran
 
 [StackOverflow](https://stackoverflow.com/) is a third-party forum for asking and answering technical questions. HL7 FHIR is one of the topics discussed on StackOverflow, in addition to many other technologies unrelated to health. Use the [hl7-fhir tag](https://stackoverflow.com/questions/tagged/hl7_fhir) for developer and programming questions about reference FHIR implementations.
 
-## Navigating the HL7 Standards Development Process
+## Navigating the HL7 standards development process
 
 The standards development process requires walking a fine line between adoptibility and thoroughness. HL7 describes the balance of the [standards process](https://confluence.hl7.org/display/HL7/Understanding+the+Standards+Process#:~:text=HL7%20ensures%20that%20all%20content,help%20to%20retain%20institutional%20knowledge):
 
 > Spend too little time and energy and the standard is unlikely to be fit for purpose or see much adoption.  Take too long or require too much investment and the 
 community will move on before the specification is declared “fit for use”.
 
-### Pros of Balloting Through HL7
+### Pros of balloting through HL7
 
 There are several benefits of balloting an IG through HL7, including **visibility, implementation, and reusability**:
 
@@ -183,9 +183,9 @@ Two research-related IGs that are undergoing the HL7 balloting process:
 
 2. The [Single Institutional Review Board (sIRB)](http://hl7.org/fhir/us/sirb/) IG aims to facilitate multi-site research by combining individual IRB requirements into a single application process, lowering administrative burdens and expediting the research process.
 
-### Cons of Balloting Through HL7
+### Cons of balloting through HL7
 
-Balloting through HL7 is not necessarily a requirement though and some use cases may find the significant time and effort required to complete the process too cumbersome. Reaching the Standards for Trial Use (STU) phase, where an IG can officially be trialed in a pilot-like environment, can take 1-2 years and then an additional 3 years before reaching the normative stage, where a standard is widely accepted and implemented.
+Balloting through HL7 is not necessarily a requirement though and some use cases may find the significant time and effort required to complete the process too cumbersome. Reaching the Standards for Trial Use (STU) phase, where an IG can officially be trialed in a pilot-like environment, can take 1-2 years and then an additional 3 years before reaching the normative stage, where a standard is widely accepted and implemented. HL7 has some guidance on [publishing IGs outside of HL7](https://confluence.hl7.org/pages/viewpage.action?pageId=104580055) 
 
 Two IGs that were not balloted through HL7:
 
@@ -193,7 +193,7 @@ Two IGs that were not balloted through HL7:
 
 2. The [OHSU Hypertension Implementation Guide](https://build.fhir.org/ig/OHSUCMP/htnu18ig/index.html) is a patient-facing support tool for hypertension management. Funded by AHRQ, the IG uses [CDS Hooks](smart-on-fhir-intro/#cds-hooks)to support the clinical decision support logic.
 
-### Balloting Process
+### Balloting process
 
 For a project that wants to pursue the HL7 balloting process, the first step is to [create an HL7 Project Proposal](https://confluence.hl7.org/display/HL7/How+to+Create+and+Review+a+Project+Proposal). Project Proposals are reviewed by HL7 co-chairs and approved by a sponsoring Work Group that fits with the content or subject matter for the proposal. After the Project Proposal is approved by the sponsoring Work Group, a [Project Scope Statement](https://confluence.hl7.org/display/HL7/How+to+Create+a+Project+Scope+Statement+in+JIRA), which includes more detailed information about the proposed project, must be submitted and reviewed.
 
