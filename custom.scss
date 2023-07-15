@@ -1,9 +1,14 @@
 /*-- scss:defaults --*/
-
+$primary: #20558a !default;
 $navbar-fg: #fdfeff;
 $navbar-hl: #f0f0f0;
 
 /*-- scss:rules --*/
+
+.panel-caption,.figure-caption,figcaption {
+  color: $gray-600;
+}
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",

@@ -9,8 +9,11 @@ project:
     - "!script/"
 
 website:
-  title: "FHIR for Research"
+  title: "FHIR® for Research Documentation"
   site-url: https://mitre.github.io/fhir-for-research/
+  search: 
+    location: navbar
+    type: textbox
   navbar:
     left:
       - text: Overview
@@ -23,9 +26,11 @@ website:
 
     right:
       - href: contribute.qmd
-        text: Contributions & Corrections
+        text: Questions & Contributions
       - icon: github
         href: https://github.com/mitre/fhir-for-research
+        aria-label: View the GitHub repository for this site
+
 
   sidebar:
     - id: overview
@@ -112,9 +117,8 @@ website:
         - style-guide.qmd
 
 
-  page-footer:
-    center:
-      - text: "&copy; 2023 The MITRE Corporation / <a href=\"https://github.com/mitre/fhir-for-research/README.md\">License information</a><br>Approved for Public Release / Case #23-0966"
+  page-footer: |
+    &copy; 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966<br><br>FHIR® is the registered trademark of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the FHIR trademark does not constitute an HL7 endorsement of this website.
 
   page-navigation: true
 
@@ -124,7 +128,7 @@ format:
     theme:
       - cosmo
       - custom.scss
-    css: styles.css
+    css: styles.scss
     toc: true
     include-in-header: head.html
     include-after-body: scripts.html
