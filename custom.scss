@@ -1,7 +1,8 @@
 /*-- scss:defaults --*/
 $primary: #20558a !default;
-$navbar-fg: #fdfeff;
-$navbar-hl: #f0f0f0;
+$navbar-fg: #fdfeff !default;
+$navbar-hl: #f0f0f0 !default;
+$navbar-dark-color: $primary !default;
 
 /*-- scss:rules --*/
 
