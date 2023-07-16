@@ -13,7 +13,7 @@ sidebar: false
 format:
   html:
     css:
-      - styles.scss
+      - styles.css
       - index.css
 
 ---

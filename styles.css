@@ -2,11 +2,6 @@
 .highlight {
   background-color: #fffeca;
 }
-
-.navbar-dark {
-  background-color: #20558a;
-}
-
 #relevant-roles li:after {
   content: ' |';
   color: #bbb;
