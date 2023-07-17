@@ -5,18 +5,31 @@ toc: false
 number-sections: false
 ---
 
-## Workshop slides
+## Recording
+
+A video recording is forthcoming.
+
+## Slides
+
+::: callout-note
+Please see the [Introduction to FHIR Bulk Data Webinar](../../webinars/bulk-data/index.qmd), which introduces the content in this workshop.
+:::
 
 ```{=html}
-<iframe style="border: 3px solid #dee2e6; width: 100%; height: 475px;" src="slides.html"></iframe>
+<iframe style="border: 3px solid #dee2e6; width: 100%; height: 475px;" src="slides.html" title="FHIR Bulk Data workshop slides, powered by Revealjs. A link to an accessible PDF of these slides is in the section below."></iframe>
 ```
+### Other slide formats
+
+-   [Printable web page](slides.html?print-pdf)
+-   Accessible PDF
+
 ## Workshop notebook
 
 The materials for this workshop are in a Jupyter notebook. You can access the notebook [as part of this website](notebook.html), or via the [raw `.ipynb` file](https://github.com/mitre/fhir-for-research/blob/main/workshops/fhir-bulk-data/notebook.ipynb) ([open in nbviewer](https://nbviewer.org/github/mitre/fhir-for-research/blob/main/workshops/fhir-bulk-data/notebook.ipynb)).
 
 The full interactive version of the notebook can be run locally, by running the following sequence of commands in a terminal window, to install and launch the Jupyter environment. Note [Python](https://docs.python.org/3/using/index.html) is required to be installed first.
 
-``` shell
+``` sh
 git clone https://github.com/mitre/fhir-for-research.git # Clone this git repository
 cd fhir-for-research
 python3 -m venv venv/ # Create a Python virtualenv

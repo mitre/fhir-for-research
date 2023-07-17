@@ -4,30 +4,11 @@ format:
     theme: [default, ../../slides.scss]
     preview-links: true
     slide-number: c/t
-    # scrollable: true
     footer: "© 2023 The MITRE Corporation / Approved for Public Release / Case #23-0966"
 editor: visual
 ---
 
-## SMART on FHIR<sup>®</sup> Workshop Preflight
-
-::: r-fit-text
-Welcome! The workshop will begin shortly. Slides: <http://purl.org/fhir-for-research/smart-slides>
-
--   ✋ <strong>If you are <em>participating hands-on</em> during this workshop, please raise your hand in Zoom and keep it up.</strong>
-    -   If you are comfortable with HTML and JavaScript, hands-on participation is recommended
-    -   But hands-on participation is totally optional -- feel free to just listen if you prefer!
--   To participate hands-on, you will need:
-    1.  Download or clone <https://github.com/mitre/smart-on-fhir-demo>
-    2.  [VSCode](https://code.visualstudio.com) (or your editor of choice)
-    3.  A local web server (e.g. [VSCode Live Preview extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server))
--   Once you can open `http://localhost:3000/index.html` in your browser, you are ready to go
-    -   See list of options for this at <https://github.com/mitre/smart-on-fhir-demo>
-
-*(Backup if you can't run a local web server: <https://bit.ly/static-sandbox>)*
-:::
-
-# SMART on FHIR<sup>®</sup> Workshop {background-image="NIH_slide_background.png" background-size="100vw 100vh" background-color="#20558A"}
+# SMART on FHIR<sup>®</sup> Workshop {background-image="../../images/nih_slide_background.png" background-size="100vw 100vh" background-color="#20558A"}
 
 National Institutes of Health (NIH), Office of the Director (OD), Office of Data Science Strategy (ODSS)
 
@@ -166,16 +147,14 @@ sequenceDiagram
     D -->> C: Response with MedicationRequest JSON
 ```
 
-<small><a href="https://mitre.github.io/fhir-for-research/workshops/smart-on-fhir/" target=_blank>view</a></small>
-
 ## Basic sample app
 
 ::: r-fit-text
--   Source: <https://github.com/mitre/smart-on-fhir-demo>
--   Explanation: <https://mitre.github.io/fhir-for-research/modules/smart-on-fhir-tech>
+-   Source: <https://purl.org/fhir-for-research/workshops/smart-on-fhir/sample-app-git>
+-   Explanation: <https://purl.org/fhir-for-research/web/modules/smart-on-fhir-tech>
 -   Options for accessing sample app:
     -   Should be running on `http://localhost:3000` for you
-    -   Also available at <https://mitre.github.io/smart-on-fhir-demo>
+    -   Also available at <https://purl.org/fhir-for-research/workshops/smart-on-fhir/sample-app-build>
 -   Go to <https://launch.smarthealthit.org>
     -   Enter URL for sample app's `launch.html` page into "App's Launch URL" and click "Launch"
 :::
@@ -185,6 +164,8 @@ sequenceDiagram
 <!-- THIS FAILS {{< video smart-on-fhir-flow.mp4 >}} -->
 
 ![](smart-on-fhir-flow.mp4){fig-alt="video showing smart-on-fhir flow"}
+
+Link to video: <https://purl.org/fhir-for-research/workshops/smart-on-fhir/flow-video>
 
 ## Basic sample app structure
 
@@ -198,7 +179,7 @@ smart-on-fhir-demo/
 
 <br />
 
-You can copy file contents from <https://github.com/mitre/smart-on-fhir-demo>.
+You can copy file contents from <https://purl.org/fhir-for-research/workshops/smart-on-fhir/sample-app-git>.
 
 <br />
 
@@ -541,7 +522,7 @@ This access token gets embedded in a `client` object to authenticate and authori
 -   Real-world FHIR servers will require authentication/authorization
     -   Handled by the [fhirclient](https://github.com/smart-on-fhir/client-js) library in our example
 -   But it can be helpful to have an open testing server (with synthetic data only!)
-    -   [Synthea](https://mitre.github.io/fhir-for-research/modules/synthea-overview) synthetic data
+    -   [Synthea](https://purl.org/fhir-for-research/synthea) synthetic data
     -   [Logica Sandbox](https://sandbox.logicahealth.org)
 
 ## FHIR API - try it!
@@ -549,13 +530,13 @@ This access token gets embedded in a `client` object to authenticate and authori
 ::: r-fit-text
 -   Using our Logica Sandbox open endpoint:<br>`https://api.logicahealth.org/FHIRResearchSynthea/open`
     -   This is pre-loaded with Synthea data from <https://synthea.mitre.org/downloads>
--   "Playground" JavaScript:<br><https://github.com/mitre/smart-on-fhir-demo/blob/main/get_example.html>
+-   "Playground" JavaScript:<br><https://purl.org/fhir-for-research/workshops/smart-on-fhir/playground>
 :::
 
 ## FHIR API - getting more data
 
 -   FHIR breaks up health information into chunks of data (**resources**) which are connected together via references
-    -   More information: <https://mitre.github.io/fhir-for-research/modules/key-fhir-resources>
+    -   More information: <https://purl.org/fhir-for-research/key-fhir-resources>
     -   List of all resources: <https://www.hl7.org/fhir/resourcelist.html>
 -   `GET [base]/Patient/1234` retrieves an **instance** of the [Patient](https://www.hl7.org/fhir/patient.html) resource
 
@@ -607,7 +588,7 @@ This access token gets embedded in a `client` object to authenticate and authori
 -   FHIR implementation of [U.S. Core Data for Interoperability (USCDI)](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi)
 -   Conformance to US Core is part of ONC's EHR certification program, so adoption is wide-spread in production EHRs
 -   Review the spec to understand available data elements: <https://www.hl7.org/fhir/us/core/>
-    -   How to read FHIR specs: <https://mitre.github.io/fhir-for-research/modules/data-modeling-reading-igs>
+    -   How to read FHIR specs: <https://purl.org/fhir-for-research/data-modeling-reading-igs>
 
 # FHIRPath
 
@@ -638,12 +619,6 @@ Try in the sandbox: <https://hl7.github.io/fhirpath.js/>
     Patient.identifier.where(type.coding.system = 'http://hl7.org/fhir/v2/0203' and type.coding.code = 'MR').value
     ```
 
-# Fill out our survey, please!!!
-
-::: {style="color: black;"}
-<https://forms.office.com/g/hYeUEvmgh1>
-:::
-
 # Hands-on: make your own SMART on FHIR app
 
 ## Hands-on prompt
@@ -669,7 +644,8 @@ Try in the sandbox: <https://hl7.github.io/fhirpath.js/>
 
 ## Additional Resources
 
--   Our [FHIR for Research website](https://mitre.github.io/fhir-for-research/sections/overview.html#smart-on-fhir)
+::: r-fit-text
+-   Our [FHIR for Research website](https://purl.org/fhir-for-research/web)
 -   [docs.smarthealthit.org](docs.smarthealthit.org) has:
     -   Tutorials
     -   Test environments
@@ -678,3 +654,4 @@ Try in the sandbox: <https://hl7.github.io/fhirpath.js/>
 -   The official [SMART App Launch implementation guide](https://hl7.org/fhir/smart-app-launch/index.html)
 -   The chat.fhir.org (Zulip) [SMART stream](https://chat.fhir.org/#narrow/stream/179170-smart) (free account required)
 -   The community [mailing list](https://groups.google.com/forum/#!forum/smart-on-fhir)
+:::

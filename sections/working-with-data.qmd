@@ -24,7 +24,8 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 
 ## FHIR Bulk Data
 
--   [FHIR Bulk Data workshop materials](/workshops/fhir-bulk-data/index.qmd)
+-   [FHIR Bulk Data introductory webinar](/webinars/bulk-data/index.qmd)
+-   [FHIR Bulk Data workshop](/workshops/bulk-data/index.qmd)
 
 ```{=html}
 <script type="module">
