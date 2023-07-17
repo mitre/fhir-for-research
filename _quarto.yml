@@ -3,7 +3,7 @@ project:
   output-dir: public
   render:
     - "*.qmd"
-    - "workshops/fhir-bulk-data/notebook.ipynb"
+    - "workshops/bulk-data/notebook.ipynb"
     - "!cache/" # naming this _cache should work instead, but did not in testing https://community.rstudio.com/t/quarto-equivalent-to-exclude-yaml-command-in-distill/148758/2
     - "!README.md"
     - "!script/"

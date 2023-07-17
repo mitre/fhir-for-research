@@ -71,7 +71,7 @@ SMART on FHIR lets you:
 -   Integrate with an EHR (e.g., add an AI-driven CDS app)
 -   Add patient-generated data to an EHR workflow
 -   Create an app that can be used acorss institutions and EHR products
--   Access [Bulk Data](../fhir-bulk-data/index.html)
+-   Access [Bulk Data](../bulk-data/index.html)
 
 ## SMART on FHIR standards
 

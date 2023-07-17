@@ -25,7 +25,7 @@ Please see the [Introduction to FHIR Bulk Data Webinar](../../webinars/bulk-data
 
 ## Workshop notebook
 
-The materials for this workshop are in a Jupyter notebook. You can access the notebook [as part of this website](notebook.html), or via the [raw `.ipynb` file](https://github.com/mitre/fhir-for-research/blob/main/workshops/fhir-bulk-data/notebook.ipynb) ([open in nbviewer](https://nbviewer.org/github/mitre/fhir-for-research/blob/main/workshops/fhir-bulk-data/notebook.ipynb)).
+The materials for this workshop are in a Jupyter notebook. You can access the notebook [as part of this website](notebook.html), or via the [raw `.ipynb` file](https://github.com/mitre/fhir-for-research/blob/main/workshops/bulk-data/notebook.ipynb) ([open in nbviewer](https://nbviewer.org/github/mitre/fhir-for-research/blob/main/workshops/bulk-data/notebook.ipynb)).
 
 The full interactive version of the notebook can be run locally, by running the following sequence of commands in a terminal window, to install and launch the Jupyter environment. Note [Python](https://docs.python.org/3/using/index.html) is required to be installed first.
 
