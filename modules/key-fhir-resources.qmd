@@ -460,7 +460,7 @@ Below is a JSON example `Observation` of high blood glucose levels:
 
 By observing that the `resourceType` is `"Observation"` and using the structure table above, you can interpret the JSON content as follows:
 
--   **`Observation.id = f001`**: The `id` attribute from the grandparent class `Resource`. See [accessing FHIR data](/modules/10-intro--accessing-fhir-data/) for how to use a resource id.
+-   **`Observation.id = f001`**: The `id` attribute from the grandparent class `Resource`. See [accessing FHIR data](fhir-accessing-data.qmd) for how to use a resource id.
 -   **`Observation.text`**: Human-targeted text in HTML that an EHR will display if FHIR software fails.
 -   **`Observation.status = final`**: A *required* [code](http://hl7.org/fhir/datatypes.html#primitive) string. This indicates the observation is finalized.
 -   **`Observation.code`**: A *required* `CodeableConcept`, using [LOINC](http://hl7.org/fhir/valueset-observation-codes.html) for the example binding.
@@ -487,7 +487,7 @@ CapabilityStatements provide information like:
 
 -   **`CapabilityStatement.url`:** The base URI for the FHIR server. This may also be the URI for capability statement itself, which includes the base URI for the server.
 -   **`CapabilityStatement.fhirVersion`:** The FHIR version that the API conforms to. Note that a FHIR server may provide API endpoints for multiple FHIR versions simultaneously via API endpoint URLs like `https://fhir.example.com/R4/...` and `https://fhir.example.com/R5/...` for FHIR R4 and R5 respectively.
--   **`CapabilityStatement.format`:** The [encoding formats](https://hl7.org/fhir/formats.html#wire) supported by the FHIR server. [FHIR queries](/modules/10-intro--accessing-fhir-data/) must specify one of these formats via the [HTTP `Accept` Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept).
+-   **`CapabilityStatement.format`:** The [encoding formats](https://hl7.org/fhir/formats.html#wire) supported by the FHIR server. [FHIR queries](fhir-accessing-data.qmd) must specify one of these formats via the [HTTP `Accept` Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept).
 -   **`CapabilityStatement.implementationGuide`:** The [implementation guides (IG)](data-modeling-real-world-igs.qmd) that the FHIR server conforms to. However, a server may be partially or fully compliant to an IG without listing it in the metadata.
 -   **`CapabilityStatement.rest[i].security.service`:** The [RESTful security services](http://hl7.org/fhir/valueset-restful-security-service.html#expansion) required to access data on this server. This example uses [SMART-on-FHIR](smart-on-fhir-intro.qmd), but other possibilities include [OAuth](https://oauth.net/) or [UDAP](https://www.udap.org/).
 -   **`CapabilityStatement.rest[i].resource.type`:** All FHIR resources supported by the server. Note: this does not include foundational resources such as `CapabilityStatement` or `Bundle`, but typically resources [level 3 and higher](https://hl7.org/fhir).

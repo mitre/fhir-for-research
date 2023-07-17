@@ -646,7 +646,7 @@ Try in the sandbox: <https://hl7.github.io/fhirpath.js/>
 
 ::: r-fit-text
 -   Our [FHIR for Research website](https://purl.org/fhir-for-research/web)
--   [docs.smarthealthit.org](docs.smarthealthit.org) has:
+-   [docs.smarthealthit.org](https://docs.smarthealthit.org) has:
     -   Tutorials
     -   Test environments
     -   Vendor sandboxes

@@ -19,7 +19,7 @@ learning_objectives:
 ::: callout-caution
 ## Did you read FHIR from 10,000 Feet?
 
-This is part two of our introduction to FHIR for research. Read part one, [FHIR from 10,000 Feet](..//10-intro–intro-part-1-what-is-fhir/index.html), if you haven't already.
+This is part two of our introduction to FHIR for research. Read part one, [FHIR from 10,000 Feet](fhir-from-10000-ft.qmd), if you haven't already.
 
 This module looks at how FHIR works from a technical standpoint, and is targeted to those interested in leading or implementing research using FHIR.
 :::
