@@ -45,6 +45,11 @@ body {
   font-weight: normal;
 }
 
+// Make the table of contents dark enough to meet a11y guidelines
+.header-section-number {
+  color: #6e7378;
+}
+
 // Fancy, Bootstrap-like button
 .btn-success {
   display: inline-block;
