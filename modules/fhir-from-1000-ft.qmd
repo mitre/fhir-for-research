@@ -8,12 +8,12 @@ roles:
   - Clinician Scientist/Trainee
 
 learning_objectives:
-  - question: What is the role of resources in FHIR?
+  - question: Summarize the role of resources in FHIR.
     answer: Resources are categories of data in FHIR, and are used to store and retrieve a specific type of data in a pre-defined structure.
-  - question: How can FHIR be customized, and why is this important?
+  - question: Describe how FHIR can be customized and why it is important.
     answer: FHIR can be customized through a process called profiling, where FHIR resources are constrained and extended. This allows FHIR to be used for a wide variety of use cases, including applications that were not imagined by FHIR's creators.
-  - question: What is the FHIR API?
-    answer: It is a standard way for systems to request and send instances of resources to each other.
+  - question: Explain the purpose of the FHIR API.
+    answer: A FHIR API is a standard way for systems to request and send instances of resources to each other.
 ---
 
 ::: callout-caution
