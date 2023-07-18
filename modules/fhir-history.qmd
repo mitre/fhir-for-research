@@ -14,11 +14,11 @@ roles:
   - Clinician Scientist/Trainee
 
 learning_objectives:
-  - question: What are HL7 V2's key limitations?
+  - question: Describe the key limitations of HL7 V2.
     answer: HL7 V2's data format is outdated compared to modern formats like JSON and XML. It also does not support many health-related data types and is not structured enough to support interoperability.
-  - question: What are HL7 V3's key limitations?
+  - question: Describe the key limitations of HL7 V3.
     answer: V3 is structured enough to support interoperability but is difficult to implement and has not been widely adopted.
-  - question: What characteristics of FHIR have led to its success compared to V2 and V3?
+  - question: Contrast the characteristics of FHIR to HL7 V2 and V3. Describe how those characteristics influenced its success over the earlier versions.
     answer: FHIR is structured enough to support interoperability, is simpler than V3, and uses uses common standards like JSON, XML, and REST, so integrates well with non-health-specific software.
 ---
 
