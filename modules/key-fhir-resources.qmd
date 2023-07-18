@@ -12,11 +12,11 @@ roles:
   - Clinician Scientist/Trainee
 
 learning_objectives:
-  - question: What are three key FHIR resources?
+  - question: Give three examples of key FHIR resources.
     answer: Patient, Observation, and Bundle.
-  - question: How are FHIR resources defined?
+  - question: Explain the significance of a FHIR structure table for a resource and what is included in the table.
     answer: FHIR resources are defined in a structure table that lists out each attribute's name, flags, cardinality, type, constraints, and descriptions.
-  - question: How do FHIR resources support interoperability?
+  - question: Describe how FHIR resources support interoperability.
     answer: A FHIR resource's attributes are rigorously defined, which allows systems to transfer medical information without loss of meaning.
 ---
 
