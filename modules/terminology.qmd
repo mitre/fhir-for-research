@@ -13,11 +13,11 @@ roles:
   - Clinician Scientist/Trainee
 
 learning_objectives:
-  - question: What key role does standard terminology play in enabling health data interoperability?
+  - question: Explain how terminology enables health data interoperability.
     answer: Standard terminology allows data to move across systems while maintaining shared meaning.
-  - question: What are some use cases for terminology in research?
+  - question: Give two examples of use cases for terminology in research.
     answer: Use cases include helping researchers automatically build cohorts and aggregating data across different systems or institutions.
-  - question: What are the key FHIR resources related to terminology?
+  - question: Contrast CodeSystems, ValueSets, and ConceptMaps.
     answer: CodeSystems define a specific terminology and its concepts; ValueSets identify a subset of relevant concepts from one or more code systems; ConceptMaps map one set of concepts onto another.
 ---
 
