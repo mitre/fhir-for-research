@@ -1,10 +1,14 @@
 ---
 title: "Home"
+section-divs: false
 
 # Canonical Markdown breaks the formatting for some reason -- but it doesn't look like this stops it
 editor_options:
   markdown:
     canonical: true
+
+toc: false
+sidebar: false
 
 format:
   html:

@@ -19,7 +19,7 @@ learning_objectives:
 ::: callout-caution
 ## Did you read FHIR from 10,000 Feet?
 
-This is part two of our introduction to FHIR for research. Read part one, [FHIR from 10,000 Feet](..//10-intro–intro-part-1-what-is-fhir/index.html), if you haven't already.
+This is part two of our introduction to FHIR for research. Read part one, [FHIR from 10,000 Feet](fhir-from-10000-ft.qmd), if you haven't already.
 
 This module looks at how FHIR works from a technical standpoint, and is targeted to those interested in leading or implementing research using FHIR.
 :::
@@ -167,7 +167,7 @@ There are two research considerations for customizing FHIR:
 
 FHIR not only provides a standard way to represent data using FHIR resources, it also provides a standard way for systems to communicate.
 
-This standard communication approach is called an API (short for [Application Program Interface](https://en.wikipedia.org/wiki/API)). As mentioned in [Part 1](fhir-from-10000-ft.qmd), FHIR's API uses a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)ful approach, which is a widely used throughout the technology industry. Find more specifics on FHIR's API in the [Accessing FHIR Data module](modules/10-intro--accessing-fhir-data).
+This standard communication approach is called an API (short for [Application Program Interface](https://en.wikipedia.org/wiki/API)). As mentioned in [Part 1](fhir-from-10000-ft.qmd), FHIR's API uses a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)ful approach, which is a widely used throughout the technology industry. Find more specifics on FHIR's API in the [Accessing FHIR Data module](fhir-accessing-data.qmd).
 
 The diagram below shows how FHIR's API connects systems to each other:
 

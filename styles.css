@@ -2,11 +2,6 @@
 .highlight {
   background-color: #fffeca;
 }
-
-.navbar-dark {
-  background-color: #20558a;
-}
-
 #relevant-roles li:after {
   content: ' |';
   color: #bbb;
@@ -29,6 +24,11 @@
 .btn-outline-custom:hover {
   color: white;
   background-color: #20558a;
+}
+
+/* Hide left and right footers in favor of a single centered footer */
+.nav-footer-left, .nav-footer-right {
+  display: none;
 }
 
 /* json viewer css */

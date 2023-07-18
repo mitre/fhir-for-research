@@ -30,6 +30,7 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 -   *Recommended: complete highlighted "FHIR for Research" modules for your role first*
 -   [High Level Overview](/modules/smart-on-fhir-intro.qmd)
 -   [Technical Quick Start](/modules/smart-on-fhir-tech.qmd)
+-   [Workshop](/workshops/smart-on-fhir/index.qmd)
 
 ## Data Modeling in FHIR
 

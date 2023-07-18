@@ -1,9 +1,13 @@
 /*-- scss:defaults --*/
-
-$navbar-fg: #fdfeff;
-$navbar-hl: #f0f0f0;
+$primary: #20558a !default;
+$navbar-bg: #20558a !default;
 
 /*-- scss:rules --*/
+
+.panel-caption,.figure-caption,figcaption {
+  color: $gray-600;
+}
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
@@ -39,6 +43,11 @@ body {
 // Make sure citation popovers are not bolded even if the citation itself is bolded
 .citation div[data-tippy-root] {
   font-weight: normal;
+}
+
+// Make the table of contents dark enough to meet a11y guidelines
+.header-section-number {
+  color: #6e7378;
 }
 
 // Fancy, Bootstrap-like button

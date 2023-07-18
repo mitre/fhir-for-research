@@ -3,14 +3,17 @@ project:
   output-dir: public
   render:
     - "*.qmd"
-    - "workshops/fhir-bulk-data/notebook.ipynb"
+    - "workshops/bulk-data/notebook.ipynb"
     - "!cache/" # naming this _cache should work instead, but did not in testing https://community.rstudio.com/t/quarto-equivalent-to-exclude-yaml-command-in-distill/148758/2
     - "!README.md"
     - "!script/"
 
 website:
-  title: "FHIR for Research"
+  title: "FHIR® for Research Documentation"
   site-url: https://mitre.github.io/fhir-for-research/
+  search: 
+    location: navbar
+    type: textbox
   navbar:
     left:
       - text: Overview
@@ -23,9 +26,11 @@ website:
 
     right:
       - href: contribute.qmd
-        text: Contributions & Corrections
+        text: Questions & Contributions
       - icon: github
         href: https://github.com/mitre/fhir-for-research
+        aria-label: View the GitHub repository for this site
+
 
   sidebar:
     - id: overview
@@ -55,6 +60,8 @@ website:
           contents:
             - modules/smart-on-fhir-intro.qmd
             - modules/smart-on-fhir-tech.qmd
+            - file: workshops/smart-on-fhir/index.qmd
+              text: Workshop
         - section: "Data Modeling in FHIR"
           contents:
             - file: modules/data-modeling-reading-igs.qmd
@@ -87,6 +94,12 @@ website:
               text: Introduction
             - file: modules/redcap-fhir.qmd
               text: REDCap on FHIR
+        - section: "Bulk Data"
+          contents:
+            - file: webinars/bulk-data/index.qmd
+              text: Introduction Webinar
+            - file: workshops/bulk-data/index.qmd
+              text: Workshop
 
     - id: advanced-topics
       title: Advanced Topics
@@ -112,9 +125,8 @@ website:
         - style-guide.qmd
 
 
-  page-footer:
-    center:
-      - text: "&copy; 2023 The MITRE Corporation / <a href=\"https://github.com/mitre/fhir-for-research/README.md\">License information</a><br>Approved for Public Release / Case #23-0966"
+  page-footer: |
+    &copy; 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966<br><br>FHIR® is the registered trademark of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the FHIR trademark does not constitute an HL7 endorsement of this website.
 
   page-navigation: true
 
@@ -124,6 +136,7 @@ format:
     theme:
       - cosmo
       - custom.scss
+    highlight-style: a11y
     css: styles.css
     toc: true
     include-in-header: head.html
