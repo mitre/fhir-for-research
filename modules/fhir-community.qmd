@@ -13,7 +13,7 @@ roles:
   - Clinician Scientist/Trainee
 
 learning_objectives:
-  - question: Describe three ways to get involved or seek assistance from the FHIR community.
+  - question: Describe how to get involved or seek assistance from the FHIR community.
     answer: Options for engaging with the FHIR community include [HL7 Work Groups](https://confluence.hl7.org/pages/viewpage.action?pageId=4489802), Zulip (<https://chat.fhir.org>), and [HL7 Connectathons](https://confluence.hl7.org/display/FHIR/Connectathons).
   - question: Explain the purpose of [chat.fhir.org](https://chat.fhir.org) and give an example of a stream found on the site.
     answer: Zulip ([chat.fhir.org](https://chat.fhir.org)) is a great places to ask FHIR-related questions. One popular stream for developers is [#implementers](https://chat.fhir.org/#narrow/stream/179166-implementers).
