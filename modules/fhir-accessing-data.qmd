@@ -7,7 +7,7 @@ roles:
 
 learning_objectives2:
   - Understand the basics of how to access data via the FHIR API.
-  - Describe some common types of searches to read data from a FHIR server for reserach.
+  - Describe common types of searches to read data from a FHIR server for research.
 ---
 
 [An Application Programming Interface (API) is](https://en.wikipedia.org/wiki/API) "a way for two or more computer programs to communicate with each other."

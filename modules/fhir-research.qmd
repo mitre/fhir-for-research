@@ -9,7 +9,7 @@ roles:
   - Clinician Scientist/Trainee
 
 learning_objectives:
-  - question: How have researchers used FHIR in the past?
+  - question: Identify examples of how FHIR has already been used by researchers.
     answer: Researchers have used FHIR to extract data from EHRs, define phenotypes that are portable across systems and institutions, and enable research that requires integration with clinical workflows.
 ---
 

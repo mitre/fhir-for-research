@@ -12,12 +12,12 @@ roles:
   - Clinician Scientist/Trainee
 
 learning_objectives:
-  - question: What are three key FHIR resources?
+  - question: Identify key FHIR resources.
     answer: Patient, Observation, and Bundle.
-  - question: How are FHIR resources defined?
-    answer: FHIR resources are defined in a structure table that lists out each attribute's name, flags, cardinality, type, constraints, and descriptions.
-  - question: How do FHIR resources support interoperability?
-    answer: A FHIR resource's attributes are rigorously defined, which allows systems to transfer medical information without loss of meaning.
+  - question: Explain the significance of a FHIR resource's "structure table" in the FHIR specification and identify what is included in the table.
+    answer: The data elements of each FHIR resource are listed in a "structure table" on that resource's page in the FHIR specification. The structure table includes each data element's name, flags, cardinality, type, constraints, and descriptions.
+  - question: Describe how FHIR resources support interoperability.
+    answer: The data elements of each FHIR resource are rigorously defined by the FHIR specification. Systems that (correctly) implement the FHIR specification are therefore able have a consistent location and format for storing data, which supports transfer of medical information without loss of meaning.
 ---
 
 Resources are the key building blocks of FHIR. A [**FHIR resource**](https://www.healthit.gov/sites/default/files/page/2021-04/Intro%20to%20FHIR%20Resources%20Fact%20Sheet.pdf) is a structure that contains medical information in an unambiguous format. This allows different systems to understand information in the same way,[^1] which is necessary for health systems to accurately share data.
