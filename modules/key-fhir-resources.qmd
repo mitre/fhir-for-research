@@ -12,7 +12,7 @@ roles:
   - Clinician Scientist/Trainee
 
 learning_objectives:
-  - question: Give three examples of key FHIR resources.
+  - question: Identify key FHIR resources.
     answer: Patient, Observation, and Bundle.
   - question: Explain the significance of a FHIR resource's "structure table" in the FHIR specification and identify what is included in the table.
     answer: The data elements of each FHIR resource are listed in a "structure table" on that resource's page in the FHIR specification. The structure table includes each data element's name, flags, cardinality, type, constraints, and descriptions.
