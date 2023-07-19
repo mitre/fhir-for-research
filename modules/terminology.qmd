@@ -17,7 +17,7 @@ learning_objectives:
     answer: Standard terminology allows data to move across systems while maintaining shared meaning.
   - question: Identify use cases for terminology in research.
     answer: Use cases include helping researchers automatically build cohorts and aggregating data across different systems or institutions.
-  - question: Contrast CodeSystems, ValueSets, and ConceptMaps.
+  - question: Understand how CodeSystems, ValueSets, and ConceptMaps are used in FHIR.
     answer: CodeSystems define a specific terminology and its concepts; ValueSets identify a subset of relevant concepts from one or more code systems; ConceptMaps map one set of concepts onto another.
 ---
 
