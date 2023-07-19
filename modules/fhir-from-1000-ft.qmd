@@ -13,7 +13,7 @@ learning_objectives:
   - question: Describe how FHIR can be customized and why it is important.
     answer: FHIR can be customized through a process called profiling, where FHIR resources are constrained and extended. This allows FHIR to be used for a wide variety of use cases, including applications that were not imagined by FHIR's creators.
   - question: Explain the purpose of the FHIR API.
-    answer: A FHIR API is a standard way for systems to request and send instances of resources to each other.
+    answer: The FHIR API is a standard way for systems to request and send instances of resources to each other.
 ---
 
 ::: callout-caution
