@@ -18,7 +18,7 @@ learning_objectives:
     answer: HL7 V2's data format is outdated compared to modern formats like JSON and XML. It also does not support many health-related data types and is not structured enough to support interoperability.
   - question: Describe the key limitations of HL7 V3.
     answer: V3 is structured enough to support interoperability but is difficult to implement and has not been widely adopted.
-  - question: Contrast the characteristics of FHIR to HL7 V2 and V3. Describe how those characteristics influenced its success over the earlier versions.
+  - question: Understand how FHIR  is related to HL7 V2 and V3, and how the characteristics of these standards influenced their adoption.
     answer: FHIR is structured enough to support interoperability, is simpler than V3, and uses uses common standards like JSON, XML, and REST, so integrates well with non-health-specific software.
 ---
 
