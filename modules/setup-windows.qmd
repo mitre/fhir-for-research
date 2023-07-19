@@ -1,76 +1,29 @@
-# Setting up everything to work on the FHIR for Research website for Windows
+---
+title: Setup Instructions - Windows
 
-1.  Go to github.com and sign up for an account, enable 2fa, get added to relevant repo(s)
-2.  Go to quarto.org and go to "get started", and download quarto
-3.  Install R using this website: <https://cran.r-project.org/bin/windows/base/>
-4.  Install RStudio: <https://posit.co/download/rstudio-desktop/> should auto-populate with appropriate version for windows
-5.  Install Git using this website: <https://git-scm.com/download/win>
+toc: false
+number-sections: false
+---
 
--   Double check that you have Git installed by typing Git in terminal or command prompt. Doing so should produce options and recommendations for git commands
+If you want to [edit this website](../contribute.qmd) locally on your Mac, here are the setup instructions:
 
-6.  SSL Issues---this may be an issue for MITRE-employees using ZScaler.
+1.  Create a free [GitHub](https://github.com) if you don't have one already. Enabling [2fa](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa) is recommended (and may be required by your organization.)
+2.  Follow the [Quarto "Get Started" instructions](https://quarto.org/docs/get-started/) to install Quarto on your system.
+3.  [Install R](https://cran.r-project.org/bin/macosx/)
+4.  [Install RStudio](https://posit.co/download/rstudio-desktop/)
+5.  [Install RTools](https://cran.r-project.org/bin/windows/Rtools/)
+6.  [Install Git](https://git-scm.com/download/mac)
+    -   Verify install worked with `git --version` in your command prompt, which should produce a version number
+7.  [Install Python 3](https://www.python.org/downloads/macos/)
+    -   Verify install worked with `python --version` in your command prompt, which should produce a version number
+8.  [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) the relevant GitHub repository to your local computer
+    -   If you have write access to <https://github.com/mitre/fhir-for-research>, use this repo
+    -   Otherwise, [create a fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+9.  Create a Python virtualenv:
+    1.  At your command prompt, run `python3 -m venv python_env`
+    2.  Then run `source python_env/bin/activate` to activate the virtualenv
+    3.  Run `pip install -r requirements.txt` to install dependencies
+10. Open RStudio, go to "File \> Open Project...", and navigate to the folder of your cloned repo. You should see a `fhir-for-research.Rproj` file in this folder -- if you do, that's the right folder.
+11. Run `renv::restore()` in the R Console to load all the R dependencies
 
--   Download MITRE cert and save in home file
--   Paste the following in terminal, replacing <username> with your own:
-
-```         
-git config --global http.sslCAInfo
-C:/Users/<username> /ca-certificates.crt
-```
-
-7.  Install Python for Windows:
-    -   Open command prompt
-
-    -   Type "Python" and hit enter
-
-    -   Select install
-
-    -   Paste equivalent to the below example with appropriate file path in terminal (cd \[file path to folder with project/project-name\]:
-
-        ```         
-        cd git/fhir-for-research
-        python3 -m venv python_env
-        ```
-8.  Open RStudio
-
--   Load the project in RStudio
-    -   Either navigate through the file navigator on the right if you have the project locally, or if you need to clone an existing, remote repository, use the instructions here: <https://happygitwithr.com/rstudio-git-github.html>
--   Copy/Paste the following command into Console if prompted with an error:
-
-```         
-renv::restore()
-```
-
--   Windows users may need to install R Tools: <https://cran.r-project.org/bin/windows/Rtools/rtools43/files/rtools43-5550-5548.exe>
-    -   After installing RTools, quit RStudio then reopen the app and open the project again
--   Copy/paste the following into Console if prompted:
-
-```         
-renv::snapshot()
-```
-
-9.  Install Jupyter using the instructions at <https://jupyter.org/install>
-
--   To check that Jupyter is installed correctly, copy/paste the following command into terminal or command prompt. It should launch Jupyter Notebook: `jupyter notebook`
-
--   Troubleshooting issues with Jupyter on Windows:
-
-    -   Errors in RStudio or the command prompt indicating that Jupyter is not installed might mean the filepath for where Jupyter was installed needs to be added to PATH.
-    -   Restarting the process by installing Anaconda may help but it shouldn't be necessary: <https://www.anaconda.com>
-    -   Locate where Anaconda is saved if it was installed, or Jupyter itself if Anaconda was not. It might be in a similar destination to: `C:\\User\<username>\AppData\Local` or `C:\\User\<username>\AppData\Roaming`
-    -   Copy the file path
-    -   In System Settings, search for Environment Variables and select
-    -   Select `Path` to edit
-    -   Select `Add New` so the file path previously copied can be added
-    -   Click `Ok` in three windows until the System Settings are closed
-    -   Close and reopen the command prompt. Try to launch a Jupyter Note again with `jupyter notebook`
-
--   Resources that might be helpful:
-
-    -   <https://jupyter-notebook.readthedocs.io/en/stable/troubleshooting.html>
-    -   <https://stackoverflow.com/questions/48350692/jupyter-notebook-installation-issue-using-pip>
-    -   <https://www.geeksforgeeks.org/how-to-setup-anaconda-path-to-environment-variable/>
-
-10. Useful to know:
-
--   `quarto check` in the terminal or command prompt will return what components of Quarto have been installed properly and where there might be issues
+Note: Running `quarto check` in your command prompt will return what components of Quarto have been installed properly and where there might be issues.
