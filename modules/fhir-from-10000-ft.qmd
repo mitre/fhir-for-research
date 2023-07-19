@@ -21,7 +21,7 @@ learning_objectives:
     answer: FHIR is the ubiquitous specification governing interoperability of health systems. This is driven by regulation in the US and FHIR's pragmatic implementation-first approach.
   - question: Explain FHIR’s relevance to research.
     answer: At a high level, FHIR is well-adopted throughout the US healthcare system thanks to ONC and CMS rules. FHIR's openness, active development with an implementer-first approach, and extensibility make it a flexible tool for research.
-  - question: Describe ways in which FHIR can enhance research.
+  - question: Describe how FHIR can enhance research.
     answer: 1) Providing direct access to health data through a standardized API that would otherwise have to be accessed with one-off analyst work or through a more complex workflow.<br><br>2) Defining a data model for research that can be implemented using existing FHIR resources and API endpoints.
 ---
 
