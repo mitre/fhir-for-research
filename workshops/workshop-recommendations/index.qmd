@@ -14,13 +14,13 @@ These slides summarize the content found below.
 <iframe style="border: 3px solid #dee2e6; width: 100%; height: 475px;" src="slides.html"></iframe>
 ```
 
----
+------------------------------------------------------------------------
 
 ## Overview
 
 ### Intended audience
 
-- Instructors involved with the design and implementation of FHIR for research-related training.
+-   Instructors involved with the design and implementation of FHIR for research-related training.
 
 ### Learning objectives
 
@@ -38,23 +38,23 @@ Existing resources include:
 
 1.  FHIR for Research documentation website (i.e., this website)
 
-    - Website permalink:[^purl] <https://purl.org/fhir-for-research/web>
+    -   Website permalink:\[\^purl\] <https://purl.org/fhir-for-research/web>
 
-    - GitHub permalink: <https://purl.org/fhir-for-research/github>
+    -   GitHub permalink: <https://purl.org/fhir-for-research/github>
 
 2.  Webinars
 
-    - Introduction to FHIR for Research: <https://purl.org/fhir-for-research/webinars/intro>
+    -   Introduction to FHIR for Research: <https://purl.org/fhir-for-research/webinars/intro>
 
-    - FHIR Bulk Data Introduction: <https://purl.org/fhir-for-research/webinars/bulk-data>
+    -   FHIR Bulk Data Introduction: <https://purl.org/fhir-for-research/webinars/bulk-data>
 
 3.  Hands-on workshops
 
-    - FHIR Bulk Data: <https://purl.org/fhir-for-research/workshops/bulk-data>
+    -   FHIR Bulk Data: <https://purl.org/fhir-for-research/workshops/bulk-data>
 
-    - SMART on FHIR: <https://purl.org/fhir-for-research/workshops/smart-on-fhir>
+    -   SMART on FHIR: <https://purl.org/fhir-for-research/workshops/smart-on-fhir>
 
-    - More on FHIR API programming: <https://datascience.nih.gov/fhir-initiatives/researchers-training>
+    -   More on FHIR API programming: <https://datascience.nih.gov/fhir-initiatives/researchers-training>
 
 ## About this website
 
@@ -62,21 +62,21 @@ The content on this website is broken up into self-contained "modules" in the fo
 
 1.  [Overview](../../sections/overview.qmd)
     1.  FHIR for Research
-    1.  SMART on FHIR
-    1.  Data Modeling in FHIR
-1.  [Working with FHIR Data](../../sections/working-with-data.qmd)
+    2.  SMART on FHIR
+    3.  Data Modeling in FHIR
+2.  [Working with FHIR Data](../../sections/working-with-data.qmd)
     1.  Tabular Analysis
-    1.  REDCap
-    1.  FHIR Bulk Data
-1.  [Advanced Topics](../../sections/advanced-topics.qmd)
+    2.  REDCap
+    3.  FHIR Bulk Data
+3.  [Advanced Topics](../../sections/advanced-topics.qmd)
     1.  Synthetic Data & FHIR Testing Servers
-    1.  Other Topics
+    2.  Other Topics
 
-This website is generated from [source code](https://purl.org/fhir-for-research/github) using [Quarto](https://quarto.org>):
+This website is generated from [source code](https://purl.org/fhir-for-research/github) using [Quarto](https://quarto.org%3E):
 
-- Quarto is a tool for generating static documentation websites that include R or Python code
-- It's made by Posit (the company that makes RStudio)
-- Narrative content is written in [Markdown](https://quarto.org/docs/authoring/markdown-basics.html)
+-   Quarto is a tool for generating static documentation websites that include R or Python code
+-   It's made by Posit (the company that makes RStudio)
+-   Narrative content is written in [Markdown](https://quarto.org/docs/authoring/markdown-basics.html)
 
 More information about editing, modifying, or reusing content from this website is [available here](../../contribute.qmd).
 
@@ -90,120 +90,120 @@ Workshops are a useful approach to help attendees quickly climb the learning cur
 
 ### Other best practices
 
-- Tailor technical prerequisites to the anticipated audience
-  - For example, our SMART on FHIR workshop requires basic HTML and JavaScript experience for hands-on participation
-  - Use the pre-survey to verify audience technical skills
-- Provide learning objectives - <https://tips.uark.edu/using-blooms-taxonomy> is helpful
-- Provide an "onramp" introducing the topic at the beginning so less technical participants can still get value from the beginning
-  - In general, order content from least to most technical
-  - Consider a mini-webinar introduction
-  - Verbally identify the "drop points" where people who are not interested in the technical content can safely leave
-- Provide a walk-through to introduce hands-on participation
-  - Provide sample code/template that participants can run themselves
-  - Consider having the presenter fill in the sample code/template live, or give participants time to work themselves and ask questions
-- Keep the total length under 3 hours
-  -   Consider 1-2 hours of content, and an optional "lab" hour if there is substantial hands-on content to allow participants to work independently and ask questions
-  -   Include 5 minute breaks every hour
-- Plan for "preflight" if technical setup is necessary
-  - Strategize to reduce setup as much as possible (e.g., use cloud Jupyter environment rather than requiring participants to run it locally -- more on this below)
-- Include at least one TA to help with technical issues and questions during the workshop
-  -   For virtual workshops, use breakout rooms if participants need 1:1 help
-- Require registration to attend
-  - Allows for monitoring and adjustment of outreach strategy if the desired mix of people don't initially sign up
-  - Start registration at least 2 weeks ahead of the event
-  - Be clear about the prerequisites, and whether technical skills are required for some/all of the workshop
+-   Tailor technical prerequisites to the anticipated audience
+    -   For example, our SMART on FHIR workshop requires basic HTML and JavaScript experience for hands-on participation
+    -   Use the pre-survey to verify audience technical skills
+-   Provide learning objectives - <https://tips.uark.edu/using-blooms-taxonomy> is helpful
+-   Provide an "onramp" introducing the topic at the beginning so less technical participants can still get value from the beginning
+    -   In general, order content from least to most technical
+    -   Consider a mini-webinar introduction
+    -   Verbally identify the "drop points" where people who are not interested in the technical content can safely leave
+-   Provide a walk-through to introduce hands-on participation
+    -   Provide sample code/template that participants can run themselves
+    -   Consider having the presenter fill in the sample code/template live, or give participants time to work themselves and ask questions
+-   Keep the total length under 3 hours
+    -   Consider 1-2 hours of content, and an optional "lab" hour if there is substantial hands-on content to allow participants to work independently and ask questions
+    -   Include 5 minute breaks every hour
+-   Plan for "preflight" if technical setup is necessary
+    -   Strategize to reduce setup as much as possible (e.g., use cloud Jupyter environment rather than requiring participants to run it locally -- more on this below)
+-   Include at least one TA to help with technical issues and questions during the workshop
+    -   For virtual workshops, use breakout rooms if participants need 1:1 help
+-   Require registration to attend
+    -   Allows for monitoring and adjustment of outreach strategy if the desired mix of people don't initially sign up
+    -   Start registration at least 2 weeks ahead of the event
+    -   Be clear about the prerequisites, and whether technical skills are required for some/all of the workshop
 
 ### Accessibility
 
-- Use Zoom local recording (or similar) to record screen and audio
-- Share recording with subtitles for accessibility
-  - Modern transcription applications like [MacWhisper](https://goodsnooze.gumroad.com/l/macwhisper) can generate subtitles that are quite accurate, requiring fairly minimal manual editing
-  - Subtitles can be in a .srt "sidecar" file -- this is a plain text file that can be easily edited by hand
-- Provide slides and other materials on a single website at the time of the event
-  - e.g., <https://purl.org/fhir-for-research/workshops/bulk-data>
-  - Consider "upstreaming" any materials to the main open source GitHub repository
-- Use URLs in slides that can be updated later if the website changes (e.g. from <https://purl.org>) to avoid broken links in video recordings
+-   Use Zoom local recording (or similar) to record screen and audio
+-   Share recording with subtitles for accessibility
+    -   Modern transcription applications like [MacWhisper](https://goodsnooze.gumroad.com/l/macwhisper) can generate subtitles that are quite accurate, requiring fairly minimal manual editing
+    -   Subtitles can be in a .srt "sidecar" file -- this is a plain text file that can be easily edited by hand
+-   Provide slides and other materials on a single website at the time of the event
+    -   e.g., <https://purl.org/fhir-for-research/workshops/bulk-data>
+    -   Consider "upstreaming" any materials to the main open source GitHub repository
+-   Use URLs in slides that can be updated later if the website changes (e.g. from <https://purl.org>) to avoid broken links in video recordings
 
 ## Environment & Data
 
 ### Compute
 
-- If possible, provide a cloud compute environment with dependencies pre-installed
+-   If possible, provide a cloud compute environment with dependencies pre-installed
 
-  - This will save on setup time and avoid participants getting stuck on technical issues during the workshop
+    -   This will save on setup time and avoid participants getting stuck on technical issues during the workshop
 
-- Run on your own server:
+-   Run on your own server:
 
-  - **Python/Jupyter:** <https://tljh.jupyter.org> for up to 100 users
+    -   **Python/Jupyter:** <https://tljh.jupyter.org> for up to 100 users
 
-  - **R/RStudio Server:** <https://posit.co/download/rstudio-server/>
+    -   **R/RStudio Server:** <https://posit.co/download/rstudio-server/>
 
-- No server required:
+-   No server required:
 
-      -   Free, some additional complexity: <https://mybinder.org>
+    ```         
+    -   Free, some additional complexity: <https://mybinder.org>
 
-      -   \$15/month, more reliable:\
-          <https://posit.cloud/plans/instructor?option=instructor>
+    -   \$15/month, more reliable:\
+        <https://posit.cloud/plans/instructor?option=instructor>
+    ```
 
 ### Running a Server
 
-- Typically memory is the main constraint, which scales linearly with the number of simultaneous users
+-   Typically memory is the main constraint, which scales linearly with the number of simultaneous users
 
-  - Our FHIR Bulk Data workshop using JupyterHub (via TLJH) required around 600MB/user minimum
+    -   Our FHIR Bulk Data workshop using JupyterHub (via TLJH) required around 600MB/user minimum
 
-  - Run your code ahead of time to estimate memory needs
+    -   Run your code ahead of time to estimate memory needs
 
-- CPU usage will likely be low unless your workshop includes a lot of CPU-constrained code (e.g., training machine learning models)
+-   CPU usage will likely be low unless your workshop includes a lot of CPU-constrained code (e.g., training machine learning models)
 
-- TLJH: <https://tljh.jupyter.org/en/latest/howto/admin/resource-estimation.html>
+-   TLJH: <https://tljh.jupyter.org/en/latest/howto/admin/resource-estimation.html>
 
-- NIH-funded researchers can use <https://cloud.nih.gov> to run VMs from public cloud vendors (AWS, Azure, GCP) at a discounted price
-  :::
+-   NIH-funded researchers can use <https://cloud.nih.gov> to run VMs from public cloud vendors (AWS, Azure, GCP) at a discounted price :::
 
 ### Synthetic Data
 
-- Using synthetic data avoids privacy issues with patient data
+-   Using synthetic data avoids privacy issues with patient data
 
-- <https://synthea.mitre.org> provides synthetic data in FHIR format
+-   <https://synthea.mitre.org> provides synthetic data in FHIR format
 
-- <https://purl.org/fhir-for-research/synthea> provides more information on customizing Synthea for your specific use case
+-   <https://purl.org/fhir-for-research/synthea> provides more information on customizing Synthea for your specific use case
 
+### FHIR Test Server
 
-## [Environment & Data /]{style="font-weight: normal; font-size: 50%;"}<br>FHIR Test Server
+-   Workshops that use the FHIR API will need a test server
 
-- Workshops that use the FHIR API will need a test server
+-   Options for this:
 
-- Options for this:
+    -   <https://sandbox.logicahealth.org>: free test server with both open and authenticated endpoints, as well as SMART on FHIR and CDS Hooks support
 
-  - <https://sandbox.logicahealth.org>: free test server with both open and authenticated endpoints, as well as SMART on FHIR and CDS Hooks support
+        -   Allows you to bring your own data
 
-    - Allows you to bring your own data
+    -   <https://launch.smarthealthit.org> for SMART on FHIR testing
 
-  - <https://launch.smarthealthit.org> for SMART on FHIR testing
+    -   <https://bulk-data.smarthealthit.org> for FHIR Bulk Data testing
 
-  - <https://bulk-data.smarthealthit.org> for FHIR Bulk Data testing
+    -   <https://hapifhir.io> if you want to run your own FHIR server
 
-  - <https://hapifhir.io> if you want to run your own FHIR server
-
-    - Or use their public sandbox: <http://hapi.fhir.org>
+        -   Or use their public sandbox: <http://hapi.fhir.org>
 
 ## Working with Revealjs slides
 
-- Quarto supports three different formats for generating slides
-- We use Revealjs: <https://quarto.org/docs/presentations/revealjs/>
-    - Especially good for slides that include code
-    - For virtual workshops, screen sharing a single browser window is easier than switching between applications
-    - Creating PDFs of Revealjs slides
-        - <https://github.com/astefanutti/decktape> is a command line tool for converting HTML slides (including Revealjs) into PDF
-        - DeckTape-generated PDFs are not accessible by default
+-   Quarto supports three different formats for generating slides
+-   We use Revealjs: <https://quarto.org/docs/presentations/revealjs/>
+    -   Especially good for slides that include code
+    -   For virtual workshops, screen sharing a single browser window is easier than switching between applications
+    -   Creating PDFs of Revealjs slides
+        -   <https://github.com/astefanutti/decktape> is a command line tool for converting HTML slides (including Revealjs) into PDF
+        -   DeckTape-generated PDFs are not accessible by default
 
 ## Sharing accessible slides
 
-  - PowerPoint and PDF format slides are not by default accessible
-  - [Microsoft guidance for making accessible PowerPoint files](https://support.microsoft.com/en-us/office/make-your-powerpoint-presentations-accessible-to-people-with-disabilities-6f7772b2-2f33-4bd2-8ca7-dae3b2b3ef25)
-  - <https://pdfua.foundation/en/> provides a tool for checking PDF accessibility
-  - If you generate a PDF from PowerPoint slides, use [these instructions](https://support.microsoft.com/en-au/office/create-accessible-pdfs-064625e0-56ea-4e16-ad71-3aa33bb4b7ed) to add accessibility tags to the PDF
+-   PowerPoint and PDF format slides are not by default accessible
+-   [Microsoft guidance for making accessible PowerPoint files](https://support.microsoft.com/en-us/office/make-your-powerpoint-presentations-accessible-to-people-with-disabilities-6f7772b2-2f33-4bd2-8ca7-dae3b2b3ef25)
+-   <https://pdfua.foundation/en/> provides a tool for checking PDF accessibility
+-   If you generate a PDF from PowerPoint slides, use [these instructions](https://support.microsoft.com/en-au/office/create-accessible-pdfs-064625e0-56ea-4e16-ad71-3aa33bb4b7ed) to add accessibility tags to the PDF
 
 ## Mermaidjs
 
-- Download from web page: <http://nytimes.github.io/svg-crowbar/>
+-   Download from web page: <http://nytimes.github.io/svg-crowbar/>
