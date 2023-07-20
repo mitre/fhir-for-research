@@ -23,7 +23,7 @@ If you are not familiar with REDCap and its research use cases, please see the [
 
 In their manuscript, @Cheng_2021 describe the development of the Clinical Data Interoperability Services (CDIS), which facilitates the exchange of data between REDCap and any EHR via the FHIR API. As of September 2022, 40 institutions in the US and Canada have integrated REDCap with their Epic or Cerner EHR [@Cheng_Banasiewicz_Johnson_Sulieman_Kennedy_Delacqua_Lewis_Joly_Bistran-Hall_Collins_2023], which represents a small portion of the total number of institutions that have implemented REDCap. However, integrating REDCap with FHIR can provide significant value to researchers by making clinical data more accessible without requiring [manually querying FHIR endpoints](fhir-accessing-data.qmd).
 
-![The CDIS workflow uses FHIR to simplify the process of creating a registry from EHR data.](images/cheng-fhir-shortcut.png){alt="The CDIS workflow uses FHIR to simplify the process of creating a registry from EHR data. From Cheng 2021."}
+![The CDIS workflow uses FHIR to simplify the process of creating a registry from EHR data.](images/cheng-fhir-shortcut.png){fig-alt="Data flowing directly from an EHR to a REDCap registry, saving time and effort by bypassing a data warehouse and a flat file."}
 
 REDCap on FHIR/CDIS includes two approaches:
 

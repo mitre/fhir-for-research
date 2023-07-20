@@ -18,7 +18,7 @@ format:
 
 ---
 
-![](images/DataSceinceFHIR_RFI_Banner_V3.png)
+![](images/DataSceinceFHIR_RFI_Banner_V3.png){fig-alt="HL7 FHIR supporting the research process by expanding access to data and improving interoperability."}
 
 ::: {.content-block}
 ::: {.features}
