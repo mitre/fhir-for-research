@@ -258,4 +258,17 @@ document.addEventListener("DOMContentLoaded", function() {
         node.parentNode.parentNode.style.gridRow = "initial";
     });
 });
+
+// Set external links to open in a new tab
+document.addEventListener("DOMContentLoaded", function() {
+    var all_links = document.querySelectorAll('a');
+    for (var i = 0; i < all_links.length; i++){
+        var a = all_links[i];
+        if(a.hostname != location.hostname) {
+                a.rel = 'noopener';
+                a.target = '_blank';
+        }
+    }
+})
+
 </script>
