@@ -32,7 +32,7 @@ HL7 released [HL7 Version 2](https://www.hl7.org/implement/standards/product_bri
 
 -   V2 predates modern web-based interoperability technology, making integration into current computer systems difficult. V2 uses a custom data format, requiring purpose-built software to read and write V2 messages.
 
-    ::: {.callout-tip collapse="true"}
+    ::: {.callout-tip collapse="false"}
     ## Expand to see an example of a V2 message.
 
     From [Wikipedia](https://en.wikipedia.org/wiki/Health_Level_7#Version_2_messaging):
@@ -71,7 +71,7 @@ Recall from [FHIR from 1,000 Feet](fhir-from-1000-ft.qmd) that:
 
 In late 2014, HL7 released the first official version of FHIR. By 2015, 87% of hospitals in the US were using FHIR certified EHRs as seen below. [@2015_fhir_adoption]
 
-![](images/2015_hospital_fhir_usage.png)
+![Within a year of HL7's 2014 release of FHIR, 87% of hospitals in the US were using FHIR certified EHRs.](images/2015_hospital_fhir_usage.png){fig-alt="Map of the United States showing regional adoption of HL7 FHIR certified EHRs with text description above."}
 
 The late 2010s saw adoption outside of EHRs. For example, Apple uses FHIR in [HealthKit](https://developer.apple.com/documentation/healthkit/samples/accessing_health_records) for accessing patient health data directly from EHRs. The three major public cloud vendors ([Amazon](https://aws.amazon.com/blogs/architecture/building-a-serverless-fhir-interface-on-aws/), [Google](https://cloud.google.com/healthcare-api/docs/concepts/fhir), [Microsoft](https://azure.microsoft.com/en-us/products/health-data-services/)) provide FHIR-enabled services as well.
 
