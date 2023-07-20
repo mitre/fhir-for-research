@@ -45,7 +45,9 @@ July 2023 <br><br><br>
 1.  Existing capacity-building resources
 2.  Working with the FHIR for Research documentation website
 3.  Recommendations for live workshops
-    1.  Compute environment & synthetic data
+    -   Compute environment
+    -   Synthetic data
+    -   Other recommendations
 
 ## Existing Resources
 
@@ -119,11 +121,13 @@ Detailed setup instructions are found at <https://purl.org/fhir-for-research/web
 
 ## [Documentation Website /]{style="font-weight: normal; font-size: 50%;"}<br>Editing
 
+::: r-fit-text
 -   Narrative content can be edited as plain text Markdown, or using the WYSIWYG "Visual" mode in RStudio
     -   More on Markdown: <https://quarto.org/docs/authoring/markdown-basics.html>
 -   Preview locally in a web browser via "Render" in RStudio, or running quarto preview from the command line
 -   Publish publicly via [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
     -   More: <https://quarto.org/docs/publishing/github-pages.html>
+:::
 
 ## [Documentation Website /]{style="font-weight: normal; font-size: 50%;"}<br>Contributing
 
@@ -153,7 +157,7 @@ Detailed setup instructions are found at <https://purl.org/fhir-for-research/web
 
 ::: r-fit-text
 -   Consider a brief pre-survey or lightweight capability assessment
-    -   <https://purl.org/fhir-for-research/web/workshop-recommendations> has more information
+    -   <https://purl.org/fhir-for-research/workshop-recommendations> has more information
 -   Tailor technical prerequisites to the anticipated audience
     -   For example, our SMART on FHIR workshop requires basic HTML and JavaScript experience for hands-on participation
     -   Use the pre-survey to verify audience technical skills
@@ -266,20 +270,16 @@ Detailed setup instructions are found at <https://purl.org/fhir-for-research/web
 
 -   TLJH: <https://tljh.jupyter.org/en/latest/howto/admin/resource-estimation.html>
 
--   NIH-funded researchers can use <https://cloud.nih.gov> to run VMs from public cloud vendors (AWS, Azure, GCP) at a discounted price
+-   NIH-funded researchers may take advantage of the STRIDES Initiative for cloud computing. For more information, visit https://datascience.nih.gov/strides
 :::
 
 ## [Environment & Data /]{style="font-weight: normal; font-size: 50%;"}<br>Synthetic Data
 
-::: r-fit-text
 -   Using synthetic data avoids privacy issues with patient data
 
 -   <https://synthea.mitre.org> provides synthetic data in FHIR format
 
 -   <https://purl.org/fhir-for-research/synthea> provides more information on customizing Synthea for your specific use case
-
-\[Demo Synthea customizer tool here\]
-:::
 
 ::: notes
 Demo the Synthea customizer tool
@@ -303,18 +303,16 @@ Demo the Synthea customizer tool
     -   <https://hapifhir.io> if you want to run your own FHIR server
 
         -   Or use their public sandbox: <http://hapi.fhir.org>
-
-\[Walk through of Logica\]
 :::
 
 ::: notes
-Walk through <https://sandbox.logicahealth.org/FHIRResearchSynthea/apps>
+Walk through <https://sandbox.logicahealth.org/FHIRResearchSynthea/apps>. Show example GET request from <https://mitre.github.io/smart-on-fhir-demo/get_example.html>.
 :::
 
 # Wrap-up
 
 ## Wrap-up
 
--   Materials from this workshop: <https://purl.org/fhir-for-research/workshops/workshop-recommendations>
+-   Materials from this webinar: <https://purl.org/fhir-for-research/workshop-recommendations>
 
 -   ODSS FHIR for Research website: <https://datascience.nih.gov/fhir-initiatives/researchers-training>
