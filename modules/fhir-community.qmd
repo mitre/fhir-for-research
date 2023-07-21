@@ -193,7 +193,7 @@ During a ballot, a specification is "frozen" for a specified period of time to g
 Balloting is managed through two tools:
 
 - [HL7 Ballot Desktop](https://confluence.hl7.org/display/HL7/HL7+Ballot+Desktop): manages ballot announcements and captures the formal record of ballot submissions.
-- [Jira Ballot Process](https://confluence.hl7.org/display/HL7/Jira+Ballot+Process): manages comments and records the votes of reviewers.
+- [Jira Ballot Process](https://confluence.hl7.org/display/HL7/Jira+Ballot+Process): manages comments and records the votes of balloters.
 
 Two research related IGs undergoing the HL7 balloting process are the following:
 
