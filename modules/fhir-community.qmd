@@ -221,7 +221,7 @@ Two IGs that were not balloted through HL7:
 
 2. The [OHSU Hypertension Implementation Guide](https://build.fhir.org/ig/OHSUCMP/htnu18ig/index.html) is a patient-facing support tool for hypertension management. Funded by AHRQ, the IG uses [CDS Hooks](smart-on-fhir-intro/#cds-hooks)to support the clinical decision support logic.
 
-### More Information
+### More information on balloting
 The balloting process can be daunting and confusing after the first introduction. The following steps may help to clarify the process:
 
 - Join a [Work Group meeting](#work-group-meetings).
