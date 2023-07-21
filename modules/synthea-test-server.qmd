@@ -123,7 +123,7 @@ Other popular FHIR servers include:
 
 ## Public Test Servers
 
-Some options for public test servers are listed [on the HL7 Confluence](https://confluence.hl7.org/display/FHIR/Public+Test+Servers) with basic information and limitations of each. A couple notable items:
+Some options for public test servers are listed [on the HL7® Confluence](https://confluence.hl7.org/display/FHIR/Public+Test+Servers) with basic information and limitations of each. A couple notable items:
 
  -  HAPI FHIR Reference Server
     - Web UI: <http://hapi.fhir.org>

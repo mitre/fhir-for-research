@@ -45,7 +45,7 @@ Open-source libraries exist in many programming languages to help developers wor
 >
 > -   [.NET](https://fire.ly/fhir-api/): FHIR client library from Firely
 
-HL7's Confluence site also has a list of [FHIR-related software libraries](https://confluence.hl7.org/display/FHIR/Open+Source+Implementations).
+HL7®'s Confluence site also has a list of [FHIR-related software libraries](https://confluence.hl7.org/display/FHIR/Open+Source+Implementations).
 
 You can create a SMART on FHIR application without relying on third-party libraries, but using a third-party library will likely save development time.
 

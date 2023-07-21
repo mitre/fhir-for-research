@@ -44,7 +44,7 @@ Below are summaries of recent published research in each of these areas. At the 
 
     Their approach could be deployed at multiple institutions and scaled to millions of records using synthetic data.
 
-[^1]: CQL is an HL7 standard that expresses inclusion and exclusion logic.
+[^1]: CQL is an HL7® standard that expresses inclusion and exclusion logic.
 
 ## Interacting with clinical workflows
 
