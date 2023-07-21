@@ -29,7 +29,7 @@ The [HL7](https://hl7.org) FHIR community consists of developers, maintainers, a
 -   Health-focused companies and non-profits
 -   Local, state, and federal health agencies
 
-Because [FHIR](https://hl7.org/fhir/) is an open-source specification, most of HL7's FHIR work is done publicly, and anyone can participate. The FHIR community also develops many [FHIR Implementation Guides (IGs)](http://fhir.org/guides/registry/) with the same public approach.
+Because [FHIR](https://hl7.org/fhir/) is an open-source specification, most of HL7's FHIR work is done publicly, and anyone may participate. The FHIR community also develops many [FHIR Implementation Guides (IGs)](http://fhir.org/guides/registry/) with the same public approach.
 
 This openness makes members of the community accessible to implementers and developers who want to:
 
@@ -45,7 +45,7 @@ HL7 specifications and many FHIR Implementation Guides are developed as [**HL7 P
 
 > ...the bodies within HL7 that take on responsibility for developing and maintaining standards. They are where the "work" of HL7 gets done. HL7 has many work groups covering the spectrum of the healthcare space. All work groups are open to participation by anyone with an interest in their content.
 
-HL7 Work Groups consist of subject matter experts and other stakeholders. Each Work Group has a [mailing list](https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions) that you can join to communicate with the Work Group, including asking for time on an upcoming conference call. Work Groups also post conference call agendas on their Confluence sites (see the [Work Group directory](https://confluence.hl7.org/pages/viewpage.action?pageId=4489802) for Confluence links).
+HL7 Work Groups consist of subject matter experts and other stakeholders. Each Work Group has a [mailing list](https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions) that may be joined to communicate with the Work Group, including asking for time on an upcoming conference call. Work Groups also post conference call agendas on their Confluence sites (see the [Work Group directory](https://confluence.hl7.org/pages/viewpage.action?pageId=4489802) for Confluence links).
 
 Each Work Group lists their [associated projects](http://www.hl7.org/Special/committees/index.cfm?ref=nav). Work Groups typically meet on a weekly basis for a [conference call](http://www.hl7.org/concalls/CallDirectory.aspx). There is a core leadership team for each Work Group that facilitates meetings. Attendees vary depending on agenda content.
 
@@ -55,7 +55,7 @@ Work Groups also meet in-person or hybrid at [HL7 Working Group Meetings](https:
 
 The fastest way to get started in a Work Group is to join its [conference call](http://www.hl7.org/concalls/CallDirectory.aspx) and ask to introduce yourself.
 
-Alternatively (or additionally), join the Work Group's [mailing list](https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions) and reach out to the group's leadership to introduce yourself. You can also use the mailing list to request future agenda items.
+Alternatively (or additionally), join the Work Group's [mailing list](https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions) and reach out to the group's leadership to introduce yourself. One may also use the mailing list to request future agenda items.
 
 #### Tips for attending Work Group meetings:
 
@@ -63,13 +63,13 @@ Alternatively (or additionally), join the Work Group's [mailing list](https://co
 
 -   Be prepared to discuss your agenda item(s). Agendas are available ahead of the meeting on the Work Group's Confluence page.
 
--   Share your expertise. To ensure that new projects and specifications can be used by the community, Work Groups require input from a variety of stakeholders.
+-   Share your expertise. To ensure that new projects and specifications may be used by the community, Work Groups require input from a variety of stakeholders.
 
 ### Zulip (chat.fhir.org)
 
 Zulip ([chat.fhir.org](https://chat.fhir.org)) is an asynchronous communication platform like Slack or Teams messaging. Anyone may join. The platform is a valuable resource for asking questions and connecting with others with similar projects or objectives.
 
-Zulip has "streams" (like "channels" on Slack) for general topics like [Implementation Guide development](https://chat.fhir.org/#narrow/stream/179252-IG-creation) and [Terminology](https://chat.fhir.org/#narrow/stream/179202-terminology), as well as domain-specific topics like [Cancer Interoperability](https://chat.fhir.org/#narrow/stream/179234-Cancer-Interoperability). Users post comments or questions inside a stream, and others respond. You can find applicable streams by searching for your topic or browsing through the stream list.
+Zulip has "streams" (like "channels" on Slack) for general topics like [Implementation Guide development](https://chat.fhir.org/#narrow/stream/179252-IG-creation) and [Terminology](https://chat.fhir.org/#narrow/stream/179202-terminology), as well as domain-specific topics like [Cancer Interoperability](https://chat.fhir.org/#narrow/stream/179234-Cancer-Interoperability). Users post comments or questions inside a stream, and others respond. One may find applicable streams by searching for a topic or browsing through the stream list.
 
 #### Getting started with Zulip
 
@@ -87,13 +87,13 @@ Other useful streams to subscribe to include:
 
 -   [#social](https://chat.fhir.org/#narrow/stream/179160-social): general discussion about the FHIR community with the occasional fun update from a community member
 
-### Connectathons
+### HL7 FHIR Connectathons
 
-[Connectathons](https://confluence.hl7.org/display/FHIR/Connectathons) are events that connect contributors and community members to test FHIR technology. HL7 describes a [Connectathon](https://confluence.hl7.org/display/FHIR/Connectathons) as:
+[HL7 FHIR Connectathons](https://confluence.hl7.org/display/FHIR/Connectathons) are events that connect contributors and community members to test FHIR technology. HL7 describes a [Connectathon](https://confluence.hl7.org/display/FHIR/Connectathons) as:
 
 > ...an event that is centered on developing the HL7 FHIR Specification including resources, profiles and implementation guides. The purpose of a Connectathon is to prove that the specification is complete and facilitate FHIR implementation guide maturity.
 
-Three Connectathons are held each year, either as in-person events or as virtual meetings. Anyone can [attend as a participant](https://confluence.hl7.org/display/FHIR/Connectathons) or submit a proposal to be a [Track Lead](https://confluence.hl7.org/display/FHIR/Connectathon+Track+Lead+Responsibilities). Connectathon Track Leads share their specification or resource for implementers to test and offer feedback. A complete list of the Tracks is posted before the Connectathon. You can also view offerings from [previous Connectathons](https://confluence.hl7.org/display/FHIR/Previous+Connectathons).
+Three Connectathons are held each year, either as in-person events or as virtual meetings. Anyone may [attend as a participant](https://confluence.hl7.org/display/FHIR/Connectathons) or submit a proposal to be a [Track Lead](https://confluence.hl7.org/display/FHIR/Connectathon+Track+Lead+Responsibilities). Connectathon Track Leads share their specification or resource for implementers to test and offer feedback. A complete list of the Tracks is posted before the Connectathon. One may also view offerings from [previous Connectathons](https://confluence.hl7.org/display/FHIR/Previous+Connectathons).
 
 #### Getting started
 
