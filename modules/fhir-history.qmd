@@ -32,7 +32,7 @@ HL7 released [HL7 Version 2](https://www.hl7.org/implement/standards/product_bri
 
 -   V2 predates modern web-based interoperability technology, making integration into current computer systems difficult. V2 uses a custom data format, requiring purpose-built software to read and write V2 messages.
 
-    ::: {.callout-tip collapse="false"}
+    ::: {.callout-tip collapse="true"}
     ## Expand to see an example of a V2 message.
 
     From [Wikipedia](https://en.wikipedia.org/wiki/Health_Level_7#Version_2_messaging):

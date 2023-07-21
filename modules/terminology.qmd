@@ -144,6 +144,7 @@ Below is an example of how SNOMED might represent a condition (acute post-strept
 
 ```{mermaid}
 flowchart BT
+    accTitle: Diagram showing how an example SNOMED CT concept (413643004 "Beta-hemolytic Streptococcus, group") is related to other SNOMED CT concepts.
     A{{SNOMED - CT Concept}}
     B[Clinical Finding\n404684003]
     C[Body Structure\n123037004]

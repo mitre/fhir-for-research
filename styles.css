@@ -98,11 +98,11 @@
 }
 
 .json_view__value--boolean {
-  color: red;
+  color: #e50000;
 }
 
 .json_view__value--type-object, .json_view__value--type-array {
-  color: #ccc;
+  color: #767676;
 }
 
 

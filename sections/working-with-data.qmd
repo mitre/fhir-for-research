@@ -13,8 +13,8 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 
 -   *Recommended: complete highlighted [FHIR for Research](overview.qmd) modules for your role first*
 -   [Introduction to Analyzing FHIR Data in a Tabular Format](/modules/tabular-intro.qmd)
--   [Analyzing FHIR Data in a Tabular Format With R](/modules/tabular-r.qmd)
 -   [Analyzing FHIR Data in a Tabular Format With Python](/modules/tabular-python.qmd)
+-   [Analyzing FHIR Data in a Tabular Format With R](/modules/tabular-r.qmd)
 
 ## REDCap
 

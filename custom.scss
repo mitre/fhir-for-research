@@ -1,8 +1,24 @@
 /*-- scss:defaults --*/
 $primary: #20558a !default;
 $navbar-bg: #20558a !default;
+$code-color: #7920a7 !default;
 
 /*-- scss:rules --*/
+
+// This is the column type in RMarkdown data frame output, which does not have
+// enough contrast by default.
+//
+// Same for the "info" at the bottom of the RMarkdown data frame output.
+// And "NA" cells.
+.pagedtable-header-type, .pagedtable-info, .pagedtable-na-cell {
+  color: #747474 !important;
+  opacity: inherit !important; // for the "NA" cells, which default to 0.3 opacity
+}
+.even .pagedtable-na-cell {
+  color: #6e6e6e !important; // darker for zebra stripe columns
+}
+
+
 
 .panel-caption,.figure-caption,figcaption {
   color: $gray-600;

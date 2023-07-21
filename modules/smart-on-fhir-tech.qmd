@@ -172,7 +172,7 @@ Add the following contents to `index.html`. This will be the testing "app" for t
             <div id="meds">Loading...</div>
             <script type="text/javascript">
                 FHIR.oauth2.ready().then(function(client) {
-                    
+
                     // Render the current patient (or any error)
                     client.patient.read().then(
                         function(pt) {
@@ -182,13 +182,13 @@ Add the following contents to `index.html`. This will be the testing "app" for t
                             document.getElementById("patient").innerText = error.stack;
                         }
                     );
-                    
+
                     // Get MedicationRequests for the selected patient
                     client.request("/MedicationRequest?patient=" + client.patient.id, {
                         resolveReferences: [ "medicationReference" ],
                         graph: true
                     })
-                    
+
                     // Reject if no MedicationRequests are found
                     .then(function(data) {
                         if (!data.entry || !data.entry.length) {
@@ -196,7 +196,7 @@ Add the following contents to `index.html`. This will be the testing "app" for t
                         }
                         return data.entry;
                     })
-                    
+
 
                     // Render the current patient's medications (or any error)
                     .then(
@@ -257,6 +257,7 @@ Here's a visual diagram of the process that occurs when you launch your example 
 ::: column-page-inset-right
 ```{mermaid}
 sequenceDiagram
+    accTitle: Diagram showing the workflow for a SMART on FHIR EHR launch
     participant A as localhost:8000/launch.html
     participant B as launch.smarthealthit.org
     participant C as localhost:8000/index.html
