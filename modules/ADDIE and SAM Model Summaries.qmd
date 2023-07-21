@@ -1,0 +1,29 @@
+Summary of ADDIE
+
+Analysis, Design, Development, Implementation, and Evaluation (ADDIE) is a systematic and cyclical process that supports developers while making training's for adult learners. It is also used as a model of instructional design for making educational programs.
+
+• Analysis: Analysis is when developers identify the performance gap. They identify the problem and set a goal to solve the problem by identifying what someone already knows and what experience they already have with the specific topic.
+
+• Design: Design is the second step in this cyclical process. Design is when developers identify the learning objectives. They identify the steps that they want to take in order for them to successfully achieve their goal. This is best achieved by making very specific learning objectives and strategies.
+
+• Development: Development is the third step, which is when developers develop a performance solution. This is when they begin creating and putting together the objectives made in the design phase. They will most likely use technology and work towards doing a test run of their training.
+
+• Implementation: Implementation is the fourth step, which is when developers deliver the performance solution. This is when they will start thinking about where and how they want to deliver this training (where online? where in person?). This is the step where they figure out what materials will be needed, when they can be picked up, how they will be used, etc. It is the technical step of the entire process. It is the step where they prepare the trainees to have all of the required tools for their training.
+
+• Evaluation: Evaluation is the fifth and final step of this process. Evaluation is when developers evaluate the results relative to the performance objectives. This is when the developers evaluate the results and look for how many of them participated, what did they learn, and did they learn it correctly.
+
+[The ADDIE Model \| Human Resources Management (lumenlearning.com)](https://courses.lumenlearning.com/wm-humanresourcesmgmt/chapter/the-addie-model/)
+
+[PowerPoint Presentation (obsidianlearning.com)](https://obsidianlearning.com/assets/download/obsidian-addie-model-infographic.pdf)
+
+Summary of SAM
+
+SAM is a simplified version of the ADDIE model. SAM stands for Successive Approximation Model. It is specifically used for getting feedback earlier in the whole process. It is composed of three parts: Preparation, Iterative Design, and Iterative Development.
+
+• Preparation: The preparation phase starts off with getting all of the information and background that is required for the specific project. This phase is when the creators will brainstorm, sketch, and prototype to develop the material. It is suggested that many people (colleagues, advisers, students, etc.) are helping with this phase in order to have a better outcome at the end.
+
+• Iterative Design: Next is the Iterative Design phase. This is when the creators have agreed on an idea and have developed a prototype for the idea so that they are able to have the desired recipients take a look at it and give the creators feedback.
+
+• Iterative Development: Lastly is the Iterative Development phase. This is when the final prototype is fully made and developed after taking the feedback given in the previous phase and using it. Once the prototype has been used, it can go back through the phases if necessary.
+
+[Successive Approximation Model (SAM) - Digital Learning Innovations (kennesaw.edu)](https://dli.kennesaw.edu/resources/idmodels/sam.php)
