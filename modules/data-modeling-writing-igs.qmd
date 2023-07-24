@@ -32,7 +32,7 @@ FHIR IGs can be created by anyone with an understanding of FHIR and a toolchain 
 
 For research use cases, the Principal Investigator and relevant clinical experts should collaborate closely with the informaticists creating the IG to make sure it reflects the needs of the research study and is clinically sound. Additionally, informatics experts who understand the systems that will need to support the IG should also be involved in its authoring to ensure implementation is realistic.
 
-## Should IGs be created through HL7?
+## Should IGs be created through HL7®?
 
 Many of the IGs listed in [Real World IGs](data-modeling-real-world-igs.qmd) are created and published through the [HL7 process](https://confluence.hl7.org/display/FHIR/FHIR+Implementation+Guide+Process+Flow). This is process is helpful for IGs that may be widely implemented or need to be updated on an ongoing basis to support implementation. It may not be necessary to create or publish an IG through HL7 if it is meant to be used for a limited time to support a specific study. IGs can also be moved under HL7 after they are created, though it is typically better to do this as early as possible to avoid any intellectual property issues. Researchers interested in the HL7 process can consult with the relevant [HL7 Work Group](fhir-community.qmd#hl7-work-groups).
 

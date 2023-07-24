@@ -26,7 +26,7 @@ Resources are the key building blocks of FHIR. A [**FHIR resource**](https://www
 
 ## Core elements
 
-The FHIR core v4.3.0 (also known as Revision 4B, or R4B) defines [140 resources](https://hl7.org/fhir/R4B/resourcelist.html) that allow for healthcare interoperability. The [HL7 FHIR specification](https://hl7.org/fhir) gives a well-structured summary of FHIR's core resources:
+The FHIR core v4.3.0 (also known as Revision 4B, or R4B) defines [140 resources](https://hl7.org/fhir/R4B/resourcelist.html) that allow for healthcare interoperability. The [HL7® FHIR® standard](https://hl7.org/fhir) gives a well-structured summary of FHIR's core resources:
 
 [![The organization of FHIR's core resources. From \[HL7's FHIR specification\](https://hl7.org/fhir/R4B).](images/fhir-index.png){fig-alt="Screenshot from the FHIR specification showing the organization of FHIR resources. Level 1: basic framework on which the specification is built. Level 2: Supporting implementation and binding to external specifications. Level 3: Linking to real world concepts in the healthcare system. Level 4: Record-keeping and and Data Exchange for the healthcare process. Level 5: Providing the ability to reason about the healthcare process."}](https://hl7.org/fhir/R4B)
 

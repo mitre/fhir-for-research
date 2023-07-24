@@ -11,7 +11,7 @@ project:
 website:
   title: "FHIR® for Research Documentation"
   site-url: https://mitre.github.io/fhir-for-research/
-  search: 
+  search:
     location: navbar
     type: textbox
   navbar:
@@ -56,6 +56,7 @@ website:
               text: FHIR Resources
             - file: modules/fhir-accessing-data.qmd
               text: Using the FHIR API
+            - modules/genomics.qmd
         - section: "SMART on FHIR"
           contents:
             - modules/smart-on-fhir-intro.qmd
@@ -126,7 +127,7 @@ website:
 
 
   page-footer: |
-    &copy; 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966<br><br>FHIR® is the registered trademark of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the FHIR trademark does not constitute an HL7 endorsement of this website.
+    &copy; 2023 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966<br><br>HL7® and FHIR® are the registered trademarks of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the HL7 and FHIR trademarks does not constitute an HL7 endorsement of this website.
 
   page-navigation: true
 

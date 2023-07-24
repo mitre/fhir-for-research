@@ -19,7 +19,7 @@ learning_objectives:
 
 ## Introduction
 
-FHIR has an active community of users who engage in discussions and offer advice. This module will introduce you to the HL7 and FHIR community, offer suggestions on where to ask questions, and clarify the various touchpoints and engagement opportunities.
+FHIR has an active community of users who engage in discussions and offer advice. This module will introduce you to the HL7® and FHIR community, offer suggestions on where to ask questions, and clarify the various touchpoints and engagement opportunities.
 
 ## The HL7 FHIR community
 

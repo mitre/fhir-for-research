@@ -22,7 +22,7 @@ learning_objectives:
     answer: FHIR is structured enough to support interoperability, is simpler than V3, and uses uses common standards like JSON, XML, and REST, so integrates well with non-health-specific software.
 ---
 
-FHIR is the third health data standard that the [HL7 standards developing organization](https://www.hl7.org/about/index.cfm?ref=nav) has developed. The two previous standards are HL7 V2 and HL7 V3.
+FHIR is the third health data standard that the [HL7® standards developing organization](https://www.hl7.org/about/index.cfm?ref=nav) has developed. The two previous standards are HL7 V2 and HL7 V3.
 
 The history of these standards and how they relate to FHIR is described below.
 
@@ -57,7 +57,7 @@ More information on the [early history of HL7 and the development of V2 can be f
 
 HL7 Version 3 ("V3", released in 2005) was created to address limitations of V2. It included a more rigorous approach to data modeling (the [Reference Information Model](https://www.hl7.org/implement/standards/rim.cfm)), and used a common data format ([XML](https://en.wikipedia.org/wiki/XML)).
 
-V3 was not as widely adopted as V2, in part due to its complexity. The [C-CDA standard](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492) for clinical documents is the most widely adopted application of V3.  For example, the C-CDA standard is used in the [Meaningful Use criteria](https://www.healthit.gov/topic/standards-technology/consolidated-cda-overview).
+V3 was not as widely adopted as V2, in part due to its complexity. The [C-CDA® standard](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492) for clinical documents is the most widely adopted application of V3.  For example, the C-CDA standard is used in the [Meaningful Use criteria](https://www.healthit.gov/topic/standards-technology/consolidated-cda-overview).
 
 ## FHIR
 

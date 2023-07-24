@@ -121,6 +121,12 @@ Now patients exported to any output format will only be patients matching the de
 
 Note that only one Keep Module may be used at a time, however the logic within it can be as complex as you need.
 
+::: callout-note
+
+If you only need patients with some active clinical criteria, such as Conditions or Medications, the [Synthea Toolkit](https://synthetichealth.github.io/spt/#/customizer) contains a minimal editor for creating this type of simple Keep Module quickly. For anything more complex, use the full [Module Builder](https://synthetichealth.github.io/module-builder/) instead.
+
+:::
+
 More information on Keep Modules is available [on the Synthea wiki](https://github.com/synthetichealth/synthea/wiki/Keep-Patients-Module).
 
 ## Modifying demographics

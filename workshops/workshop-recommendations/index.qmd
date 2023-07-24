@@ -14,6 +14,11 @@ These slides summarize the content found below.
 <iframe style="border: 3px solid #dee2e6; width: 100%; height: 475px;" src="slides.html"></iframe>
 ```
 
+### Other slide formats
+
+-   [Printable web page](slides.html?print-pdf)
+-   Accessible PDF
+
 ------------------------------------------------------------------------
 
 ## Overview
@@ -84,11 +89,76 @@ More information about editing, modifying, or reusing content from this website 
 
 Workshops are a useful approach to help attendees quickly climb the learning curve for a technical topic. They typically include a combination of lecture and hands-on participation. We recommend pairing live workshops with with written documentation (like this website) that participants can refer to later.
 
-### Capability assessment
+## Capability assessments
 
-<!--# Content to be added here -->
+A capability assessment is a structured approach for identifying the current level of understanding and skill sets relating to a topic. This approach was used to inform the content in the self-paced learning resources, webinars, and workshops on this site.
 
-### Other best practices
+A capability assessment may help you adapt existing content to meet the needs and interests of your target audience.
+
+### Recommendations
+
+1.  Select a representative sample of people to connect with. Bear in mind that current FHIR capabilities and future needs may differ substantially across organizations.
+
+    Similarly, including a variety of roles in the assessment will ensure that content can support different roles. It may be helpful to connect with people that hold the following roles to build a well-rounded picture of what the capabilities and needs in a FHIR for Research workshop:
+
+    -   Investigators/Researchers
+    -   Research leaders
+    -   Informaticists
+    -   Software Engineers
+    -   Clinician Scientists/Trainees
+
+    (These are the [roles](../../roles.qmd) we considered when developing the content on this website.)
+
+2.  Use a variety of outreach methods. The capability assessment that informed this website used unstructured listening sessions and surveys, which allowed us to capture perspectives from different roles across multiple organizations.
+
+3.  Adapt existing content in response to the observations. Throughout the outreach process, identify common themes and observations from your discussions, surveys, and/or listening sessions. Based on the observations, consider adapting the existing workshops to fit the needs of your group of researchers. Examples of useful adaptations may include:
+
+    -   Identifying relevant FHIR resources to export in the FHIR Bulk Data workshop based on local researcher needs and EHR capabilities.
+    -   Aggregate specific data elements in the SMART on FHIR Applications workshop that are relevant to research topics.
+
+4.  Meet participants at their level of interest and engagement. Not all training participants will need the same level of knowledge about FHIR, or other technology used to work with FHIR APIs and data.
+
+    Note that the existing content on this website was designed to be approachable for people with all levels of technical expertise. Content is generally organized from least-to-most technically complex to provide an "on-ramp" for a less experienced audience. However, modifications may need to be made to tailor to your specific audience.
+
+### Getting started with a capability assessment
+
+We used roughly the following steps for the capability assessment that informed this website:
+
+-   Identify interviewees
+-   Set-up meetings with interviewees
+-   Write survey questions if using a written format or structured interview. The [capability assessment questions](capability-assessment-survey.pdf) used for developing this course content are available as a guide
+-   Hold conversations with previously identified interviewees
+-   Aggregate observations from conversations
+-   Reach back to interviewees with follow-up questions if necessary
+-   Adapt existing resources to support the technical needs and research interests identified in the prior conversations and surveys
+
+## Course development
+
+Using a curriculum development conceptual model may be useful when developing new modules or workshops. Two common curriculum development models, ADDIE and SAM, are summarized below:
+
+### ADDIE
+
+[Analysis, Design, Development, Implementation, and Evaluation (ADDIE)](https://courses.lumenlearning.com/wm-humanresourcesmgmt/chapter/the-addie-model/) is a cyclical model for instructional design and educational program development.
+
+The model consists of five stages:
+
+-	Analysis: Assess the current level of understanding to identify the performance gap. Curriculum developers determine what someone or a group already knows about a specific topic, their experience with the subject, and what resources are available.
+-	Design: Craft learning objectives that are specific to the course content and helpful tools for learners to gauge their understanding throughout the course.
+-	Development: Create course content that reflects the learning objectives. This should be an iterative process that incorporates regular feedback from learners and instructors.
+-	Implementation: Determine where the course will be held, in what format, what materials will be needed, and how they will be used.
+-	Evaluation: Use the learning objectives from the second stage to evaluate the course. Consider assessing participant satisfaction, learning, and performance when comparing the learning objectives to the outcomes.
+
+### SAM
+
+The [Successive Approximation Model (SAM)](https://dli.kennesaw.edu/resources/idmodels/sam.php) is another framework used in course development. Compared to ADDIE, SAM emphasizes smaller development cycles that incorporate feedback earlier in the process.
+
+The model is composed of three phases:
+
+-	Preparation: Begin by gathering all the information and background that is required for the project. Creators brainstorm, sketch, and prototype to develop course material. Many different stakeholders (e.g., colleagues, advisers, students) should be involved with this phase.
+-	Iterative Design: Once creators have agreed on an idea and developed a prototype, like a curriculum, they share their work. They should incorporate edits and iterate on the design process.
+-	Iterative Development: Lastly, the creators can implement their product. Once it has been used, the creators can cycle back through the phases for continued improvements.
+
+## Workshop best practices
 
 -   Tailor technical prerequisites to the anticipated audience
     -   For example, our SMART on FHIR workshop requires basic HTML and JavaScript experience for hands-on participation
@@ -124,7 +194,7 @@ Workshops are a useful approach to help attendees quickly climb the learning cur
     -   Consider "upstreaming" any materials to the main open source GitHub repository
 -   Use URLs in slides that can be updated later if the website changes (e.g. from <https://purl.org>) to avoid broken links in video recordings
 
-## Environment & Data
+## Environment & data
 
 ### Compute
 
@@ -140,14 +210,14 @@ Workshops are a useful approach to help attendees quickly climb the learning cur
 
 -   No server required:
 
-    ```         
+    ```
     -   Free, some additional complexity: <https://mybinder.org>
 
     -   \$15/month, more reliable:\
         <https://posit.cloud/plans/instructor?option=instructor>
     ```
 
-### Running a Server
+### Running a server
 
 -   Typically memory is the main constraint, which scales linearly with the number of simultaneous users
 
@@ -159,9 +229,9 @@ Workshops are a useful approach to help attendees quickly climb the learning cur
 
 -   TLJH: <https://tljh.jupyter.org/en/latest/howto/admin/resource-estimation.html>
 
--   NIH-funded researchers can use <https://cloud.nih.gov> to run VMs from public cloud vendors (AWS, Azure, GCP) at a discounted price :::
+-   NIH-funded researchers may take advantage of the STRIDES Initiative for cloud computing. For more information, visit https://datascience.nih.gov/strides
 
-### Synthetic Data
+### Synthetic data
 
 -   Using synthetic data avoids privacy issues with patient data
 
@@ -169,7 +239,7 @@ Workshops are a useful approach to help attendees quickly climb the learning cur
 
 -   <https://purl.org/fhir-for-research/synthea> provides more information on customizing Synthea for your specific use case
 
-### FHIR Test Server
+### FHIR test server
 
 -   Workshops that use the FHIR API will need a test server
 
@@ -207,3 +277,13 @@ Workshops are a useful approach to help attendees quickly climb the learning cur
 ## Mermaidjs
 
 -   Download from web page: <http://nytimes.github.io/svg-crowbar/>
+
+### Accessibility
+
+To add an accessibility title to a Mermaid diagram, add `accTitle` like below:
+
+    ```{mermaid}
+    sequenceDiagram
+        accTitle: Diagram showing the workflow for a SMART on FHIR EHR launch
+        ...
+    ```

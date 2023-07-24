@@ -58,7 +58,7 @@ Synthea starts with demographic information for a region based on the US Census.
 
 Synthea simulates each individual independently from birth until their death or the current day. As each individual lives out their synthetic life, they flow through **disease modules** that represent the progression and treatment of various diseases. Disease modules are built from publicly available incidence and prevalence statistics, along with care guidelines from medical institutions. No real person's data is ever used to create a Synthea module.
 
-Once the simulation is complete, the patient record is exported into industry-standard formats such as FHIR, C-CDA, CSV, or plain text.
+Once the simulation is complete, the patient record is exported into industry-standard formats such as FHIR®, C-CDA®, CSV, or plain text.
 
 
 ::: {.callout-note collapse="true"}
