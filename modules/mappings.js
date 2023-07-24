@@ -20,7 +20,7 @@ const role_module_map = [
       {
         "slug": "fhir-history",
         "position": 3,
-        "text": "FHIR History"
+        "text": "History of FHIR"
       },
       {
         "slug": "terminology",
@@ -44,38 +44,43 @@ const role_module_map = [
       },
       {
         "slug": "smart-on-fhir-intro",
-        "position": 9,
+        "position": 10,
         "text": "Introduction"
       },
       {
         "slug": "data-modeling-reading-igs",
-        "position": 11,
+        "position": 13,
         "text": "Reading IGs"
       },
       {
         "slug": "data-modeling-real-world-igs",
-        "position": 12,
+        "position": 14,
         "text": "Real World IGs"
       },
       {
         "slug": "data-modeling-writing-igs",
-        "position": 13,
+        "position": 15,
         "text": "Writing IGs"
       },
       {
         "slug": "tabular-intro",
-        "position": 14,
+        "position": 16,
         "text": "Introduction to Analyzing FHIR Data in a Tabular Format"
       },
       {
         "slug": "redcap-intro",
-        "position": 17,
+        "position": 19,
         "text": "Introduction to REDCap"
       },
       {
         "slug": "synthea-overview",
-        "position": 19,
+        "position": 23,
         "text": "Synthea Overview"
+      },
+      {
+        "slug": "synthea-running",
+        "position": 24,
+        "text": "Running Synthea"
       }
     ]
   },
@@ -100,7 +105,7 @@ const role_module_map = [
       {
         "slug": "fhir-history",
         "position": 3,
-        "text": "FHIR History"
+        "text": "History of FHIR"
       },
       {
         "slug": "terminology",
@@ -128,63 +133,73 @@ const role_module_map = [
         "text": "Using the FHIR API"
       },
       {
-        "slug": "smart-on-fhir-intro",
+        "slug": "genomics",
         "position": 9,
+        "text": "Genomics Data Standardization with FHIR"
+      },
+      {
+        "slug": "smart-on-fhir-intro",
+        "position": 10,
         "text": "Introduction"
       },
       {
         "slug": "data-modeling-reading-igs",
-        "position": 11,
+        "position": 13,
         "text": "Reading IGs"
       },
       {
         "slug": "data-modeling-real-world-igs",
-        "position": 12,
+        "position": 14,
         "text": "Real World IGs"
       },
       {
         "slug": "data-modeling-writing-igs",
-        "position": 13,
+        "position": 15,
         "text": "Writing IGs"
       },
       {
         "slug": "tabular-intro",
-        "position": 14,
+        "position": 16,
         "text": "Introduction to Analyzing FHIR Data in a Tabular Format"
       },
       {
         "slug": "tabular-python",
-        "position": 15,
+        "position": 17,
         "text": "Using Python"
       },
       {
         "slug": "tabular-r",
-        "position": 16,
+        "position": 18,
         "text": "Using R"
       },
       {
         "slug": "redcap-intro",
-        "position": 17,
+        "position": 19,
         "text": "Introduction to REDCap"
       },
       {
         "slug": "redcap-fhir",
-        "position": 18,
+        "position": 20,
         "text": "REDCap on FHIR"
       },
       {
         "slug": "synthea-overview",
-        "position": 19,
+        "position": 23,
         "text": "Synthea Overview"
       },
       {
+        "slug": "synthea-running",
+        "position": 24,
+        "text": "Running Synthea"
+      },
+      {
         "slug": "synthea-customizing",
-        "position": 20,
+        "position": 25,
         "text": "Customizing Synthea"
       },
       {
         "slug": "synthea-test-server",
-        "position": 21,
+        "position": 26,
         "text": "FHIR Test Server"
       }
     ]
@@ -210,7 +225,7 @@ const role_module_map = [
       {
         "slug": "fhir-history",
         "position": 3,
-        "text": "FHIR History"
+        "text": "History of FHIR"
       },
       {
         "slug": "terminology",
@@ -228,48 +243,58 @@ const role_module_map = [
         "text": "Community & Documentation"
       },
       {
-        "slug": "smart-on-fhir-intro",
+        "slug": "genomics",
         "position": 9,
+        "text": "Genomics Data Standardization with FHIR"
+      },
+      {
+        "slug": "smart-on-fhir-intro",
+        "position": 10,
         "text": "Introduction"
       },
       {
         "slug": "data-modeling-reading-igs",
-        "position": 11,
+        "position": 13,
         "text": "Reading IGs"
       },
       {
         "slug": "data-modeling-real-world-igs",
-        "position": 12,
+        "position": 14,
         "text": "Real World IGs"
       },
       {
         "slug": "data-modeling-writing-igs",
-        "position": 13,
+        "position": 15,
         "text": "Writing IGs"
       },
       {
         "slug": "tabular-intro",
-        "position": 14,
+        "position": 16,
         "text": "Introduction to Analyzing FHIR Data in a Tabular Format"
       },
       {
         "slug": "redcap-intro",
-        "position": 17,
+        "position": 19,
         "text": "Introduction to REDCap"
       },
       {
         "slug": "redcap-fhir",
-        "position": 18,
+        "position": 20,
         "text": "REDCap on FHIR"
       },
       {
         "slug": "synthea-overview",
-        "position": 19,
+        "position": 23,
         "text": "Synthea Overview"
       },
       {
+        "slug": "synthea-running",
+        "position": 24,
+        "text": "Running Synthea"
+      },
+      {
         "slug": "synthea-customizing",
-        "position": 20,
+        "position": 25,
         "text": "Customizing Synthea"
       }
     ]
@@ -290,7 +315,7 @@ const role_module_map = [
       {
         "slug": "fhir-history",
         "position": 3,
-        "text": "FHIR History"
+        "text": "History of FHIR"
       },
       {
         "slug": "cdms",
@@ -299,17 +324,17 @@ const role_module_map = [
       },
       {
         "slug": "smart-on-fhir-intro",
-        "position": 9,
+        "position": 10,
         "text": "Introduction"
       },
       {
         "slug": "redcap-intro",
-        "position": 17,
+        "position": 19,
         "text": "Introduction to REDCap"
       },
       {
         "slug": "redcap-fhir",
-        "position": 18,
+        "position": 20,
         "text": "REDCap on FHIR"
       }
     ]
@@ -335,7 +360,7 @@ const role_module_map = [
       {
         "slug": "fhir-history",
         "position": 3,
-        "text": "FHIR History"
+        "text": "History of FHIR"
       },
       {
         "slug": "terminology",
@@ -364,52 +389,57 @@ const role_module_map = [
       },
       {
         "slug": "smart-on-fhir-intro",
-        "position": 9,
+        "position": 10,
         "text": "Introduction"
       },
       {
         "slug": "smart-on-fhir-tech",
-        "position": 10,
+        "position": 11,
         "text": "Technical Details"
       },
       {
         "slug": "data-modeling-reading-igs",
-        "position": 11,
+        "position": 13,
         "text": "Reading IGs"
       },
       {
         "slug": "data-modeling-real-world-igs",
-        "position": 12,
+        "position": 14,
         "text": "Real World IGs"
       },
       {
         "slug": "tabular-intro",
-        "position": 14,
+        "position": 16,
         "text": "Introduction to Analyzing FHIR Data in a Tabular Format"
       },
       {
         "slug": "redcap-intro",
-        "position": 17,
+        "position": 19,
         "text": "Introduction to REDCap"
       },
       {
         "slug": "redcap-fhir",
-        "position": 18,
+        "position": 20,
         "text": "REDCap on FHIR"
       },
       {
         "slug": "synthea-overview",
-        "position": 19,
+        "position": 23,
         "text": "Synthea Overview"
       },
       {
+        "slug": "synthea-running",
+        "position": 24,
+        "text": "Running Synthea"
+      },
+      {
         "slug": "synthea-customizing",
-        "position": 20,
+        "position": 25,
         "text": "Customizing Synthea"
       },
       {
         "slug": "synthea-test-server",
-        "position": 21,
+        "position": 26,
         "text": "FHIR Test Server"
       }
     ]
