@@ -89,21 +89,15 @@ More information about editing, modifying, or reusing content from this website 
 
 Workshops are a useful approach to help attendees quickly climb the learning curve for a technical topic. They typically include a combination of lecture and hands-on participation. We recommend pairing live workshops with with written documentation (like this website) that participants can refer to later.
 
-## Capability assessment
+## Capability assessments
 
-### Introduction
+A capability assessment is a structured approach for identifying the current level of understanding and skill sets relating to a topic. This approach was used to inform the content in the self-paced learning resources, webinars, and workshops on this site.
 
-Prior to developing the self-paced learning resources, webinars, and workshops on this site, a capability assessment was completed to evaluate the current knowledge and usage of FHIR for research at the selected IDeA-CTRs. A capability assessment is a structured approach for identifying the current level of understanding and skill sets relating to a topic.
-
-### Why complete a capability assessment?
-
-The assessment provided useful background as to what researchers already knew about FHIR, what they wanted to learn, and how they might use FHIR in their research. Findings from the capability assessment were used to identify modules for this site, associate different topics with different professional roles, and select topics for the hands-on workshop activities.
-
-A capability assessment may help you adapt existing course content to meet the needs and interests of your local IDeA-CTR community.
+A capability assessment may help you adapt existing content to meet the needs and interests of your target audience.
 
 ### Recommendations
 
-1.  Select a representative sample of people to connect with. Speak with a broad representation of sites that may participate in the training like rural and urban sites, academic medical centers, community practice networks with small office practices, patient demographics, and research areas of interest. Including many types of sites and CTR-members will help to tailor training content and delivery to meet the needs of the CTR community.
+1.  Select a representative sample of people to connect with. Bear in mind that current FHIR capabilities and future needs may differ substantially across organizations.
 
     Similarly, including a variety of roles in the assessment will ensure that content can support different roles. It may be helpful to connect with people that hold the following roles to build a well-rounded picture of what the capabilities and needs in a FHIR for Research workshop:
 
@@ -113,26 +107,22 @@ A capability assessment may help you adapt existing course content to meet the n
     -   Software Engineers
     -   Clinician Scientists/Trainees
 
-2.  Use a variety of outreach methods. The capability assessment completed before developing this course content used three methods to connect with the selected CTRs:
+    (These are the [roles](../../roles.qmd) we considered when developing the content on this website.)
 
-    -   30-minute introductory calls with participating CTRs to better understand their use of FHIR for research purposes and their access to FHIR training resources.
-    -   Brief FHIR for research capacity building survey sent to one respondent (n=8) at each CTR to gather more information about site-level experience and interest in using FHIR for research.
-    -   60-minute listening sessions with key personnel from participating CTRs to discuss tools and resources that would best support their CTR in leveraging FHIR for research.
-
-    This combination of outreach methods meant we could connect with more individuals at the CTRs and talk through some of their thoughts in more detail. While not all of this may be useful when adapting the approach to a more local level, still offering some mix of engagement options would be useful when connecting with a variety of researchers.
+2.  Use a variety of outreach methods. The capability assessment that informed this website used unstructured listening sessions and surveys, which allowed us to capture perspectives from different roles across multiple organizations.
 
 3.  Adapt existing content in response to the observations. Throughout the outreach process, identify common themes and observations from your discussions, surveys, and/or listening sessions. Based on the observations, consider adapting the existing workshops to fit the needs of your group of researchers. Examples of useful adaptations may include:
 
-    -   Identifying relevant FHIR profiles to export in the FHIR Bulk Data workshop.
+    -   Identifying relevant FHIR resources to export in the FHIR Bulk Data workshop based on local researcher needs and EHR capabilities.
     -   Aggregate specific data elements in the SMART on FHIR Applications workshop that are relevant to research topics.
 
-4.  Meet participants at their level of interest and engagement. Not all training participants will need the same level of knowledge about FHIR. When developing training resources, the content was designed to be approachable for people from many backgrounds. Then as the modules continued, the content became more technical and detailed.
+4.  Meet participants at their level of interest and engagement. Not all training participants will need the same level of knowledge about FHIR, or other technology used to work with FHIR APIs and data.
 
-    This funnel approach was replicated in the webinar and workshops by beginning with an overview of the topic that was accessible to a wide variety of attendees, then continuing to the more technical hands-on activity so folks who only wanted the outline of the topic could exit the meeting.
+    Note that the existing content on this website was designed to be approachable for people with all levels of technical expertise. Content is generally organized from least-to-most technically complex to provide an "on-ramp" for a less experienced audience. However, modifications may need to be made to tailor to your specific audience.
 
 ### Getting started with a capability assessment
 
-When setting up a capability assessment, the following steps will help kickoff the effort:
+We used roughly the following steps for the capability assessment that informed this website:
 
 -   Identify interviewees
 -   Set-up meetings with interviewees
@@ -144,7 +134,7 @@ When setting up a capability assessment, the following steps will help kickoff t
 
 ## Course development
 
-There are two curriculum development models, ADDIE and SAM, that may be helpful frameworks for writing new modules or developing workshops. 
+Using a curriculum development conceptual model may be useful when developing new modules or workshops. Two common curriculum development models, ADDIE and SAM, are summarized below:
 
 ### ADDIE
 
@@ -152,20 +142,20 @@ There are two curriculum development models, ADDIE and SAM, that may be helpful 
 
 The model consists of five stages:
 
--	Analysis: Assess the current level of understanding to identify the performance gap. Curriculum developers determine what someone or a group already knows about a specific topic, their experience with the subject, and what resources are available. 
+-	Analysis: Assess the current level of understanding to identify the performance gap. Curriculum developers determine what someone or a group already knows about a specific topic, their experience with the subject, and what resources are available.
 -	Design: Craft learning objectives that are specific to the course content and helpful tools for learners to gauge their understanding throughout the course.
 -	Development: Create course content that reflects the learning objectives. This should be an iterative process that incorporates regular feedback from learners and instructors.
--	Implementation: Determine where the course will be held, in what format, what materials will be needed, and how they will be used. 
+-	Implementation: Determine where the course will be held, in what format, what materials will be needed, and how they will be used.
 -	Evaluation: Use the learning objectives from the second stage to evaluate the course. Consider assessing participant satisfaction, learning, and performance when comparing the learning objectives to the outcomes.
 
 ### SAM
 
-The [Successive Approximation Model (SAM)](https://dli.kennesaw.edu/resources/idmodels/sam.php) is another framework used in course development. Compared to ADDIE, SAM emphasizes smaller development cycles that incorporate feedback earlier in the process. 
+The [Successive Approximation Model (SAM)](https://dli.kennesaw.edu/resources/idmodels/sam.php) is another framework used in course development. Compared to ADDIE, SAM emphasizes smaller development cycles that incorporate feedback earlier in the process.
 
 The model is composed of three phases:
 
 -	Preparation: Begin by gathering all the information and background that is required for the project. Creators brainstorm, sketch, and prototype to develop course material. Many different stakeholders (e.g., colleagues, advisers, students) should be involved with this phase.
--	Iterative Design: Once creators have agreed on an idea and developed a prototype, like a curriculum, they share their work. They should incorporate edits and iterate on the design process.  
+-	Iterative Design: Once creators have agreed on an idea and developed a prototype, like a curriculum, they share their work. They should incorporate edits and iterate on the design process.
 -	Iterative Development: Lastly, the creators can implement their product. Once it has been used, the creators can cycle back through the phases for continued improvements.
 
 ## Workshop best practices
