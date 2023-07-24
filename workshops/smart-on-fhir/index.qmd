@@ -37,7 +37,11 @@ Working with the sample app is discussed during the workshop.
 
 The diagram below appears in the slides, but may be easier to see on this page.
 
-::: column-screen-inset-right
+::: column-body
+<div data-fancybox class='fancybox-figure' data-caption="Diagram showing the workflow for a SMART on FHIR EHR launch" data-src='#mermaidImage' style='margin-bottom: 0.5em' data-type="clone">
+<figure class='figure' style='width: 100%;'>
+
+<div id='mermaidImage'>
 ```{mermaid}
 sequenceDiagram
     accTitle: Diagram showing the workflow for a SMART on FHIR EHR launch
@@ -59,7 +63,16 @@ sequenceDiagram
     C ->> D: Request MedicationRequests
     D -->> C: Response with MedicationRequest JSON
 ```
+</div>
+
+<figcaption>
+    Click to enlarge
+</figcaption>
+</figure>
+
+</div>
 :::
+
 
 ```{=html}
 <style>

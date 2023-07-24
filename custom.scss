@@ -24,6 +24,40 @@ $code-color: #7920a7 !default;
   color: $gray-600;
 }
 
+
+.fancybox-figure {
+  padding: 0;
+  border: thin silver solid;
+  cursor: pointer;
+}
+
+.fancybox-figure > div {
+  margin: 0;
+}
+
+.fancybox-figure img {
+  margin: 0;
+}
+
+.fancybox-figure figure {
+  display: table !important;
+}
+
+.fancybox-figure figcaption {
+  display: table-caption !important;
+  caption-side: top !important;
+  padding: 0.4em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  margin-left: 75%;
+  width: 25%;
+  text-align: center;
+  font-style: italic;
+  font-size: large;
+  color: black !important;
+  background-color: lightgray;
+}
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",

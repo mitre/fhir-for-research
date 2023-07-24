@@ -254,10 +254,15 @@ You should see the following happen:
 
 Here's a visual diagram of the process that occurs when you launch your example application with `launch.smarthealthit.org`:
 
-::: column-page-inset-right
+::: column-body
+<div data-fancybox class='fancybox-figure' data-caption="Diagram showing the workflow for a SMART on FHIR EHR launch" data-src='#mermaidImage' style='margin-bottom: 0.5em' data-type="clone">
+<figure class='figure' style='width: 100%;'>
+
+<div id='mermaidImage'>
 ```{mermaid}
 sequenceDiagram
     accTitle: Diagram showing the workflow for a SMART on FHIR EHR launch
+    %%{init:{'sequence':{'messageFontSize': 30, 'actorFontSize': 30}}}%%
     participant A as localhost:8000/launch.html
     participant B as launch.smarthealthit.org
     participant C as localhost:8000/index.html
@@ -275,7 +280,26 @@ sequenceDiagram
     C ->> D: Request MedicationRequests
     D -->> C: Response with MedicationRequest JSON
 ```
+</div>
+
+<figcaption>
+    Click to enlarge
+</figcaption>
+</figure>
+
+</div>
 :::
+
+```{=html}
+<style>
+.mermaid-js {
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif !important;
+height: inherit !important;
+}
+</style>
+```
 
 Here are the details of this process:
 
