@@ -17,7 +17,7 @@ learning_objectives:
 
 ---
 
-There are two ways to run Synthea: a basic setup using a prepackaged JAR file and a developer setup. The [Basic setup](#basic-setup) is recommended for users who want to get started quickly and do not anticipate making significant changes or customizations to Synthea. The [Developer setup](#developer-setup) is recommended for users who want the ability to fully modify and customize all aspects of Synthea.
+There are a few ways to run Synthea: a basic setup using a prepackaged JAR file and a developer setup, or either way may be packaged and run in Docker. The [Basic setup](#basic-setup) is recommended for users who want to get started quickly and do not anticipate making significant changes or customizations to Synthea. The [Developer setup](#developer-setup) is recommended for users who want the ability to fully modify and customize all aspects of Synthea. This page describes both approaches and the configuration options available to them, or if you prefer a more guided approach, the [Synthea Toolkit](https://synthetichealth.github.io/spt/#/customizer) will ask questions about your use case and help you choose the right settings to setup, configure, and run Synthea appropriately.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ Max Age: 140
 Once the process completes, you will see an `output` folder alongside the `synthea-with-dependencies.jar`, and a `fhir` folder inside the `output` folder. Inside that `fhir` folder are the FHIR Bundle JSON files that were produced by Synthea. Each Bundle will contain a single Patient resource as the first entry, followed by resources roughly ordered by time.
 
 
-You can review these files in your text editor of choice, or the Synthea team has made an online tool for quickly reviewing the content of a Synthea-generated Bundle. Simply visit [https://synthetichealth.github.io/spt/#/record_viewer](https://synthetichealth.github.io/spt/#/record_viewer) and drag & drop a patient file onto the page to load it.
+You can review these files in your text editor of choice, or the Synthea team has made an online tool for quickly reviewing the content of a Synthea-generated Bundle. Simply visit the Synthea Toolkit at <https://synthetichealth.github.io/spt/#/record_viewer> and drag & drop a patient file onto the page to load it.
 
 ## Developer Setup
 These instructions are intended for those wishing to examine the Synthea source code, extend it or build the code locally.  The developer setup is not necessary for all customizations, but using this setup enables many which cannot be used via the basic setup described earlier.
