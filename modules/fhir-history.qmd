@@ -77,7 +77,7 @@ The late 2010s saw adoption outside of EHRs. For example, Apple uses FHIR in [He
 
 ### FHIR releases
 
-As of April 2023, the most recent version of the FHIR specification is [Release 5](http://hl7.org/fhir/directory.html) (R5). ONC provides [a summary of FHIR releases](https://www.healthit.gov/sites/default/files/page/2021-04/FHIR%20Version%20History%20Fact%20Sheet.pdf) since the first release in 2012:
+As of April 2023, the most recent version of the FHIR specification is [Release 5](http://hl7.org/fhir/directory.html) (often referred to as "FHIR R5"). ONC provides [a summary of FHIR releases](https://www.healthit.gov/sites/default/files/page/2021-04/FHIR%20Version%20History%20Fact%20Sheet.pdf) since the first release in 2012:
 
 > HL7® FHIR® has evolved through four releases since its initial presentation in May 2012. It has grown from a true draft standard with 49 Resources to its current 145 and continues to expand. In that time the standard has improved and changed to meet the needs of the health information technology community.
 >
