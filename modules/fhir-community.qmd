@@ -55,7 +55,7 @@ Work Groups also meet in-person or hybrid at [HL7 Working Group Meetings](https:
 
 The fastest way to get started in a Work Group is to join its [conference call](http://www.hl7.org/concalls/CallDirectory.aspx) and ask to introduce yourself.
 
-Alternatively (or additionally), join the Work Group's [mailing list](https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions) and reach out to the group's leadership to introduce yourself. One may also use the mailing list to request future agenda items.
+Alternatively (or additionally), join the Work Group's [mailing list](https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions) and reach out to the group's leadership to introduce yourself. You may also use the mailing list to request future agenda items.
 
 #### Tips for attending Work Group meetings:
 
@@ -69,7 +69,7 @@ Alternatively (or additionally), join the Work Group's [mailing list](https://co
 
 Zulip ([chat.fhir.org](https://chat.fhir.org)) is an asynchronous communication platform like Slack or Teams messaging. Anyone may join. The platform is a valuable resource for asking questions and connecting with others with similar projects or objectives.
 
-Zulip has "streams" (like "channels" on Slack) for general topics like [Implementation Guide development](https://chat.fhir.org/#narrow/stream/179252-IG-creation) and [Terminology](https://chat.fhir.org/#narrow/stream/179202-terminology), as well as domain-specific topics like [Cancer Interoperability](https://chat.fhir.org/#narrow/stream/179234-Cancer-Interoperability). Users post comments or questions inside a stream, and others respond. One may find applicable streams by searching for a topic or browsing through the stream list.
+Zulip has "streams" (like "channels" on Slack) for general topics like [Implementation Guide development](https://chat.fhir.org/#narrow/stream/179252-IG-creation) and [Terminology](https://chat.fhir.org/#narrow/stream/179202-terminology), as well as domain-specific topics like [Cancer Interoperability](https://chat.fhir.org/#narrow/stream/179234-Cancer-Interoperability). Users post comments or questions inside a stream, and others respond. You may find applicable streams by searching for a topic or browsing through the stream list.
 
 #### Getting started with Zulip
 
@@ -93,7 +93,7 @@ Other useful streams to subscribe to include:
 
 > ...an event that is centered on developing the HL7 FHIR Specification including resources, profiles and implementation guides. The purpose of a Connectathon is to prove that the specification is complete and facilitate FHIR implementation guide maturity.
 
-Three Connectathons are held each year, either as in-person events or as virtual meetings. Anyone may [attend as a participant](https://confluence.hl7.org/display/FHIR/Connectathons) or submit a proposal to be a [Track Lead](https://confluence.hl7.org/display/FHIR/Connectathon+Track+Lead+Responsibilities). Connectathon Track Leads share their specification or resource for implementers to test and offer feedback. A complete list of the Tracks is posted before the Connectathon. One may also view offerings from [previous Connectathons](https://confluence.hl7.org/display/FHIR/Previous+Connectathons).
+Three Connectathons are held each year, either as in-person events or as virtual meetings. Anyone may [attend as a participant](https://confluence.hl7.org/display/FHIR/Connectathons) or submit a proposal to be a [Track Lead](https://confluence.hl7.org/display/FHIR/Connectathon+Track+Lead+Responsibilities). Connectathon Track Leads share their specification or resource for implementers to test and offer feedback. A complete list of the Tracks is posted before the Connectathon. You may also view offerings from [previous Connectathons](https://confluence.hl7.org/display/FHIR/Previous+Connectathons).
 
 #### Getting started
 
