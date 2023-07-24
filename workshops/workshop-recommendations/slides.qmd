@@ -16,7 +16,7 @@ National Institutes of Health (NIH), Office of the Director (OD), Office of Data
 July 2023 <br><br><br>
 
 ::: {style="padding-left: 5em;"}
-<small>HL7®, and FHIR® are the registered trademarks of Health Level Seven International (HL7). Use of the HL7 and FHIR trademarks does not constitute an HL7 endorsement of this workshop.</small>
+<small>FHIR® is the registered trademark of Health Level Seven International (HL7). Use of the FHIR trademark does not constitute an HL7 endorsement of this workshop.</small>
 :::
 
 ::: footer
