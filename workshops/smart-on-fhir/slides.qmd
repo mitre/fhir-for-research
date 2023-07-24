@@ -365,7 +365,7 @@ This access token gets embedded in a `client` object to authenticate and authori
 ``` {.javascript code-line-numbers="2"}
 <script type="text/javascript">
     FHIR.oauth2.ready().then(function(client) {
-        
+
         // Render the current patient (or any error)
         client.patient.read().then(
             function(pt) {
@@ -375,13 +375,13 @@ This access token gets embedded in a `client` object to authenticate and authori
                 document.getElementById("patient").innerText = error.stack;
             }
         );
-        
+
         // Get MedicationRequests for the selected patient
         client.request("/MedicationRequest?patient=" + client.patient.id, {
             resolveReferences: [ "medicationReference" ],
             graph: true
         })
-        
+
         // Reject if no MedicationRequests are found
         .then(function(data) {
             if (!data.entry || !data.entry.length) {
@@ -389,7 +389,7 @@ This access token gets embedded in a `client` object to authenticate and authori
             }
             return data.entry;
         })
-        
+
 
         // Render the current patient's medications (or any error)
         .then(
@@ -416,7 +416,7 @@ This access token gets embedded in a `client` object to authenticate and authori
 ``` {.javascript code-line-numbers="4-12"}
 <script type="text/javascript">
     FHIR.oauth2.ready().then(function(client) {
-        
+
         // Render the current patient (or any error)
         client.patient.read().then(
             function(pt) {
@@ -426,13 +426,13 @@ This access token gets embedded in a `client` object to authenticate and authori
                 document.getElementById("patient").innerText = error.stack;
             }
         );
-        
+
         // Get MedicationRequests for the selected patient
         client.request("/MedicationRequest?patient=" + client.patient.id, {
             resolveReferences: [ "medicationReference" ],
             graph: true
         })
-        
+
         // Reject if no MedicationRequests are found
         .then(function(data) {
             if (!data.entry || !data.entry.length) {
@@ -440,7 +440,7 @@ This access token gets embedded in a `client` object to authenticate and authori
             }
             return data.entry;
         })
-        
+
 
         // Render the current patient's medications (or any error)
         .then(
@@ -467,7 +467,7 @@ This access token gets embedded in a `client` object to authenticate and authori
 ``` {.javascript code-line-numbers="14-18"}
 <script type="text/javascript">
     FHIR.oauth2.ready().then(function(client) {
-        
+
         // Render the current patient (or any error)
         client.patient.read().then(
             function(pt) {
@@ -477,13 +477,13 @@ This access token gets embedded in a `client` object to authenticate and authori
                 document.getElementById("patient").innerText = error.stack;
             }
         );
-        
+
         // Get MedicationRequests for the selected patient
         client.request("/MedicationRequest?patient=" + client.patient.id, {
             resolveReferences: [ "medicationReference" ],
             graph: true
         })
-        
+
         // Reject if no MedicationRequests are found
         .then(function(data) {
             if (!data.entry || !data.entry.length) {
@@ -491,7 +491,7 @@ This access token gets embedded in a `client` object to authenticate and authori
             }
             return data.entry;
         })
-        
+
 
         // Render the current patient's medications (or any error)
         .then(
@@ -615,7 +615,7 @@ Try in the sandbox: <https://hl7.github.io/fhirpath.js/>
 
 -   Get a patient's MRN:
 
-    ```         
+    ```
     Patient.identifier.where(type.coding.system = 'http://hl7.org/fhir/v2/0203' and type.coding.code = 'MR').value
     ```
 

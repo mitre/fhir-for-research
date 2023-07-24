@@ -68,7 +68,7 @@ SMART on FHIR pulls together existing standards to enable third-party applicatio
 
 The [Bulk Data Access standard](http://hl7.org/fhir/uv/bulkdata/) enables researchers to retrieve large volumes of data from a patient population in an EHR. For example, "a health system may want to periodically retrieve updated clinical data from an EHR to a research database."
 
-HL7 first released the Bulk Data Access standard in 2019 and released v2 in November 2022.
+HL7® first released the Bulk Data Access standard in 2019 and released v2 in November 2022.
 
 Many EHR vendors, including Allscripts, Athena Health, Cerner, and Epic, have [adopted](https://docs.google.com/presentation/d/14ZHmam9hwz6-SsCG1YqUIQnJ56bvSqEatebltgEVR6c/edit#slide=id.g8c17644f87_23_1146) this standard. In January 2023, [ONC announced its support for this standard](https://www.healthit.gov/buzz-blog/health-it/onc-supports-adoption-and-implementation-of-bulk-data-apis).
 

@@ -14,6 +14,11 @@ These slides summarize the content found below.
 <iframe style="border: 3px solid #dee2e6; width: 100%; height: 475px;" src="slides.html"></iframe>
 ```
 
+### Other slide formats
+
+-   [Printable web page](slides.html?print-pdf)
+-   Accessible PDF
+
 ------------------------------------------------------------------------
 
 ## Overview
@@ -140,7 +145,7 @@ Workshops are a useful approach to help attendees quickly climb the learning cur
 
 -   No server required:
 
-    ```         
+    ```
     -   Free, some additional complexity: <https://mybinder.org>
 
     -   \$15/month, more reliable:\
@@ -159,7 +164,7 @@ Workshops are a useful approach to help attendees quickly climb the learning cur
 
 -   TLJH: <https://tljh.jupyter.org/en/latest/howto/admin/resource-estimation.html>
 
--   NIH-funded researchers can use <https://cloud.nih.gov> to run VMs from public cloud vendors (AWS, Azure, GCP) at a discounted price :::
+-   NIH-funded researchers may take advantage of the STRIDES Initiative for cloud computing. For more information, visit https://datascience.nih.gov/strides
 
 ### Synthetic Data
 
@@ -207,3 +212,13 @@ Workshops are a useful approach to help attendees quickly climb the learning cur
 ## Mermaidjs
 
 -   Download from web page: <http://nytimes.github.io/svg-crowbar/>
+
+### Accessibility
+
+To add an accessibility title to a Mermaid diagram, add `accTitle` like below:
+
+    ```{mermaid}
+    sequenceDiagram
+        accTitle: Diagram showing the workflow for a SMART on FHIR EHR launch
+        ...
+    ```
