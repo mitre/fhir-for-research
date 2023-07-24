@@ -1,5 +1,5 @@
 ---
-title: "FHIR History"
+title: "History of FHIR"
 
 area:
   name: Overview
@@ -28,7 +28,7 @@ The history of these standards and how they relate to FHIR is described below.
 
 ## HL7 V2
 
-HL7 released [HL7 Version 2](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185) (commonly called "V2" or "HL7 V2") in 1987. It is a messaging standard for exchanging clinical data between systems. Though it is [widely implemented](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185), V2 does not meet modern health interoperability needs. For example:
+HL7 released [HL7 Version 2](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185) (commonly called "V2" or "HL7 V2") in 1987, and V2 has been in continuous development for more than 30 years. It is a messaging standard for exchanging clinical data between systems. Though it is [widely implemented](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185), V2 does not meet modern health interoperability needs. For example:
 
 -   V2 predates modern web-based interoperability technology, making integration into current computer systems difficult. V2 uses a custom data format, requiring purpose-built software to read and write V2 messages.
 
@@ -57,7 +57,7 @@ More information on the [early history of HL7 and the development of V2 can be f
 
 HL7 Version 3 ("V3", released in 2005) was created to address limitations of V2. It included a more rigorous approach to data modeling (the [Reference Information Model](https://www.hl7.org/implement/standards/rim.cfm)), and used a common data format ([XML](https://en.wikipedia.org/wiki/XML)).
 
-V3 was not as widely adopted as V2, in part due to its complexity. However, the [C-CDA standard](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492) for clinical documents uses V3, which is widely implemented as part of [Meaningful Use criteria](https://www.healthit.gov/topic/standards-technology/consolidated-cda-overview).
+V3 was not as widely adopted as V2, in part due to its complexity. The [C-CDA standard](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492) for clinical documents is the most widely adopted application of V3.  For example, the C-CDA standard is used in the [Meaningful Use criteria](https://www.healthit.gov/topic/standards-technology/consolidated-cda-overview).
 
 ## FHIR
 
@@ -69,15 +69,15 @@ Recall from [FHIR from 1,000 Feet](fhir-from-1000-ft.qmd) that:
 
 > The FHIR specification follows [the 80/20 rule](http://www.healthintersections.com.au/?p=1924) to determine which data elements are included in a resource: data elements are typically included only if 80% of relevant systems will use them. Less common data needs are handled through [FHIR extensions](https://www.hl7.org/fhir/extensibility.html). This means that FHIR-enabled systems will implement *most* common data elements consistently.
 
-In late 2014, HL7 released the first official version of FHIR. By 2015, 87% of hospitals in the US were using FHIR certified EHRs as seen below. [@2015_fhir_adoption]
+In late 2014, HL7 released the first official version of FHIR. In 2015, the Office of the National Coordinator for Health Information Technology (ONC) issued the 2015 Edition Cures Act certification criteria, which included an API criteria.  While the API criteria did not target a specific standard, many adopted FHIR for the criteria.  ONC continued to refine the certification's criteria through [revisions of the 2015 Edition Cures Act](https://www.healthit.gov/buzz-blog/healthit-certification/on-the-road-to-cures-update-certified-api-technology), and by 2019, 87% of hospitals in the US were using ONC certified EHRs with FHIR APIs as seen below. [@2015_fhir_adoption]
 
-![Within a year of HL7's 2014 release of FHIR, 87% of hospitals in the US were using FHIR certified EHRs.](images/2015_hospital_fhir_usage.png){fig-alt="Map of the United States showing regional adoption of HL7 FHIR certified EHRs with text description above."}
+![87% of hospitals in the US were using ONC certified EHRs with FHIR APIs by 2019.](images/2015_hospital_fhir_usage.png){fig-alt="Map of the United States showing regional adoption of HL7 FHIR certified EHRs with text description above."}
 
-The late 2010s saw adoption outside of EHRs. For example, Apple uses FHIR in [HealthKit](https://developer.apple.com/documentation/healthkit/samples/accessing_health_records) for accessing patient health data directly from EHRs. The three major public cloud vendors ([Amazon](https://aws.amazon.com/blogs/architecture/building-a-serverless-fhir-interface-on-aws/), [Google](https://cloud.google.com/healthcare-api/docs/concepts/fhir), [Microsoft](https://azure.microsoft.com/en-us/products/health-data-services/)) provide FHIR-enabled services as well.
+The late 2010s saw adoption outside of EHRs. For example, Apple uses FHIR in [HealthKit](https://developer.apple.com/documentation/healthkit/samples/accessing_health_records) for accessing patient health data directly from EHRs. Moreover, three major public cloud vendors ([Amazon](https://aws.amazon.com/blogs/architecture/building-a-serverless-fhir-interface-on-aws/), [Google](https://cloud.google.com/healthcare-api/docs/concepts/fhir), [Microsoft](https://azure.microsoft.com/en-us/products/health-data-services/)) provide FHIR-enabled services as well.
 
 ### FHIR releases
 
-FHIR is currently on [R5](http://hl7.org/fhir/directory.html) (as of April 2023), which is the 5th major release of the FHIR specification. ONC provides [a summary of FHIR releases](https://www.healthit.gov/sites/default/files/page/2021-04) since the first in 2012:
+As of April 2023, the most recent version of the FHIR specification is [Release 5](http://hl7.org/fhir/directory.html) (often referred to as "FHIR R5"). ONC provides [a summary of FHIR releases](https://www.healthit.gov/sites/default/files/page/2021-04/FHIR%20Version%20History%20Fact%20Sheet.pdf) since the first release in 2012:
 
 > HL7® FHIR® has evolved through four releases since its initial presentation in May 2012. It has grown from a true draft standard with 49 Resources to its current 145 and continues to expand. In that time the standard has improved and changed to meet the needs of the health information technology community.
 >
