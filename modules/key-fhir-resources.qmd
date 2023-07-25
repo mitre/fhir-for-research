@@ -89,7 +89,9 @@ To understand how FHIR accomplishes this, let's examine the [Patient resource](h
 
 Here is a [FHIR structure table](https://hl7.org/fhir/formats.html#table) for the [Patient resource](https://hl7.org/fhir/patient.html#resource):
 
-[![The structure for FHIR Patient resource.](images/fhir-r4b-patient-structure.png){.column-page-inset fig-alt="The structure for FHIR Patient resource. Go to https://hl7.org/fhir/R4B/patient.html#resource for a text version."}](https://hl7.org/fhir/R4B/patient.html#resource)
+::: {.fancybox-figure data-fancybox="images/fhir-r4b-patient-structure.png" data-src="images/fhir-r4b-patient-structure.png" data-caption="The structure for FHIR Patient resource. <a href='https://hl7.org/fhir/R4B/patient.html#resource' target='_blank'>https://hl7.org/fhir/R4B/patient.html#resource</a>"}
+[![Click to enlarge](images/fhir-r4b-patient-structure.png){fig-alt="The structure for FHIR Patient resource. Go to https://hl7.org/fhir/R4B/patient.html#resource for a text version."}](https://hl7.org/fhir/R4B/patient.html#resource)
+:::
 
 All FHIR resources have a similar table representing their contents. These tables have the following columns:
 
@@ -129,7 +131,9 @@ And in XML:
 
 `Patient.name` is of complex type [HumanName](https://hl7.org/fhir/datatypes.html#HumanName). Complex types are FHIR resources and have their own structure table. Here's the one for HumanName: 
 
-[![The structure for Patient.name, which is a HumanName.](images/fhir-human-name-structure.png){.column-page-inset fig-alt="The structure for Patient.name, which is a HumanName. Go to https://hl7.org/fhir/datatypes.html#HumanName for a text version."}](https://hl7.org/fhir/datatypes.html#HumanName)
+::: {.fancybox-figure data-fancybox="images/fhir-human-name-structure.png" data-src="images/fhir-human-name-structure.png" data-caption="The structure for Patient.name, which is a HumanName. <a href='https://hl7.org/fhir/datatypes.html#HumanName' target='_blank'>https://hl7.org/fhir/datatypes.html#HumanName</a>"}
+[![Click to enlarge](images/fhir-human-name-structure.png){fig-alt="The structure for Patient.name, which is a HumanName. Go to https://hl7.org/fhir/datatypes.html#HumanName for a text version."}](https://hl7.org/fhir/datatypes.html#HumanName)
+:::
 
 HumanName's elements all have primitive types, such as `HumanName.given`, an array of zero or more strings, and `HumanName.use`, a code-string that must be one of the provided values. As an example, the name Pieter van de Heuvel would be represented in JSON as:
 
@@ -226,7 +230,9 @@ In software engineering, [inheritance](https://en.wikipedia.org/wiki/Inheritance
 
 FHIR has a similar pattern, where resources like Patient inherit from a parent type called [DomainResource](http://hl7.org/fhir/domainresource.html). You can see this in the first row of the structure table for Patient:
 
-![The first few rows of the structure table of the Patient resource, with an arrow indicating that Patient is a DomainResource.](images/fhir-r4b-patient-domainresource.png){.column-page-inset fig-alt="The first few rows of the structure table of the Patient resource, with an arrow indicating that Patient is a DomainResource."}
+::: {.fancybox-figure data-fancybox="images/fhir-r4b-patient-domainresource.png" data-src="images/fhir-r4b-patient-domainresource.png" data-caption="The first few rows of the structure table of the Patient resource, with an arrow indicating that Patient is a DomainResource."}
+![Click to enlarge](images/fhir-r4b-patient-domainresource.png){fig-alt="The first few rows of the structure table of the Patient resource, with an arrow indicating that Patient is a DomainResource."}
+:::
 
 Similarly, DomainResource is a child of [Resource](http://hl7.org/fhir/resource.html), which is the base of almost all FHIR resources. Because FHIR resources are children of DomainResource, they have the same set of core elements in their computable representation. This is useful if you are writing software that needs to process resource definitions from the FHIR specification.
 
@@ -379,7 +385,9 @@ Regarding the JSON and XML representations of FHIR, implementers and researchers
 
 [Observation](https://hl7.org/fhir/observation.html) is another commonly used FHIR resource. It captures vital signs, laboratory data, imaging results, clinical findings, device measurements, and more. Like the Patient resource, there is an [Observation structure table](http://hl7.org/fhir/observation.html#resource):
 
-[![The structure for FHIR observation resource.](images/fhir-observation-structure.png){.column-page-inset fig-alt="Observation structure with attributes status:code, code:CodeableConcept, subject:Reference(Patient), and value[x]. Go to https://hl7.org/fhir/observation.html#resource for a text version."}](https://hl7.org/fhir/observation.html#resource)
+::: {.fancybox-figure data-fancybox="images/fhir-observation-structure.png" data-src="images/fhir-observation-structure.png" data-caption="The structure for FHIR observation resource. <a href='https://hl7.org/fhir/observation.html#resource' target='_blank'>https://hl7.org/fhir/observation.html#resource</a>"}
+[![Click to enlarge](images/fhir-observation-structure.png){fig-alt="Observation structure with attributes status:code, code:CodeableConcept, subject:Reference(Patient), and value[x]. Go to https://hl7.org/fhir/observation.html#resource for a text version."}](https://hl7.org/fhir/observation.html#resource)
+:::
 
 Below is a JSON example `Observation` of high blood glucose levels:
 

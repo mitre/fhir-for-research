@@ -81,13 +81,17 @@ OMOP uses [OHDSI standardized vocabularies](https://github.com/OHDSI/Vocabulary-
 
 Although FDA-regulated products undergo clinical testing before approval, the testing may miss adverse reactions. This is because the test population may not fully represnt the population that uses the product. To detect and assess adverse events after approval, the FDA created Sentinel in 2007. [See here for more information about the Sentinel data network](https://www.sentinelinitiative.org/about/how-sentinel-gets-its-data).
 
-[![Diagram showing the structure of the Sentinel CDM. From <https://www.sentinelinitiative.org/methods-data-tools/sentinel-common-data-model>.](images/cdms_sentinel.png){.column-page-right fig-alt="Diagram describing the contents of the Sentinel CDM."}](https://www.sentinelinitiative.org/methods-data-tools/sentinel-common-data-model)
+::: {.fancybox-figure data-fancybox="images/cdms_sentinel.png" data-src="images/cdms_sentinel.png" data-caption="Diagram showing the structure of the Sentinel CDM. From <a href='https://www.sentinelinitiative.org/methods-data-tools/sentinel-common-data-model' target='_blank'>https://www.sentinelinitiative.org/methods-data-tools/sentinel-common-data-model</a>"}
+[![Click to enlarge](images/cdms_sentinel.png){fig-alt="Diagram describing the contents of the Sentinel CDM."}](https://www.sentinelinitiative.org/methods-data-tools/sentinel-common-data-model)
+:::
 
 ### PCORnet
 
 The Patient-Centered Outcomes Research Institute (PCORI) developed [PCORnet](https://pcornet.org/news/pcornet-common-data-model/) to make clinical research more streamlined, representative, and efficient. PCORnet data is largely drawn from EHRs, as well as some patient-reported and payor data. The PCORnet includes data from [66 million patients](https://pcornet.org/wp-content/uploads/2022/01/PCORnet-An-Introduction-2022-01-0711.pdf) that researchers can use for observational studies. PCORnet launched in 2014 [@fleurence2014].
 
-[![Diagram showing the structure of the PCORnet CDM v6.1. From @pcornet_cdm_6.1.](images/cdms_pcornet.png){.column-page-right fig-alt="Diagram showing the structure of the PCORnet CDM v6.1."}](https://pcornet.org/wp-content/uploads/2023/04/PCORnet-Common-Data-Model-v61-2023_04_031.pdf)
+::: {.fancybox-figure data-fancybox="images/cdms_pcornet.png" data-src="images/cdms_pcornet.png" data-caption="Diagram showing the structure of the PCORnet CDM v6.1. From @pcornet_cdm_6.1. <a href='https://pcornet.org/wp-content/uploads/2023/04/PCORnet-Common-Data-Model-v61-2023_04_031.pdf' target='_blank'>https://pcornet.org/wp-content/uploads/2023/04/PCORnet-Common-Data-Model-v61-2023_04_031.pdf</a>"}
+[![Click to enlarge](images/cdms_pcornet.png){fig-alt="Diagram showing the structure of the PCORnet CDM v6.1."}](https://pcornet.org/wp-content/uploads/2023/04/PCORnet-Common-Data-Model-v61-2023_04_031.pdf)
+:::
 
 ### i2b2
 

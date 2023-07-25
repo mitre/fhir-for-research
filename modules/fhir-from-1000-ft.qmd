@@ -32,8 +32,8 @@ FHIR implementers can constrain what information gets included in a FHIR resourc
 
 Below is a screenshot of the [Patient resource](https://www.hl7.org/fhir/R4B/patient.html) from the FHIR specification (`R4B` version):
 
-::: column-page-inset
-[![](images/R4_Patient.png){fig-alt="Screenshot of Resource Contents table of the Patient resource in the FHIR R4B specification"}](https://www.hl7.org/fhir/R4B/patient.html)
+::: {.fancybox-figure data-fancybox="images/R4_Patient.png" data-src="images/R4_Patient.png" data-caption="<a href='https://www.hl7.org/fhir/R4B/patient.html' target='_blank'>https://www.hl7.org/fhir/R4B/patient.html</a>"}
+[![Click to enlarge](images/R4_Patient.png){fig-alt="Screenshot of Resource Contents table of the Patient resource in the FHIR R4B specification"}](images/R4_Patient.png)
 :::
 
 All FHIR resources have a Resource Content table.[^1] The table shows the hierarchy of elements in the FHIR resource. Elements might be one level deep (like `Patient.birthDate`) or nested (like `Patient.contact.name`).
@@ -129,7 +129,7 @@ The following table shows how PACIO represents a narrative history of a patient'
 
     (Highlights added.)
 
-::: column-page-right
+::: content-body
 +-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | FHIR term | PACIO's approach using FHIR                                                                                                                                                   | Commentary                                                                                                                                                                 |
 +===========+===============================================================================================================================================================================+============================================================================================================================================================================+
@@ -183,7 +183,7 @@ Using FHIR for research depends on whether the relevant systems support FHIR and
 
 If the necessary FHIR support exists or can be added, researchers may benefit by using FHIR. The table below illustrates the benefits by comparing common research-related tasks using (a) FHIR to access data and (b) accessing data via a custom one-off extract:
 
-::: column-page-right
+::: content-body
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
 | Task                                         | Via FHIR                                                                                                                                                                            | Via custom data extract                                                  |
 +==============================================+=====================================================================================================================================================================================+==========================================================================+
