@@ -126,7 +126,7 @@ We used roughly the following steps for the capability assessment that informed 
 
 -   Identify interviewees
 -   Set-up meetings with interviewees
--   Write survey questions if using a written format or structured interview. The [capability assessment questions](capability-assessment-survey.pdf) used for developing this course content are available as a guide
+-   Write survey questions if using a written format or structured interview. The [capability assessment questions](capability-assessment-survey.qmd) used for developing this course content are available as a guide
 -   Hold conversations with previously identified interviewees
 -   Aggregate observations from conversations
 -   Reach back to interviewees with follow-up questions if necessary
