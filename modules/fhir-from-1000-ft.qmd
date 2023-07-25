@@ -28,7 +28,7 @@ This module looks at how FHIR works from a technical standpoint, and is targeted
 
 The FHIR specification groups data elements into "[resources](https://www.hl7.org/fhir/resource.html)," like [Patient](https://www.hl7.org/fhir/patient.html) for representing demographics and administrative information about an individual, and [Observation](https://www.hl7.org/fhir/observation.html) for representing measurements and assertions about a patient or other subject.
 
-FHIR implementers can constrain what information gets included in a FHIR resource or use FHIR extensions to add information to a resource. They can also specify which FHIR resources should be used together for their use case. They share these constraints, extensions, and combinations with others through an Implementation Guide.
+FHIR implementers can constrain what information gets included in a FHIR resource or use FHIR extensions to add information to a resource. They can also specify which FHIR resources should be used together for their use case. They share these constraints, extensions, and combinations with others through an [Implementation Guide (IG)](data-modeling-reading-igs.qmd).
 
 Below is a screenshot of the [Patient resource](https://www.hl7.org/fhir/R4B/patient.html) from the FHIR specification (`R4B` version):
 
@@ -100,7 +100,7 @@ The FHIR specification follows [the 80/20 rule](http://www.healthintersections.c
 
 To maximize usability, data elements contained in FHIR resources have minimal constraints. **Constraints** restrict how a data element can be populated. For example, a constraint on Patient resource might require that `Patient.birthDate` be populated. However, some systems record a patient's age in years rather than date of birth for privacy reasons. If the constraint on `Patient.birthDate` existed, those system would not be able to use the Patient resource.
 
-However, some use cases may require `Patient.birthDate` be populated. To achieve this, implementers can define use case-specific constraints on top of the base FHIR specification through **profiling**. The output of profiling is an **Implementation Guide (IG)**, which is a collection of **profiles** that build on top of the FHIR specification (or other IGs).
+However, some use cases may require `Patient.birthDate` be populated. To achieve this, implementers can define use case-specific constraints on top of the base FHIR specification through **profiling**. The output of profiling is an [Implementation Guide (IG)](data-modeling-reading-igs.qmd), which is a collection of **profiles** that build on top of the FHIR specification (or other IGs).
 
 ### Example: customizing Patient in US Core
 
@@ -160,8 +160,8 @@ Note that extensions can make interoperability more difficult compared to using 
 
 There are two research considerations for customizing FHIR:
 
-1.  **Are there existing FHIR IGs that are relevant?** For example, oncology clinical trials might be able to take advantage of the [mCODE IG](https://hl7.org/fhir/us/mcode/). Find other potentially relevant IGs [here](data-modeling-real-world-igs.qmd).
-2.  **Would creating a FHIR IG provide value?** For research that uses FHIR-formatted data, creating a study-specific IG provides a way to easily define element definitions and required data elements. More information [on writing IGs is here](data-modeling-writing-igs.qmd).
+1.  **Are there existing FHIR Implementation Guides that are relevant?** For example, oncology clinical trials might be able to take advantage of the [mCODE IG](https://hl7.org/fhir/us/mcode/). Find other potentially relevant IGs [here](data-modeling-real-world-igs.qmd).
+2.  **Would creating a FHIR Implementation Guide provide value?** For research that uses FHIR-formatted data, creating a study-specific IG provides a way to easily define element definitions and required data elements. More information [on writing IGs is here](data-modeling-writing-igs.qmd).
 
 ## Connecting systems together: the FHIR API
 
@@ -175,7 +175,7 @@ The diagram below shows how FHIR's API connects systems to each other:
 
 For example, a FHIR Client (like the Apple Health app on an iPhone) can request data from a FHIR server using the "RESTful API over HTTP." FHIR standardizes the request so the Apple Health app can use the same request regardless of which FHIR server they contact.
 
-Like with FHIR resources, the standard FHIR API doesn't define all necessary operations for every use case. FHIR Implementation Guides (IGs) can also define additional API capabilities for a specific use case.
+Like with FHIR resources, the standard FHIR API doesn't define all necessary operations for every use case. FHIR [Implementation Guides (IGs)](data-modeling-reading-igs.qmd) can also define additional API capabilities for a specific use case.
 
 ## Research implications
 

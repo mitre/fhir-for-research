@@ -29,7 +29,7 @@ The [HL7](https://hl7.org) FHIR community consists of developers, maintainers, a
 -   Health-focused companies and non-profits
 -   Local, state, and federal health agencies
 
-Because [FHIR](https://hl7.org/fhir/) is an open-source specification, most of HL7's FHIR work is done publicly, and anyone may [participate](https://confluence.hl7.org/display/HL7/Participating+in+HL7). The FHIR community also develops many [FHIR Implementation Guides (IGs)](http://fhir.org/guides/registry/) with the same public approach.
+Because [FHIR](https://hl7.org/fhir/) is an open-source specification, most of HL7's FHIR work is done publicly, and anyone may [participate](https://confluence.hl7.org/display/HL7/Participating+in+HL7). The FHIR community also develops many [Implementation Guides (IGs)](data-modeling-reading-igs.qmd) that may be found at the [FHIR Implementation Guide Registry](http://fhir.org/guides/registry/) with the same public approach.
 
 This openness makes members of the community accessible to implementers and developers who want to:
 
