@@ -14,5 +14,6 @@ sidebar: false
 
 ## Other Topics
 
+-   [Recommendations for Conducting Workshops](/webinars/workshop-recommendations/index.qmd)
 -   [FHIR Versions](/fhir-versions.qmd)
 -   [Style Guide](/style-guide.qmd)
