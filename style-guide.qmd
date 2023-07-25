@@ -1,6 +1,5 @@
 ---
 title: Style Guide
-sidebar: false
 ---
 
 We use the [RStudio Visual R Markdown](https://rstudio.github.io/visual-markdown-editing/) interchangeably with writing raw Markdown in another editor like VSCode. Visual R Markdown will automatically reformat `.md` or `.qmd` files when opening them, so we do not get hung up on specific Markdown styling as we accept the default output of Visual R Markdown.
