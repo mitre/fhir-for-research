@@ -1,5 +1,5 @@
 ---
-title: Contributions & Corrections
+title: Questions & Contributions
 toc: false
 sidebar: false
 ---

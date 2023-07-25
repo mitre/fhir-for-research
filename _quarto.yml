@@ -122,7 +122,6 @@ website:
             - file: modules/synthea-test-server.qmd
               text: FHIR Test Server
         - fhir-versions.qmd
-        - contribute.qmd
         - style-guide.qmd
 
 

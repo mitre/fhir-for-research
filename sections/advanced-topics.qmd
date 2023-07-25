@@ -15,5 +15,4 @@ sidebar: false
 ## Other Topics
 
 -   [FHIR Versions](/fhir-versions.qmd)
--   [Making Contributions to This Website](/contribute.qmd)
 -   [Style Guide](/style-guide.qmd)
