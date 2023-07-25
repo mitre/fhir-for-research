@@ -56,7 +56,8 @@ website:
               text: FHIR Resources
             - file: modules/fhir-accessing-data.qmd
               text: Using the FHIR API
-            - modules/genomics.qmd
+            - file: modules/genomics.qmd
+              text: Genomics Data & FHIR
         - section: "SMART on FHIR"
           contents:
             - modules/smart-on-fhir-intro.qmd

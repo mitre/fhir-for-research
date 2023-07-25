@@ -135,7 +135,7 @@ const role_module_map = [
       {
         "slug": "genomics",
         "position": 9,
-        "text": "Genomics Data Standardization with FHIR"
+        "text": "Genomics Data & FHIR"
       },
       {
         "slug": "smart-on-fhir-intro",
@@ -245,7 +245,7 @@ const role_module_map = [
       {
         "slug": "genomics",
         "position": 9,
-        "text": "Genomics Data Standardization with FHIR"
+        "text": "Genomics Data & FHIR"
       },
       {
         "slug": "smart-on-fhir-intro",
