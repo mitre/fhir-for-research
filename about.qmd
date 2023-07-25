@@ -1,7 +1,0 @@
----
-title: "About"
-sidebar: false
-toc: false
----
-
-About this site
