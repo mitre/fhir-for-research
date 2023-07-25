@@ -509,7 +509,7 @@ Properly implemented FHIR servers must provide an instance of CapabilityStatemen
 
 [Condition](https://hl7.org/fhir/condition.html)
 
-:   A problem, diagnosis, or clinical event. It should be the reason for a medical intervention and tie into a larger [clinical workflow](http://hl7.org/fhir/workflow.html). There is some use-case overlap with `Observation`; an [IG](data-modeling-real-world-igs.qmd) will provide better guidance.
+:   A problem, diagnosis, or clinical event. It should be the reason for a medical intervention and tie into a larger [clinical workflow](http://hl7.org/fhir/workflow.html). There is some use-case overlap with `Observation`; an IG will provide better guidance.
 
 [Procedure](https://hl7.org/fhir/procedure.html)
 

@@ -63,7 +63,7 @@ The mCODE standards specifications team works closely with the HL7 CGWG to ensur
 
 ### Phenopackets
 
-The [Global Alliance for Genomics and Health](https://www.ga4gh.org/) (GA4GH) [Phenopacket standard](https://www.ga4gh.org/news_item/phenopackets-standardizing-and-exchanging-patient-phenotypic-data/) is not native FHIR-based standard. Rather it is a lightweight specification intends to support global exchange of computable case-level phenotypic information for all types of disease diagnosis and research. However, the specification was ported to a [FHIR implementation guide](http://phenopackets.org/core-ig/ig/branch/master/index.html) and currently under development. The Phenopackets designers are working closely with the CCWG to align both standards.
+The [Global Alliance for Genomics and Health](https://www.ga4gh.org/) (GA4GH) [Phenopacket standard](https://www.ga4gh.org/news_item/phenopackets-standardizing-and-exchanging-patient-phenotypic-data/) is not a native FHIR-based standard. Rather it is a lightweight specification that intends to support global exchange of computable case-level phenotypic information for all types of disease diagnosis and research. However, the specification was ported to a [GA4GH Phenopacket FHIR Implementation Guide](http://phenopackets.org/core-ig/ig/branch/master/index.html) and is currently under development. The Phenopackets designers are working closely with the CCWG to align both standards.
 
 ### Other genomics-related HL7 specifications
 
