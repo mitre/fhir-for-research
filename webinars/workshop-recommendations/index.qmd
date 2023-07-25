@@ -4,7 +4,7 @@ title: Workshop Recommendations
 number-sections: false
 ---
 
-If you are interested in running your own workshop, the following recommendations may be useful. These are based on NIH/ODSS's experience conducting the [FHIR Bulk Data Access](../bulk-data/index.qmd) and [SMART on FHIR](../smart-on-fhir/index.qmd) workshops.
+If you are interested in running your own workshop, the following recommendations may be useful. These are based on NIH/ODSS's experience conducting the [FHIR Bulk Data Access](../bulk-data/index.qmd) and [SMART on FHIR](../../workshops/smart-on-fhir/index.qmd) workshops.
 
 ## Recording
 
@@ -159,7 +159,7 @@ Following an instructional design framework like ADDIE can support the following
 
 -   **Provide a way for participants to ask questions** if you are asking participants to do hands-on technical work (e.g., writing Python code to call a FHIR API). This could be in the form of an optional "lab" at the end of a workshop where participants can ask questions, or a point of contact for questions after the fact.
 
-    Participants may also need to ask questions about getting their environment set up. Strategize to reduce setup as much as possible (e.g., use cloud Jupyter environment rather than requiring participants to run it locally -- more on this below). Having a brief "preflight" immediately before the hands-on portion of the workshop is also advisable.
+    Participants may also need to ask questions about getting their environment set up. Strategize to reduce setup as much as possible (e.g., use cloud Jupyter environment rather than requiring participants to run it locally -- more on this below). Having a brief "preflight" immediately before the hands-on portion of the workshop is also advisable. ([Example preflight slide from the FHIR Bulk Data workshop](preflight-example-slide.qmd).)
 
     To avoid individual-specific questions disrupting the workshop, it is advisable to have an additional person to serve as a "TA". For virtual workshops, enable a breakout room that the TA can use to help participants 1:1 or in a small group.
 
@@ -211,6 +211,8 @@ CPU usage will likely be low unless your workshop includes a lot of CPU-constrai
 The TLJH website includes [information on resource estimation](https://tljh.jupyter.org/en/latest/howto/admin/resource-estimation.html). As of writing, it does not appear that RStudio Server has similar documentation, but the overall constraints should be similar.
 
 NIH-funded researchers may take advantage of the STRIDES Initiative for cloud computing. For more information, visit <https://datascience.nih.gov/strides>.
+
+For an example of server setup instructions, see [the instructions](../../workshops/bulk-data/setup.qmd) for the [FHIR Bulk Data workshop](../../workshops/bulk-data/index.qmd).
 
 ### Synthetic data
 
