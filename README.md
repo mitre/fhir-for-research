@@ -41,6 +41,16 @@ linkchecker https://mitre.github.io/fhir-for-research/
 
 To use a custom SSL certificate chain, modify `~/.config/linkchecker/linkcheckerrc` to set `sslverify` to the path of the `.crt` file.
 
+## Checking for orphan pages
+
+Orphan pages are standalone pages on a website that have no links leading to them from other parts of the site. Essentially, without the direct URL, a user cannot find these pages. In addition, because search engine crawlers depend on following links from one page to another to index a site, they usually can't discover and index these orphan pages.
+
+To identify them, run the following command:
+
+```python
+python scripts/find_orphan_pages.py
+```
+
 ----
 
 ## License
