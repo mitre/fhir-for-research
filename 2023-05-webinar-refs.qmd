@@ -3,6 +3,8 @@ title: May 2023 Webinar References
 sidebar: false
 ---
 
+<!-- This page is not linked to in the site, but is referenced in the FHIR for Research Intro webinar. -->
+
 - Brandt PS, Pacheco JA, Adekkanattu P, Sholle ET, Abedian S, Stone DJ, et al. Design and validation of a FHIR-based EHR-driven phenotyping toolbox. Journal of the American Medical Informatics Association 2022;29:1449–60. <https://doi.org/10.1093/jamia/ocac063>.
 - Cheng AC, Banasiewicz MK, Johnson JD, Sulieman L, Kennedy N, Delacqua F, et al. Evaluating automated electronic case report form data entry from electronic health records. J Clin Trans Sci 2023;7:e29. <https://doi.org/10.1017/cts.2022.514>.
 - Lobach DF, Boxwala A, Kashyap N, Heaney-Huls K, Chiao AB, Rafter T, et al. Integrating a Patient Engagement App into an Electronic Health Record-Enabled Workflow Using Interoperability Standards. Appl Clin Inform 2022;13:1163–71. <https://doi.org/10.1055/s-0042-1758736>.
