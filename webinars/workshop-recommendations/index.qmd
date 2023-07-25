@@ -122,7 +122,7 @@ A capability assessment may help you adapt existing content to meet the needs an
 
 4.  Meet participants at their level of interest and engagement. Not all training participants will need the same level of knowledge about FHIR, or other technology used to work with FHIR APIs and data.
 
-    Note that the existing content on this website was designed to be approachable for people with all levels of technical expertise. Content is generally organized from least-to-most technically complex to provide an "on-ramp" for a less experienced audience. However, modifications may need to be made to tailor to your specific audience.
+    Note that the existing content on this website was designed to be approachable for people with all levels of technical expertise. Content is generally organized from least-to-most technically complex to provide an "on ramp" for a less experienced audience. However, modifications may need to be made to tailor to your specific audience.
 
 ### Getting started with a capability assessment
 
@@ -138,56 +138,47 @@ We used roughly the following steps for the capability assessment that informed 
 
 ## Course development
 
-Using a curriculum development conceptual model may be useful when developing new modules or workshops. Two common curriculum development models, ADDIE and SAM, are summarized below:
+Using an instructional design framework may be useful when developing new modules or workshops. The ADDIE framework ([Analysis, Design, Development, Implementation, and Evaluation](https://en.wikipedia.org/wiki/ADDIE_Model)) is a commonly used cyclical model for instructional design and educational program development. It consists of five stages:
 
-### ADDIE
+1.	Analysis: Assess what the target audience already knows about a specific topic, their experience with the subject, and what resources are available.
+    - See above for recommendations on conducting a [capability assessment](#capability-assessments)
+2.	Design: Create learning objectives.
+3.	Development: Create course content that reflects the learning objectives. This should be an iterative process that incorporates regular feedback from learners and instructors.
+    - [Bloom's Taxonomy](https://tips.uark.edu/using-blooms-taxonomy) may be useful in constructing learning objectives
+4.	Implementation: Determine where the course will be held, in what format, what materials will be needed, and how they will be used.
+5.	Evaluation: Use the learning objectives from the second stage to evaluate the course. Consider assessing participant satisfaction, learning, and performance when comparing the learning objectives to the outcomes.
 
-[Analysis, Design, Development, Implementation, and Evaluation (ADDIE)](https://courses.lumenlearning.com/wm-humanresourcesmgmt/chapter/the-addie-model/) is a cyclical model for instructional design and educational program development.
+Following an instructional design framework like ADDIE can support the following best practices identified from our workshop development and implementation:
 
-The model consists of five stages:
+-   **Tailor technical prerequisites to the anticipated audience.** For example, our SMART on FHIR workshop requires basic HTML and JavaScript experience for hands-on participation. Using a [capability assessment](#capability-assessments) can provide valuable information on the existing experience of your audience.
 
--	Analysis: Assess the current level of understanding to identify the performance gap. Curriculum developers determine what someone or a group already knows about a specific topic, their experience with the subject, and what resources are available.
--	Design: Craft learning objectives that are specific to the course content and helpful tools for learners to gauge their understanding throughout the course.
--	Development: Create course content that reflects the learning objectives. This should be an iterative process that incorporates regular feedback from learners and instructors.
--	Implementation: Determine where the course will be held, in what format, what materials will be needed, and how they will be used.
--	Evaluation: Use the learning objectives from the second stage to evaluate the course. Consider assessing participant satisfaction, learning, and performance when comparing the learning objectives to the outcomes.
+-   **Provide an "on ramp"** introducing the topic at the beginning so less technical participants can still get value from the beginning, as mentioned above. For example, we included an [introductory webinar](../bulk-data/index.qmd) at the beginning of our [FHIR Bulk Data workshop](../../workshops/bulk-data/index.qmd).
 
-### SAM
+    If you design live events to allow for less technical members to leave before getting into more technical content, it's helpful to clearly identify the "drop points" where people who are not interested in the technical content can safely leave.
+    
+-   **Provide a walk-through to introduce hands-on participation.** This can be in the form of reviewing sample code or filling in a template live.
 
-The [Successive Approximation Model (SAM)](https://dli.kennesaw.edu/resources/idmodels/sam.php) is another framework used in course development. Compared to ADDIE, SAM emphasizes smaller development cycles that incorporate feedback earlier in the process.
+-   **Provide a way for participants to ask questions** if you are asking participants to do hands-on technical work (e.g., writing Python code to call a FHIR API). This could be in the form of an optional "lab" at the end of a workshop where participants can ask questions, or a point of contact for questions after the fact.
 
-The model is composed of three phases:
+    Participants may also need to ask questions about getting their environment set up. Strategize to reduce setup as much as possible (e.g., use cloud Jupyter environment rather than requiring participants to run it locally -- more on this below). Having a brief "preflight" immediately before the hands-on portion of the workshop is also advisable.
 
--	Preparation: Begin by gathering all the information and background that is required for the project. Creators brainstorm, sketch, and prototype to develop course material. Many different stakeholders (e.g., colleagues, advisers, students) should be involved with this phase.
--	Iterative Design: Once creators have agreed on an idea and developed a prototype, like a curriculum, they share their work. They should incorporate edits and iterate on the design process.
--	Iterative Development: Lastly, the creators can implement their product. Once it has been used, the creators can cycle back through the phases for continued improvements.
+    To avoid individual-specific questions disrupting the workshop, it is advisable to have an additional person to serve as a "TA". For virtual workshops, enable a breakout room that the TA can use to help participants 1:1 or in a small group.
+    
+### Workshop length
 
-## Workshop best practices
+Based on our experience, we recommend keeping the total length of a workshop under 3 hours per day. Having a longer workshop may introduce scheduling difficulties that can suppress attendance, and fatigue may result in diminishing returns for participants. Consider 1-2 hours of content, and an optional "lab" hour if there is substantial hands-on content to allow participants to work independently and ask questions. Include 5 minute breaks every hour.
 
--   Tailor technical prerequisites to the anticipated audience
-    -   For example, our SMART on FHIR workshop requires basic HTML and JavaScript experience for hands-on participation
-    -   Use the pre-survey to verify audience technical skills
--   Provide learning objectives - <https://tips.uark.edu/using-blooms-taxonomy> is helpful
--   Provide an "onramp" introducing the topic at the beginning so less technical participants can still get value from the beginning
-    -   In general, order content from least to most technical
-    -   Consider a mini-webinar introduction
-    -   Verbally identify the "drop points" where people who are not interested in the technical content can safely leave
--   Provide a walk-through to introduce hands-on participation
-    -   Provide sample code/template that participants can run themselves
-    -   Consider having the presenter fill in the sample code/template live, or give participants time to work themselves and ask questions
--   Keep the total length under 3 hours
-    -   Consider 1-2 hours of content, and an optional "lab" hour if there is substantial hands-on content to allow participants to work independently and ask questions
-    -   Include 5 minute breaks every hour
--   Plan for "preflight" if technical setup is necessary
-    -   Strategize to reduce setup as much as possible (e.g., use cloud Jupyter environment rather than requiring participants to run it locally -- more on this below)
--   Include at least one TA to help with technical issues and questions during the workshop
-    -   For virtual workshops, use breakout rooms if participants need 1:1 help
--   Require registration to attend
-    -   Allows for monitoring and adjustment of outreach strategy if the desired mix of people don't initially sign up
-    -   Start registration at least 2 weeks ahead of the event
-    -   Be clear about the prerequisites, and whether technical skills are required for some/all of the workshop
+### Registration
+
+We recommend requiring registration to attend workshops. This allows for monitoring and adjustment of outreach strategy if the desired mix of people don't initially sign up. Registration should start at least 2 weeks ahead of the event, and ideally should start even earlier for a longer event that may require participants to shift their usual schedule to attend.
+
+Registration should clearly identify prerequisites, required technical skills, and if there is an introductory portion appropriate for all audiences followed by a more technical portion.
+
+Consider whether your registration form should allow for participants to request reasonable accommodations for disabilities. (This may be required by your organization.)
 
 ### Accessibility
+
+The following recommendations support enhanced accessibility of workshop materials:
 
 -   Use Zoom local recording (or similar) to record screen and audio
 -   Share recording with subtitles for accessibility
@@ -195,96 +186,71 @@ The model is composed of three phases:
     -   Subtitles can be in a .srt "sidecar" file -- this is a plain text file that can be easily edited by hand
 -   Provide slides and other materials on a single website at the time of the event
     -   e.g., <https://purl.org/fhir-for-research/workshops/bulk-data>
-    -   Consider "upstreaming" any materials to the main open source GitHub repository
+    -   Consider "upstreaming" any materials to the main open source GitHub repository; see [../../contribute.qmd] for more information
 -   Use URLs in slides that can be updated later if the website changes (e.g. from <https://purl.org>) to avoid broken links in video recordings
 
 ## Environment & data
 
 ### Compute
 
--   If possible, provide a cloud compute environment with dependencies pre-installed
+If possible, provide a cloud compute environment with dependencies pre-installed. This will save on setup time and avoid participants getting stuck on technical issues during the workshop.
 
-    -   This will save on setup time and avoid participants getting stuck on technical issues during the workshop
+To run a compute environment on a server, you can use:
 
--   Run on your own server:
+-   **Python/Jupyter:** <https://tljh.jupyter.org> for up to 100 users
 
-    -   **Python/Jupyter:** <https://tljh.jupyter.org> for up to 100 users
+-   **R/RStudio Server:** <https://posit.co/download/rstudio-server/>
 
-    -   **R/RStudio Server:** <https://posit.co/download/rstudio-server/>
-
--   No server required:
-
-    ```
+If you don't want to run a server, there are a number of different services you can use. Two of these are:
     -   Free, some additional complexity: <https://mybinder.org>
+    -   $15/month, more reliable: <https://posit.cloud/plans/instructor?option=instructor>
 
-    -   \$15/month, more reliable:\
-        <https://posit.cloud/plans/instructor?option=instructor>
-    ```
 
 ### Running a server
 
--   Typically memory is the main constraint, which scales linearly with the number of simultaneous users
+Typically memory is the main constraint, which scales linearly with the number of simultaneous users. Our FHIR Bulk Data workshop using JupyterHub (via TLJH) required around 600MB/user minimum. You can run your code ahead of time to estimate memory needs.
 
-    -   Our FHIR Bulk Data workshop using JupyterHub (via TLJH) required around 600MB/user minimum
+CPU usage will likely be low unless your workshop includes a lot of CPU-constrained code (e.g., training machine learning models).
 
-    -   Run your code ahead of time to estimate memory needs
+The TLJH website includes [information on resource estimation](https://tljh.jupyter.org/en/latest/howto/admin/resource-estimation.html). As of writing, it does not appear that RStudio Server has similar documentation, but the overall constraints should be similar.
 
--   CPU usage will likely be low unless your workshop includes a lot of CPU-constrained code (e.g., training machine learning models)
-
--   TLJH: <https://tljh.jupyter.org/en/latest/howto/admin/resource-estimation.html>
-
--   NIH-funded researchers may take advantage of the STRIDES Initiative for cloud computing. For more information, visit https://datascience.nih.gov/strides
+NIH-funded researchers may take advantage of the STRIDES Initiative for cloud computing. For more information, visit <https://datascience.nih.gov/strides>.
 
 ### Synthetic data
 
--   Using synthetic data avoids privacy issues with patient data
-
--   <https://synthea.mitre.org> provides synthetic data in FHIR format
-
--   <https://purl.org/fhir-for-research/synthea> provides more information on customizing Synthea for your specific use case
+Using synthetic data for workshops avoids privacy issues with patient data. [Synthea](https://synthea.mitre.org) provides synthetic data in FHIR format, and [additional information is here](../../sections/advanced-topics.qmd#synthetic-data-fhir-testing-servers).
 
 ### FHIR test server
 
--   Workshops that use the FHIR API will need a test server
+Workshops that use the FHIR API will need a test server. There are a few options for this:
 
--   Options for this:
+-   <https://sandbox.logicahealth.org>: free test server with both open and authenticated endpoints, as well as SMART on FHIR and CDS Hooks support; allows you to bring your own data
 
-    -   <https://sandbox.logicahealth.org>: free test server with both open and authenticated endpoints, as well as SMART on FHIR and CDS Hooks support
+-   <https://launch.smarthealthit.org> for SMART on FHIR testing
 
-        -   Allows you to bring your own data
+-   <https://bulk-data.smarthealthit.org> for FHIR Bulk Data testing
 
-    -   <https://launch.smarthealthit.org> for SMART on FHIR testing
-
-    -   <https://bulk-data.smarthealthit.org> for FHIR Bulk Data testing
-
-    -   <https://hapifhir.io> if you want to run your own FHIR server
-
-        -   Or use their public sandbox: <http://hapi.fhir.org>
+-   <https://hapifhir.io> if you want to run your own FHIR server (also includes a public sandbox: <http://hapi.fhir.org>)
 
 ## Working with Revealjs slides
 
--   Quarto supports three different formats for generating slides
--   We use Revealjs: <https://quarto.org/docs/presentations/revealjs/>
-    -   Especially good for slides that include code
-    -   For virtual workshops, screen sharing a single browser window is easier than switching between applications
-    -   Creating PDFs of Revealjs slides
-        -   <https://github.com/astefanutti/decktape> is a command line tool for converting HTML slides (including Revealjs) into PDF
-        -   DeckTape-generated PDFs are not accessible by default
+Quarto supports three different formats for generating slides. We use one of these called [Revealjs](https://quarto.org/docs/presentations/revealjs/). This is an especially good format for slides that include code. For virtual workshops, screen sharing a single browser window that includes Revealjs slides in a tab is easier than switching between applications.
+
+To create PDFs of Revealjs slides, you can use [DeckTape](https://github.com/astefanutti/decktape), a command line tool for converting HTML slides (including Revealjs) into PDF. Note that DeckTape-generated PDFs are not accessible by default.
 
 ## Sharing accessible slides
 
--   PowerPoint and PDF format slides are not by default accessible
--   [Microsoft guidance for making accessible PowerPoint files](https://support.microsoft.com/en-us/office/make-your-powerpoint-presentations-accessible-to-people-with-disabilities-6f7772b2-2f33-4bd2-8ca7-dae3b2b3ef25)
--   <https://pdfua.foundation/en/> provides a tool for checking PDF accessibility
--   If you generate a PDF from PowerPoint slides, use [these instructions](https://support.microsoft.com/en-au/office/create-accessible-pdfs-064625e0-56ea-4e16-ad71-3aa33bb4b7ed) to add accessibility tags to the PDF
+Like Revealjs PDFs, PowerPoint slides are not by default accessible. [Microsoft guidance for making accessible PowerPoint files](https://support.microsoft.com/en-us/office/make-your-powerpoint-presentations-accessible-to-people-with-disabilities-6f7772b2-2f33-4bd2-8ca7-dae3b2b3ef25).
+
+[Adobe Acrobat Pro](https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html) may be useful in making PDFs accessible (we were not able to find an open source tool to support in adding accessibility features to PDFs). The [PDF Accessibility Checker](https://pdfua.foundation/en/) can be used to assess the accessibility of PDFs.
+
+If you generate a PDF from PowerPoint slides, use [these instructions](https://support.microsoft.com/en-au/office/create-accessible-pdfs-064625e0-56ea-4e16-ad71-3aa33bb4b7ed) to add accessibility tags to the PDF.
 
 ## Mermaidjs
 
--   Download from web page: <http://nytimes.github.io/svg-crowbar/>
+Quarto supports [Mermaidjs diagrams](https://quarto.org/docs/authoring/diagrams.html). If you need to download a Mermaidjs diagram as a SVG, [this Chrome bookmarklet](http://nytimes.github.io/svg-crowbar/) may be helpful.
 
-### Accessibility
-
-To add an accessibility title to a Mermaid diagram, add `accTitle` like below:
+To add an accessibility title to a Mermaidjs diagram, add `accTitle` like below:
 
     ```{mermaid}
     sequenceDiagram
