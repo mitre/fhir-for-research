@@ -4,7 +4,11 @@ title: Workshop Recommendations
 number-sections: false
 ---
 
-If you are interested in running your own workshop, the following recommendations may be useful. These are based on ODSS's experience conducting the [FHIR Bulk Data Access](../bulk-data/index.qmd) and [SMART on FHIR](../smart-on-fhir/index.qmd) workshops.
+If you are interested in running your own workshop, the following recommendations may be useful. These are based on NIH/ODSS's experience conducting the [FHIR Bulk Data Access](../bulk-data/index.qmd) and [SMART on FHIR](../smart-on-fhir/index.qmd) workshops.
+
+## Recording
+
+A video recording is forthcoming.
 
 ## Slides
 
@@ -17,7 +21,7 @@ These slides summarize the content found below.
 ### Other slide formats
 
 -   [Printable web page](slides.html?print-pdf)
--   Accessible PDF
+-   [Accessible PDF](Webinar - Workshop Recommendations 508C.pdf)
 
 ------------------------------------------------------------------------
 

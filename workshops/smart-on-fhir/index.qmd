@@ -18,7 +18,7 @@ A video recording is forthcoming.
 ### Other slide formats
 
 -   [Printable web page](slides.html?print-pdf)
--   Accessible PDF
+-   [Accessible PDF](Workshop - SMART on FHIR 508C.pdf)
 
 ## Running the sample app
 
