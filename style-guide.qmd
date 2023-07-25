@@ -300,7 +300,7 @@ The same approach should be used for these tables in FHIR resources, though it i
 
 Here's a screenshot from the [Observation resource](https://www.hl7.org/fhir/R4B/observation.html) as an example:
 
-[![](images/observation.png){fig-alt="Screenshot of the resource content table for the FHIR Observation resource."}](https://www.hl7.org/fhir/R4Bobservation.html#resource)
+[![](images/observation.png){fig-alt="Screenshot of the resource content table for the FHIR Observation resource."}](https://www.hl7.org/fhir/R4B/observation.html#resource)
 
 Note that the image hyperlink includes the `#resource` anchor to bring the reader directly to the "Resource Content" table in the documentation.
 
