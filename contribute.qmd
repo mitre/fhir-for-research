@@ -24,6 +24,10 @@ Anyone with a free GitHub account may suggest changes to the website by [editing
 
 If you wish to edit locally on your computer, you may wish to use the [RStudio IDE](https://posit.co/products/open-source/rstudio/), which natively supports [Quarto]. RStudio also provides a [visual Markdown editor](https://rstudio.github.io/visual-markdown-editing/), which may be easier to use than editing raw Markdown. More information on setting up a local environment is found in the [README file](https://github.com/mitre/fhir-for-research#readme) on GitHub. The [Quarto website also has instructions for using RStudio](https://quarto.org/docs/get-started/hello/rstudio.html).
 
+::: {.callout-tip}
+Setup instructions for local editing are available for [Mac](setup-mac.qmd) and [Winodws](setup-windows.qmd).
+:::
+
 Contributions are welcomed, and once they are merged in they will be published under this website's [open source license](https://github.com/mitre/fhir-for-research/blob/main/LICENSE).
 
 Please review the [Style Guide](style-guide.qmd) before contributing.
