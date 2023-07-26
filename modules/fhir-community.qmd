@@ -215,7 +215,7 @@ Two IGs that were not balloted through HL7:
 
 1. The [NIH Cloud Platform Interoperability Effort (NCPI) FHIR Implementation Guide](https://nih-ncpi.github.io/ncpi-fhir-ig/index.html) (NCPI FHIR IG) is a relatively newer IG that is still under development. The IG aims to support data and knowledge-sharing among researchers by using FHIR as a standard, common model for representing data.
 
-2. The [OHSU Hypertension Implementation Guide](https://build.fhir.org/ig/OHSUCMP/htnu18ig/index.html) is a patient-facing support tool for hypertension management. Funded by AHRQ, the IG uses [CDS Hooks](smart-on-fhir-intro/#cds-hooks)to support the clinical decision support logic.
+2. The [OHSU Hypertension Implementation Guide](https://build.fhir.org/ig/OHSUCMP/htnu18ig/index.html) is a patient-facing support tool for hypertension management. Funded by AHRQ, the IG uses [CDS Hooks](smart-on-fhir-intro.qmd/#cds-hooks)to support the clinical decision support logic.
 
 ### Balloting implications for researchers {#balloting-and-research}
 
@@ -229,4 +229,4 @@ The balloting process can be daunting and confusing after the first introduction
 
 - Join a [Work Group meeting](#work-group-meetings).
 - Join the [chat.fhir.org](#chat-fhir-org) workspace, and particularly the [#Ballot-QA](https://chat.fhir.org/#narrow/stream/179257-Ballot-QA) stream to read previous questions and answers or ask new questions. 
-- Connect with others in the HL7 community that have worked on balloted specifications, either through [chat.fhir.org](chat.fhir.org) or through the Confluence work space. The community is vast and friendly; asking someone for advice may save you from sifting through Confluence to find the answer.
+- Connect with others in the HL7 community that have worked on balloted specifications, either through [chat.fhir.org](https://chat.fhir.org) or through the Confluence work space. The community is vast and friendly; asking someone for advice may save you from sifting through Confluence to find the answer.
