@@ -215,7 +215,7 @@ Two IGs that were not balloted through HL7:
 
 1. The [NIH Cloud Platform Interoperability Effort (NCPI) FHIR Implementation Guide](https://nih-ncpi.github.io/ncpi-fhir-ig/index.html) (NCPI FHIR IG) is a relatively newer IG that is still under development. The IG aims to support data and knowledge-sharing among researchers by using FHIR as a standard, common model for representing data.
 
-2. The [OHSU Hypertension Implementation Guide](https://build.fhir.org/ig/OHSUCMP/htnu18ig/index.html) is a patient-facing support tool for hypertension management. Funded by AHRQ, the IG uses [CDS Hooks](smart-on-fhir-intro.qmd/#cds-hooks)to support the clinical decision support logic.
+2. The [OHSU Hypertension Implementation Guide](https://build.fhir.org/ig/OHSUCMP/htnu18ig/index.html) is a patient-facing support tool for hypertension management. Funded by AHRQ, the IG uses [CDS Hooks](smart-on-fhir-intro.qmd#cds-hooks)to support the clinical decision support logic.
 
 ### Balloting implications for researchers {#balloting-and-research}
 
