@@ -1,0 +1,118 @@
+on:
+  workflow_dispatch:
+  push:
+    branches: '*'
+
+name: Quarto Publish
+
+# Allow only one concurrent deployment
+# But do not cancel in-progress runs
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get -y upgrade
+          sudo apt-get -y install libcurl4-openssl-dev # for "curl" R package
+          sudo apt-get install -y libharfbuzz-dev libfribidi-dev # for "text-shaping" R package
+          sudo apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev # for "ragg" R package
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+
+      - name: Install R libraries
+        uses: r-lib/actions/setup-renv@v2
+        # includes dependency cache
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip' # cache pip dependencies
+
+      - name: Install Python libraries
+        run: pip install -r requirements.txt
+
+      - name: Render Quarto
+        run: quarto render
+
+      - name: Remove .html extensions and /index from links
+        run: |
+          # Find all HTML files in the current directory and its subdirectories
+          HTML_FILES=$(find . -type f -name "*.html")
+
+          # Loop through each HTML file
+          for file in $HTML_FILES; do
+              # Replace .html extension from <a> tags with empty string for relative links only
+              sed -i 's/\(<a[^>]*href="\)\([^:"]*\)\.html\("[^>]*>\)/\1\2\3/g' $file
+
+              # Replace /some/path/index with /some/path
+              sed -i 's/\(<a[^>]*href="\)\([^:"]*\)\/index\("[^>]*>\)/\1\2\3/g' $file
+          done
+
+          echo "HTML files processed successfully!"
+
+      # Work around https://github.com/quarto-dev/quarto-cli/issues/3892
+      - name: Manually copy over MP4 files
+        run: |
+          cp modules/images/*.mp4 public/modules/images/
+
+      # Deploy the output
+      - name: Push build to gh-pages (default branch)
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          # Deploy
+          git config --global user.email "noreply@mitre.org"
+          git config --global user.name "Auto-build"
+          git worktree add $GITHUB_WORKSPACE/../gh-pages
+          cd $GITHUB_WORKSPACE/../gh-pages
+
+          # Refresh in case another build has happened while this was running
+          # This mitigates a race condition with multiple simultaneous builds
+          git fetch origin
+          git reset --hard origin/gh-pages
+
+          mkdir -p branches
+          mv branches ..
+          rm -rf *
+          mv ../branches .
+          cp -r $GITHUB_WORKSPACE/public/* .
+          rm -rf .github/workflows
+          git add -A
+          git commit --amend -m "Update site"
+          GIT_SSH_COMMAND='ssh -i ' git push -u --force origin gh-pages
+
+      - name: Push build to gh-pages (non-default branches)
+        if: ${{ github.ref != 'refs/heads/main' }}
+        run: |
+          # Deploy
+          git config --global user.email "noreply@mitre.org"
+          git config --global user.name "Auto-build"
+          git worktree add $GITHUB_WORKSPACE/../gh-pages
+          cd $GITHUB_WORKSPACE/../gh-pages
+
+          # Refresh in case another build has happened while this was running
+          # This mitigates a race condition with multiple simultaneous builds
+          git fetch origin
+          git reset --hard origin/gh-pages
+
+          mkdir -p branches/${GITHUB_REF##*/}
+          rm -rf branches/${GITHUB_REF##*/}/*
+          cp -r $GITHUB_WORKSPACE/public/* branches/${GITHUB_REF##*/}/
+          rm -rf .github/workflows
+          git add -A
+          git commit --amend -m "Update site"
+          GIT_SSH_COMMAND='ssh -i ' git push -u --force origin gh-pages

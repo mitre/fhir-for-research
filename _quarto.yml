@@ -1,0 +1,165 @@
+project:
+  type: website
+  output-dir: public
+  render:
+    - "*.qmd"
+    - "workshops/bulk-data/notebook.ipynb"
+    - "!cache/" # naming this _cache should work instead, but did not in testing https://community.rstudio.com/t/quarto-equivalent-to-exclude-yaml-command-in-distill/148758/2
+    - "!README.md"
+    - "!script/"
+
+website:
+  title: "FHIR® for Research [NEI Review v1]"
+  site-url: https://mitre.github.io/fhir-for-research/
+  search:
+    location: navbar
+    type: textbox
+  navbar:
+    left:
+      - text: Overview
+        file: sections/overview.qmd
+      - text: Working With Data
+        file: sections/working-with-data.qmd
+      - text: Synthetic Data
+        file: sections/synthetic-data.qmd
+
+
+    right:
+      - href: contribute.qmd
+        text: Questions & Contributions
+      - icon: github
+        href: https://github.com/mitre/fhir-for-research
+        aria-label: View the GitHub repository for this site
+
+
+  sidebar:
+    - id: overview
+      title: Overview
+      style: floating
+      search: false
+      align: left
+      collapse-level: 3
+      contents:
+        - sections/overview.qmd
+        - section: "FHIR for Research"
+          contents:
+            - modules/fhir-from-10000-ft.qmd
+            - modules/fhir-from-1000-ft.qmd
+            - file: modules/fhir-research.qmd
+              text: "Real World Research"
+            - modules/fhir-history.qmd
+            - modules/terminology.qmd
+            - modules/cdms.qmd
+            - file: modules/fhir-community.qmd
+              text: Community & Documentation
+            - file: modules/key-fhir-resources.qmd
+              text: FHIR Resources
+            - file: modules/fhir-accessing-data.qmd
+              text: Using the FHIR API
+            - file: modules/genomics.qmd
+              text: Genomics Data & FHIR
+            - text: Emerging Technologies (forthcoming)
+        - section: "FHIR API Development"
+          contents:
+            - file: modules/new-tech-overview.qmd
+              text: "FHIR API Technologies"
+            - section: "SMART on FHIR"
+              contents:
+                - file: modules/new-smart-on-fhir-intro.qmd
+                  text: "Introduction"
+                - file: modules/new-smart-on-fhir-tech.qmd
+                  text: "Technical Details"
+                - file: workshops/smart-on-fhir/index.qmd
+                  text: "Workshop"
+            - section: "CDS Hooks"
+              contents:
+                - file: modules/new-cds-hooks-intro.qmd
+                  text: "Introduction"
+                - file: modules/new-cds-hooks-types.qmd
+                  text: "Types of CDS Hooks"
+                - text: "Real World Example (forthcoming)"
+                - text: "Technical Details (forthcoming)"
+                - text: "Use Case Exercise (forthcoming)"
+                # - file: modules/new-cds-hooks-real-world-example.qmd
+                #   text: "Real World Example"
+                # - file: modules/new-cds-hooks-tech.qmd
+                #   text: "Technical Details"
+                # - file: modules/new-use-case-example.qmd
+                #   text: "Use Case Exercise"
+            - file: modules/new-bulk-fhir.qmd
+              text: "Bulk Data Access"
+        - section: "Data Modeling in FHIR"
+          contents:
+            - file: modules/data-modeling-reading-igs.qmd
+              text: Reading IGs
+            - file: modules/data-modeling-real-world-igs.qmd
+              text: Real World IGs
+            - file: modules/data-modeling-writing-igs.qmd
+              text: Writing IGs
+
+    - id: working-with-data
+      title: Working With Data
+      style: floating
+      search: false
+      align: left
+      collapse-level: 2
+      contents:
+        - file: sections/working-with-data.qmd
+          text: Working With Data
+        - section: "Tabular Analysis"
+          contents:
+            - file: modules/tabular-intro.qmd
+              text: Introduction
+            - file: modules/tabular-python.qmd
+              text: Using Python
+            - file: modules/tabular-r.qmd
+              text: Using R
+        - section: "REDCap"
+          contents:
+            - file: modules/redcap-intro.qmd
+              text: Introduction
+            - file: modules/redcap-fhir.qmd
+              text: REDCap on FHIR
+        - section: "Bulk Data"
+          contents:
+            - file: webinars/bulk-data/index.qmd
+              text: Introduction Webinar
+            - file: workshops/bulk-data/index.qmd
+              text: Workshop
+
+    - id: synthetic-data
+      title: Synthetic Data
+      style: floating
+      search: false
+      align: left
+      collapse-level: 2
+      contents:
+        - file: sections/synthetic-data.qmd
+          text: Synthetic Data
+        - section: "Synthetic Data"
+          contents:
+            - file: modules/synthea-overview.qmd
+              text: "Synthea Overview"
+            - file: modules/synthea-running.qmd
+              text: Running Synthea
+            - file: modules/synthea-customizing.qmd
+              text: Customizing Synthea
+            - file: modules/synthea-test-server.qmd
+              text: FHIR Test Server
+
+  page-footer: |
+    &copy; 2024 The MITRE Corporation / <a href="https://github.com/mitre/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #23-0966 &amp; #24-0169<br><br>HL7® and FHIR® are the registered trademarks of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the HL7 and FHIR trademarks does not constitute an HL7 endorsement of this website.
+
+  page-navigation: true
+
+
+format:
+  html:
+    theme:
+      - cosmo
+      - custom.scss
+    highlight-style: a11y
+    css: styles.css
+    toc: true
+    include-in-header: head.html
+    include-after-body: scripts.html

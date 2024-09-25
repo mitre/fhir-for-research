@@ -1,0 +1,63 @@
+---
+title: "Home"
+section-divs: false
+
+# Canonical Markdown breaks the formatting for some reason -- but it doesn't look like this stops it
+editor_options:
+  markdown:
+    canonical: true
+
+toc: false
+sidebar: false
+
+format:
+  html:
+    css:
+      - styles.css
+      - index.css
+
+---
+
+![](images/DataSceinceFHIR_RFI_Banner_V3.png){fig-alt="HL7 FHIR supporting the research process by expanding access to data and improving interoperability."}
+
+::: {.content-block}
+::: {.features}
+
+::: {.feature}
+### Overview
+
+An introduction to FHIR for research, and details on two additional areas of general interest for researchers: SMART on FHIR and its research applications, and data modeling in FHIR.
+
+::: {.learn-more}
+[Learn more »](sections/overview.qmd)
+:::
+:::
+
+::: {.feature}
+### Working with FHIR Data
+
+Approaches to gathering and analyzing FHIR-formatted data for research purposes.
+
+::: {.learn-more}
+[Learn more »](sections/working-with-data.qmd)
+:::
+:::
+
+::: {.feature}
+### Synthetic Data
+
+Synthetic health data including FHIR-format data and images.
+
+::: {.learn-more}
+[Learn more »](sections/advanced-topics.qmd)
+:::
+:::
+
+:::
+:::
+
+### Other topics
+
+-   [Recommendations for Conducting Workshops](/webinars/workshop-recommendations/index.qmd)
+-   [FHIR Versions](/fhir-versions.qmd)
+-   [Style Guide](/style-guide.qmd)

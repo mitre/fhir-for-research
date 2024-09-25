@@ -1,0 +1,85 @@
+image:
+  name: artifacts.mitre.org:8200/gitlab-quarto-mitre:2024-06-27
+  entrypoint: [ '/bin/bash', '-c', 'ln -snf /bin/bash /bin/sh && /bin/bash -c $0' ]
+
+# renv cache: https://rstudio.github.io/renv/articles/ci.html
+variables:
+  RENV_CONFIG_REPOS_OVERRIDE: "http://cran.r-project.org"
+  RENV_PATHS_CACHE: ${CI_PROJECT_DIR}/cache
+  RENV_PATHS_LIBRARY: ${CI_PROJECT_DIR}/renv/library
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  PLANTUML_BIN: "${CI_PROJECT_DIR}/plantuml.jar"
+
+cache:
+  key: ${CI_PROJECT_URL}
+  paths:
+    - ${RENV_PATHS_CACHE}
+    - ${RENV_PATHS_LIBRARY}
+    - .cache/pip
+
+before_script:
+  - apt-get update -y
+  - apt-get install -y libharfbuzz-dev libfribidi-dev # For "textshaping" in R
+  # For "ragg" in R
+  - apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
+  - export PKG_CONFIG_PATH=/usr/lib/pkgconfig
+  - export PATH="$PATH:$PKG_CONFIG_PATH"
+
+  # Move renv cache from Docker to project directory so it can get picked up by the GitLab cache
+  # if it doesn't exist already
+  - "[[ -d $RENV_PATHS_CACHE ]] || cp -r /root/.cache/R/renv/cache $RENV_PATHS_CACHE"
+  - Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv')"
+  - Rscript -e "renv::restore()"
+  # end renv cache
+
+  # Install Python dependencies
+  - python3.12 -m venv python_env
+  - source python_env/bin/activate
+  - python3 -m pip install -r requirements.txt
+
+workflow:
+  rules:
+    # trigger every commit
+    - if: $CI_COMMIT_BRANCH
+
+pages:
+  stage: deploy
+  script:
+    - quarto render
+    # Work around https://github.com/quarto-dev/quarto-cli/issues/3892
+    - cp modules/images/*.mp4 public/modules/images/
+  artifacts:
+    paths:
+      - public
+    expose_as: Website
+  rules:
+    # Only run for default branch
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+  tags:
+    - pages
+  environment: production
+
+ci:
+  stage: deploy
+  artifacts:
+    name: Quarto build
+    expose_as: Quarto build
+    paths:
+      - public/
+    expire_in: 6 months
+
+  environment:
+    name: ${CI_COMMIT_REF_NAME}
+    url: https://${CI_PROJECT_NAMESPACE}.pages.mitre.org/-/${CI_PROJECT_NAME}/-/jobs/$CI_JOB_ID/artifacts/public/index.html
+
+  script:
+    - quarto render --site-url https://${CI_PROJECT_NAMESPACE}.pages.mitre.org/-/${CI_PROJECT_NAME}/-/jobs/$CI_JOB_ID/artifacts/public/
+    # Work around https://github.com/quarto-dev/quarto-cli/issues/3892
+    - cp modules/images/*.mp4 public/modules/images/
+  tags:
+    - pages
+  rules:
+    # Do not run for the default branch, which is published via the `pages` pipeline defined above
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+      when: never
+    - if: '$CI_COMMIT_BRANCH' # Necessary to have a catch-all match to make the pipeline run

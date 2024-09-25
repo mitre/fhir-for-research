@@ -1,0 +1,286 @@
+<!-- scripts.html -->
+<!-- any content in this file is inserted right before </body> -->
+
+<!-- Fix a11y issues with side menu -->
+<script>
+const elements = document.querySelectorAll('.sidebar-menu-container a.sidebar-item-text[data-bs-toggle="collapse"], .sidebar-menu-container a.sidebar-item-toggle[data-bs-toggle="collapse"]')
+
+elements.forEach(element => {
+    element.setAttribute('role', 'group');
+});
+</script>
+
+<!-- fancy json code viewer -->
+<script type="text/javascript" src="https://unpkg.com/dompurify@3.0.1/dist/purify.min.js"></script> <!-- load JS Sanitizer -->
+<script>
+    function jsonViewer(json, collapsible=false) {
+        let TEMPLATES = {
+            item: '<div class="json_view__item"><div class="json_view__key">%KEY%</div><div class="json_view__value json_view__value--%TYPE%">%VALUE%</div></div>',
+            itemCollapsible: '<label class="json_view__item json_view__item--collapsible"><input type="checkbox" class="json_view__toggle"/><div class="json_view__key">%KEY%</div><div class="json_view__value json_view__value--type-%TYPE%">%VALUE%</div>%CHILDREN%</label>',
+            itemCollapsibleOpen: '<label class="json_view__item json_view__item--collapsible"><input type="checkbox" checked class="json_view__toggle"/><div class="json_view__key">%KEY%</div><div class="json_view__value json_view__value--type-%TYPE%">%VALUE%</div>%CHILDREN%</label>'
+        };
+
+        function createItem(key, value, type){
+            let element = TEMPLATES.item.replace('%KEY%', key);
+
+            if((key == 'div') && (type=='string')) { // Removes Resource.text.div value (looks bloated)
+                element = element.replace('%VALUE%', '...');
+            } else if(type == 'string') {
+                element = element.replace('%VALUE%', '"' + value + '"');
+            } else {
+                element = element.replace('%VALUE%', value);
+            }
+
+            element = element.replace('%TYPE%', type);
+
+            return element;
+        }
+
+        function createCollapsibleItem(key, value, type, children){
+            let tpl = 'itemCollapsible';
+
+            if(collapsible) {
+                tpl = 'itemCollapsibleOpen';
+            }
+
+            let element = TEMPLATES[tpl].replace('%KEY%', key);
+
+            element = element.replace('%VALUE%', type);
+            element = element.replace('%TYPE%', type);
+            element = element.replace('%CHILDREN%', children);
+
+            return element;
+        }
+
+        function handleChildren(key, value, type) {
+            let html = '';
+
+            for(let item in value) { 
+                let _key = item,
+                    _val = value[item];
+
+                html += handleItem(_key, _val);
+            }
+
+            return createCollapsibleItem(key, value, type, html);
+        }
+
+        function handleItem(key, value) {
+            let type = typeof value;
+ 
+            if( Array.isArray( value ) ) {
+                return handleChildren(key, value, "array");
+            }
+
+            if(typeof value === 'object') {        
+                return handleChildren(key, value, type);
+            }
+
+            return createItem(key, value, type);
+        }
+
+        function parseObject(obj) {
+            _result = '<div class="json_view">';
+
+            for(let item in obj) { 
+                let key = item,
+                    value = obj[item];
+
+                _result += handleItem(key, value);
+            }
+
+            _result += '</div>';
+
+            return _result;
+        }
+        
+        try {
+            return parseObject(JSON.parse(json));
+        }
+        catch(err) {
+            console.log("Could not render JSON viewer: ", err);
+            console.log("for string: ", json);
+            return null;
+        }
+
+    };
+
+
+    function parseHTML(string) {
+        let sanitized = DOMPurify.sanitize(string);
+        let parser = new DOMParser();
+        return parser.parseFromString(sanitized, "text/html").body.firstChild;
+    }
+
+    let jsonCodeBlocks = document.querySelectorAll("code.sourceCode.json");
+    jsonCodeBlocks.forEach((jsonCode) => {
+        let json = jsonCode.innerText;
+        let codeBlock = jsonCode.parentNode.parentNode;
+        let uid = codeBlock.id;
+        let documentLocation = codeBlock.parentNode;
+        let viewerHTML = jsonViewer(json, true);
+
+        let tabContainer = parseHTML(`
+          <div>
+            <ul class="nav nav-tabs" id="${uid}Tabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="${uid}ViewerTab" data-bs-toggle="tab" data-bs-target="#${uid}Viewer" type="button" role="tab" aria-controls="${uid}Viewer" aria-selected="true">Viewer</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="${uid}JsonTab" data-bs-toggle="tab" data-bs-target="#${uid}Json" type="button" role="tab" aria-controls="${uid}Json" aria-selected="false">JSON</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="${uid}TabContent" style="height:50vh;overflow:scroll;">
+              <div class="tab-pane fade show active" id="${uid}Viewer" role="tabpanel" aria-labelledby="${uid}ViewerTab"></div>
+              <div class="tab-pane fade" id="${uid}Json" role="tabpanel" aria-labelledby="${uid}JsonTab"></div>
+            </div>
+          </div>
+        `)
+
+        if( viewerHTML != null ) {
+            documentLocation.replaceChild(tabContainer, codeBlock);
+
+            tabContainer.querySelector(`div#${uid}TabContent div#${uid}Viewer`).appendChild( parseHTML(viewerHTML) );
+            tabContainer.querySelector(`div#${uid}TabContent div#${uid}Json`).appendChild(codeBlock);
+        }
+    });
+</script>
+
+<script>
+// Below function is usable by CC BY-SA 3.0 from https://stackoverflow.com/a/6475125
+String.prototype.toTitleCase = function() {
+  let i, j, str, lowers, uppers;
+  str = this.replace(/([^\W_]+[^\s-]*) */g, function(txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+
+  // Certain minor words should be left lowercase unless 
+  // they are the first or last words in the string
+  lowers = ['A', 'An', 'The', 'And', 'But', 'Or', 'For', 'Nor', 'As', 'At', 
+  'By', 'For', 'From', 'In', 'Into', 'Near', 'Of', 'On', 'Onto', 'To', 'With'];
+  for (i = 0, j = lowers.length; i < j; i++)
+    str = str.replace(new RegExp('\\s' + lowers[i] + '\\s', 'g'), 
+      function(txt) {
+        return txt.toLowerCase();
+      });
+
+  // Certain words such as initialisms or acronyms should be left uppercase
+  uppers = ['ID', 'TV', 'FHIR'];
+  for (i = 0, j = uppers.length; i < j; i++)
+    str = str.replace(new RegExp('\\b' + uppers[i] + '\\b', 'g'), 
+      uppers[i].toUpperCase());
+
+  return str;
+}
+
+// Custom Hack to overwrite Quarto's built in navigators
+document.addEventListener("DOMContentLoaded", function() {
+    // Get current module and role
+    const current_module_slug = window.location.toString().split('/').pop().split('.')[0];
+    const role = store.getItem("role");
+
+    //console.log("DEBUG: current module:", current_module, "role: ", role);
+
+    // Get next and prev modules data
+    let prev_href, prev_text;
+    let next_href, next_text;
+
+    role_module_map.forEach((mapping) => {
+        if( mapping.role == role ) {
+            for(let i=0; i<mapping.modules.length; i++) {
+                if( mapping.modules[i].slug == current_module_slug ) {
+                    function slug_to_url(slug) {
+                        if( window.location.pathname.includes('modules') ) {
+                            // replace "modules/*" in current URL with "modules/<slug>.html"
+                            return window.location.toString().replace(/modules\/.*/, "modules/" + slug + ".html");
+                        }
+                        else {
+                            // this case is irrelevant since prev/next buttons are only role-based in modules
+                            return window.location.toString() + "/modules/" + slug + ".html";
+                        }
+                    }
+                    
+                    prev_href = (i > 0) ? slug_to_url(mapping.modules[i-1].slug) : null;
+                    prev_text = (i > 0) ? mapping.modules[i-1].text : null;
+
+                    next_href = (i+1 < mapping.modules.length) ? slug_to_url(mapping.modules[i+1].slug) : null;
+                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;                
+                }
+            }
+        }
+    });
+
+
+    // Overwrite prev link
+    if( prev_href ) {
+        const prev_link_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link");
+        const prev_text_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link .nav-page-text");
+        if( prev_link_elmt ) {
+
+            prev_link_elmt.href = prev_href
+            //prev_link_elmt.classList.add("btn", "btn-outline-custom", "rounded");
+            //prev_link_elmt.parentNode.classList.toggle("nav-page");
+            prev_text_elmt.innerText = prev_text;
+        }
+    }
+
+    // Overwrite next link
+    if( next_href ) {
+        const next_link_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link");
+        const next_text_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link .nav-page-text");
+
+        if( next_link_elmt ) {
+            next_link_elmt.href = next_href;
+            //next_link_elmt.classList.add("btn", "btn-outline-custom", "rounded");
+            //next_link_elmt.parentNode.classList.toggle("nav-page");
+            next_text_elmt.innerText = next_text;
+        }
+    }
+
+    // if document has #key-points then move pagination to next after it
+    key_points = document.querySelector("#key-points");
+    if( key_points ) {
+        let page_nav = document.querySelector("nav.page-navigation");
+        key_points.insertAdjacentElement("afterend", page_nav);
+    }
+
+});
+
+
+// Override style of Quarto page navigation (prev/next buttons)
+document.addEventListener("DOMContentLoaded", function() {
+
+    const page_navigators = document.querySelectorAll(".pagination-link");
+    page_navigators.forEach((node) => {
+
+        node.classList.add("btn", "btn-outline-custom", "rounded");
+        node.parentNode.classList.remove("nav-page");
+        node.parentNode.parentNode.style.gridRow = "initial";
+    });
+});
+
+// Set external links to open in a new tab
+document.addEventListener("DOMContentLoaded", function() {
+    var all_links = document.querySelectorAll('a');
+    for (var i = 0; i < all_links.length; i++){
+        var a = all_links[i];
+        if(a.hostname != location.hostname) {
+                a.target = '_blank';
+        }
+    }
+})
+
+</script>
+
+<!-- Fancy Box -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Fancybox.bind("[data-fancybox]", {
+            Toolbar: {
+                enabled: true,
+            }
+        });
+    })
+</script>
