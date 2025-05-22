@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Analyzing FHIR Data in a Tabular Format With R – FHIR® for Research</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dece3bd051e391dd7205a6b15f93dc59.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-ed04999718f06b735b1f8009dce43b94.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-97f45430086eb74403e0a0777df1085c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c0f9b2e466a1fb7bb2cd8288a71fee85.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<!-- head.html -->
+<!-- any content in this file is inserted into <head></head> -->
+
+<script src="../modules/mappings.js"></script>
+
+<script>
+// test if local storage is available and inititilize global variable store, code adapted from:
+// https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
+function initLocalStorage() {
+  let storage;
+  try {
+    storage = window["localStorage"];
+    const x = "__storage_test__";
+    storage.setItem(x, x);
+    storage.removeItem(x);
+    return storage;
+  } catch (e) {
+    console.log("Error: local storage unavailable.");
+    return (
+      e instanceof DOMException &&
+      // everything except Firefox
+      (e.code === 22 ||
+        // Firefox
+        e.code === 1014 ||
+        // test name field too, because code might not be present
+        // everything except Firefox
+        e.name === "QuotaExceededError" ||
+        // Firefox
+        e.name === "NS_ERROR_DOM_QUOTA_REACHED") &&
+          // acknowledge QuotaExceededError only if there's something already stored
+          storage &&
+          storage.length !== 0
+    );
+  }
+}
+
+var store = initLocalStorage();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet">
+
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Analyzing FHIR Data in a Tabular Format With R – FHIR® for Research">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="FHIR® for Research">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="..">
+    <span class="navbar-title">FHIR® for Research</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../sections/introduction"> 
+<span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../sections/technologies"> 
+<span class="menu-text">Technologies</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../sections/hands-on-practice"> 
+<span class="menu-text">Hands-on Practice</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../sections/hosting-your-own-workshop"> 
+<span class="menu-text">Hosting Your Own Workshop</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../contribute"> 
+<span class="menu-text">Questions &amp; Contributions</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/NIH-ODSS/fhir-for-research"> <i class="bi bi-github" role="img" aria-label="View the GitHub repository for this site">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#fhir-testing-server" id="toc-fhir-testing-server" class="nav-link active" data-scroll-target="#fhir-testing-server"><span class="header-section-number">1</span> FHIR testing server</a></li>
+  <li><a href="#retrieving-fhir-data" id="toc-retrieving-fhir-data" class="nav-link" data-scroll-target="#retrieving-fhir-data"><span class="header-section-number">2</span> Retrieving FHIR data</a></li>
+  <li><a href="#selecting-specific-columns" id="toc-selecting-specific-columns" class="nav-link" data-scroll-target="#selecting-specific-columns"><span class="header-section-number">3</span> Selecting specific columns</a></li>
+  <li><a href="#elements-with-multiple-sub-values" id="toc-elements-with-multiple-sub-values" class="nav-link" data-scroll-target="#elements-with-multiple-sub-values"><span class="header-section-number">4</span> Elements with multiple sub-values</a></li>
+  <li><a href="#retrieving-related-data" id="toc-retrieving-related-data" class="nav-link" data-scroll-target="#retrieving-related-data"><span class="header-section-number">5</span> Retrieving related data</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/nih-odss/fhir-for-research/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Analyzing FHIR Data in a Tabular Format With R</h1></header>
+<div id="env-banner"></div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const HOSTNAME_OVERRIDE = '';
+  const PATH_OVERRIDE = '';
+  const hostname = HOSTNAME_OVERRIDE || window.location.hostname;
+  const pathname = PATH_OVERRIDE || window.location.pathname;
+  const banner = document.getElementById('env-banner');
+  if (!banner) return;
+
+  let q = document.querySelector('.role-tags');
+  if (q) {
+    q.after(banner);
+  }
+  else {
+    q = document.querySelector('#metadata-container');
+    if (document.querySelector('#metadata-container .date')) {
+      q.after(banner);
+    }
+    else {
+      q = document.querySelector('.column-screen');
+      if(document.querySelector('.column-screen .hero')) {
+        q.after(banner);
+        banner.style.marginTop = "2em";
+      }
+    }
+  }
+  
+  if (hostname === 'nih-odss.github.io') {
+    const pathSegments = pathname.split('/').filter(Boolean);
+
+    let github_actor = '';
+    let github_repo = '';
+    let branch_name;
+    
+    github_actor = hostname.replace('.github.io', '');
+    github_repo = pathSegments[0] || '';
+    if (pathSegments[1] === 'branches' && pathSegments.length > 2) {
+      branch_name = pathSegments[2];
+    }
+
+    const path_to_page =
+      (pathSegments[1] === 'branches' && pathSegments.length >= 3)
+        ? pathSegments.slice(3).join('/')
+        : pathSegments.slice(1).join('/');
+
+    if (branch_name) {
+      banner.innerHTML = `ℹ️ You are viewing a <b>preview</b> build of the <code>${branch_name}</code> branch of this website, which may differ from the <a href="https://nih-odss.github.io/fhir-for-research">published version</a>. You can <a href="https://nih-odss.github.io/fhir-for-research/${path_to_page}" target="_blank">directly view this page on the published website</a>, or <a href="https://github.com/nih-odss/fhir-for-research/compare/main...${github_actor}:${branch_name}" target="_blank">compare this branch with the published version</a>.`
+    }
+    else {
+      banner.remove();
+    }
+  }
+  else if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    banner.innerHTML = '🏠 Local Development';
+  }
+  else if (hostname.endsWith('.github.io')) {
+    const pathSegments = pathname.split('/').filter(Boolean);
+
+    let github_actor = '';
+    let github_repo = '';
+    let branch_name;
+   
+    github_actor = hostname.replace('.github.io', '');
+    github_repo = pathSegments[0] || '';
+    if (pathSegments[1] === 'branches' && pathSegments.length > 2) {
+      branch_name = pathSegments[2];
+    }
+
+    const path_to_page =
+      (pathSegments[1] === 'branches' && pathSegments.length >= 3)
+        ? pathSegments.slice(3).join('/')
+        : pathSegments.slice(1).join('/');
+
+    banner.innerHTML = `ℹ️ You are viewing a <b>preview</b> build of this website, which may differ from the <a href="https://nih-odss.github.io/fhir-for-research">published version</a>. You can <a href="https://nih-odss.github.io/fhir-for-research/${path_to_page}" target="_blank">directly view this page on the published website</a>, or <a href="https://github.com/nih-odss/fhir-for-research/compare/main...${github_actor}:${branch_name ? branch_name : 'main'}" target="_blank">compare against the published version</a>.`
+  }
+  else {
+    banner.innerHTML = `ℹ️ You are viewing a non-canonical build of this website, which may differ from the <a href="https://nih-odss.github.io/fhir-for-research">published version</a>.`
+  }
+});
+</script>
+
+<div id="metadata-container" style="display: flex;">
+<!-- Begin reading time block -->
+  <div id="reading-time-container" style="display: none">
+    <svg aria-hidden="true" role="img" focusable="false" width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+    <span id="reading-time"></span> min. reading time&nbsp;
+  </div>
+<!-- end reading time block -->
+
+<!-- last updated -->
+<div class="date"><mark>Not yet updated for 2026</mark></div>
+</div> <!-- end metadata div -->
+
+<!-- script for reading time -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  
+    // Step 1: Count words in parent document
+    let totalWords = 0;
+    const mainContent = document.querySelector('#quarto-document-content');
+    if (mainContent) {
+      const parentWords = mainContent.innerText.trim().split(/\s+/).length;
+      totalWords += parentWords;
+    }
+  
+    // We'll update the badge once we've processed ALL iframes (or there are none)
+    function updateReadingTimeBadge(wordCount) {
+      const wpm = 200;
+      const readingTime = Math.ceil(wordCount / wpm);
+      
+      document.getElementById('reading-time').textContent = readingTime;
+      document.getElementById('reading-time-container').style.display = '';
+    }
+  
+    // Step 2: Gather iframes
+    const iframes = document.querySelectorAll('iframe');
+    
+    // If there are no iframes, just show the reading time for parent content
+    if (iframes.length === 0) {
+      updateReadingTimeBadge(totalWords);
+      return;
+    }
+  
+    // We only update after ALL iframes have loaded or errored
+    let pending = iframes.length;
+  
+    // Helper to decrement pending count and update once done
+    function iframeDone() {
+      pending--;
+      if (pending === 0) {
+        // All iframes processed
+        updateReadingTimeBadge(totalWords);
+      }
+    }
+  
+    // Step 3: Iterate through each iframe
+    iframes.forEach(iframe => {
+      // Listen for 'load' (fires whether same-origin or cross-origin)
+      iframe.addEventListener('load', function() {
+        try {
+          // Attempt to read the iframe's text (works only if same-origin)
+          const iframeDoc = iframe.contentWindow.document;
+          const iframeText = (iframeDoc.body.innerText || "").trim();
+          const iframeWords = iframeText.split(/\s+/).filter(Boolean).length;
+  
+          totalWords += iframeWords;
+        } catch (err) {
+          // Cross-origin or any other error
+          console.warn("Could not read iframe content (possibly cross-origin):", err);
+          // No addition to totalWords
+        }
+        // Mark this iframe as processed
+        iframeDone();
+      }, { once: true });
+  
+      // Listen for 'error' in case the iframe fails to load
+      iframe.addEventListener('error', function() {
+        console.warn("Iframe failed to load:", iframe.src);
+        // Just move on (no addition to totalWords)
+        iframeDone();
+      }, { once: true });
+    });
+  
+  });
+  </script>
+ <!-- end script for reading time -->
+
+<header>
+<!--
+-->
+
+
+
+
+</header>
+
+<!-- begin roles block -->
+<div class="role-tags" aria-label="Relevant roles">
+  <span class="role-tags-label">Roles:</span>
+  <span class="role-tag">Informaticist</span>
+  <a href="../roles" class="role-info-link" aria-label="Learn more about roles">
+    <svg aria-hidden="true" role="img" focusable="false" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+</a>
+</div>
+<!-- end roles block -->
+
+<!-- Begin learning objectives block -->
+
+<div class="callout-tip callout callout-style-default callout-captioned" id="learning-objectives">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Learning objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>
+    Understand the high-level approaches for converting FHIR-formatted data into tabular for analysis in R.
+</li>
+<li>
+    Learn how the fhircrackr library facilitates requesting data from a FHIR server, and creating tidy tabular data tables.
+</li>
+</ol>
+</div>
+</div>
+
+<!-- End learning objectives block -->
+
+<!-- Hack to add key points block at end of page-->
+<!-- End hack to add key points block at end of page-->
+
+
+<p>Data analysis approaches in R typically uses <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Data-frames-1">data frames</a> to store tabular data. There are two primary approaches to loading FHIR-formatted data into Pandas DataFrames:</p>
+<ol type="1">
+<li><p>Writing R code to manually convert FHIR instances in JSON format into data frames.</p></li>
+<li><p>Using a purpose-built library like <a href="https://polar-fhir.github.io/fhircrackr/">fhircrackr</a> to automatically convert FHIR instances into DataFrames.</p>
+<p>It is recommended to try this approach first. If it is not possible to use fhircrackr for your use case, it may be easier to convert the data from FHIR to tabular format <a href="../modules/tabular-python">using Python</a> and then export it to R format compared to doing this completely in R. The <a href="https://rstudio.github.io/reticulate/">Reticulate package</a> may facilitate this by allowing Python and R code to share data objects within <a href="https://support.posit.co/hc/en-us/articles/1500007929061-Using-Python-with-the-RStudio-IDE">RStduio</a>.</p></li>
+</ol>
+<p>To use fhircrackr, you will need a <a href="https://www.r-project.org">R</a> runtime with fhircrackr installed. Typically R users work in the <a href="https://posit.co/products/open-source/rstudio/">RStudio IDE</a> but this is not strictly necessary.</p>
+<section id="fhir-testing-server" class="level2 callout-info" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="fhir-testing-server"><span class="header-section-number">1</span> FHIR testing server</h2>
+<p>The examples in this module use a FHIR testing server populated with <a href="https://synthea.mitre.org/downloads">Synthea data in FHIR R4 format</a> via <a href="https://hapi.fhir.org/">public HAPI Test Server</a> operated by <a href="https://hapifhir.io/">HAPI FHIR</a>.</p>
+<p>The endpoint for this testing server is:</p>
+<pre><code>https://hapi.fhir.org/baseR4</code></pre>
+<p>However, any FHIR server loaded with testing data can be used. See <a href="../modules/synthea-test-server">Standing up a FHIR Testing Server</a> for instructions to set up your own test server.</p>
+<p>The code blocks in the following section show sample output immediately after. This is similar to the code blocks and results in a rendered <a href="https://rmarkdown.rstudio.com/">RMarkdown file</a>.</p>
+</section>
+<section id="retrieving-fhir-data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="retrieving-fhir-data"><span class="header-section-number">2</span> Retrieving FHIR data</h2>
+<p>Once your environment is set up, you can run the following R code to retrieve instances of the Patient resource from a test server:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load dependencies</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fhircrackr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Not strictly necessary, but helpful for working with data in R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the URL of the FHIR server and the request that will be made</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a search parameter for Synthea-specific identifier system</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>request <span class="ot">&lt;-</span> <span class="fu">fhir_url</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">url =</span> <span class="st">"https://hapi.fhir.org/baseR4"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">parameters =</span> <span class="fu">c</span>(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">identifier =</span> <span class="st">"https://github.com/synthetichealth/synthea|"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform the request</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>patient_bundle <span class="ot">&lt;-</span> <span class="fu">fhir_search</span>(<span class="at">request =</span> request, <span class="at">max_bundles =</span> <span class="dv">1</span>, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># This method defines the mapping from FHIR to data frame columns.</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># If the `cols` argument is omitted, all data elements will be included in the data frame.</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to R data frame</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>df_patient <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Exclude `photo.data`, which is a base64-encoded photo and doesn't display well in dataframes</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>df_patient <span class="ot">&lt;-</span> df_patient <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">any_of</span>(<span class="st">"photo.data"</span>))</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>df_patient <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["birthDate"],"name":[1],"type":["chr"],"align":["left"]},{"label":["gender"],"name":[2],"type":["chr"],"align":["left"]},{"label":["id"],"name":[3],"type":["chr"],"align":["left"]},{"label":["identifier.system"],"name":[4],"type":["chr"],"align":["left"]},{"label":["identifier.type.coding.code"],"name":[5],"type":["chr"],"align":["left"]},{"label":["identifier.type.coding.display"],"name":[6],"type":["chr"],"align":["left"]},{"label":["identifier.type.coding.system"],"name":[7],"type":["chr"],"align":["left"]},{"label":["identifier.type.text"],"name":[8],"type":["chr"],"align":["left"]},{"label":["identifier.use"],"name":[9],"type":["chr"],"align":["left"]},{"label":["identifier.value"],"name":[10],"type":["chr"],"align":["left"]},{"label":["meta.lastUpdated"],"name":[11],"type":["chr"],"align":["left"]},{"label":["meta.profile"],"name":[12],"type":["chr"],"align":["left"]},{"label":["meta.source"],"name":[13],"type":["chr"],"align":["left"]},{"label":["meta.tag.code"],"name":[14],"type":["chr"],"align":["left"]},{"label":["meta.tag.display"],"name":[15],"type":["chr"],"align":["left"]},{"label":["meta.tag.system"],"name":[16],"type":["chr"],"align":["left"]},{"label":["meta.versionId"],"name":[17],"type":["chr"],"align":["left"]},{"label":["name.family"],"name":[18],"type":["chr"],"align":["left"]},{"label":["name.given"],"name":[19],"type":["chr"],"align":["left"]},{"label":["name.use"],"name":[20],"type":["chr"],"align":["left"]}],"data":[{"1":"1970-07-10","2":"female","3":"129c6ac7-8d06-89de-ad63-0204a93e76c3","4":"https://github.com/synthetichealth/synthea:::http://hospital.smarthealthit.org:::http://hl7.org/fhir/sid/us-ssn:::urn:oid:2.16.840.1.113883.4.3.25:::http://standardhealthrecord.org/fhir/StructureDefinition/passportNumber:::http://hospital.example.org/mrn","5":"MR:::SS:::DL:::PPN:::MR","6":"Medical Record Number:::Social Security Number:::Driver's license number:::Passport Number:::Medical Record Number","7":"http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203","8":"Medical Record Number:::Social Security Number:::Driver's license number:::Passport Number:::MRN","9":"official","10":"129c6ac7-8d06-89de-ad63-0204a93e76c3:::129c6ac7-8d06-89de-ad63-0204a93e76c3:::999-94-5397:::S99940903:::X53631011X:::9447890438","11":"2026-06-06T10:10:02.293+00:00","12":"NA","13":"#pOh0yLEonU9VLYRE","14":"SUBSETTED","15":"Resource encoded in summary mode","16":"http://terminology.hl7.org/CodeSystem/v3-ObservationValue","17":"4","18":"Soto","19":"Lisa","20":"official","_rn_":"1"},{"1":"2024-12-13","2":"female","3":"3af3708d-41f1-cd80-f3dd-ec5ac76072bf","4":"https://github.com/synthetichealth/synthea:::http://hospital.smarthealthit.org:::http://hl7.org/fhir/sid/us-ssn:::http://hospital.example.org/mrn","5":"MR:::SS:::MR","6":"Medical Record Number:::Social Security Number:::Medical Record Number","7":"http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203","8":"Medical Record Number:::Social Security Number:::MRN","9":"official","10":"3af3708d-41f1-cd80-f3dd-ec5ac76072bf:::3af3708d-41f1-cd80-f3dd-ec5ac76072bf:::999-26-9282:::2339674416","11":"2026-06-06T10:10:03.292+00:00","12":"NA","13":"#AUTEsfW29X5LJZgx","14":"SUBSETTED","15":"Resource encoded in summary mode","16":"http://terminology.hl7.org/CodeSystem/v3-ObservationValue","17":"4","18":"Bryant","19":"Wendy","20":"official","_rn_":"2"},{"1":"2019-05-14","2":"female","3":"63ee2253-bdd5-da55-2ad2-b4984d0ad700","4":"https://github.com/synthetichealth/synthea:::http://hospital.smarthealthit.org:::http://hl7.org/fhir/sid/us-ssn:::http://hospital.example.org/mrn","5":"MR:::SS:::MR","6":"Medical Record Number:::Social Security Number:::Medical Record Number","7":"http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203","8":"Medical Record Number:::Social Security Number:::MRN","9":"official","10":"63ee2253-bdd5-da55-2ad2-b4984d0ad700:::63ee2253-bdd5-da55-2ad2-b4984d0ad700:::999-28-8122:::7144994331","11":"2026-06-06T10:10:04.292+00:00","12":"NA","13":"#XM3TN7SS38yyuh01","14":"SUBSETTED","15":"Resource encoded in summary mode","16":"http://terminology.hl7.org/CodeSystem/v3-ObservationValue","17":"4","18":"Brown","19":"Colleen","20":"official","_rn_":"3"},{"1":"2020-02-23","2":"male","3":"6a4160eb-a793-2f86-2302-378626f46cce","4":"https://github.com/synthetichealth/synthea:::http://hospital.smarthealthit.org:::http://hl7.org/fhir/sid/us-ssn:::urn:oid:2.16.840.1.113883.4.3.25:::http://standardhealthrecord.org/fhir/StructureDefinition/passportNumber:::http://hospital.example.org/mrn","5":"MR:::SS:::DL:::PPN:::MR","6":"Medical Record Number:::Social Security Number:::Driver's license number:::Passport Number:::Medical Record Number","7":"http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203","8":"Medical Record Number:::Social Security Number:::Driver's license number:::Passport Number:::MRN","9":"official","10":"6a4160eb-a793-2f86-2302-378626f46cce:::6a4160eb-a793-2f86-2302-378626f46cce:::999-75-6358:::S99942926:::X17055248X:::6387718521","11":"2026-06-06T10:10:05.292+00:00","12":"NA","13":"#rKvC3vdBqV5HtCMp","14":"SUBSETTED","15":"Resource encoded in summary mode","16":"http://terminology.hl7.org/CodeSystem/v3-ObservationValue","17":"4","18":"Barker","19":"Brandon","20":"official","_rn_":"4"},{"1":"1995-06-12","2":"female","3":"79a66c97-6131-3213-f3c9-4606946ab056","4":"https://github.com/synthetichealth/synthea:::http://hospital.smarthealthit.org:::http://hl7.org/fhir/sid/us-ssn:::urn:oid:2.16.840.1.113883.4.3.25:::http://standardhealthrecord.org/fhir/StructureDefinition/passportNumber:::http://hospital.example.org/mrn","5":"MR:::SS:::DL:::PPN:::MR","6":"Medical Record Number:::Social Security Number:::Driver's license number:::Passport Number:::Medical Record Number","7":"http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203","8":"Medical Record Number:::Social Security Number:::Driver's license number:::Passport Number:::MRN","9":"official","10":"79a66c97-6131-3213-f3c9-4606946ab056:::79a66c97-6131-3213-f3c9-4606946ab056:::999-27-7392:::S99918680:::X71217115X:::3877816703","11":"2026-06-06T10:10:06.293+00:00","12":"NA","13":"#6uDlmVC65TsIt3tg","14":"SUBSETTED","15":"Resource encoded in summary mode","16":"http://terminology.hl7.org/CodeSystem/v3-ObservationValue","17":"4","18":"Hensley","19":"Melissa","20":"official","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>It is easier to see the contents of this DataFrame by printing out its first row vertically:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_patient[<span class="dv">1</span>, ] <span class="sc">%&gt;%</span> <span class="fu">t</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                               1                                                                                                                                                                                                                                                               
+birthDate                      "1970-07-10"                                                                                                                                                                                                                                                    
+gender                         "female"                                                                                                                                                                                                                                                        
+id                             "129c6ac7-8d06-89de-ad63-0204a93e76c3"                                                                                                                                                                                                                          
+identifier.system              "https://github.com/synthetichealth/synthea:::http://hospital.smarthealthit.org:::http://hl7.org/fhir/sid/us-ssn:::urn:oid:2.16.840.1.113883.4.3.25:::http://standardhealthrecord.org/fhir/StructureDefinition/passportNumber:::http://hospital.example.org/mrn"
+identifier.type.coding.code    "MR:::SS:::DL:::PPN:::MR"                                                                                                                                                                                                                                       
+identifier.type.coding.display "Medical Record Number:::Social Security Number:::Driver's license number:::Passport Number:::Medical Record Number"                                                                                                                                            
+identifier.type.coding.system  "http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203:::http://terminology.hl7.org/CodeSystem/v2-0203"                 
+identifier.type.text           "Medical Record Number:::Social Security Number:::Driver's license number:::Passport Number:::MRN"                                                                                                                                                              
+identifier.use                 "official"                                                                                                                                                                                                                                                      
+identifier.value               "129c6ac7-8d06-89de-ad63-0204a93e76c3:::129c6ac7-8d06-89de-ad63-0204a93e76c3:::999-94-5397:::S99940903:::X53631011X:::9447890438"                                                                                                                               
+meta.lastUpdated               "2026-06-06T10:10:02.293+00:00"                                                                                                                                                                                                                                 
+meta.profile                   NA                                                                                                                                                                                                                                                              
+meta.source                    "#pOh0yLEonU9VLYRE"                                                                                                                                                                                                                                             
+meta.tag.code                  "SUBSETTED"                                                                                                                                                                                                                                                     
+meta.tag.display               "Resource encoded in summary mode"                                                                                                                                                                                                                              
+meta.tag.system                "http://terminology.hl7.org/CodeSystem/v3-ObservationValue"                                                                                                                                                                                                     
+meta.versionId                 "4"                                                                                                                                                                                                                                                             
+name.family                    "Soto"                                                                                                                                                                                                                                                          
+name.given                     "Lisa"                                                                                                                                                                                                                                                          
+name.use                       "official"                                                                                                                                                                                                                                                      </code></pre>
+</div>
+</div>
+<p>If you look at the output above, you can see fhircrackr collapsed the hierarchical FHIR data structure into data frame columns, with multiple values delimited by <code>:::</code> by default. For example, <code>Patient.identifier</code> has multiple values that appear in the data frame as:</p>
+<table class="table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column name</th>
+<th>Example Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>identifier.type.text</code></td>
+<td><code>Medical Record Number:::Social Security Number:::Driver's License:::Passport Number</code></td>
+</tr>
+<tr class="even">
+<td><code>identifier.value</code></td>
+<td><code>bf23e283-4791-46e1-9d79-9e0ad9edd436:::bf23e283-4791-46e1-9d79-9e0ad9edd436:::999-21-6325:::S99948444:::X30821805X</code></td>
+</tr>
+</tbody>
+</table>
+<p>Splitting up these values is <a href="#elements-with-multiple-sub-values">discussed below</a>.</p>
+</section>
+<section id="selecting-specific-columns" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="selecting-specific-columns"><span class="header-section-number">3</span> Selecting specific columns</h2>
+<p>Usually not every single value from a FHIR instance is needed for analysis. There are two ways to get a more concise data frame:</p>
+<ol type="1">
+<li>Use the approach above to load all elements into a data frame, remove the unneeded columns, and rename the remaining columns as needed.</li>
+<li>Use <a href="https://en.wikipedia.org/wiki/XPath">XPath</a> to select specific elements and map them onto column names.</li>
+</ol>
+<p>The second approach is typically more concise. For example, to generate a DataFrame like this…</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>id</th>
+<th>gender</th>
+<th>date_of_birth</th>
+<th>marital_status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>…you could use the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">id =</span> <span class="st">"id"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">gender =</span> <span class="st">"gender"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">date_of_birth =</span> <span class="st">"birthDate"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Rather than having fhircrackr concatenate all `Patient.maritalStatus` values</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># into one cell, you can select a specific value with XPath:</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">marital_status =</span> <span class="st">"maritalStatus/coding/code"</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>df_patient <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>df_patient <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["gender"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date_of_birth"],"name":[3],"type":["chr"],"align":["left"]},{"label":["marital_status"],"name":[4],"type":["lgl"],"align":["right"]}],"data":[{"1":"129c6ac7-8d06-89de-ad63-0204a93e76c3","2":"female","3":"1970-07-10","4":"NA","_rn_":"1"},{"1":"3af3708d-41f1-cd80-f3dd-ec5ac76072bf","2":"female","3":"2024-12-13","4":"NA","_rn_":"2"},{"1":"63ee2253-bdd5-da55-2ad2-b4984d0ad700","2":"female","3":"2019-05-14","4":"NA","_rn_":"3"},{"1":"6a4160eb-a793-2f86-2302-378626f46cce","2":"male","3":"2020-02-23","4":"NA","_rn_":"4"},{"1":"79a66c97-6131-3213-f3c9-4606946ab056","2":"female","3":"1995-06-12","4":"NA","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>While XPath expressions can be quite complex, thier use in fhircrackr is often straight-forward. Nested elements are separated with <code>/</code>, and elements with multiple sub-values are identified by <code>[N]</code> where <code>N</code> is an integer starting at 1.</p>
+<p>There are two approaches to identifying element paths to construct XPath expressions:</p>
+<ol type="1">
+<li><p>Look at the FHIR specification or the relevant <a href="../modules/data-modeling-reading-igs">FHIR Implementation Guide</a> to determine the paths of available data elements. For example, the <a href="https://www.hl7.org/fhir/patient.html">Patient page in the FHIR specification</a> describes the elements and their hierarchy for instances of Patient.</p></li>
+<li><p>Print out the raw data returned by the FHIR server. Fhircrackr uses XML-formatted data, and the following code will print out one of the instances of Patient requested above:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>resource <span class="ot">&lt;-</span> xml2<span class="sc">::</span><span class="fu">xml_find_first</span>(<span class="at">x =</span> patient_bundle[[<span class="dv">1</span>]], <span class="at">xpath =</span> <span class="st">"./entry[1]/resource"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>xml2<span class="sc">::</span><span class="fu">xml_find_all</span>(resource, <span class="st">".//photo"</span>) <span class="sc">%&gt;%</span> xml2<span class="sc">::</span><span class="fu">xml_remove</span>() <span class="co"># Suppress the photo element - prints out a bunch of base64-encoded data that makes it hard to read the rest of the XML</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>resource <span class="sc">%&gt;%</span> <span class="fu">paste0</span>() <span class="sc">%&gt;%</span> <span class="fu">cat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;resource&gt;
+  &lt;Patient&gt;
+    &lt;id value="129c6ac7-8d06-89de-ad63-0204a93e76c3"/&gt;
+    &lt;meta&gt;
+      &lt;versionId value="4"/&gt;
+      &lt;lastUpdated value="2026-06-06T10:10:02.293+00:00"/&gt;
+      &lt;source value="#pOh0yLEonU9VLYRE"/&gt;
+      &lt;tag&gt;
+        &lt;system value="http://terminology.hl7.org/CodeSystem/v3-ObservationValue"/&gt;
+        &lt;code value="SUBSETTED"/&gt;
+        &lt;display value="Resource encoded in summary mode"/&gt;
+      &lt;/tag&gt;
+    &lt;/meta&gt;
+    &lt;identifier&gt;
+      &lt;system value="https://github.com/synthetichealth/synthea"/&gt;
+      &lt;value value="129c6ac7-8d06-89de-ad63-0204a93e76c3"/&gt;
+    &lt;/identifier&gt;
+    &lt;identifier&gt;
+      &lt;type&gt;
+        &lt;coding&gt;
+          &lt;system value="http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
+          &lt;code value="MR"/&gt;
+          &lt;display value="Medical Record Number"/&gt;
+        &lt;/coding&gt;
+        &lt;text value="Medical Record Number"/&gt;
+      &lt;/type&gt;
+      &lt;system value="http://hospital.smarthealthit.org"/&gt;
+      &lt;value value="129c6ac7-8d06-89de-ad63-0204a93e76c3"/&gt;
+    &lt;/identifier&gt;
+    &lt;identifier&gt;
+      &lt;type&gt;
+        &lt;coding&gt;
+          &lt;system value="http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
+          &lt;code value="SS"/&gt;
+          &lt;display value="Social Security Number"/&gt;
+        &lt;/coding&gt;
+        &lt;text value="Social Security Number"/&gt;
+      &lt;/type&gt;
+      &lt;system value="http://hl7.org/fhir/sid/us-ssn"/&gt;
+      &lt;value value="999-94-5397"/&gt;
+    &lt;/identifier&gt;
+    &lt;identifier&gt;
+      &lt;type&gt;
+        &lt;coding&gt;
+          &lt;system value="http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
+          &lt;code value="DL"/&gt;
+          &lt;display value="Driver's license number"/&gt;
+        &lt;/coding&gt;
+        &lt;text value="Driver's license number"/&gt;
+      &lt;/type&gt;
+      &lt;system value="urn:oid:2.16.840.1.113883.4.3.25"/&gt;
+      &lt;value value="S99940903"/&gt;
+    &lt;/identifier&gt;
+    &lt;identifier&gt;
+      &lt;type&gt;
+        &lt;coding&gt;
+          &lt;system value="http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
+          &lt;code value="PPN"/&gt;
+          &lt;display value="Passport Number"/&gt;
+        &lt;/coding&gt;
+        &lt;text value="Passport Number"/&gt;
+      &lt;/type&gt;
+      &lt;system value="http://standardhealthrecord.org/fhir/StructureDefinition/passportNumber"/&gt;
+      &lt;value value="X53631011X"/&gt;
+    &lt;/identifier&gt;
+    &lt;identifier&gt;
+      &lt;use value="official"/&gt;
+      &lt;type&gt;
+        &lt;coding&gt;
+          &lt;system value="http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
+          &lt;code value="MR"/&gt;
+          &lt;display value="Medical Record Number"/&gt;
+        &lt;/coding&gt;
+        &lt;text value="MRN"/&gt;
+      &lt;/type&gt;
+      &lt;system value="http://hospital.example.org/mrn"/&gt;
+      &lt;value value="9447890438"/&gt;
+    &lt;/identifier&gt;
+    &lt;name&gt;
+      &lt;use value="official"/&gt;
+      &lt;family value="Soto"/&gt;
+      &lt;given value="Lisa"/&gt;
+    &lt;/name&gt;
+    &lt;gender value="female"/&gt;
+    &lt;birthDate value="1970-07-10"/&gt;
+  &lt;/Patient&gt;
+&lt;/resource&gt;</code></pre>
+</div>
+</div>
+<p>In some cases, you may need to construct more complex expressions like the one to extract <code>marital_status</code> from <code>Patient.maritalStatus.coding.code</code>. You can use a tool like <a href="https://extendsclass.com/xpath-tester.html">this XPath tester</a> to help generate XPath expressions, though online tools such as these should not be used with real patient data. For more information on XPath, see <a href="https://www.w3schools.com/xml/xpath_intro.asp">this guide</a>.</p>
+</section>
+<section id="elements-with-multiple-sub-values" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="elements-with-multiple-sub-values"><span class="header-section-number">4</span> Elements with multiple sub-values</h2>
+<p>There are multiple <code>identifier[N].value</code> values for each instance of Patient in this dataset. By default, fhircrackr will concatenate these into a single cell per row, delimited with <code>:::</code> (this is configurable; use <code>fhir_table_description(..., sep = ' | ', ...)</code> to delimit with <code>|</code> instead).</p>
+<p>Fhircrackr provides some tools to split up multiple values stored in the same cell into separate rows in a “long” data frame:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Prefix values in cells with indices to facilitate handling cells that contain</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># multiple values</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">brackets =</span> <span class="fu">c</span>(<span class="st">"["</span>, <span class="st">"]"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>df_patient_indexed <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>df_patient_identifiers <span class="ot">&lt;-</span> <span class="fu">fhir_melt</span>(</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">indexed_data_frame =</span> df_patient_indexed,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">c</span>(<span class="st">"identifier.type.text"</span>, <span class="st">"identifier.value"</span>),</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">brackets =</span> <span class="fu">c</span>(<span class="st">"["</span>, <span class="st">"]"</span>),</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">":::"</span>,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">all_columns =</span> <span class="cn">FALSE</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>df_patient_identifiers <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["resource_identifier"],"name":[1],"type":["int"],"align":["right"]},{"label":["identifier.type.text"],"name":[2],"type":["chr"],"align":["left"]},{"label":["identifier.value"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"NA","3":"[1]129c6ac7-8d06-89de-ad63-0204a93e76c3","_rn_":"1"},{"1":"1","2":"[1.1]Medical Record Number","3":"[1]129c6ac7-8d06-89de-ad63-0204a93e76c3","_rn_":"2"},{"1":"1","2":"[1.1]Social Security Number","3":"[1]999-94-5397","_rn_":"3"},{"1":"1","2":"[1.1]Driver's license number","3":"[1]S99940903","_rn_":"4"},{"1":"1","2":"[1.1]Passport Number","3":"[1]X53631011X","_rn_":"5"},{"1":"1","2":"[1.1]MRN","3":"[1]9447890438","_rn_":"6"},{"1":"2","2":"NA","3":"[1]3af3708d-41f1-cd80-f3dd-ec5ac76072bf","_rn_":"7"},{"1":"2","2":"[1.1]Medical Record Number","3":"[1]3af3708d-41f1-cd80-f3dd-ec5ac76072bf","_rn_":"8"},{"1":"2","2":"[1.1]Social Security Number","3":"[1]999-26-9282","_rn_":"9"},{"1":"2","2":"[1.1]MRN","3":"[1]2339674416","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The <code>df_patient_identifiers</code> data frame printed above has one row for each value of <code>Patient.identifier</code> for each instance of Patient. The in-cell indices (surrounded by <code>[ ]</code>) can be removed:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_patient_identifiers <span class="ot">&lt;-</span> <span class="fu">fhir_rm_indices</span>(<span class="at">indexed_data_frame =</span> df_patient_identifiers, <span class="at">brackets =</span> <span class="fu">c</span>(<span class="st">"["</span>, <span class="st">"]"</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_patient_identifiers <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["resource_identifier"],"name":[1],"type":["chr"],"align":["left"]},{"label":["identifier.type.text"],"name":[2],"type":["chr"],"align":["left"]},{"label":["identifier.value"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"NA","3":"129c6ac7-8d06-89de-ad63-0204a93e76c3","_rn_":"1"},{"1":"1","2":"Medical Record Number","3":"129c6ac7-8d06-89de-ad63-0204a93e76c3","_rn_":"2"},{"1":"1","2":"Social Security Number","3":"999-94-5397","_rn_":"3"},{"1":"1","2":"Driver's license number","3":"S99940903","_rn_":"4"},{"1":"1","2":"Passport Number","3":"X53631011X","_rn_":"5"},{"1":"1","2":"MRN","3":"9447890438","_rn_":"6"},{"1":"2","2":"NA","3":"3af3708d-41f1-cd80-f3dd-ec5ac76072bf","_rn_":"7"},{"1":"2","2":"Medical Record Number","3":"3af3708d-41f1-cd80-f3dd-ec5ac76072bf","_rn_":"8"},{"1":"2","2":"Social Security Number","3":"999-26-9282","_rn_":"9"},{"1":"2","2":"MRN","3":"2339674416","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>These can then be merged back into the original data frame as needed. For example, if you want to include the synthetic “Social Security Number” in the original data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_patient <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add in row numbers for joining</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">row_number =</span> <span class="fu">row_number</span>()</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">left_join</span>(</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        df_patient_identifiers <span class="sc">%&gt;%</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Note: this assumes there is just one social security number for each patient in the data.</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>            <span class="co"># If this was not true, it would be necessary to remove extra data before joining so there</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>            <span class="co"># was one row per patient.</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">filter</span>(<span class="st">`</span><span class="at">identifier.type.text</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Social Security Number"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rename</span>(</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                <span class="st">"ssn"</span> <span class="ot">=</span> <span class="st">"identifier.value"</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>            ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Exclude the `identifier.type.text` column so it doesn't appear in the joined data frame</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>            <span class="fu">select</span>(resource_identifier, ssn) <span class="sc">%&gt;%</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Fhircrackr generates the `resource_identifier` column as a string, but it needs to be</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>            <span class="co"># an integer for joining.</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>            <span class="fu">mutate</span>(<span class="at">resource_identifier =</span> <span class="fu">as.integer</span>(resource_identifier)),</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"row_number"</span> <span class="ot">=</span> <span class="st">"resource_identifier"</span>)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["gender"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date_of_birth"],"name":[3],"type":["chr"],"align":["left"]},{"label":["marital_status"],"name":[4],"type":["lgl"],"align":["right"]},{"label":["row_number"],"name":[5],"type":["int"],"align":["right"]},{"label":["ssn"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"129c6ac7-8d06-89de-ad63-0204a93e76c3","2":"female","3":"1970-07-10","4":"NA","5":"1","6":"999-94-5397","_rn_":"1"},{"1":"3af3708d-41f1-cd80-f3dd-ec5ac76072bf","2":"female","3":"2024-12-13","4":"NA","5":"2","6":"999-26-9282","_rn_":"2"},{"1":"63ee2253-bdd5-da55-2ad2-b4984d0ad700","2":"female","3":"2019-05-14","4":"NA","5":"3","6":"999-28-8122","_rn_":"3"},{"1":"6a4160eb-a793-2f86-2302-378626f46cce","2":"male","3":"2020-02-23","4":"NA","5":"4","6":"999-75-6358","_rn_":"4"},{"1":"79a66c97-6131-3213-f3c9-4606946ab056","2":"female","3":"1995-06-12","4":"NA","5":"5","6":"999-27-7392","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>You can see that the synthetic SSNs are now split out into a separate column.</p>
+</section>
+<section id="retrieving-related-data" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="retrieving-related-data"><span class="header-section-number">5</span> Retrieving related data</h2>
+<p>To retrieve instances of related resources, additional <code>request_params</code> can be added. See <a href="../modules/fhir-accessing-data.html#multiple-types-of-resources">Using the FHIR API to Access Data</a> for more information on constructing the parameters for FHIR search interactions.</p>
+<p>In the example below, instances of Patient and instances of related Observation resources are requested:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>request <span class="ot">&lt;-</span> <span class="fu">fhir_url</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">url =</span> <span class="st">"https://hapi.fhir.org/baseR4"</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">parameters =</span> <span class="fu">c</span>(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"identifier"</span> <span class="ot">=</span> <span class="st">"https://github.com/synthetichealth/synthea|"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_revinclude"</span> <span class="ot">=</span> <span class="st">"Observation:patient"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_count"</span> <span class="ot">=</span> <span class="st">"10"</span> <span class="co"># Limit the number of patients returned to 10</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">fhir_search</span>(<span class="at">request =</span> request, <span class="at">max_bundles =</span> <span class="dv">1</span>, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">id =</span> <span class="st">"id"</span>,</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">gender =</span> <span class="st">"gender"</span>,</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">date_of_birth =</span> <span class="st">"birthDate"</span>,</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">marital_status =</span> <span class="st">"maritalStatus/coding/code"</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>df_patient <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>table_desc_observation <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Observation"</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>df_observation <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> response, <span class="at">design =</span> table_desc_observation, <span class="at">verbose =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in crack_bundles_to_one_table(bundles = bundles, table_description = design, : The resource type you are looking for (Observation) doesn't seem to be present in the bundles.
+ Returning an empty table.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_observation <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 0
+Columns: 0</code></pre>
+</div>
+</div>
+<p>This includes many different kinds of observations. The <code>Observation.code</code> element identifies the type of Observation. In this case,<code>http://loinc.org|72166-2</code> is the LOINC for smoking status. To get smoking status records identified by this LOINC:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>request <span class="ot">&lt;-</span> <span class="fu">fhir_url</span>(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">url =</span> <span class="st">"https://hapi.fhir.org/baseR4"</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Observation"</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">parameters =</span> <span class="fu">c</span>(</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"identifier"</span> <span class="ot">=</span> <span class="st">"https://github.com/synthetichealth/synthea|"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"_include"</span> <span class="ot">=</span> <span class="st">"Observation:patient"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"code"</span> <span class="ot">=</span> <span class="st">"http://loinc.org|72166-2"</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># `max_bundles = 1` limits the responses to a subset of Observations for the purposes of</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># this example -- this argument can be removed to get all relevant Observations/Patients (but</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># the query takes longer to run)</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">fhir_search</span>(<span class="at">request =</span> request, <span class="at">max_bundles =</span> <span class="dv">1</span>, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>table_desc_patient <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Patient"</span>,</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">id =</span> <span class="st">"id"</span>,</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">gender =</span> <span class="st">"gender"</span>,</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">date_of_birth =</span> <span class="st">"birthDate"</span>,</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">marital_status =</span> <span class="st">"maritalStatus/coding/code"</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>df_patient <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> patient_bundle, <span class="at">design =</span> table_desc_patient, <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>table_desc_observation <span class="ot">&lt;-</span> <span class="fu">fhir_table_description</span>(</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">resource =</span> <span class="st">"Observation"</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>df_observation <span class="ot">&lt;-</span> <span class="fu">fhir_crack</span>(<span class="at">bundles =</span> response, <span class="at">design =</span> table_desc_observation, <span class="at">verbose =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in crack_bundles_to_one_table(bundles = bundles, table_description = design, : The resource type you are looking for (Observation) doesn't seem to be present in the bundles.
+ Returning an empty table.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_observation <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 0
+Columns: 0</code></pre>
+</div>
+</div>
+<p>The <code>df_observation</code> data frame contains just smoking status Observations. The <code>df_patient</code> data frame contains the Patients referenced by the Observations in <code>df_observation</code>.</p>
+<p>More information about the <a href="../modules/fhir-accessing-data.html#getting-all-patients-that-meet-specified-criteria"><code>search</code> interaction used above to filter Observations is here</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<!-- scripts.html -->
+<!-- any content in this file is inserted right before </body> -->
+
+<!-- Append index.html to any links ending with '/'
+
+Example:
+
+<a href="https://example.org/workshops/bulk-data/">
+
+will turn into:
+
+<a href="https://example.org/workshops/bulk-data/index.html">
+
+This ensures consistent behavior across different deployment platforms
+and enables other scripts like role-based module highlighting.
+-->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("a[href]").forEach(link => {
+      if( link.getAttribute("href").endsWith("/") ) {
+        link.setAttribute("href", link.getAttribute("href") + "index.html");
+      }
+    })
+  });
+</script>
+
+<!-- Fix a11y issues with side menu -->
+<script>
+const elements = document.querySelectorAll('.sidebar-menu-container a.sidebar-item-text[data-bs-toggle="collapse"], .sidebar-menu-container a.sidebar-item-toggle[data-bs-toggle="collapse"]')
+
+elements.forEach(element => {
+    element.setAttribute('role', 'group');
+});
+</script>
+
+<!-- JSON Viewer
+Intercept all instances of:
+
+``` json
+```
+
+and replace it with a fancy JSON viewer. If the content is
+invalid JSON then the default Quarto rendering will occur.
+-->
+<script type="text/javascript" src="https://unpkg.com/dompurify@3.0.1/dist/purify.min.js"></script> <!-- load JS Sanitizer -->
+<script>
+    function jsonViewer(json, collapsible=false) {
+        let TEMPLATES = {
+            item: '<div class="json_view__item"><div class="json_view__key">%KEY%</div><div class="json_view__value json_view__value--%TYPE%">%VALUE%</div></div>',
+            itemCollapsible: '<label class="json_view__item json_view__item--collapsible"><input type="checkbox" class="json_view__toggle"/><div class="json_view__key">%KEY%</div><div class="json_view__value json_view__value--type-%TYPE%">%VALUE%</div>%CHILDREN%</label>',
+            itemCollapsibleOpen: '<label class="json_view__item json_view__item--collapsible"><input type="checkbox" checked class="json_view__toggle"/><div class="json_view__key">%KEY%</div><div class="json_view__value json_view__value--type-%TYPE%">%VALUE%</div>%CHILDREN%</label>'
+        };
+
+        function createItem(key, value, type){
+            let element = TEMPLATES.item.replace('%KEY%', key);
+
+            if((key == 'div') && (type=='string')) { // Removes Resource.text.div value (looks bloated)
+                element = element.replace('%VALUE%', '...');
+            } else if(type == 'string') {
+                element = element.replace('%VALUE%', '"' + value + '"');
+            } else {
+                element = element.replace('%VALUE%', value);
+            }
+
+            element = element.replace('%TYPE%', type);
+
+            return element;
+        }
+
+        function createCollapsibleItem(key, value, type, children){
+            let tpl = 'itemCollapsible';
+
+            if(collapsible) {
+                tpl = 'itemCollapsibleOpen';
+            }
+
+            let element = TEMPLATES[tpl].replace('%KEY%', key);
+
+            element = element.replace('%VALUE%', type);
+            element = element.replace('%TYPE%', type);
+            element = element.replace('%CHILDREN%', children);
+
+            return element;
+        }
+
+        function handleChildren(key, value, type) {
+            let html = '';
+
+            for(let item in value) { 
+                let _key = item,
+                    _val = value[item];
+
+                html += handleItem(_key, _val);
+            }
+
+            return createCollapsibleItem(key, value, type, html);
+        }
+
+        function handleItem(key, value) {
+            let type = typeof value;
+ 
+            if( Array.isArray( value ) ) {
+                return handleChildren(key, value, "array");
+            }
+
+            if(typeof value === 'object') {        
+                return handleChildren(key, value, type);
+            }
+
+            return createItem(key, value, type);
+        }
+
+        function parseObject(obj) {
+            _result = '<div class="json_view">';
+
+            for(let item in obj) { 
+                let key = item,
+                    value = obj[item];
+
+                _result += handleItem(key, value);
+            }
+
+            _result += '</div>';
+
+            return _result;
+        }
+        
+        try {
+            return parseObject(JSON.parse(json));
+        }
+        catch(err) {
+            console.log("Could not render JSON viewer: ", err);
+            console.log("for string: ", json);
+            return null;
+        }
+
+    };
+
+
+    function parseHTML(string) {
+        let sanitized = DOMPurify.sanitize(string);
+        let parser = new DOMParser();
+        return parser.parseFromString(sanitized, "text/html").body.firstChild;
+    }
+
+    let jsonCodeBlocks = document.querySelectorAll("code.sourceCode.json");
+    jsonCodeBlocks.forEach((jsonCode) => {
+        let json = jsonCode.innerText;
+        let codeBlock = jsonCode.parentNode.parentNode;
+        let uid = codeBlock.id;
+        let documentLocation = codeBlock.parentNode;
+        let viewerHTML = jsonViewer(json, true);
+
+        let tabContainer = parseHTML(`
+          <div>
+            <ul class="nav nav-tabs" id="${uid}Tabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="${uid}ViewerTab" data-bs-toggle="tab" data-bs-target="#${uid}Viewer" type="button" role="tab" aria-controls="${uid}Viewer" aria-selected="true">Viewer</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="${uid}JsonTab" data-bs-toggle="tab" data-bs-target="#${uid}Json" type="button" role="tab" aria-controls="${uid}Json" aria-selected="false">JSON</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="${uid}TabContent" style="height:50vh;overflow:scroll;">
+              <div class="tab-pane fade show active" id="${uid}Viewer" role="tabpanel" aria-labelledby="${uid}ViewerTab"></div>
+              <div class="tab-pane fade" id="${uid}Json" role="tabpanel" aria-labelledby="${uid}JsonTab"></div>
+            </div>
+          </div>
+        `)
+
+        if( viewerHTML != null ) {
+            documentLocation.replaceChild(tabContainer, codeBlock);
+
+            tabContainer.querySelector(`div#${uid}TabContent div#${uid}Viewer`).appendChild( parseHTML(viewerHTML) );
+            tabContainer.querySelector(`div#${uid}TabContent div#${uid}Json`).appendChild(codeBlock);
+        }
+    });
+</script>
+
+<!-- Role-based Module Highlighting
+
+For any *.qmd file with roles defined in frontmatter,
+running script/update-module-role-map will generate
+modules/mappings.js. Then any markup with class .highlight-by-role, i.e:
+
+:::{.highlight-by-role}
+ - [mod1](/mod1)
+ - [mod2](/mod2)
+ - [mod3](/mod3)
+:::
+
+will highlight the links in the list assigned to the users roles.
+
+The user can select a role by pressing a button with data-role=*
+attribute. The possible roles are:
+
+Possible Roles:
+  investigator
+  research-leader
+  informaticist
+  software-engineer
+  clinician-scientist
+-->
+<script>
+const all_modules = document.querySelectorAll(".highlight-by-role ul li");
+
+function slugify(str) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/* highlights modules corresponding to role via role_module_map
+ * @param: role_name - role name in lower kebab case
+ */
+function select_modules(role_name) {
+    // Remove existing highlights
+    document.querySelectorAll('mark[data-role]').forEach(mark => {
+      mark.replaceWith(...mark.childNodes);
+    });
+
+    // What modules should be highlighted based on the selected role?
+    var highlighted_module_slugs = role_module_map.filter(x => x.role === role_name).map(x => x.modules)[0].map(x => x.slug);
+
+    // Add in highlights of the currently selected role, just in the containers where
+    // there should be highlights.
+    [
+        '.sidebar-menu-container', // On module pages (left sidebar)
+        '.highlight-by-role' // On section pages (list of modules)
+    ].forEach((container_css_path) => {
+        document.querySelectorAll(container_css_path).forEach(container => {
+            highlighted_module_slugs.forEach((slug) => {
+                container.querySelectorAll(`li a[href*="${slug}"]`).forEach((ahref) => {
+                    var li = ahref.parentNode;
+                    var mark = document.createElement("mark");
+                    mark.dataset.role = role_name;
+                    li.appendChild(mark);
+                    mark.appendChild(ahref);
+                });
+            });
+        });
+    });
+
+    // For module pages, highlight the currently active role
+    document.querySelectorAll(".role-tags .role-tag").forEach((el) => {
+        if (slugify(el.textContent.trim()) === role_name) {
+          el.style.fontWeight = "bold";
+        }
+      });
+}
+
+
+// clears previously selected roles, highlights the selected role, and sets "role" in local storage
+function select_role(role) {
+    store.setItem("role", role);
+
+    document.querySelectorAll("[data-role]").forEach((a_node) => {
+        a_node.classList.remove("btn", "btn-sm", "btn-secondary", "fw-bold", "rounded");
+        a_node.classList.add("btn-role");
+    });
+
+    var selected_a_node = document.querySelector(`[data-role="${role}"]`);
+    if(selected_a_node) {
+        selected_a_node.classList.add("btn", "btn-sm", "btn-secondary", "fw-bold", "rounded");
+        selected_a_node.classList.remove("btn-role");
+    }
+}
+
+
+// trigger role selection on clicking <a data-role=...>
+document.querySelectorAll("a[data-role]").forEach((role_link) => {
+    role_link.addEventListener("click", (e) => {
+        var role = e.target.dataset.role;
+        select_role(role);
+        select_modules(role);
+    });
+});
+
+// set default role and execute select_role and select_modules once to make sure feature is working
+window.addEventListener("load", () => {
+    if( store.getItem("role") ) {
+        select_role(store.getItem("role"));
+        select_modules(store.getItem("role"));
+    }
+    else {
+        const DEFAULT_ROLE = "research-leader";
+
+        select_role(DEFAULT_ROLE);
+        select_modules(DEFAULT_ROLE);
+    }
+});
+</script>
+
+<!-- Navigation Override
+
+Overwrite Quarto's Next/Previous buttons to point to modules
+for the user's role
+-->
+<script>
+// Below function is usable by CC BY-SA 3.0 from https://stackoverflow.com/a/6475125
+String.prototype.toTitleCase = function() {
+  let i, j, str, lowers, uppers;
+  str = this.replace(/([^\W_]+[^\s-]*) */g, function(txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+
+  // Certain minor words should be left lowercase unless 
+  // they are the first or last words in the string
+  lowers = ['A', 'An', 'The', 'And', 'But', 'Or', 'For', 'Nor', 'As', 'At', 
+  'By', 'For', 'From', 'In', 'Into', 'Near', 'Of', 'On', 'Onto', 'To', 'With'];
+  for (i = 0, j = lowers.length; i < j; i++)
+    str = str.replace(new RegExp('\\s' + lowers[i] + '\\s', 'g'), 
+      function(txt) {
+        return txt.toLowerCase();
+      });
+
+  // Certain words such as initialisms or acronyms should be left uppercase
+  uppers = ['ID', 'TV', 'FHIR'];
+  for (i = 0, j = uppers.length; i < j; i++)
+    str = str.replace(new RegExp('\\b' + uppers[i] + '\\b', 'g'), 
+      uppers[i].toUpperCase());
+
+  return str;
+}
+
+// Custom Hack to overwrite Quarto's built in navigators
+document.addEventListener("DOMContentLoaded", function() {
+    // Get current module and role
+    const current_module_slug = window.location.toString().split('/').pop().split('.')[0];
+    const role = store.getItem("role");
+
+    // Get next and prev modules data
+    let prev_href, prev_text;
+    let next_href, next_text;
+
+    role_module_map.forEach((mapping) => {
+        if( mapping.role == role ) {
+            for(let i=0; i<mapping.modules.length; i++) {
+                if( mapping.modules[i].slug == current_module_slug ) {
+                    function slug_to_url(slug) {
+                        if( window.location.pathname.includes('modules') ) {
+                            // replace "modules/*" in current URL with "modules/<slug>.html"
+                            return window.location.toString().replace(/modules\/.*/, "modules/" + slug + ".html");
+                        }
+                        else {
+                            // this case is irrelevant since prev/next buttons are only role-based in modules
+                            return window.location.toString() + "/modules/" + slug + ".html";
+                        }
+                    }
+
+                    prev_href = (i > 0) ? slug_to_url(mapping.modules[i-1].slug) : null;
+                    prev_text = (i > 0) ? mapping.modules[i-1].text : null;
+
+                    next_href = (i+1 < mapping.modules.length) ? slug_to_url(mapping.modules[i+1].slug) : null;
+                    next_text = (i+1 < mapping.modules.length) ? mapping.modules[i+1].text : null;
+                }
+            }
+        }
+    });
+
+
+    // Overwrite prev link
+    if( prev_href ) {
+        const prev_link_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link");
+        const prev_text_elmt = document.querySelector(".page-navigation .nav-page-previous .pagination-link .nav-page-text");
+        if( prev_link_elmt ) {
+
+            prev_link_elmt.href = prev_href
+            //prev_link_elmt.classList.add("btn", "btn-outline-custom", "rounded");
+            //prev_link_elmt.parentNode.classList.toggle("nav-page");
+            prev_text_elmt.innerText = prev_text;
+        }
+    }
+
+    // Overwrite next link
+    if( next_href ) {
+        const next_link_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link");
+        const next_text_elmt = document.querySelector(".page-navigation .nav-page-next .pagination-link .nav-page-text");
+
+        if( next_link_elmt ) {
+            next_link_elmt.href = next_href;
+            //next_link_elmt.classList.add("btn", "btn-outline-custom", "rounded");
+            //next_link_elmt.parentNode.classList.toggle("nav-page");
+            next_text_elmt.innerText = next_text;
+        }
+    }
+
+    // if document has #key-points then move pagination to next after it
+    key_points = document.querySelector("#key-points");
+    if( key_points ) {
+        let page_nav = document.querySelector("nav.page-navigation");
+        key_points.insertAdjacentElement("afterend", page_nav);
+    }
+
+});
+
+
+// Override style of Quarto page navigation (prev/next buttons)
+document.addEventListener("DOMContentLoaded", function() {
+
+    const page_navigators = document.querySelectorAll(".pagination-link");
+    page_navigators.forEach((node) => {
+
+        node.classList.add("btn", "btn-outline-custom", "rounded");
+        node.parentNode.classList.remove("nav-page");
+        node.parentNode.parentNode.style.gridRow = "initial";
+    });
+});
+
+// Set external links to open in a new tab
+document.addEventListener("DOMContentLoaded", function() {
+    var all_links = document.querySelectorAll('a');
+    for (var i = 0; i < all_links.length; i++){
+        var a = all_links[i];
+        if(a.hostname != location.hostname) {
+                a.target = '_blank';
+        }
+    }
+})
+
+</script>
+
+<!-- Lightbox 
+
+Intercept all instances of:
+
+:::{#id .mermaid-lightbox data-caption='my caption'}
+```{mermaid}
+mermaid markdown content...
+```
+:::
+
+and overwrite it with a popup lightbox for easy viewing of diagram.
+Powered by GLightbox: https://github.com/biati-digital/glightbox
+-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/css/glightbox.min.css">
+<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox@3.3.1/dist/js/glightbox.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const mermaidElements = document.querySelectorAll('.mermaid-lightbox');
+
+    mermaidElements.forEach(element => {
+      const id = element.id;
+      const caption = element.getAttribute('data-caption');
+
+      const lightboxFigure = document.createElement('a');
+      lightboxFigure.setAttribute('href', '#' + id);
+      lightboxFigure.className = 'glightbox';
+      lightboxFigure.setAttribute('data-description', caption);
+      lightboxFigure.setAttribute('data-width', "90%");
+      lightboxFigure.setAttribute('data-height', "90%");
+
+      const clonedElement = element.cloneNode(true);
+      lightboxFigure.appendChild(clonedElement);
+
+      const figcaption = document.createElement('figcaption');
+      figcaption.textContent = 'Click diagram to enlarge';
+      lightboxFigure.appendChild(figcaption);
+
+      element.parentNode.replaceChild(lightboxFigure, element);
+    });
+
+    // Initialize GLightbox
+    const lightbox = GLightbox({
+        selector: '.glightbox'
+    });
+  })
+</script>
+
+<!-- This script dynamically updates the copyright year in the footer -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get the current year
+    var currentYear = new Date().getFullYear();
+    
+    // Find the span element where we'll put the year
+    var span = document.getElementById('current-year');
+    
+    if (span) {
+        // If the span exists, update its content with the current year
+        span.textContent = currentYear;
+    }
+    });
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/nih-odss\.github\.io\/fhir-for-research\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© <span id="current-year"></span> The MITRE Corporation / <a href="https://github.com/NIH-ODSS/fhir-for-research/?tab=readme-ov-file#license">License information</a><br>Approved for Public Release / Case #25-3098<br><br>HL7® and FHIR® are the registered trademarks of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the HL7 and FHIR trademarks does not constitute an HL7 endorsement of this website.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nih-odss/fhir-for-research/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
