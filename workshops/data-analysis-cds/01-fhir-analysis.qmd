@@ -4,6 +4,7 @@ learning_objectives2:
   - Understand the high-level approaches for converting FHIR-formatted data into tabular data for analysis in Python.
   - Learn how to request data from a FHIR server and creating tidy tabular data tables using the FHIR-PYrate library. 
 execute:
+  eval: false # It looks like fhirpyrate doesn't work with Python 3.14 due to deprecated typing.io. We want to switch this to sql-on-fhir anyway, so don't eval this file for now.
   cache: false # changes in fhir-server env will not be picked up otherwise
 jupyter: python3
 

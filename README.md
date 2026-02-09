@@ -21,7 +21,7 @@ GitHub Actions automatically builds commits to the `main` branch to <https://nih
   + If running windows: follow setup-windows.qmd
   + If you want to use your system SSL/TLS certificates, add `UV_NATIVE_TLS=true` to the environment
 - Start the provided FHIR server: `docker compose -f fhir-server/docker-compose.yml up -d`
-- For first time setup, upload data to the FHIR server: `uv run ./script/load_data.py`
+- For first time setup, upload data to the FHIR server: `FHIR_SERVER=http://localhost:8080/fhir uv run ./script/load_data.py`
   + The server takes a few minutes to start the first time, so the script may fail if its executed immediately. Running the script multiple times will not duplicate data.
   + For more commands for the FHIR server, see [Running the Local FHIR Server](#running-the-local-fhir-server).
 - Run `uv run quarto preview`

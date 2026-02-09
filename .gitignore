@@ -31,3 +31,9 @@ tabular-python_files
 # Exclude local FHIR server database
 fhir-server/db/*
 !fhir-server/db/.keep
+
+**/*.quarto_ipynb
+
+.aider*
+.env
+

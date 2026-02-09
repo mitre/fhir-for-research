@@ -185,6 +185,9 @@ format:
     css: styles.css
     toc: true
     include-in-header: head.html
-    include-after-body: scripts.html
+    include-before-body:
+      - partials/_banner.html
+    include-after-body:
+      - scripts.html
     template-partials:
       - title-block.html

@@ -1,3 +1,10 @@
+#env-banner {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1em;
+  background-color: #efefef;
+}
+
 /* css styles */
 .highlight {
   background-color: #fffeca;

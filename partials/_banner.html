@@ -1,0 +1,63 @@
+<div id="env-banner"></div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const HOSTNAME_OVERRIDE = '';
+  const PATH_OVERRIDE = '';
+  const hostname = HOSTNAME_OVERRIDE || window.location.hostname;
+  const pathname = PATH_OVERRIDE || window.location.pathname;
+  const banner = document.getElementById('env-banner');
+  if (!banner) return;
+  
+  if (hostname === 'nih-odss.github.io') {
+    const pathSegments = pathname.split('/').filter(Boolean);
+
+    let github_actor = '';
+    let github_repo = '';
+    let branch_name;
+    
+    github_actor = hostname.replace('.github.io', '');
+    github_repo = pathSegments[0] || '';
+    if (pathSegments[1] === 'branches' && pathSegments.length > 2) {
+      branch_name = pathSegments[2];
+    }
+
+    const path_to_page =
+      (pathSegments[1] === 'branches' && pathSegments.length >= 3)
+        ? pathSegments.slice(3).join('/')
+        : pathSegments.slice(1).join('/');
+
+    if (branch_name) {
+      banner.innerHTML = `ℹ️ You are viewing a <b>preview</b> build of the <code>${branch_name}</code> branch of this website, which may differ from the <a href="https://nih-odss.github.io/fhir-for-research">published version</a>. You can <a href="https://nih-odss.github.io/fhir-for-research/${path_to_page}" target="_blank">directly view this page on the published website</a>, or <a href="https://github.com/nih-odss/fhir-for-research/compare/main...${github_actor}:${branch_name}" target="_blank">compare this branch with the published version</a>.`
+    }
+    else {
+      banner.remove();
+    }
+  }
+  else if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    banner.innerHTML = '🏠 Local Development';
+  }
+  else if (hostname.endsWith('.github.io')) {
+    const pathSegments = pathname.split('/').filter(Boolean);
+
+    let github_actor = '';
+    let github_repo = '';
+    let branch_name;
+   
+    github_actor = hostname.replace('.github.io', '');
+    github_repo = pathSegments[0] || '';
+    if (pathSegments[1] === 'branches' && pathSegments.length > 2) {
+      branch_name = pathSegments[2];
+    }
+
+    const path_to_page =
+      (pathSegments[1] === 'branches' && pathSegments.length >= 3)
+        ? pathSegments.slice(3).join('/')
+        : pathSegments.slice(1).join('/');
+
+    banner.innerHTML = `ℹ️ You are viewing a <b>preview</b> build of this website, which may differ from the <a href="https://nih-odss.github.io/fhir-for-research">published version</a>. You can <a href="https://nih-odss.github.io/fhir-for-research/${path_to_page}" target="_blank">directly view this page on the published website</a>, or <a href="https://github.com/nih-odss/fhir-for-research/compare/main...${github_actor}:${branch_name ? branch_name : 'main'}" target="_blank">compare against the published version</a>.`
+  }
+  else {
+    banner.innerHTML = `ℹ️ You are viewing a non-canonical build of this website, which may differ from the <a href="https://nih-odss.github.io/fhir-for-research">published version</a>.`
+  }
+});
+</script>
