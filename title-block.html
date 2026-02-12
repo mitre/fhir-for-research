@@ -115,8 +115,11 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector('#quarto-document-content').appendChild( clone );
     }
     document.querySelector('#key-points .callout-caption-container').textContent = 'Key points';
-    document.querySelector('#key-points .prompt').textContent = 'The learning objective questions are below, along with their answers:'
-    document.querySelector('#key-points .target-roles-container').remove();
+    
+    const prompt = document.createElement('p');
+    prompt.textContent = 'The learning objectives are below, along with possible answers:';
+    document.querySelector('#key-points .callout-body').prepend(prompt);
+
   }
 });
 </script>
