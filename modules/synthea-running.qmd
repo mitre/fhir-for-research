@@ -1,7 +1,7 @@
 ---
 title: Running Synthea
 area:
-  name: Advanced Topics
+  name: Technologies
 topic:
   name: Custom Synthea Data & FHIR Testing Servers
 

@@ -7,8 +7,6 @@ public/
 .DS_Store
 
 # Ignore Python environments
-python_env/*
-!/python_env/.keep
 .venv
 
 /.luarc.json
@@ -33,6 +31,7 @@ fhir-server/db/*
 !fhir-server/db/.keep
 
 **/*.quarto_ipynb
+site_libs/*
 
 .aider*
 .env

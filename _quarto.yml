@@ -9,6 +9,8 @@ project:
     - "!README.md"
     - "!script/"
 
+csl: ieee.csl
+
 website:
   title: "FHIR® for Research"
   site-url: https://nih-odss.github.io/fhir-for-research/
@@ -22,8 +24,8 @@ website:
     left:
       - text: Introduction
         file: sections/introduction.qmd
-      - text: Advanced Topics
-        file: sections/advanced-topics.qmd
+      - text: Technologies
+        file: sections/technologies.qmd
       - text: Hands-on Practice
         file: sections/hands-on-practice.qmd
       - text: Hosting Your Own Workshop
@@ -78,15 +80,15 @@ website:
                   text: Using the FHIR API to access data
                 - file: webinars/intro/index.qmd
                   text: Introductory Webinar
-    - id: advanced-topics
-      title: Advanced Topics
+    - id: technologies
+      title: Technologies
       style: floating
       search: false
       align: left
       collapse-level: 2
       contents:
-        - file: sections/advanced-topics.qmd
-          text: Advanced Topics
+        - file: sections/technologies.qmd
+          text: Technologies
         - section: "SMART on FHIR"
           contents:
             - file: modules/new-smart-on-fhir-intro.qmd
@@ -171,7 +173,7 @@ website:
             text: "Synthetic Data"
 
   page-footer: |
-    &copy; <span id="current-year"></span> The MITRE Corporation / <a href="https://github.com/NIH-ODSS/fhir-for-research/README.md">License information</a><br>Approved for Public Release / Case #24-3701<br><br>HL7® and FHIR® are the registered trademarks of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the HL7 and FHIR trademarks does not constitute an HL7 endorsement of this website.
+    &copy; <span id="current-year"></span> The MITRE Corporation / <a href="https://github.com/NIH-ODSS/fhir-for-research/?tab=readme-ov-file#license">License information</a><br>Approved for Public Release / Case #24-3701<br><br>HL7® and FHIR® are the registered trademarks of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the HL7 and FHIR trademarks does not constitute an HL7 endorsement of this website.
 
   page-navigation: true
 
