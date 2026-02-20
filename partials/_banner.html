@@ -7,6 +7,24 @@ document.addEventListener('DOMContentLoaded', function() {
   const pathname = PATH_OVERRIDE || window.location.pathname;
   const banner = document.getElementById('env-banner');
   if (!banner) return;
+
+  let q = document.querySelector('.role-tags');
+  if (q) {
+    q.after(banner);
+  }
+  else {
+    q = document.querySelector('#metadata-container');
+    if (document.querySelector('#metadata-container .date')) {
+      q.after(banner);
+    }
+    else {
+      q = document.querySelector('.column-screen');
+      if(document.querySelector('.column-screen .hero')) {
+        q.after(banner);
+        banner.style.marginTop = "2em";
+      }
+    }
+  }
   
   if (hostname === 'nih-odss.github.io') {
     const pathSegments = pathname.split('/').filter(Boolean);

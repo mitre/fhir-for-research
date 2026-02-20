@@ -1,5 +1,6 @@
 ---
 title: "FHIR from 10,000 Feet"
+date: 2026-02-18
 
 area:
   name: Overview
@@ -57,7 +58,7 @@ Below is additional background on interoperability and the technologies that ena
 
 ## FHIR is key to US health data interoperability
 
-The [ONC 21st Century Cures Act](https://www.nih.gov/research-training/medical-research-initiatives/cures) (known as the "Cures Act") supports seamless and secure access to health information. As part of Cures Act, ONC added a set of interoperability criteria to the existing 2015 [Health IT Certification Program](https://www.healthit.gov/topic/certification-ehrs/certification-health-it). These criteria include:
+The [ONC 21st Century Cures Act](https://www.nih.gov/research-training/medical-research-initiatives/cures) (known as the "Cures Act") supports seamless and secure access to health information. As part of Cures Act, [ONC added a set of interoperability criteria](onc-certification-program.qmd) to the existing 2015 [Health IT Certifications Program](https://www.healthit.gov/topic/certification-ehrs/certification-health-it). These criteria include:
 
 -   "Standardized access to single patient and multiple patient services via an API(s) using the HL7 FHIR standard" [@ONC_2015_Edition]
 

@@ -1,5 +1,6 @@
 ---
 title: "Terminology and FHIR"
+date: 2026-02-18
 
 area:
   name: Overview

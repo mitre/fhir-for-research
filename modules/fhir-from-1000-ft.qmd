@@ -1,5 +1,6 @@
 ---
 title: "FHIR from 1,000 Feet"
+date: 2026-02-18
 
 roles:
   - Investigator

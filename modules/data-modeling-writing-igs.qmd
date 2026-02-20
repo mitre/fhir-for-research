@@ -1,5 +1,6 @@
 ---
 title: Writing FHIR Implementation Guides
+date: 2026-02-18
 
 roles:
   - Investigator

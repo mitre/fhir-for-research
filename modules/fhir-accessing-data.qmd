@@ -1,5 +1,6 @@
 ---
 title: Using the FHIR API to Access Data
+date: 2026-02-18
 
 roles:
   - Informaticist

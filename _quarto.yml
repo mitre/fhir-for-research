@@ -57,6 +57,7 @@ website:
                 - modules/fhir-from-10000-ft.qmd
                 - modules/fhir-from-1000-ft.qmd
                 - modules/fhir-history.qmd
+                - modules/onc-certification-program.qmd
             - section: "What does FHIR look like"
               contents:
                 - file: modules/key-fhir-resources.qmd
@@ -180,6 +181,8 @@ website:
 
 format:
   html:
+    filters:
+      - lua/modules-flag.lua
     theme:
       light: [cosmo, custom.scss]
       dark: [darkly, custom.scss]      
