@@ -201,7 +201,7 @@ See the module on [Standing up a FHIR Testing Server](../../modules/synthea-test
 The content on this website is broken up into self-contained "modules" distributed among the following sections:
 
 1.  [Introduction](../../sections/introduction.qmd)
-2.  [Advanced Topics](../../sections/advanced-topics.qmd)
+2.  [Technologies](../../sections/technologies.qmd)
 3.  [Hands-on Practice](../../sections/hands-on-practice.qmd)
 4.  [Hosting your own Workshop](../../sections/hosting-your-own-workshop.qmd)
 

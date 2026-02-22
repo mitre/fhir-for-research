@@ -19,7 +19,7 @@ If you want to [edit this website](../contribute.qmd) locally on your Mac, here 
     -   If you have write access to <https://github.com/NIH-ODSS/fhir-for-research>, use this repo
     -   Otherwise, [create a fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
 9.  Install Python3 and Python environment:
-    -   In your Terminal, run `uv sync` and uv will take care of the rest
+    -   In your Terminal, run `UV_NATIVE_TLS=true uv sync` and uv will take care of the rest
     -   Alternatively: you can run `uv export --format requirements-txt` to print out requirement info on console. You can copy it to a requirements.txt file and use your own Python tooling. This way is not recommended.
 10. If you installed RStudio: go to "File \> Open Project...", and navigate to the folder of your cloned repo. You should see a `fhir-for-research.Rproj` file in this folder -- if you do, that's the right folder. Then run `renv::restore()` in the R Console to load all the R dependencies
 11. If you did not install RStudio: open terminal and run `Rscript -e "renv::restore()"`

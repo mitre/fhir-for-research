@@ -29,27 +29,27 @@ CDMs and FHIR are both important parts of the health research data ecosystem, bu
 
 #### Purpose and scope
 
--   CDMs: Provide a consistent structure for storing and querying health data to faciliate research.
+-   **CDMs:** Provide a consistent structure for storing and querying health data to facilitate research.
 
--   FHIR: Enable interoperability between health IT systems (which can included research-related systems).
+-   **FHIR:** Enable interoperability between health IT systems. This is often serving operational purposes (e.g., interfacing a specialty imaging system with a health system's EHR), but can include research-related systems and use cases.
 
 #### Structure
 
--   CDMs: Typically, CDMs consist of a standardized set of relational database tables, with columns for each data element. CDMs also typically define standardized [terminology](terminology.qmd) for representing concepts.
+-   **CDMs:** Typically, CDMs consist of a standardized set of relational database tables, with columns for each data element. CDMs also typically define standardized [terminology](terminology.qmd) for representing concepts. CDMs may formalize specific concepts using Common Data Elements (CDEs), which "are standardized, precisely defined questions paired with a set of specific allowable responses, used systematically across different sites, studies, or clinical trials to ensure consistent data collection @ODSS_CDE."
 
--   FHIR: FHIR defines [resources](key-fhir-resources.qmd) for each type of data, which can be extended to add additional data elements as needed for a given use case. Resources have a nested structure (like a multi-level outline) rather than a tabular structure (like a spreadsheet). The base FHIR specification does have strict terminology constraints, though these can be added for a specific use case in an [Implementation Guide](data-modeling-reading-igs.qmd).
+-   **FHIR:** FHIR defines [resources](key-fhir-resources.qmd) for each type of data, which can be extended to add additional data elements as needed for a given use case. Resources have a nested structure (like a multi-level outline) rather than a tabular structure (like a spreadsheet). The base FHIR specification does not have strict terminology constraints, though these can be added for a specific use case in an [Implementation Guide](data-modeling-reading-igs.qmd).
 
 #### Implementation
 
--   CDMs: Typically implemented as a database within a research data warehouse. When CDMs are used as part of a research data network, additional mechanisms may be implemented for sharing data across the network [@cdm_timeline_paper].
+-   **CDMs:** Typically implemented as a database within a research data warehouse. When CDMs are used as part of a research data network, additional mechanisms may be implemented for sharing data across the network [@cdm_timeline_paper].
 
--   FHIR: Typically implemented as an API within a health IT system like an EHR, though research-specific databases may also implement FHIR (e.g., [Kids First](https://kidsfirstdrc.org)).
+-   **FHIR:** Typically implemented as an API within a health IT system like an EHR, though research-specific databases may also implement FHIR (e.g., [Kids First](https://kidsfirstdrc.org)).
 
 Because of these differences, FHIR does not obviate existing CDMs and health data networks. However, FHIR can be used in conjunction with CDMs. For example:
 
 -   **Populating a CDM:** FHIR can be used as part of the process for populating a CDM. Typically, data are extracted from EHRs and other clinical or billing systems, transformed into the CDM's format, and then loaded into the CDM database. (Note that this type of process is generally referred to as [ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) for Extract, Transform, Load.) FHIR can be used as the input into an ETL process, which may allow for ETL logic that is more portable across institutions and EHR installations.
 
--   **Mapping between CDMs:** The [Common Data Models Harmonization IG](http://hl7.org/fhir/us/cdmh/) uses FHIR to map and translate between PCORNet, i2b2, OMOP, and Sentinel (all described below).
+-   **Mapping between CDMs:** For example, the [Common Data Models Harmonization IG](http://hl7.org/fhir/us/cdmh/) maps between US Core and PCORNet using FHIR. This same approach can be used to map FHIR data elements to CDEs or other data models.
 
 -   **Portable phenotypes:** FHIR and Clinical Quality Language ([CQL](https://cql.hl7.org)) were used by @brandt2022 to create phenotypes for cohort definitions. These were translated to run against the OMOP CDM. Theoretically, institutions that do not have OMOP research databases could use FHIR and CQL directly to identify cases and non-cases.
 

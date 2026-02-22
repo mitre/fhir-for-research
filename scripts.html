@@ -204,40 +204,50 @@ Possible Roles:
 <script>
 const all_modules = document.querySelectorAll(".highlight-by-role ul li");
 
-/* highlights modules corresponding to role via role_module_map
- * @param: string - role name in lower kebab case
- */
-function select_modules(string) {
-    // remove all highlights
-    all_modules.forEach((li_node) => {
-        var mark_node = li_node.firstChild;
-        var a_node = mark_node.firstChild;
+function slugify(str) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
 
-        if( mark_node.nodeName == "MARK" ) {
-            li_node.removeChild(mark_node);
-            li_node.appendChild(a_node);
-        }
+/* highlights modules corresponding to role via role_module_map
+ * @param: role_name - role name in lower kebab case
+ */
+function select_modules(role_name) {
+    // Remove existing highlights
+    document.querySelectorAll('mark[data-role]').forEach(mark => {
+      mark.replaceWith(...mark.childNodes);
     });
 
-    // add highlights based on role_module_map
-    role_module_map.forEach((mapping) => {
-        if( mapping.role == string ) {
-            mapping.modules.forEach((interest_module) => {
-                document.querySelectorAll(`li [href*="${interest_module.slug}"]`).forEach((interest_a_node) => {
+    // What modules should be highlighted based on the selected role?
+    var highlighted_module_slugs = role_module_map.filter(x => x.role === role_name).map(x => x.modules)[0].map(x => x.slug);
 
-                    //console.log("selecting module ", interest_a_node);
-
-                    var interest_li_node = interest_a_node.parentNode;
-                    var mark_node = document.createElement("mark");
-                    interest_li_node.appendChild(mark_node);
-                    mark_node.appendChild(interest_a_node);
-
-                    //console.log("appended ", interest_a_node, " to ", mark_node);
+    // Add in highlights of the currently selected role, just in the containers where
+    // there should be highlights.
+    [
+        '.sidebar-menu-container', // On module pages (left sidebar)
+        '.highlight-by-role' // On section pages (list of modules)
+    ].forEach((container_css_path) => {
+        document.querySelectorAll(container_css_path).forEach(container => {
+            highlighted_module_slugs.forEach((slug) => {
+                container.querySelectorAll(`li a[href*="${slug}"]`).forEach((ahref) => {
+                    var li = ahref.parentNode;
+                    var mark = document.createElement("mark");
+                    mark.dataset.role = role_name;
+                    li.appendChild(mark);
+                    mark.appendChild(ahref);
                 });
             });
-            return;
+        });
+    });
+
+    // For module pages, highlight the currently active role
+    document.querySelectorAll(".role-tags .role-tag").forEach((el) => {
+        if (slugify(el.textContent.trim()) === role_name) {
+          el.style.fontWeight = "bold";
         }
-    })
+      });
 }
 
 
@@ -251,8 +261,10 @@ function select_role(role) {
     });
 
     var selected_a_node = document.querySelector(`[data-role="${role}"]`);
-    selected_a_node.classList.add("btn", "btn-sm", "btn-secondary", "fw-bold", "rounded");
-    selected_a_node.classList.remove("btn-role");
+    if(selected_a_node) {
+        selected_a_node.classList.add("btn", "btn-sm", "btn-secondary", "fw-bold", "rounded");
+        selected_a_node.classList.remove("btn-role");
+    }
 }
 
 

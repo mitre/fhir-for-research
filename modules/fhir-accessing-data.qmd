@@ -1,5 +1,6 @@
 ---
 title: Using the FHIR API to Access Data
+date: 2026-02-18
 
 roles:
   - Informaticist
@@ -26,7 +27,7 @@ A FHIR server's API is typically accessed via a [URL](https://developer.mozilla.
 
 [^1]: URLs may only be accessible inside an institution's firewall, or may be accessible to the public internet. Even if a FHIR server is accessible to the public internet, it may not respond to *any* request -- depending on how it is configured, it may require authentication (like a username and password) to return any data.
 
-This URL is used to construct the API request, which typically takes the following form:
+This URL is used to construct an HTTP API request, which typically takes the following form:
 
 ``` markdown
 GET https://hapi.fhir.org/baseR4/Patient/591702
@@ -267,19 +268,7 @@ Instances of CapabilityStatement are often extremely long -- [the response](http
 
 ## Next steps
 
-If you are interested in using the FHIR API to access data, you may want to review the following resources:
-
--   The [general FHIR API documentation](https://www.hl7.org/fhir/http.html) and the documentation specific to the [`search` interaction](https://www.hl7.org/fhir/search.html) in the FHIR specification.
-
--   The workshop covering [FHIR data analysis](/workshops/data-analysis-cds/01-fhir-analysis.qmd) if you are interested in extracting data from a FHIR server into a Python Pandas DataFrame.
-
--   NIH/ODSS training materials on using Python/Pandas to extract data from a FHIR server and integrate it with other data sources (note that R versions of these exercises are [also available](https://datascience.nih.gov/fhir-initiatives/researchers-training)):
-
-    -   [Exercise 1: Patients Prescribed Opioids]({{< env FHIR_EXERCISES_REPO >}}/blob/main/Python/Exercise_1_Opioids.ipynb)
-
-    -   [Exercise 2: "Kids First" Data]({{< env FHIR_EXERCISES_REPO >}}/blob/main/Python/Exercise_2_KidsFirst.ipynb)
-
-    -   [Exercise 3: Drug-Drug Interactions]({{< env FHIR_EXERCISES_REPO >}}/blob/main/Python/Exercise_3_DrugInteractions.ipynb)
+If you are interested in using the FHIR API to access data, you may want to review the [general FHIR API documentation](https://www.hl7.org/fhir/http.html) and the documentation specific to the [`search` interaction](https://www.hl7.org/fhir/search.html) in the FHIR specification.
 
 ```{=html}
 <!-- script to expand FHIR Query callout/dropdown -->

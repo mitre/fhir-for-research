@@ -1,5 +1,6 @@
 ---
 title: "Key FHIR Resources"
+date: 2026-02-18
 
 area:
   name: Overview
@@ -22,7 +23,7 @@ learning_objectives:
 reading_time: true
 ---
 
-Resources are the key building blocks of FHIR. A [**FHIR resource**](https://www.healthit.gov/sites/default/files/page/2021-04/Intro%20to%20FHIR%20Resources%20Fact%20Sheet.pdf) is a structure that contains medical information in an unambiguous format. This allows different systems to understand information in the same way,[^1] which is necessary for health systems to accurately share data.
+Resources are the key building blocks of FHIR. A [**FHIR resource**](https://healthit.gov/wp-content/uploads/2021/04/What-Is-FHIR-Fact-Sheet.pdf) is a structure that contains medical information in an unambiguous format. This allows different systems to understand information in the same way,[^1] which is necessary for health systems to accurately share data.
 
 [^1]: When systems exchange information with unambiguous and shared meaning, it is called [semantic interoperability](https://en.wikipedia.org/wiki/Semantic_interoperability).
 
@@ -30,7 +31,104 @@ Resources are the key building blocks of FHIR. A [**FHIR resource**](https://www
 
 The FHIR core v5.0.0 (also known as Revision 5, or R5) defines [157 resources](https://hl7.org/fhir/R5/resourcelist.html) that allow for healthcare interoperability. The [HL7® FHIR® standard](https://hl7.org/fhir) gives a well-structured summary of FHIR's core resources:
 
-[![The organization of FHIR's core resources. From \[HL7's FHIR specification\](https://hl7.org/fhir/R5).](images/fhir-index-R5.png){fig-alt="Screenshot from the FHIR specification showing the organization of FHIR resources. Level 1: basic framework on which the specification is built. Level 2: Supporting implementation and binding to external specifications. Level 3: Linking to real-world concepts in the healthcare system. Level 4: Record-keeping and and Data Exchange for the healthcare process. Level 5: Providing the ability to reason about the healthcare process."}](https://hl7.org/fhir/R5)
+[![The organization of FHIR's core resources. From HL7's FHIR specification.](images/fhir-index-R5.png){fig-alt="Screenshot from the FHIR specification showing the organization of FHIR resources. Level 1: basic framework on which the specification is built. Level 2: Supporting implementation and binding to external specifications. Level 3: Linking to real-world concepts in the healthcare system. Level 4: Record-keeping and and Data Exchange for the healthcare process. Level 5: Providing the ability to reason about the healthcare process."}](https://hl7.org/fhir/R5)
+
+::: {.callout-note collapse="true" icon="false"}
+## Links to the <a href="https://hl7.org/fhir/R5/">FHIR R5</a> resources in the screenshot above:
+
+-   **Level 1** Basic framework on which the specification is built
+    -   [Foundation](https://hl7.org/fhir/R5/foundation-module.html)
+        -   [Base Documentation](https://hl7.org/fhir/R5/documentation.html)
+        -   [XML](https://hl7.org/fhir/R5/xml.html)
+        -   [JSON](https://hl7.org/fhir/R5/json.html)
+        -   [RDF](https://hl7.org/fhir/R5/rdf.html)
+        -   [Datatypes](https://hl7.org/fhir/R5/datatypes.html)
+        -   [Extensions](https://hl7.org/fhir/R5/extensibility.html)
+-   **Level 2** Supporting implementation and binding to external specifications
+    -   [Implementer Support](https://hl7.org/fhir/R5/implsupport-module.html)
+        -   [Downloads](https://hl7.org/fhir/R5/downloads.html)
+        -   [Version Mgmt](https://hl7.org/fhir/R5/versioning.html)
+        -   [Use Cases](https://hl7.org/fhir/R5/usecases.html)
+        -   [Testing](https://hl7.org/fhir/R5/testing.html)
+    -   [Security & Privacy](https://hl7.org/fhir/R5/secpriv-module.html)
+        -   [Security](https://hl7.org/fhir/R5/security.html),
+        -   [Consent](https://hl7.org/fhir/R5/consent.html),
+        -   [Provenance](https://hl7.org/fhir/R5/provenance.html),
+        -   [AuditEvent](https://hl7.org/fhir/R5/auditevent.html)
+    -   [Conformance](https://hl7.org/fhir/R5/conformance-module.html)
+        -   [StructureDefinition](https://hl7.org/fhir/R5/structuredefinition.html),
+        -   [CapabilityStatement](https://hl7.org/fhir/R5/capabilitystatement.html),
+        -   [ImplementationGuide](https://hl7.org/fhir/R5/implementationguide.html),
+        -   [Profiling](https://hl7.org/fhir/R5/profiling.html)
+    -   [Terminology](https://hl7.org/fhir/R5/terminology-module.html)
+        -   [CodeSystem](https://hl7.org/fhir/R5/codesystem.html),
+        -   [ValueSet](https://hl7.org/fhir/R5/valueset.html),
+        -   [ConceptMap](https://hl7.org/fhir/R5/conceptmap.html),
+        -   [Terminology Svc](https://hl7.org/fhir/R5/terminology-service.html)
+    -   [Exchange](https://hl7.org/fhir/R5/exchange-module.html)
+        -   [REST API](https://hl7.org/fhir/R5/http.html) + [Search](https://hl7.org/fhir/R5/search.html)
+        -   [Documents](https://hl7.org/fhir/R5/documents.html)
+        -   [Messaging](https://hl7.org/fhir/R5/messaging.html)
+        -   [Services](https://hl7.org/fhir/R5/services.html)
+        -   [Databases](https://hl7.org/fhir/R5/storage.html)
+        -   [Subscriptions](https://hl7.org/fhir/R5/subscriptions.html)
+-   **Level 3** Linking to real-world concepts in the healthcare system
+    -   [Administration](https://hl7.org/fhir/R5/administration-module.html)
+        -   [Patient](https://hl7.org/fhir/R5/patient.html)
+        -   [Practitioner](https://hl7.org/fhir/R5/practitioner.html)
+        -   [CareTeam](https://hl7.org/fhir/R5/careteam.html)
+        -   [Device](https://hl7.org/fhir/R5/device.html)
+        -   [Organization](https://hl7.org/fhir/R5/organization.html)
+        -   [Location](https://hl7.org/fhir/R5/location.html)
+        -   [Healthcare Service](https://hl7.org/fhir/R5/healthcareservice.html)
+-   **Level 4** Record-keeping and Data Exchange for the healthcare process
+    -   [Clinical](https://hl7.org/fhir/R5/clinicalsummary-module.html)
+        -   [Allergy](https://hl7.org/fhir/R5/allergyintolerance.html)
+        -   [Problem](https://hl7.org/fhir/R5/condition.html)
+        -   [Procedure](https://hl7.org/fhir/R5/procedure.html)
+        -   [CarePlan](https://hl7.org/fhir/R5/careplan.html)/[Goal](https://hl7.org/fhir/R5/-%20goal.html)
+        -   [Family History](https://hl7.org/fhir/R5/familymemberhistory.html)
+        -   [RiskAssessment](https://hl7.org/fhir/R5/riskassessment.html)
+        -   etc.
+    -   [Diagnostics](https://hl7.org/fhir/R5/diagnostics-module.html)
+        -   [Observation](https://hl7.org/fhir/R5/observation.html)
+        -   [Report](https://hl7.org/fhir/R5/diagnosticreport.html)
+        -   [Specimen](https://hl7.org/fhir/R5/specimen.html)
+        -   [ImagingStudy](https://hl7.org/fhir/R5/imagingstudy.html)
+        -   [Genomics](https://hl7.org/fhir/R5/genomics.html), etc.
+    -   [Medications](https://hl7.org/fhir/R5/medications-module.html)
+        -   [Medication](https://hl7.org/fhir/R5/medication.html),
+        -   [Request](https://hl7.org/fhir/R5/medicationrequest.html)
+        -   [Dispense](https://hl7.org/fhir/R5/medicationdispense.html),
+        -   [Administration](https://hl7.org/fhir/R5/medicationadministration.html),
+        -   [Statement](https://hl7.org/fhir/R5/medicationstatement.html),
+        -   [Immunization](https://hl7.org/fhir/R5/immunization.html), etc.
+    -   [Workflow](https://hl7.org/fhir/R5/workflow-module.html)
+        -   [Introduction](https://hl7.org/fhir/R5/workflow.html) + [Task](https://hl7.org/fhir/R5/task.html)
+        -   [Appointment](https://hl7.org/fhir/R5/appointment.html)
+        -   [Schedule](https://hl7.org/fhir/R5/schedule.html)
+        -   [Referral](https://hl7.org/fhir/R5/servicerequest.html)
+        -   [PlanDefinition](https://hl7.org/fhir/R5/plandefinition.html), etc.
+    -   [Financial](https://hl7.org/fhir/R5/financial-module.html)
+        -   [Claim](https://hl7.org/fhir/R5/claim.html)
+        -   [Account](https://hl7.org/fhir/R5/account.html),
+        -   [Invoice](https://hl7.org/fhir/R5/invoice.html)
+        -   [ChargeItem](https://hl7.org/fhir/R5/chargeitem.html),
+        -   [Coverage](https://hl7.org/fhir/R5/coverage.html) + Eligibility
+        -   [Request](https://hl7.org/fhir/R5/coverageeligibilityrequest.html) & [Response](https://hl7.org/fhir/R5/coverageeligibilityresponse.html)
+        -   [ExplanationOfBenefit](https://hl7.org/fhir/R5/explanationofbenefit.html), etc.
+-   **Level 5** Providing the ability to reason about the healthcare process
+    -   [Clinical Reasoning](https://hl7.org/fhir/R5/clinicalreasoning-module.html)
+        -   [Library](https://hl7.org/fhir/R5/library.html)
+        -   [PlanDefinition](https://hl7.org/fhir/R5/plandefinition.html) & [GuidanceResponse](https://hl7.org/fhir/R5/guidanceresponse.html)
+        -   [Measure](https://hl7.org/fhir/R5/measure.html)/[MeasureReport](https://hl7.org/fhir/R5/measurereport.html)
+        -   etc.
+    -   [Medication Definition](https://hl7.org/fhir/R5/medication-definition-module.html)
+        -   [Medicinal](https://hl7.org/fhir/R5/medicinalproductdefinition.html)
+        -   [Packaged](https://hl7.org/fhir/R5/packagedproductdefinition.html) & [Administrable](https://hl7.org/fhir/R5/administrableproductdefinition.html) product definitions
+        -   [Regulated Authorization](https://hl7.org/fhir/R5/regulatedauthorization.html)
+        -   etc.
+:::
 
 As shown above, the FHIR core resources are organized into 5 levels:
 
@@ -40,31 +138,30 @@ As shown above, the FHIR core resources are organized into 5 levels:
 
 ## Representation
 
-A FHIR resource may be encoded in different standard formats like [JSON and XML](https://hl7.org/fhir/formats.html#wire). These format are used throughout the software industry, not just in healthcare. Using standard formats allows common programming languages and software tools to process FHIR resources.[^2]
+A FHIR resource may be encoded in different standard formats like [JSON and XML](https://hl7.org/fhir/formats.html#wire). These formats are used throughout the software industry, not just in healthcare. Using standard formats allows common programming languages and software tools to process FHIR resources.[^2]
 
-[^2]: In contrast, HL7 V2 messages use their own proprietary encoding format, which cannot be parsed without a purpose-built software or custom code.
+[^2]: In contrast, [HL7 V2](fhir-history.qmd) messages use their own proprietary encoding format, which cannot be parsed without a purpose-built software or custom code.
 
-::: {.callout-tip collapse="true"}
+::: {.callout-tip collapse="true" icon="false"}
 ## Examples of JSON and XML formats
 
 JSON looks like this:
 
-```         
+``` javascript
 {
-  "resourceType" : "Patient",
-  "id" : "example",
-  "name" : [{
-    "use" : "official",
-    "family" : "Chalmers",
-    "given" : ["Peter",
-    "James"]
+  "resourceType": "Patient",
+  "id": "example",
+  "name": [{
+    "use": "official",
+    "family": "Chalmers",
+    "given": ["Peter", "James"]
   }]
 }
 ```
 
 XML looks like this:
 
-```         
+``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Patient xmlns="http://hl7.org/fhir">
     <id value="example"/>
@@ -111,13 +208,15 @@ All FHIR resources have a similar table representing their contents. These table
 
 Defining a FHIR resource automatically generates a structure table, so structure tables are available for any resource.
 
+Below are examples of some of the most common element data types in FHIR.
+
 ### Basic types example: `Patient.active`
 
 Under "Patient" there is an element `active` which is referred to as `Patient.active`. From the table we know that `Patient.active` is a `boolean` (i.e., "true" or "false") and can either be omitted or have one value (cardinality `0..1`).
 
 An example of the `Patient.active` element in JSON format would look like:
 
-``` json
+``` javascript
 {
   ...
   "active": "true",
@@ -135,7 +234,7 @@ And in XML:
 
 ### Complex types example: `Patient.name`
 
-`Patient.name` is of complex type [HumanName](https://hl7.org/fhir/datatypes.html#HumanName). Complex types are FHIR resources and have their own structure table. Here's the one for HumanName:
+`Patient.name` is of complex type [HumanName](https://hl7.org/fhir/datatypes.html#humanname). Complex types are FHIR resources and have their own structure table. Here's the one for HumanName:
 
 ::: {.fancybox-figure data-fancybox="images/fhir-human-name-structure-r5.png" data-src="images/fhir-human-name-structure-r5.png" data-caption="The structure for Patient.name, which is a HumanName. <a href='https://hl7.org/fhir/datatypes.html#HumanName' target='_blank'>https://hl7.org/fhir/datatypes.html#HumanName</a>"}
 [![Click to enlarge](images/fhir-human-name-structure-r5.png){fig-alt="The structure for Patient.name, which is a HumanName. Go to https://hl7.org/fhir/datatypes.html#HumanName for a text version."}](https://hl7.org/fhir/datatypes.html#HumanName)
@@ -174,11 +273,11 @@ This degree of flexibility is not helpful in all use cases. FHIR addresses this 
 
 ### Choice elements example: `Patient.deceased[x]`
 
-Elements that can have more than one data type are called [**choice elements**](https://hl7.org/fhir/formats.html#choice). The `Patient.deceased[x]` attribute demonstrates some characteristics of a choice element.
+Elements that can have more than one data type are called [**choice elements**](https://hl7.org/fhir/formats.html#choice). The `Patient.deceased[x]` element demonstrates some characteristics of a choice element.
 
--   The term `Patient.deceased[x]`, with `[x]` in the name, appears in documentation only--never in an instance of Patient that's been populated with data.
+-   The `[x]` in the element name is a placeholder for the data type that is actually used. Therefore, the `[x]` will never appear in an instance of Patient that's been populated with data -- it only appears in the specification when describing a choice element.
 
--   Instead, one *and only one* of the following may appear in an instance of Patient: `Patient.deceasedBoolean` or `Patient.deceasedDateTime`. The documentation shows that these are the two valid types for `Patient.deceased[x]`.
+-   Therefore, one *and only one* of the following may appear in an instance of Patient: `Patient.deceasedBoolean` or `Patient.deceasedDateTime`. The FHIR specification indicates that these are the two valid types for `Patient.deceased[x]`.
 
 -   All choice elements *must* have a maximum cardinality of `1` [per the FHIR specification](https://hl7.org/fhir/formats.html#choice).
 
@@ -204,7 +303,7 @@ While choice elements provide flexibility, they add complexity for implementers,
 
 ### CodeableConcepts example: `Patient.maritalStatus`
 
-`Patient.maritalStatus` is a [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept), which is a commonly used complex type in FHIR. CodeableConcepts bind an attribute to a specific set of terminology concepts. `Patient.maritalStatus` is bound to the [Marital Status Codes Value Set](http://hl7.org/fhir/valueset-marital-status.html). For more on FHIR's terminology resources, see the [terminology module](terminology.qmd).
+`Patient.maritalStatus` is a [CodeableConcept](http://hl7.org/fhir/datatypes.html#codeableconcept), which is a commonly used complex type in FHIR. CodeableConcepts bind an attribute to a specific set of terminology concepts. `Patient.maritalStatus` is bound to the [Marital Status Codes Value Set](http://hl7.org/fhir/valueset-marital-status.html). For more on FHIR's terminology resources, see the [terminology module](terminology.qmd).
 
 In addition to identifying a value set for the binding, a CodeableConcept also identifies the [strength of the binding](https://www.hl7.org/fhir/terminologies.html#strength):
 
@@ -533,7 +632,7 @@ Properly implemented FHIR servers must provide an instance of CapabilityStatemen
 
 :   A set of FHIR resources that create a single coherent clinical statement, and usually acts as the skeleton for a [document](http://hl7.org/fhir/documents.html). This is often used in conjunction with a `Bundle`.
 
-[Extension](https://hl7.org/fhir/extension.html)
+[Extension](https://hl7.org/fhir/extensibility.html#extension)
 
 :   A FHIR resource composed of a definitive URL and an `Extension.value[x]` of any type. Almost all resources inherit an extension attribute from `DomainResource.extension`, and an IG should explain how to use it.
 

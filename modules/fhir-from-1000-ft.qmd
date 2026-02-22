@@ -1,5 +1,6 @@
 ---
 title: "FHIR from 1,000 Feet"
+date: 2026-02-18
 
 roles:
   - Investigator
@@ -30,7 +31,7 @@ This module looks at how FHIR works from a technical standpoint, and is targeted
 
 The FHIR specification groups data elements into "[resources](https://www.hl7.org/fhir/resource.html)," like [Patient](https://www.hl7.org/fhir/patient.html) for representing demographics and administrative information about an individual, and [Observation](https://www.hl7.org/fhir/observation.html) for representing measurements and assertions about a patient or other subject.
 
-FHIR implementers can constrain what information gets included in a FHIR resource or use FHIR extensions to add information to a resource. They can also specify which FHIR resources should be used together for their use case. They share these constraints, extensions, and combinations with others through an [Implementation Guide (IG)](data-modeling-reading-igs.qmd).
+FHIR implementers can constrain what information gets included in a FHIR resource or use [FHIR extensions](https://www.hl7.org/fhir/extensibility.html) to add information to a resource. They can also specify which FHIR resources should be used together for their use case. They share these constraints, extensions, and combinations with others through an [Implementation Guide (IG)](data-modeling-reading-igs.qmd).
 
 Below is a screenshot of the [Patient resource](http://hl7.org/fhir/R5/patient.html) from the FHIR specification (`R5` version):
 
@@ -98,7 +99,7 @@ Below is an example of a what a FHIR resource instance looks like in JSON format
 
 ## Customizing FHIR
 
-The FHIR specification follows [the 80/20 rule](http://www.healthintersections.com.au/?p=1924) to determine which data elements are included in a resource: data elements are typically included only if 80% of relevant systems will use them. Less common data needs are handled through [FHIR extensions](https://www.hl7.org/fhir/extensibility.html) (discussed below). This means that FHIR-enabled systems will implement *most* common data elements consistently.<!-- This paragraph is quoted in fhir-history.qmd -- any changes here should be synchronized there manually. -->
+The FHIR specification follows [the 80/20 rule](http://www.healthintersections.com.au/2014/02/28/fhir-and-confusion-about-the-8020-rule.html) to determine which data elements are included in a resource: data elements are typically included only if 80% of relevant systems will use them. Less common data needs are handled through [FHIR extensions](https://www.hl7.org/fhir/extensibility.html) (discussed below). This means that FHIR-enabled systems will implement *most* common data elements consistently.<!-- This paragraph is quoted in fhir-history.qmd -- any changes here should be synchronized there manually. -->
 
 To maximize usability, data elements contained in FHIR resources have minimal constraints. **Constraints** restrict how a data element can be populated. For example, a constraint on Patient resource might require that `Patient.birthDate` be populated. However, some systems record a patient's age in years rather than date of birth for privacy reasons. If the constraint on `Patient.birthDate` existed, those system would not be able to use the Patient resource.
 
@@ -106,7 +107,7 @@ However, some use cases may require `Patient.birthDate` be populated. To achieve
 
 ### Example: customizing Patient in US Core
 
-The [US Core FHIR IG](https://www.hl7.org/fhir/us/core/) (referred to as "US Core" below) defines a FHIR implementation for [USCDI](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi), and is widely used in the US as the basis for FHIR implementations. In other words, EHRs in the US that support FHIR are likely also conformant with US Core.
+The [US Core FHIR IG](https://www.hl7.org/fhir/us/core/) (referred to as "US Core" below) defines a FHIR implementation for [USCDI](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi), and is widely used in the US as the basis for FHIR implementations. In other words, EHRs in the US that support FHIR also likely conform with US Core.
 
 US Core defines a [profile of Patient](https://hl7.org/fhir/us/core/StructureDefinition-us-core-patient.html), which does two things:
 
@@ -115,7 +116,7 @@ US Core defines a [profile of Patient](https://hl7.org/fhir/us/core/StructureDef
 
 [^2]: You can see this in the "Card." (Cardinality) column for the `Patient.name` element on [the US Core Patient profile's "differential table"](https://hl7.org/fhir/us/core/STU5/StructureDefinition-us-core-patient.html#tabs-diff), which defines the changes this profile makes compared to the parent resource. Find more information on reading differential tables in IGs [here](data-modeling-reading-igs.qmd).
 
-Many other FHIR IGs include profiles that are based on US Core rather than directly on FHIR resources. For example, the [mCODE IG](https://hl7.org/fhir/us/mcode/), which defines a core set of data elements for oncology EHR data, includes a [CancerPatient profile](https://hl7.org/fhir/us/mcode/STU2/StructureDefinition-mcode-cancer-patient.html) that is based on US Core's Patient profile. Because US Core is widely implemented in US-based EHRs, it is helpful to base US-centric IGs off of US Core.
+Many other FHIR IGs include profiles that are based on US Core rather than directly on FHIR resources. For example, the [mCODE IG](https://hl7.org/fhir/us/mcode/), which defines a core set of data elements for oncology EHR data, includes a [CancerPatient profile](https://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-cancer-patient.html) that is based on US Core's Patient profile. Because US Core is widely implemented in US-based EHRs, it is helpful to base US-centric IGs off of US Core.
 
 ### Example: post-acute care data
 
@@ -152,11 +153,13 @@ The following table shows how PACIO represents a narrative history of a patient'
 : {tbl-colwidths="\[20,40,40\]"}
 :::
 
-[^5]: From the [FHIR specification's description of the Observation resource](http://hl7.org/fhir/5.0.0-draft-final/observation.html).
+[^5]: From the [FHIR specification's description of the Observation resource](http://hl7.org/fhir/observation.html).
 
-In general, a concept like "narrative history of a patient's functional status" will be represented by one or more profiles of FHIR resources in a FHRI IG, each with a set of relevant constraints and (if necessary) extensions.
+In general, a concept like "narrative history of a patient's functional status" will be represented by one or more profiles of FHIR resources in a FHIR IG, each with a set of relevant constraints and (if necessary) extensions.
 
+::: callout-tip
 Note that extensions can make interoperability more difficult compared to using data elements in the base FHIR resources, so they should be used only when needed.
+:::
 
 ### Customizing FHIR and research
 
@@ -181,7 +184,7 @@ Like with FHIR resources, the standard FHIR API doesn't define all necessary ope
 
 ## Research implications
 
-Using FHIR for research depends on whether the relevant systems support FHIR and whether researchers will have access to those systems. Additionally, not all systems support FHIR in the same way. For example, some systems provide only basic FHIR support, while others may require system-level support of PACIO's IG.
+Using FHIR for research depends on whether the relevant systems support FHIR and whether researchers will have access to those systems. Additionally, not all systems support FHIR in the same way. For example, some systems provide only basic FHIR support, while others may require system-level support of an IG like PACIO's.
 
 If the necessary FHIR support exists or can be added, researchers may benefit by using FHIR. The table below illustrates the benefits by comparing common research-related tasks using (a) FHIR to access data and (b) accessing data via a custom one-off extract:
 
@@ -189,7 +192,7 @@ If the necessary FHIR support exists or can be added, researchers may benefit by
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
 | Task                                         | Via FHIR                                                                                                                                                                            | Via custom data extract                                                  |
 +==============================================+=====================================================================================================================================================================================+==========================================================================+
-| Defining data dictionary                     | Use PACIO's FHIR IG or another existing IG directly, or extend as needed.                                                                                                           | Create a custom data dictionary from scratch in Excel.                   |
+| Defining data dictionary                     | Use an existing IG directly, or create/extend a fit-for-purpose IG.                                                                                                                 | Create a custom data dictionary from scratch in Excel.                   |
 +----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
 | Ensuring data consistency                    | FHIR data elements have defined types, helping to ensure consistency with date formats, units, etc.                                                                                 | Depends on implementation of extract.                                    |
 |                                              |                                                                                                                                                                                     |                                                                          |
@@ -209,8 +212,8 @@ If the necessary FHIR support exists or can be added, researchers may benefit by
 
 Building on this introduction to how FHIR works, you may be interested in reading more:
 
--   [Real World Research](#) discusses examples from peer-reviewed literature where FHIR was used.
+-   [Real World Research](fhir-research.qmd) discusses examples from peer-reviewed literature where FHIR was used.
 
--   The Observation resource was discussed above. [FHIR Resources](#) covers more of the common FHIR resources that are frequently used.
+-   The Observation resource was discussed above. [FHIR Resources](key-fhir-resources.qmd) covers more of the common FHIR resources that are frequently used.
 
 -   The section on data modeling in FHIR, starting with [Real World IGs](data-modeling-real-world-igs.qmd), provides additional information on IGs of interest, how to read IGs, and how to write IGs.
