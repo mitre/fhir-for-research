@@ -1,6 +1,6 @@
 /*-- scss:defaults --*/
 $primary: #20558a !default;
-$navbar-bg: #ffffff !default;
+$navbar-bg: #fafaf9 !default;
 $navbar-bg-dark: #222222;
 $code-color: #7920a7 !default;
 
@@ -170,26 +170,11 @@ mark {
  .navbar {
   height: 60px;
   background-color: $navbar-bg;
+  border-bottom: 2px solid #3c78d8;
+ }
+ .quarto-dark .navbar {
+ border-bottom-color: rgb(0, 188, 140);
  }
 .navbar-collapse {
   background-color: $navbar-bg;
-}
- // Reading time badge styles
-.reading-time-badge {
-  display: inline-block;
-  margin-left: 0;
-  padding: 0.35rem 0.75rem;
-  border-radius: 0.5rem;
-  font-size: 0.9em;
-  vertical-align: middle;
-  background-color: #eee;
-  color: #212529;
-}
-
-// Dark mode override for reading time badge
-.quarto-dark {
-  .reading-time-badge {
-    background-color: #2d3339;
-    color: #e9ecef;
-  }
 }

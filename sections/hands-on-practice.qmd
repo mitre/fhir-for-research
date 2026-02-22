@@ -5,7 +5,7 @@ sidebar: false
 
 Get some **Hands-on Practice** by following along with our workshops.
 
-*Recommended: complete the workshops relevant to your interests and work after reviewing its corresponding guide in [advanced topics](/sections/advanced-topics).*
+*Recommended: complete the workshops relevant to your interests and work after reviewing its corresponding guide in [technologies](/sections/technologies).*
 
 ## FHIR Analysis, CDS and Genomics Workshop
 

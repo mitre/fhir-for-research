@@ -1,3 +1,7 @@
+.navbar, .quarto-dark .navbar {
+  border-bottom: 2px solid #2f4e7a;
+}
+
 .quarto-title-block {
   display: none !important; }
 

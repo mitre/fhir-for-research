@@ -42,11 +42,11 @@ This introduction to FHIR for research explains what FHIR is, what does FHIR dat
 :::
 
 ::: feature
-### Advanced Topics
+### Technologies
 
 SMART on FHIR, Clinical Decision Support Hooks, and other real-world approaches to gathering FHIR data for research purposes.
 
-[Learn more »](sections/advanced-topics.qmd){.learn-more}
+[Learn more »](sections/technologies.qmd){.learn-more}
 :::
 
 ::: feature
