@@ -12,6 +12,8 @@ learning_objectives2:
   - Identify FHIR-related certifications and their associated standards.
 
 reading_time: true
+
+date: 2026-02-19
 ---
 
 The [ONC Health Certification Program](https://healthit.gov/certification-health-it/) includes several certifications for FHIR and related standards. Certified systems are required to support a common set of data and [API](fhir-from-1000-ft.qmd#connecting-systems-together-the-fhir-api) interactions, which can greatly simplify obtaining data from multiple sources provided each source is using certified software.
