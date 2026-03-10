@@ -19,6 +19,8 @@ learning_objectives:
     answer: Benefits include seamless integration with clinical workflows, real-time access to patient data, and standardization across EHR systems. Challenges include ensuring recommendation accuracy, managing alert fatigue, addressing privacy concerns, and validating clinical impact.
 
 reading_time: true
+
+date: 2026-03-10
 ---
 
 ## What are CDS Hooks?
