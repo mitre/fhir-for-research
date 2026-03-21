@@ -77,7 +77,7 @@ In summary, using Bulk FHIR for applications that need to access large amounts o
 
 ## Research Application Using Bulk FHIR
 
-An example of a research initiative leveraging Bulk FHIR is the MULTI-State EHR-Based Network for Disease Surveillance (MENDS). MENDS is a population-based distrubuted data network for national chronic disease surveillance. Originally requiring institution-specific data extraction-transformation-load (ETL) routines, the [MENDS-on-FHIR](https://doi.org/10.1093/jamiaopen/ooae045) effort leveraged standards-based interoperability resources (including Bulk FHIR) to provide an alternative mechanism for sharing large amounts of research data. The project leveraged the US Core FHIR standard and Bulk FHIR to exchange data stored in the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) format, establishing a standards-based ETL pipeline.
+An example of a research initiative leveraging Bulk FHIR is the MULTI-State EHR-Based Network for Disease Surveillance (MENDS). MENDS is a population-based distributed data network for national chronic disease surveillance. Originally requiring institution-specific data extraction-transformation-load (ETL) routines, the [MENDS-on-FHIR](https://doi.org/10.1093/jamiaopen/ooae045) effort leveraged standards-based interoperability resources (including Bulk FHIR) to provide an alternative mechanism for sharing large amounts of research data. The project leveraged the US Core FHIR standard and Bulk FHIR to exchange data stored in the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) format, establishing a standards-based ETL pipeline.
 
 ## References
 

@@ -288,7 +288,7 @@ The [CodeSystem FHIR resource](https://www.hl7.org/fhir/codesystem.html) defines
 -   Publication metadata like a human-readable description, copyright information, and publication date
 -   Properties of the code system, such as concept permanence, case-sensitivity, and if it defines a [compositional grammar](https://www.hl7.org/fhir/codesystem-definitions.html#CodeSystem.compositional).
 
-Here's [an example, ficticious CodeSystem FHIR resource](https://fhir.hl7.org/fhir/codesystem-example.html) from the FHIR specification:
+Here's [an example, fictitious CodeSystem FHIR resource](https://fhir.hl7.org/fhir/codesystem-example.html) from the FHIR specification:
 
 ``` json
 {

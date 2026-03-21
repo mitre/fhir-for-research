@@ -756,7 +756,7 @@ To extend this work in a production environment, you would need to:
 2.  **Implement Authentication**:
     -   Use industry-standard authentication protocols supported by your EHR
 3.  **Update Clinical Knowledge**:
-    -   Store clinical recommendations in a database rather than hardcoded values
+    -   Store clinical recommendations in a database rather than hard-coded values
     -   Establish a regular review cycle with clinical experts
 4.  **Add Robust Error Handling**:
     -   Implement comprehensive exception handling, logging, and monitoring

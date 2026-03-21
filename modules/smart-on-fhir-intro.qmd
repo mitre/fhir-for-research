@@ -43,7 +43,7 @@ SMART on FHIR facilitated [Bulk Data Access](http://hl7.org/fhir/uv/bulkdata/) (
 
 Note, SMART on FHIR used for Bulk Data Access is relatively new and has not yet appeared in peer-reviewed research publications.
 
-### SMART on FHIR app gallary
+### SMART on FHIR app gallery
 
 The [SMART App Gallery](https://apps.smarthealthit.org/apps) lists a number of SMART on FHIR applications, which may provide additional ideas on how SMART on FHIR could be used for research.
 

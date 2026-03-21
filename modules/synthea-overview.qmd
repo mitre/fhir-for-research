@@ -24,7 +24,7 @@ Accessing real healthcare data for research purposes is difficult for many reaso
 
 These factors and more limit what researchers can do with real healthcare data.
 
-**Synthetic data** is an alternative to real healthcare data that avoids these challenges. Synthetic data is artifically generated, by computer or by hand, rather than collected from the real world. When using real healthcare data isn't feasible due to privacy, cost, or other restrictions, synthetic data is a good alternative.
+**Synthetic data** is an alternative to real healthcare data that avoids these challenges. Synthetic data is artificially generated, by computer or by hand, rather than collected from the real world. When using real healthcare data isn't feasible due to privacy, cost, or other restrictions, synthetic data is a good alternative.
 
 ::: callout-tip
 ## Synthetic data is not deidentified data

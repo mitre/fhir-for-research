@@ -77,7 +77,7 @@ Below is a list of studies that used FHIR in some way. These may help you come u
     -   @Jiang_2017b
 -   Environmental health and spatiotemporal data
     -   @Xu_Cox_Stillwell_Pfaff_Champion_Ahalt_Fecho_2020
--   Findable, Accessible, Interoperable, and Resusabe ([FAIR](https://www.go-fair.org/fair-principles/)) data principles
+-   Findable, Accessible, Interoperable, and Reusable ([FAIR](https://www.go-fair.org/fair-principles/)) data principles
     -   @Sinaci_Nunez_2020
 -   Multi-site research
     -   @Garza_2020

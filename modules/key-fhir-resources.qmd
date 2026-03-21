@@ -136,6 +136,16 @@ As shown above, the FHIR core resources are organized into 5 levels:
 -   **Levels 3 and 4** include intuitive FHIR resources information such as `Patient` or `Observation`.
 -   **Level 5** includes abstract FHIR resources such as clinical workflows with the intended use of [Clinical Decision Support](https://www.healthit.gov/topic/safety/clinical-decision-support).
 
+## Maturity
+
+The [Fire Maturity Model (FMM)](https://hl7.org/fhir/versions.html#maturity) describes how mature the definition of a particular FHIR resource type is. Each resource types has a maturity level from FMM 0 (draft) to FMM 6 (normative). As resource types receive more testing and become more stable, their FMM level increases, and in general, resource types with higher FMM levels are more likely to be implemented in real world systems. The FMM level for each resource type is displayed to the right of its name in the resource list, with `N` indicating normative.
+
+::: callout-note
+As of writing (March 2026), the FHIR R6 ballot indicates that the FMM framework may be revised. Once R6 is published, [this page](https://hl7.org/fhir/versions.html) will have any updates to the FMM framework.
+:::
+
+[![A list of FHIR diagnostic resource types with their maturity levels.](images/fmm-levels.png){fig-align="center" fig-alt="Screenshot from the FHIR specification showing diagnostic resource types along with their maturity level which range from 0 to normative."}](https://hl7.org/fhir/resourcelist.html)
+
 ## Representation
 
 A FHIR resource may be encoded in different standard formats like [JSON and XML](https://hl7.org/fhir/formats.html#wire). These formats are used throughout the software industry, not just in healthcare. Using standard formats allows common programming languages and software tools to process FHIR resources.[^2]
@@ -219,7 +229,7 @@ An example of the `Patient.active` element in JSON format would look like:
 ``` javascript
 {
   ...
-  "active": "true",
+  "active": true,
   ...
 }
 ```
@@ -616,13 +626,21 @@ Properly implemented FHIR servers must provide an instance of CapabilityStatemen
 
 :   A problem, diagnosis, or clinical event. It should be the reason for a medical intervention and tie into a larger [clinical workflow](http://hl7.org/fhir/workflow.html). There is some use-case overlap with `Observation`; an IG will provide better guidance.
 
+[MedicationRequest](https://hl7.org/fhir/medicationrequest.html)
+
+:   Orders for medications for a patient. One of [several Medication domain resources](https://hl7.org/fhir/medicationrequest.html#bnr) which cover the workflow of ordering and administering medication.
+
 [Procedure](https://hl7.org/fhir/procedure.html)
 
 :   A medical activity performed on a patient, such as surgery, diagnostic procedures, or therapy. It should be a part of a clinical workflow.
 
-[Practitioner](https://hl7.org/fhir/practitioner.html)
+[AllergyIntolerance](https://hl7.org/fhir/allergyintolerance.html)
 
-:   Any individual providing healthcare or a related service, from physicians to receptionists to service animals.
+:   A record of an allergy or intolerance.
+
+[Practitioner](https://hl7.org/fhir/practitioner.html) / [PractitionerRole](https://www.hl7.org/fhir/practitionerrole.html)
+
+:   Any individual providing healthcare or a related service, from physicians to receptionists to service animals. The `Practitioner` resource contains information on demographics, contact information, and qualifications independent of any organization. `PractitionerRole` includes an individual's particular role within and the services they provide for an organization.
 
 [Organization](https://hl7.org/fhir/organization.html)
 

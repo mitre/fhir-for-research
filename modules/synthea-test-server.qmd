@@ -146,7 +146,7 @@ for file in practitioner*.json
 done
 ```
 
-Finally, load all individual patient files. All patient file names start with a capital letter, unlike the hospital and practioner files above, so we can use that to select just the files that were not already uploaded in the previous two steps.
+Finally, load all individual patient files. All patient file names start with a capital letter, unlike the hospital and practitioner files above, so we can use that to select just the files that were not already uploaded in the previous two steps.
 
 ``` sh
 for file in [A-Z]*.json

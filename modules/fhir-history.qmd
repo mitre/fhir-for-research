@@ -130,4 +130,4 @@ In 2021, ONC provided a [summary of FHIR releases](https://healthit.gov/wp-conte
 > *Note: FHIR R5 was [officially released in March 2023](http://hl7.org/fhir/directory.html). [FHIR R6](https://hl7.org/fhir/6.0.0-ballot4/) is expected to be released in 2026.*
 > :::
 
-The biggest change in the anticipated FHIR R6 release is a movement to broader "normative" status across the specification. This is a term of art in the [techncial standards process](https://build.fhir.org/versions.html), indicating stability.
+The biggest change in the anticipated FHIR R6 release is a movement to broader "normative" status across the specification. This is a term of art in the [technical standards process](https://build.fhir.org/versions.html), indicating stability.

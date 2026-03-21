@@ -30,6 +30,12 @@ GitHub Actions automatically builds commits to the `main` branch to <https://nih
   + Press `Ctrl-c` to close the Quarto web server.
   + Run `docker compose -f fhir-server/docker-compose.yml down` to close the FHIR server.
 
+### Pre-Commit Hooks
+
+Run `uv tool install pre-commit` and then `pre-commit install` to install pre-commit hooks to install:
+
+1. `script/spellcheck.py` (via the `script/spellcheck-precommit.sh` wrapper). To run manually, run `uv run script/spellcheck.py`. To add words to the allowlist, edit `script/wordlist.txt`. This will not catch all misspelled words but it will catch many of them. It only checks `.qmd` files.
+
 ## Running the Local FHIR Server
 
 The local FHIR server is based off the [HAPI FHIR Server](https://hapifhir.io/). It's configured to run at <http://localhost:8080> by default. All the commands below must be run from within the fhir-server folder. This application hooks into the FHIR Server via the `FHIR_SERVER` environment variable set in the \_environment file. Overriding `FHIR_SERVER` will allow this application to compile against another FHIR Server, replacing the FHIR Server URL and queries in the content appropriately, but the new FHIR Server must contain the data in ./fhir-data/ and support all necessary operations.

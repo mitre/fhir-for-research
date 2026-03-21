@@ -87,6 +87,7 @@ Other useful streams to subscribe to include:
 -   [#implementers](https://chat.fhir.org/#narrow/stream/179166-implementers): discussion about implementing FHIR resources
 -   [#analytics on FHIR](https://chat.fhir.org/#narrow/stream/179219-analytics-on-FHIR): useful for those using FHIR interfaces and APIs for data analytics
 -   [#social](https://chat.fhir.org/#narrow/stream/179160-social): general discussion about the FHIR community with the occasional fun update from a community member
+-   [#research](https://chat.fhir.org/#narrow/channel/179290-research): discussion related to the use of FHIR in clinical and pre-clinical research
 
 ### HL7 FHIR Connectathons
 

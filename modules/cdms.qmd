@@ -81,7 +81,7 @@ OMOP uses [OHDSI standardized vocabularies](https://github.com/OHDSI/Vocabulary-
 
 [Sentinel](https://www.sentinelinitiative.org/methods-data-tools/sentinel-common-data-model) is a CDM designed to monitor whether FDA-regulated medical products cause unexpected adverse reactions.
 
-Although FDA-regulated products undergo clinical testing before approval, the testing may miss adverse reactions. This is because the test population may not fully represnt the population that uses the product. To detect and assess adverse events after approval, the FDA created Sentinel in 2007. [See here for more information about the Sentinel data network](https://www.sentinelinitiative.org/about/how-sentinel-gets-its-data).
+Although FDA-regulated products undergo clinical testing before approval, the testing may miss adverse reactions. This is because the test population may not fully represent the population that uses the product. To detect and assess adverse events after approval, the FDA created Sentinel in 2007. [See here for more information about the Sentinel data network](https://www.sentinelinitiative.org/about/how-sentinel-gets-its-data).
 
 ::: {.fancybox-figure data-fancybox="images/cdms_sentinel.png" data-src="images/cdms_sentinel.png" data-caption="Diagram showing the structure of the Sentinel CDM. From <a href='https://www.sentinelinitiative.org/methods-data-tools/sentinel-common-data-model' target='_blank'>https://www.sentinelinitiative.org/methods-data-tools/sentinel-common-data-model</a>"}
 [![Click to enlarge](images/cdms_sentinel.png){fig-alt="Diagram describing the contents of the Sentinel CDM."}](https://www.sentinelinitiative.org/methods-data-tools/sentinel-common-data-model)

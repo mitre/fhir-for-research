@@ -29,7 +29,7 @@ For users who just want to run Synthea, and not make detailed changes to the int
 
 Follow the instructions for [Installation](https://github.com/synthetichealth/synthea/wiki/Basic-Setup-and-Running#installation) and [Running Synthea](https://github.com/synthetichealth/synthea/wiki/Basic-Setup-and-Running#running-syntheatm).
 
-After completeing the setup instructions, you will see an `output` folder alongside the `synthea-with-dependencies.jar`, and a `fhir` folder inside the `output` folder. Inside that `fhir` folder are the FHIR Bundle JSON files that were produced by Synthea. Each Bundle will contain a single Patient resource as the first entry, followed by resources roughly ordered by time.
+After completing the setup instructions, you will see an `output` folder alongside the `synthea-with-dependencies.jar`, and a `fhir` folder inside the `output` folder. Inside that `fhir` folder are the FHIR Bundle JSON files that were produced by Synthea. Each Bundle will contain a single Patient resource as the first entry, followed by resources roughly ordered by time.
 
 You can review these files in your text editor of choice, or the Synthea team has made an online tool for quickly reviewing the content of a Synthea-generated Bundle. Simply visit the Synthea Toolkit at <https://synthetichealth.github.io/spt/#/record_viewer> and drag & drop a patient file onto the page to load it.
 
@@ -47,7 +47,7 @@ Synthea includes a variety of command-line arguments and configuration options t
 
 ### Command line arguments
 
-Synthea includes a number of settings that can be toggled from the command line. All command line arguments are optional, and if not specified the settings have sensible defaults. Most arguments start with a hyphen and a letter, usually followed by a space and then the desired value for that setting. The first argument that does not start with a hyphen is selected as the US state to generate a population for. The last argument that does not start with a hyphen is selected as the city within the selected state to generate the popualtion for.
+Synthea includes a number of settings that can be toggled from the command line. All command line arguments are optional, and if not specified the settings have sensible defaults. Most arguments start with a hyphen and a letter, usually followed by a space and then the desired value for that setting. The first argument that does not start with a hyphen is selected as the US state to generate a population for. The last argument that does not start with a hyphen is selected as the city within the selected state to generate the population for.
 
 The most common command line arguments are:
 
