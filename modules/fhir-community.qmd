@@ -109,8 +109,10 @@ In addition to developing the FHIR standard, [HL7](https://hl7.org) has a [FHIR 
 
 FHIR Accelerators drive adoption of FHIR for specific use cases, including:
 
+-   [Argonauts](https://www.fhir.org/guides/argonaut/): EHR vendor-led organization establishing EHR API specifications
+-   [CARIN Alliance](https://www.carinalliance.com/): Consumer-facing use cases
 -   [CodeX](https://www.hl7.org/codex/): Standardizing cancer data
--   [Da Vinci](https://www.hl7.org/about/davinci/): Establishing a process for addressing value-based care delivery
+-   [Da Vinci](https://www.hl7.org/about/davinci/): Establishing a process for addressing payer use cases and value-based care delivery
 -   [Gravity](https://www.hl7.org/gravity/): Standardizing social determinants of health
 -   [Helios](https://www.hl7.org/helios/): Obtaining data for public health via FHIR
 -   [Vulcan](https://www.hl7.org/vulcan/): Obtaining data for research via FHIR
@@ -181,13 +183,15 @@ The significance of the balloting process and ballot levels for researchers is d
 
 Balloting is managed through HL7's [Jira Ballot Process](https://confluence.hl7.org/display/HL7/Jira+Ballot+Process), which provides a way to manage comments and record the votes of balloters.
 
-### Benefits of the HL7 balloting process
+### Considerations for the HL7 balloting process
 
 There are several benefits of balloting an IG through HL7, including **visibility, implementation, and reusability**:
 
 -   **Visibility**: developing projects are socialized early and often throughout the balloting process, so many stakeholders within the HL7 community are aware of them.
 -   **Implementation**: greater visibility prevents standards from being developed in isolation. Successful implementation is more likely since there are many opportunities for the potential future implementers to offer input throughout the balloting process.
 -   **Reusability**: the combination of visibility and successful implementation supports reusability of the profiles within an IG, which is beneficial for the standards development process. Reusing existing IG content is conducive to interoperability.
+
+There are also a number of factors to remember when choosing to ballot with HL7: - **Complexity**: the ballot schedule requires careful planning to ensure milestones are met and ballots are not delayed. This can be daunting for newcomers. - **Time**: The HL7 balloting timeline is fixed. New implementation guides must be proposed \~7 months ahead of time, updates to existing ballots must be filed \~2 months ahead of time. - **Reconciliation**: Once you have successfully balloted your implementation guide, you will need to reconcile any negative feedback received before publishing. This process can take months, and up to a year depending on the complexity and amount of feedback received.
 
 ### Is balloting through HL7 a requirement for developing a FHIR IG?
 

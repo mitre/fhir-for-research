@@ -44,13 +44,13 @@ Fast Healthcare Interoperability Resources (FHIR) is one of the key technologies
 
 > The ability of different information systems, devices and applications (systems) to access, exchange, integrate and cooperatively use data in a coordinated manner, within and across organizational, regional and national boundaries, to provide timely and seamless portability of information and optimize the health of individuals and populations globally.
 
-[Assistant Secretary for Technology Policy (ASTP, formerly known as the Office of the National Coordinator, or ONC)](https://www.healthit.gov/)[^2] [describes the importance of interoperability](https://www.healthit.gov/topic/interoperability):
+[ONC](https://www.healthit.gov/)[^2] [describes the importance of interoperability](https://www.healthit.gov/topic/interoperability):
 
 [^2]: ONC is [The Office of the National Coordinator for Health Information Technology](https://www.healthit.gov/).
 
     From [their website](https://healthit.gov/about/):
 
-    > ASTP/ONC is the principal federal entity charged with coordination of nationwide efforts to implement and use the most advanced health information technology and the electronic exchange of health information.
+    > ONC is the principal federal entity charged with coordination of nationwide efforts to implement and use the most advanced health information technology and the electronic exchange of health information.
 
 > Interoperability helps clinicians deliver safe, effective, patient-centered care. It also provides new ways for individuals and caregivers to access electronic health information to manage and coordinate care. Advancing interoperability is now an essential part of most health care activities.
 
