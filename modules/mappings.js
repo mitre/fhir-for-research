@@ -33,73 +33,78 @@ const role_module_map = [
         "text": "Terminology and FHIR"
       },
       {
-        "slug": "modules/fhir-community",
+        "slug": "modules/fhir-specification",
         "position": 6,
+        "text": "The FHIR Specification"
+      },
+      {
+        "slug": "modules/fhir-community",
+        "position": 7,
         "text": "FHIR Community & Resources"
       },
       {
         "slug": "modules/cdms",
-        "position": 7,
+        "position": 8,
         "text": "Common Data Models"
       },
       {
         "slug": "modules/data-modeling-reading-igs",
-        "position": 9,
+        "position": 10,
         "text": "Reading FHIR Implementation Guides"
       },
       {
         "slug": "modules/data-modeling-real-world-igs",
-        "position": 10,
+        "position": 11,
         "text": "Real World Implementation Guides"
       },
       {
         "slug": "modules/data-modeling-writing-igs",
-        "position": 11,
+        "position": 12,
         "text": "Writing FHIR Implementation Guides"
       },
       {
         "slug": "modules/new-smart-on-fhir-intro",
-        "position": 14,
+        "position": 15,
         "text": "SMART on FHIR"
       },
       {
         "slug": "modules/new-cds-hooks-intro",
-        "position": 16,
+        "position": 17,
         "text": "CDS Hooks"
       },
       {
         "slug": "modules/new-cds-hooks-types",
-        "position": 17,
+        "position": 18,
         "text": "Types of CDS Hooks"
       },
       {
         "slug": "modules/redcap-intro",
-        "position": 19,
+        "position": 20,
         "text": "Introduction to REDCap"
       },
       {
         "slug": "modules/synthea-overview",
-        "position": 21,
+        "position": 22,
         "text": "Synthea Synthetic Data Overview"
       },
       {
         "slug": "modules/synthea-running",
-        "position": 22,
+        "position": 23,
         "text": "Running Synthea"
       },
       {
         "slug": "modules/new-bulk-fhir",
-        "position": 24,
+        "position": 25,
         "text": "Bulk Data Access"
       },
       {
         "slug": "modules/fhir-emerging-innovations",
-        "position": 26,
+        "position": 27,
         "text": "Emerging Innovations"
       },
       {
         "slug": "modules/fhir-research",
-        "position": 27,
+        "position": 28,
         "text": "Real World Research Using FHIR"
       }
     ]
@@ -138,118 +143,123 @@ const role_module_map = [
         "text": "Terminology and FHIR"
       },
       {
-        "slug": "modules/fhir-community",
+        "slug": "modules/fhir-specification",
         "position": 6,
+        "text": "The FHIR Specification"
+      },
+      {
+        "slug": "modules/fhir-community",
+        "position": 7,
         "text": "FHIR Community & Resources"
       },
       {
         "slug": "modules/cdms",
-        "position": 7,
+        "position": 8,
         "text": "Common Data Models"
       },
       {
         "slug": "modules/fhir-versions",
-        "position": 8,
+        "position": 9,
         "text": "FHIR Versions"
       },
       {
         "slug": "modules/data-modeling-reading-igs",
-        "position": 9,
+        "position": 10,
         "text": "Reading FHIR Implementation Guides"
       },
       {
         "slug": "modules/data-modeling-real-world-igs",
-        "position": 10,
+        "position": 11,
         "text": "Real World Implementation Guides"
       },
       {
         "slug": "modules/data-modeling-writing-igs",
-        "position": 11,
+        "position": 12,
         "text": "Writing FHIR Implementation Guides"
       },
       {
         "slug": "modules/fhir-accessing-data",
-        "position": 12,
+        "position": 13,
         "text": "Using the FHIR API to Access Data"
       },
       {
         "slug": "modules/new-smart-on-fhir-intro",
-        "position": 14,
+        "position": 15,
         "text": "SMART on FHIR"
       },
       {
         "slug": "modules/new-cds-hooks-intro",
-        "position": 16,
+        "position": 17,
         "text": "CDS Hooks"
       },
       {
         "slug": "modules/new-cds-hooks-types",
-        "position": 17,
+        "position": 18,
         "text": "Types of CDS Hooks"
       },
       {
         "slug": "modules/redcap-intro",
-        "position": 19,
+        "position": 20,
         "text": "Introduction to REDCap"
       },
       {
         "slug": "modules/redcap-fhir",
-        "position": 20,
+        "position": 21,
         "text": "REDCap on FHIR"
       },
       {
         "slug": "modules/synthea-overview",
-        "position": 21,
+        "position": 22,
         "text": "Synthea Synthetic Data Overview"
       },
       {
         "slug": "modules/synthea-running",
-        "position": 22,
+        "position": 23,
         "text": "Running Synthea"
       },
       {
         "slug": "modules/synthea-customizing",
-        "position": 23,
+        "position": 24,
         "text": "Customizing Synthea Data"
       },
       {
         "slug": "modules/new-bulk-fhir",
-        "position": 24,
+        "position": 25,
         "text": "Bulk Data Access"
       },
       {
         "slug": "webinars/bulk-data/index",
-        "position": 25,
+        "position": 26,
         "text": "FHIR Bulk Data Webinar"
       },
       {
         "slug": "modules/fhir-emerging-innovations",
-        "position": 26,
+        "position": 27,
         "text": "Emerging Innovations"
       },
       {
         "slug": "modules/fhir-research",
-        "position": 27,
+        "position": 28,
         "text": "Real World Research Using FHIR"
       },
       {
         "slug": "modules/genomics",
-        "position": 28,
+        "position": 29,
         "text": "Genomics Data Standardization with FHIR"
       },
       {
         "slug": "workshops/bulk-data/index",
-        "position": 33,
+        "position": 34,
         "text": "FHIR Bulk Data Workshop"
       },
       {
         "slug": "modules/synthea-test-server",
-        "position": 35,
+        "position": 36,
         "text": "Standing up a FHIR Testing Server"
       },
       {
         "slug": "modules/synthetic-data",
-        "position": 36,
+        "position": 37,
         "text": "Synthetic Data"
       }
     ]
@@ -283,93 +293,98 @@ const role_module_map = [
         "text": "Terminology and FHIR"
       },
       {
-        "slug": "modules/fhir-community",
+        "slug": "modules/fhir-specification",
         "position": 6,
+        "text": "The FHIR Specification"
+      },
+      {
+        "slug": "modules/fhir-community",
+        "position": 7,
         "text": "FHIR Community & Resources"
       },
       {
         "slug": "modules/cdms",
-        "position": 7,
+        "position": 8,
         "text": "Common Data Models"
       },
       {
         "slug": "modules/data-modeling-reading-igs",
-        "position": 9,
+        "position": 10,
         "text": "Reading FHIR Implementation Guides"
       },
       {
         "slug": "modules/data-modeling-real-world-igs",
-        "position": 10,
+        "position": 11,
         "text": "Real World Implementation Guides"
       },
       {
         "slug": "modules/data-modeling-writing-igs",
-        "position": 11,
+        "position": 12,
         "text": "Writing FHIR Implementation Guides"
       },
       {
         "slug": "modules/new-smart-on-fhir-intro",
-        "position": 14,
+        "position": 15,
         "text": "SMART on FHIR"
       },
       {
         "slug": "modules/new-cds-hooks-intro",
-        "position": 16,
+        "position": 17,
         "text": "CDS Hooks"
       },
       {
         "slug": "modules/new-cds-hooks-types",
-        "position": 17,
+        "position": 18,
         "text": "Types of CDS Hooks"
       },
       {
         "slug": "modules/redcap-intro",
-        "position": 19,
+        "position": 20,
         "text": "Introduction to REDCap"
       },
       {
         "slug": "modules/redcap-fhir",
-        "position": 20,
+        "position": 21,
         "text": "REDCap on FHIR"
       },
       {
         "slug": "modules/synthea-overview",
-        "position": 21,
+        "position": 22,
         "text": "Synthea Synthetic Data Overview"
       },
       {
         "slug": "modules/synthea-running",
-        "position": 22,
+        "position": 23,
         "text": "Running Synthea"
       },
       {
         "slug": "modules/synthea-customizing",
-        "position": 23,
+        "position": 24,
         "text": "Customizing Synthea Data"
       },
       {
         "slug": "modules/new-bulk-fhir",
-        "position": 24,
+        "position": 25,
         "text": "Bulk Data Access"
       },
       {
         "slug": "webinars/bulk-data/index",
-        "position": 25,
+        "position": 26,
         "text": "FHIR Bulk Data Webinar"
       },
       {
         "slug": "modules/fhir-emerging-innovations",
-        "position": 26,
+        "position": 27,
         "text": "Emerging Innovations"
       },
       {
         "slug": "modules/fhir-research",
-        "position": 27,
+        "position": 28,
         "text": "Real World Research Using FHIR"
       },
       {
         "slug": "modules/genomics",
-        "position": 28,
+        "position": 29,
         "text": "Genomics Data Standardization with FHIR"
       }
     ]
@@ -394,47 +409,47 @@ const role_module_map = [
       },
       {
         "slug": "modules/cdms",
-        "position": 7,
+        "position": 8,
         "text": "Common Data Models"
       },
       {
         "slug": "modules/new-smart-on-fhir-intro",
-        "position": 14,
+        "position": 15,
         "text": "SMART on FHIR"
       },
       {
         "slug": "modules/new-cds-hooks-intro",
-        "position": 16,
+        "position": 17,
         "text": "CDS Hooks"
       },
       {
         "slug": "modules/redcap-intro",
-        "position": 19,
+        "position": 20,
         "text": "Introduction to REDCap"
       },
       {
         "slug": "modules/redcap-fhir",
-        "position": 20,
+        "position": 21,
         "text": "REDCap on FHIR"
       },
       {
         "slug": "modules/new-bulk-fhir",
-        "position": 24,
+        "position": 25,
         "text": "Bulk Data Access"
       },
       {
         "slug": "webinars/bulk-data/index",
-        "position": 25,
+        "position": 26,
         "text": "FHIR Bulk Data Webinar"
       },
       {
         "slug": "modules/fhir-emerging-innovations",
-        "position": 26,
+        "position": 27,
         "text": "Emerging Innovations"
       },
       {
         "slug": "modules/fhir-research",
-        "position": 27,
+        "position": 28,
         "text": "Real World Research Using FHIR"
       }
     ]
@@ -473,118 +488,123 @@ const role_module_map = [
         "text": "Terminology and FHIR"
       },
       {
-        "slug": "modules/fhir-community",
+        "slug": "modules/fhir-specification",
         "position": 6,
+        "text": "The FHIR Specification"
+      },
+      {
+        "slug": "modules/fhir-community",
+        "position": 7,
         "text": "FHIR Community & Resources"
       },
       {
         "slug": "modules/cdms",
-        "position": 7,
+        "position": 8,
         "text": "Common Data Models"
       },
       {
         "slug": "modules/fhir-versions",
-        "position": 8,
+        "position": 9,
         "text": "FHIR Versions"
       },
       {
         "slug": "modules/data-modeling-reading-igs",
-        "position": 9,
+        "position": 10,
         "text": "Reading FHIR Implementation Guides"
       },
       {
         "slug": "modules/data-modeling-real-world-igs",
-        "position": 10,
+        "position": 11,
         "text": "Real World Implementation Guides"
       },
       {
         "slug": "modules/fhir-accessing-data",
-        "position": 12,
+        "position": 13,
         "text": "Using the FHIR API to Access Data"
       },
       {
         "slug": "modules/new-smart-on-fhir-intro",
-        "position": 14,
+        "position": 15,
         "text": "SMART on FHIR"
       },
       {
         "slug": "modules/new-smart-on-fhir-tech",
-        "position": 15,
+        "position": 16,
         "text": "Technical Details"
       },
       {
         "slug": "modules/new-cds-hooks-intro",
-        "position": 16,
+        "position": 17,
         "text": "CDS Hooks"
       },
       {
         "slug": "modules/new-cds-hooks-types",
-        "position": 17,
+        "position": 18,
         "text": "Types of CDS Hooks"
       },
       {
         "slug": "modules/new-cds-hooks-tech",
-        "position": 18,
+        "position": 19,
         "text": "CDS Hooks Technical Example"
       },
       {
         "slug": "modules/redcap-intro",
-        "position": 19,
+        "position": 20,
         "text": "Introduction to REDCap"
       },
       {
         "slug": "modules/redcap-fhir",
-        "position": 20,
+        "position": 21,
         "text": "REDCap on FHIR"
       },
       {
         "slug": "modules/synthea-overview",
-        "position": 21,
+        "position": 22,
         "text": "Synthea Synthetic Data Overview"
       },
       {
         "slug": "modules/synthea-running",
-        "position": 22,
+        "position": 23,
         "text": "Running Synthea"
       },
       {
         "slug": "modules/synthea-customizing",
-        "position": 23,
+        "position": 24,
         "text": "Customizing Synthea Data"
       },
       {
         "slug": "modules/new-bulk-fhir",
-        "position": 24,
+        "position": 25,
         "text": "Bulk Data Access"
       },
       {
         "slug": "webinars/bulk-data/index",
-        "position": 25,
+        "position": 26,
         "text": "FHIR Bulk Data Webinar"
       },
       {
         "slug": "modules/fhir-emerging-innovations",
-        "position": 26,
+        "position": 27,
         "text": "Emerging Innovations"
       },
       {
         "slug": "modules/fhir-research",
-        "position": 27,
+        "position": 28,
         "text": "Real World Research Using FHIR"
       },
       {
         "slug": "workshops/bulk-data/index",
-        "position": 33,
+        "position": 34,
         "text": "FHIR Bulk Data Workshop"
       },
       {
         "slug": "modules/synthea-test-server",
-        "position": 35,
+        "position": 36,
         "text": "Standing up a FHIR Testing Server"
       },
       {
         "slug": "modules/synthetic-data",
-        "position": 36,
+        "position": 37,
         "text": "Synthetic Data"
       }
     ]

@@ -5,7 +5,6 @@ repos:
         name: Spell check .qmd files
         entry: script/spellcheck-precommit.sh --files
         language: system
-        types: [file]
         files: \.qmd$
       - id: module-date-check
         name: Ensure module files have date in frontmatter

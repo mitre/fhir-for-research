@@ -138,7 +138,7 @@ As shown above, the FHIR core resources are organized into 5 levels:
 
 ## Maturity
 
-The [Fire Maturity Model (FMM)](https://hl7.org/fhir/versions.html#maturity) describes how mature the definition of a particular FHIR resource type is. Each resource types has a maturity level from FMM 0 (draft) to FMM 6 (normative). As resource types receive more testing and become more stable, their FMM level increases, and in general, resource types with higher FMM levels are more likely to be implemented in real world systems. The FMM level for each resource type is displayed to the right of its name in the resource list, with `N` indicating normative.
+The [FHIR Maturity Model (FMM)](https://hl7.org/fhir/versions.html#maturity) describes how mature the definition of a particular FHIR resource type is. Each resource types has a maturity level from FMM 0 (draft) to FMM 6 (normative). As resource types receive more testing and become more stable, their FMM level increases, and in general, resource types with higher FMM levels are more likely to be implemented in real world systems. The FMM level for each resource type is displayed to the right of its name in the resource list, with `N` indicating normative.
 
 ::: callout-note
 As of writing (March 2026), the FHIR R6 ballot indicates that the FMM framework may be revised. Once R6 is published, [this page](https://hl7.org/fhir/versions.html) will have any updates to the FMM framework.

@@ -25,15 +25,16 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 
 -   [Key FHIR Resources](/modules/key-fhir-resources.qmd)
 -   [Terminology Introduction](/modules/terminology.qmd)
+-   [The FHIR Specification](/modules/fhir-specification.qmd)
 -   [The FHIR Community & Documentation](/modules/fhir-community.qmd)
 -   [Common Data Models & FHIR](/modules/cdms.qmd)
 -   [FHIR Versions](/modules/fhir-versions.qmd)
 
 ## How to Interpret FHIR guides
 
--   [Reading a FHIR specification](/modules/data-modeling-reading-igs.qmd)
--   [Real world FHIR specifications](/modules/data-modeling-real-world-igs.qmd)
--   [Writing a FHIR specification](/modules/data-modeling-writing-igs.qmd)
+-   [Reading a FHIR IG](/modules/data-modeling-reading-igs.qmd)
+-   [Real world FHIR IGs](/modules/data-modeling-real-world-igs.qmd)
+-   [Writing a FHIR IG](/modules/data-modeling-writing-igs.qmd)
 
 ## How to use FHIR
 

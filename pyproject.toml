@@ -3,7 +3,7 @@ name = "fhir-for-research"
 version = "0.1.0"
 description = "A Quarto website for training researchers on FHIR"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.13"
 dependencies = [
     "datetime>=5.5",
     "fhir-pyrate>=0.2.1",

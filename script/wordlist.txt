@@ -222,6 +222,7 @@ visualise
 walkthrough
 webinar
 webinars
+websocket
 weren
 workflow
 workflows

@@ -69,6 +69,7 @@ website:
                 - file: modules/key-fhir-resources.qmd
                   text: Key FHIR Resources
                 - modules/terminology.qmd
+                - modules/fhir-specification.qmd
                 - file: modules/fhir-community.qmd
                   text: FHIR Community & Documentation
                 - modules/cdms.qmd
