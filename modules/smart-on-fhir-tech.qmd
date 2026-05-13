@@ -9,6 +9,9 @@ bibliography: ../bibliography.bib
 reading_time: true
 
 date: 2026-05-13
+
+aliases:
+  - new-smart-on-fhir-tech.html
 ---
 
 This module is meant for technical users who would like to start working hands-on with SMART on FHIR. Read the [SMART on FHIR Introduction](smart-on-fhir-intro.qmd) before continuing.
@@ -259,7 +262,7 @@ You should see the following happen:
 
 Here's a visual diagram of the process that occurs when you launch your example application with `launch.smarthealthit.org`:
 
-::: {#mermaidImageOld .mermaid-lightbox data-caption="Diagram showing the workflow for a SMART on FHIR EHR launch"}
+::: {#mermaidImage .mermaid-lightbox data-caption="Diagram showing the workflow for a SMART on FHIR EHR launch"}
 ```{mermaid}
 sequenceDiagram
     accTitle: Diagram showing the workflow for a SMART on FHIR EHR launch

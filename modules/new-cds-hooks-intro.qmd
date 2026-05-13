@@ -27,7 +27,7 @@ date: 2026-03-10
 
 [CDS Hooks](https://cds-hooks.org/) are a way to deliver real-time Clinical Decision Support (CDS) within an Electronic Health Record (EHR) system. They allow applications to trigger specific actions or provide guidance to healthcare providers based on patient data and clinical context. CDS Hooks work by “hooking” into various points in a clinician’s workflow, providing relevant decision support at the right time within existing clinical workflows.
 
-CDS Hooks are a feature within the HL7 [FHIR](fhir-from-10000-ft.qmd) standard, and is designed to be easily used with FHIR and [SMART on FHIR](new-smart-on-fhir-intro.qmd).
+CDS Hooks are a feature within the HL7 [FHIR](fhir-from-10000-ft.qmd) standard, and is designed to be easily used with FHIR and [SMART on FHIR](smart-on-fhir-intro.qmd).
 
 ## How CDS Hooks Work
 

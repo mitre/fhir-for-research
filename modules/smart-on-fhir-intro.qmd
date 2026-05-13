@@ -17,6 +17,9 @@ learning_objectives:
 reading_time: true
 
 date: 2026-05-13
+
+aliases:
+  - new-smart-on-fhir-intro.html
 ---
 
 Health information systems such as Electronic Health Record (EHR) systems contain data useful to a wide variety of healthcare applications, but they often lack the support for developing sophisticated applications which can use that data. Third-party application developers need a solution which allows healthcare applications to securely integrate and exchange data with these systems. [SMART on FHIR](https://smarthealthit.org)[^1] was introduced in 2016 "to enable medical applications to be written once and run unmodified across different healthcare IT systems." [@Mandel_Kreda_Mandl_Kohane_Ramoni_2016]
@@ -110,6 +113,8 @@ The standard includes ways for the third-party application to get contextual inf
 
 -   @thiess2022 provides more details on how CDS Hooks can be integrated with an EHR and a SMART on FHIR application.
 
+-   The [CDS Hooks module on this website](new-cds-hooks-intro.qmd).
+
 ## Implementation considerations
 
 If you have a research use case that is a good fit with SMART on FHIR, you will likely work with a software engineer and your institution's IT experts to investigate integrating with the relevant EHR(s). If your institution has staff with experience integrating SMART on FHIR applications, consult with them early when developing your research approach.
@@ -122,7 +127,7 @@ Integrating SMART on FHIR backend applications with EHRs is often less complex t
 
 Consider security and privacy early when developing your research approach. Take steps to ensure proper data storage and access as you would with any software that handles sensitive data. Patient data should not be stored or exchanged with additional services outside of the program or application, such cloud-based computing, storage or AI services unless explicitly authorized by your organization, and accredited to handle sensitive data.
 
-In addition to [IRB](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4631034/) approval, you may need approval related to privacy and information security. If your institution has not worked with SMART on FHIR before, it may not have a well-defined process for getting the appropriate approvals. In this case, it may be helpful to identify researchers from other institutions who have used SMART on FHIR in a similar context, and cite their work to demonstrate prior successful use of this technology when discussing with the IRB and decision-makers at your institution.
+Also, consider security and privacy early when developing your research approach. Take steps to ensure proper data storage and access as you would with any software that handles sensitive data. In addition to [IRB](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4631034/) approval, you may need approval related to privacy and information security. If your institution has not worked with SMART on FHIR before, it may not have a well-defined process for getting the appropriate approvals. In this case, it may be helpful to identify researchers from other institutions who have used SMART on FHIR in a similar context, and cite their work to demonstrate prior successful use of this technology when discussing with the IRB and decision-makers at your institution.
 
 ### Data Access and Performance
 

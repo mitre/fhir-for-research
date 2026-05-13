@@ -10,10 +10,10 @@ project:
     - "!script/"
 
   preview:
-    watch-inputs: true      # Only rebuild when inputs change
-    navigate: true          # Navigate without full reloads
-    port: 1414              # Fixed port avoids re‑starts
-    browser: false          # Don’t auto‑open browser each time
+    watch-inputs: true # Only rebuild when inputs change
+    navigate: true # Navigate without full reloads
+    port: 1414 # Fixed port avoids re‑starts
+    browser: false # Don’t auto‑open browser each time
 
 csl: ieee.csl
 
@@ -37,14 +37,12 @@ website:
       - text: Hosting Your Own Workshop
         file: sections/hosting-your-own-workshop.qmd
 
-
     right:
       - href: contribute.qmd
         text: Questions & Contributions
       - icon: github
         href: https://github.com/NIH-ODSS/fhir-for-research
         aria-label: View the GitHub repository for this site
-
 
   sidebar:
     - id: Introduction
@@ -99,9 +97,9 @@ website:
           text: Technologies
         - section: "SMART on FHIR"
           contents:
-            - file: modules/new-smart-on-fhir-intro.qmd
+            - file: modules/smart-on-fhir-intro.qmd
               text: "Introduction"
-            - file: modules/new-smart-on-fhir-tech.qmd
+            - file: modules/smart-on-fhir-tech.qmd
               text: "Technical Details"
         - section: "CDS Hooks"
           contents:
@@ -173,18 +171,17 @@ website:
       contents:
         - section: Hosting Your Own Workshop
           contents:
-          - file: webinars/workshop-recommendations/index.qmd
-            text: "Recommendations for Conducting Workshops"
-          - file: modules/synthea-test-server.qmd
-            text: "FHIR Server Setup"
-          - file: modules/synthetic-data.qmd
-            text: "Synthetic Data"
+            - file: webinars/workshop-recommendations/index.qmd
+              text: "Recommendations for Conducting Workshops"
+            - file: modules/synthea-test-server.qmd
+              text: "FHIR Server Setup"
+            - file: modules/synthetic-data.qmd
+              text: "Synthetic Data"
 
   page-footer: |
     &copy; <span id="current-year"></span> The MITRE Corporation / <a href="https://github.com/NIH-ODSS/fhir-for-research/?tab=readme-ov-file#license">License information</a><br>Approved for Public Release / Case #25-3098<br><br>HL7® and FHIR® are the registered trademarks of <a href="https://hl7.org">Health Level Seven International (HL7)</a>.<br>Use of the HL7 and FHIR trademarks does not constitute an HL7 endorsement of this website.
 
   page-navigation: true
-
 
 format:
   html:
@@ -192,7 +189,7 @@ format:
       - lua/modules-flag.lua
     theme:
       light: [cosmo, custom.scss]
-      dark: [darkly, custom.scss]      
+      dark: [darkly, custom.scss]
     highlight-style: a11y
     css: styles.css
     toc: true
