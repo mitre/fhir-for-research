@@ -7,6 +7,8 @@ roles:
 bibliography: ../bibliography.bib
 
 reading_time: true
+
+date: 2026-05-13
 ---
 
 This module is meant for technical users who would like to start working hands-on with SMART on FHIR. Read the [SMART on FHIR Introduction](smart-on-fhir-intro.qmd) before continuing.
@@ -37,11 +39,11 @@ Open-source libraries exist in many programming languages to help developers wor
 >
 > -   [Python](http://docs.smarthealthit.org/client-py/): Server-side Python library with support for SMART App Launch
 >
-> -   [R](https://github.com/FirelyTeam/RonFHIR)
+> -   [R](https://github.com/FirelyTeam/RonFHIR): R on FHIR client by Firely
 >
-> -   [Ruby](https://github.com/fhir-crucible/fhir_client)
+> -   [Ruby](https://github.com/fhir-crucible/fhir_client): Ruby FHIR client
 >
-> -   [Swift (iOS)](https://github.com/smart-on-fhir/Swift-SMART)
+> -   [Swift (iOS)](https://github.com/smart-on-fhir/Swift-SMART): Swift iOS FHIR client
 >
 > -   [Java](https://mvnrepository.com/artifact/org.hspconsortium.client/hspc-java-client)
 >
