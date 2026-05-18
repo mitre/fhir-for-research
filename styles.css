@@ -199,3 +199,48 @@ main.content > header + ul, main.content > header + ol, main.content > header + 
   margin-bottom: 1em;
   color: green;
 }
+
+/* CQL syntax */
+
+.cql-code {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.4rem;
+  overflow-x: auto;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  padding: 0.6rem;
+  margin: 1rem 0;
+}
+
+.cql-code code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: inherit;
+}
+
+.cql-keyword {
+  font-weight: 700;
+  color: #003f8c;
+}
+
+.cql-string {
+  color: #7a3e00;
+}
+
+.cql-identifier {
+  color: #5a1a78;
+}
+
+.cql-type {
+  color: #005a5a;
+  font-weight: 600;
+}
+
+.cql-number {
+  color: #8a4600;
+}
+
+.cql-operator {
+  color: #333;
+  font-weight: 700;
+}

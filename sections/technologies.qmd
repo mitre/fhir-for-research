@@ -29,6 +29,10 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 -   [Types of CDS Hooks](/modules/new-cds-hooks-types.qmd)
 -   [Technical Example](/modules/new-cds-hooks-tech.qmd)
 
+## Clinical Quality Language
+
+-   [Introduction](/modules/clinical-quality-language-intro.qmd)
+
 ## REDCap
 
 -   [Introduction](/modules/redcap-intro.qmd)

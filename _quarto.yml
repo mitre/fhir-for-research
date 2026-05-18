@@ -109,6 +109,10 @@ website:
               text: "Types of CDS Hooks"
             - file: modules/new-cds-hooks-tech.qmd
               text: "Technical Example"
+        - section: "Clinical Quality Language"
+          contents:
+            - file: modules/clinical-quality-language-intro.qmd
+              text: "Introduction"
         - section: "REDCap"
           contents:
             - file: modules/redcap-intro.qmd

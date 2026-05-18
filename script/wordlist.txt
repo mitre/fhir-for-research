@@ -230,3 +230,4 @@ workgroups
 yrate
 zulip
 codeable
+cql
