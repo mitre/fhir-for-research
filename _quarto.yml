@@ -103,11 +103,11 @@ website:
               text: "Technical Details"
         - section: "CDS Hooks"
           contents:
-            - file: modules/new-cds-hooks-intro.qmd
+            - file: modules/cds-hooks-intro.qmd
               text: "Introduction"
-            - file: modules/new-cds-hooks-types.qmd
+            - file: modules/cds-hooks-types.qmd
               text: "Types of CDS Hooks"
-            - file: modules/new-cds-hooks-tech.qmd
+            - file: modules/cds-hooks-tech.qmd
               text: "Technical Example"
         - section: "Clinical Quality Language"
           contents:

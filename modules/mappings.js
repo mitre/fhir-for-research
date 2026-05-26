@@ -68,12 +68,7 @@ const role_module_map = [
         "text": "Introduction"
       },
       {
-        "slug": "modules/new-cds-hooks-intro",
-        "position": 17,
-        "text": "CDS Hooks"
-      },
-      {
-        "slug": "modules/new-cds-hooks-types",
+        "slug": "modules/cds-hooks-types",
         "position": 18,
         "text": "Types of CDS Hooks"
       },
@@ -193,12 +188,7 @@ const role_module_map = [
         "text": "Introduction"
       },
       {
-        "slug": "modules/new-cds-hooks-intro",
-        "position": 17,
-        "text": "CDS Hooks"
-      },
-      {
-        "slug": "modules/new-cds-hooks-types",
+        "slug": "modules/cds-hooks-types",
         "position": 18,
         "text": "Types of CDS Hooks"
       },
@@ -338,12 +328,7 @@ const role_module_map = [
         "text": "Introduction"
       },
       {
-        "slug": "modules/new-cds-hooks-intro",
-        "position": 17,
-        "text": "CDS Hooks"
-      },
-      {
-        "slug": "modules/new-cds-hooks-types",
+        "slug": "modules/cds-hooks-types",
         "position": 18,
         "text": "Types of CDS Hooks"
       },
@@ -431,11 +416,6 @@ const role_module_map = [
         "slug": "modules/smart-on-fhir-intro",
         "position": 15,
         "text": "Introduction"
-      },
-      {
-        "slug": "modules/new-cds-hooks-intro",
-        "position": 17,
-        "text": "CDS Hooks"
       },
       {
         "slug": "modules/clinical-quality-language-intro",
@@ -553,17 +533,12 @@ const role_module_map = [
         "text": "Technical Details"
       },
       {
-        "slug": "modules/new-cds-hooks-intro",
-        "position": 17,
-        "text": "CDS Hooks"
-      },
-      {
-        "slug": "modules/new-cds-hooks-types",
+        "slug": "modules/cds-hooks-types",
         "position": 18,
         "text": "Types of CDS Hooks"
       },
       {
-        "slug": "modules/new-cds-hooks-tech",
+        "slug": "modules/cds-hooks-tech",
         "position": 19,
         "text": "CDS Hooks Technical Example"
       },

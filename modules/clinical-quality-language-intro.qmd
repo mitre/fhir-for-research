@@ -61,7 +61,7 @@ In addition, the [Questionnaire](https://hl7.org/fhir/questionnaire.html) resour
 
 ### SMART on FHIR and CDS Hooks
 
-While the CQL specification defines a standard representation for clinical logic, it does not define how the results of that logic should be presented to users or delivered to systems. Instead, standards such as [SMART on FHIR](smart-on-fhir-intro.qmd) and [CDS Hooks](new-cds-hooks-intro.qmd) are used to present and exchange clinical logic results and CDS suggestions. SMART on FHIR and CDS Hooks implementations often _do_ perform logical operations on clinical data, but they operate as _black boxes_; these standards define how data goes in and out of the systems, but they do not define how the input data is used to derive the output results. As such, CQL can provide a standards-based mechanism for representing the clinical reasoning that happens "inside the box" for SMART on FHIR and CDS Hooks systems.
+While the CQL specification defines a standard representation for clinical logic, it does not define how the results of that logic should be presented to users or delivered to systems. Instead, standards such as [SMART on FHIR](smart-on-fhir-intro.qmd) and [CDS Hooks](cds-hooks-intro.qmd) are used to present and exchange clinical logic results and CDS suggestions. SMART on FHIR and CDS Hooks implementations often _do_ perform logical operations on clinical data, but they operate as _black boxes_; these standards define how data goes in and out of the systems, but they do not define how the input data is used to derive the output results. As such, CQL can provide a standards-based mechanism for representing the clinical reasoning that happens "inside the box" for SMART on FHIR and CDS Hooks systems.
 
 ## Common CQL Use Cases
 

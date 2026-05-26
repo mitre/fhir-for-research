@@ -113,7 +113,7 @@ The standard includes ways for the third-party application to get contextual inf
 
 -   @thiess2022 provides more details on how CDS Hooks can be integrated with an EHR and a SMART on FHIR application.
 
--   The [CDS Hooks module on this website](new-cds-hooks-intro.qmd).
+-   The [CDS Hooks module on this website](cds-hooks-intro.qmd).
 
 ## Implementation considerations
 

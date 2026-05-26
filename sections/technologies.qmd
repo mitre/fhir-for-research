@@ -25,9 +25,9 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 
 ## CDS Hooks
 
--   [Introduction](/modules/new-cds-hooks-intro.qmd)
--   [Types of CDS Hooks](/modules/new-cds-hooks-types.qmd)
--   [Technical Example](/modules/new-cds-hooks-tech.qmd)
+-   [Introduction](/modules/cds-hooks-intro.qmd)
+-   [Types of CDS Hooks](/modules/cds-hooks-types.qmd)
+-   [Technical Example](/modules/cds-hooks-tech.qmd)
 
 ## Clinical Quality Language
 
