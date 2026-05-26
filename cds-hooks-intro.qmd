@@ -23,7 +23,7 @@ reading_time: true
 date: 2026-05-26
 
 aliases:
-  - cds-hooks-intro.html
+  - new-cds-hooks-intro.html
 ---
 
 ## What are CDS Hooks?
