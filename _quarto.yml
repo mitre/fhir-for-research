@@ -131,6 +131,8 @@ website:
           contents:
             - file: modules/new-bulk-fhir.qmd
               text: "Bulk Data Access"
+            - file: modules/bulk-fhir-tech.qmd
+              text: "Technical Example"
             - file: webinars/bulk-data/index.qmd
               text: Webinar
         - section: "Emerging Topics"

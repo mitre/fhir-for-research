@@ -147,7 +147,7 @@ Any forks of this repository will also replace the organization (NIH-ODSS) and r
 
 To deploy this static web application on any platform follow these rough guidelines:
 
- 1. Follow the [running locally](#running-locally) section to setup project dependencies. You can use .github/workflows/quarto.yml or .gitlab-ci.yml as reference for a CI/CD pipeline.
+ 1. Follow the [running locally](#running-locally) section to setup project dependencies. You can use .github/workflows/quarto.yml as reference for a CI/CD pipeline.
  2. Optional: You can replace the FHIR Server provided in this repository with any other one by setting the `FHIR_SERVER` environment variable. The new FHIR server must have the data in ./fhir-data/ uploaded. The script ./script/load_data.py can upload the data if the new FHIR server supports FHIR Transactions and Update as Create. Replacing `FHIR_SERVER` will update the text and code execution of this web application.
  3. Update the URLs in \_quarto.yml and \_environment for your intended URL.
  4. Run `uv run quarto render` which will compile the web application to public/.

@@ -5,6 +5,7 @@ reportability
 adipiscing
 aliqua
 amet
+athenahealth
 consectetur
 do
 dolor
@@ -71,6 +72,7 @@ customizability
 customizable
 customizer
 cybersecurity
+dataframes
 dataset
 datasets
 datatype
@@ -78,11 +80,13 @@ datatypes
 deidentification
 deidentified
 dev
+dict
 didn
 dok
 dotimplement
 ealthcare
 ehr
+entrypoint
 env
 epresentational
 esources
@@ -207,6 +211,7 @@ tbl
 tech
 tful
 thier
+timestamp
 toolchain
 touchpoints
 tri
@@ -217,6 +222,7 @@ upstreaming
 urlpath
 validator
 varenicline
+veradigm
 vcf
 visualise
 walkthrough
@@ -231,3 +237,4 @@ yrate
 zulip
 codeable
 cql
+operationalize

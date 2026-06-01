@@ -24,7 +24,7 @@ modules/tabular-r_cache/
 modules/tabular-python.ipynb
 workshops/data-analysis-cds/*.ipynb
 tabular-python_files
-*.quarto_ipynb
+*.quarto_ipynb*
 
 # Exclude local FHIR server database
 fhir-server/db/*

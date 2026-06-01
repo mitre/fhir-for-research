@@ -68,6 +68,11 @@ const role_module_map = [
         "text": "Introduction"
       },
       {
+        "slug": "modules/cds-hooks-intro",
+        "position": 17,
+        "text": "CDS Hooks"
+      },
+      {
         "slug": "modules/cds-hooks-types",
         "position": 18,
         "text": "Types of CDS Hooks"
@@ -93,18 +98,13 @@ const role_module_map = [
         "text": "Running Synthea"
       },
       {
-        "slug": "modules/new-bulk-fhir",
-        "position": 26,
-        "text": "Bulk Data Access"
-      },
-      {
         "slug": "modules/fhir-emerging-innovations",
-        "position": 28,
+        "position": 29,
         "text": "Emerging Innovations"
       },
       {
         "slug": "modules/fhir-research",
-        "position": 29,
+        "position": 30,
         "text": "Real World Research Using FHIR"
       }
     ]
@@ -188,6 +188,11 @@ const role_module_map = [
         "text": "Introduction"
       },
       {
+        "slug": "modules/cds-hooks-intro",
+        "position": 17,
+        "text": "CDS Hooks"
+      },
+      {
         "slug": "modules/cds-hooks-types",
         "position": 18,
         "text": "Types of CDS Hooks"
@@ -223,43 +228,43 @@ const role_module_map = [
         "text": "Customizing Synthea Data"
       },
       {
-        "slug": "modules/new-bulk-fhir",
-        "position": 26,
-        "text": "Bulk Data Access"
+        "slug": "modules/bulk-fhir-tech",
+        "position": 27,
+        "text": "FHIR Bulk Data Technical Example"
       },
       {
         "slug": "webinars/bulk-data/index",
-        "position": 27,
+        "position": 28,
         "text": "FHIR Bulk Data Webinar"
       },
       {
         "slug": "modules/fhir-emerging-innovations",
-        "position": 28,
+        "position": 29,
         "text": "Emerging Innovations"
       },
       {
         "slug": "modules/fhir-research",
-        "position": 29,
+        "position": 30,
         "text": "Real World Research Using FHIR"
       },
       {
         "slug": "modules/genomics",
-        "position": 30,
+        "position": 31,
         "text": "Genomics Data Standardization with FHIR"
       },
       {
         "slug": "workshops/bulk-data/index",
-        "position": 35,
+        "position": 36,
         "text": "FHIR Bulk Data Workshop"
       },
       {
         "slug": "modules/synthea-test-server",
-        "position": 37,
+        "position": 38,
         "text": "Standing up a FHIR Testing Server"
       },
       {
         "slug": "modules/synthetic-data",
-        "position": 38,
+        "position": 39,
         "text": "Synthetic Data"
       }
     ]
@@ -328,6 +333,11 @@ const role_module_map = [
         "text": "Introduction"
       },
       {
+        "slug": "modules/cds-hooks-intro",
+        "position": 17,
+        "text": "CDS Hooks"
+      },
+      {
         "slug": "modules/cds-hooks-types",
         "position": 18,
         "text": "Types of CDS Hooks"
@@ -363,28 +373,23 @@ const role_module_map = [
         "text": "Customizing Synthea Data"
       },
       {
-        "slug": "modules/new-bulk-fhir",
-        "position": 26,
-        "text": "Bulk Data Access"
-      },
-      {
         "slug": "webinars/bulk-data/index",
-        "position": 27,
+        "position": 28,
         "text": "FHIR Bulk Data Webinar"
       },
       {
         "slug": "modules/fhir-emerging-innovations",
-        "position": 28,
+        "position": 29,
         "text": "Emerging Innovations"
       },
       {
         "slug": "modules/fhir-research",
-        "position": 29,
+        "position": 30,
         "text": "Real World Research Using FHIR"
       },
       {
         "slug": "modules/genomics",
-        "position": 30,
+        "position": 31,
         "text": "Genomics Data Standardization with FHIR"
       }
     ]
@@ -418,6 +423,11 @@ const role_module_map = [
         "text": "Introduction"
       },
       {
+        "slug": "modules/cds-hooks-intro",
+        "position": 17,
+        "text": "CDS Hooks"
+      },
+      {
         "slug": "modules/clinical-quality-language-intro",
         "position": 20,
         "text": "Clinical Quality Language (CQL)"
@@ -433,23 +443,18 @@ const role_module_map = [
         "text": "REDCap on FHIR"
       },
       {
-        "slug": "modules/new-bulk-fhir",
-        "position": 26,
-        "text": "Bulk Data Access"
-      },
-      {
         "slug": "webinars/bulk-data/index",
-        "position": 27,
+        "position": 28,
         "text": "FHIR Bulk Data Webinar"
       },
       {
         "slug": "modules/fhir-emerging-innovations",
-        "position": 28,
+        "position": 29,
         "text": "Emerging Innovations"
       },
       {
         "slug": "modules/fhir-research",
-        "position": 29,
+        "position": 30,
         "text": "Real World Research Using FHIR"
       }
     ]
@@ -533,6 +538,11 @@ const role_module_map = [
         "text": "Technical Details"
       },
       {
+        "slug": "modules/cds-hooks-intro",
+        "position": 17,
+        "text": "CDS Hooks"
+      },
+      {
         "slug": "modules/cds-hooks-types",
         "position": 18,
         "text": "Types of CDS Hooks"
@@ -573,38 +583,38 @@ const role_module_map = [
         "text": "Customizing Synthea Data"
       },
       {
-        "slug": "modules/new-bulk-fhir",
-        "position": 26,
-        "text": "Bulk Data Access"
+        "slug": "modules/bulk-fhir-tech",
+        "position": 27,
+        "text": "FHIR Bulk Data Technical Example"
       },
       {
         "slug": "webinars/bulk-data/index",
-        "position": 27,
+        "position": 28,
         "text": "FHIR Bulk Data Webinar"
       },
       {
         "slug": "modules/fhir-emerging-innovations",
-        "position": 28,
+        "position": 29,
         "text": "Emerging Innovations"
       },
       {
         "slug": "modules/fhir-research",
-        "position": 29,
+        "position": 30,
         "text": "Real World Research Using FHIR"
       },
       {
         "slug": "workshops/bulk-data/index",
-        "position": 35,
+        "position": 36,
         "text": "FHIR Bulk Data Workshop"
       },
       {
         "slug": "modules/synthea-test-server",
-        "position": 37,
+        "position": 38,
         "text": "Standing up a FHIR Testing Server"
       },
       {
         "slug": "modules/synthetic-data",
-        "position": 38,
+        "position": 39,
         "text": "Synthetic Data"
       }
     ]
