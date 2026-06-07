@@ -129,7 +129,7 @@ website:
               text: Customizing Synthea
         - section: "Bulk Data"
           contents:
-            - file: modules/new-bulk-fhir.qmd
+            - file: modules/bulk-fhir-intro.qmd
               text: "Bulk Data Access"
             - file: modules/bulk-fhir-tech.qmd
               text: "Technical Example"

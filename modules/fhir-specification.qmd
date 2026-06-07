@@ -255,7 +255,7 @@ Beyond just FHIR, all HTTP requests can either be synchronous or asynchronous. I
 
 In FHIR, all of the REST interactions are synchronous. But extended operations may be either synchronous or asynchronous. An example of an asynchronous operation is the Bulk Data `$export` operation, where searches may result in large responses which take a long time for the server to collect. Instead, a server will immediately respond to export requests with the URL of a status endpoint which the client can call intermittently until the process completes. While the process is running, the status endpoint will indicate a progress percentage. Once complete, the status endpoint will return the URLs of the export files for the client to download.
 
-For more detail on Bulk Data, see the [Bulk Data Access](/modules/new-bulk-fhir.qmd) module and [Bulk Data Workshop](/workshops/bulk-data/index.qmd).
+For more detail on Bulk Data, see the [Bulk Data Access](/modules/bulk-fhir-intro.qmd) module and [Bulk Data Workshop](/workshops/bulk-data/index.qmd).
 
 ### Subscriptions
 

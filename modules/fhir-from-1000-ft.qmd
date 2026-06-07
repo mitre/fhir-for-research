@@ -17,6 +17,7 @@ learning_objectives:
     answer: The FHIR API is a standard way for systems to request and send instances of resources to each other.
 
 reading_time: true
+lightbox: true
 ---
 
 ::: callout-caution
@@ -35,9 +36,7 @@ FHIR implementers can constrain what information gets included in a FHIR resourc
 
 Below is a screenshot of the [Patient resource](http://hl7.org/fhir/R5/patient.html) from the FHIR specification (`R5` version):
 
-::: {.fancybox-figure data-fancybox="images/R5_Patient.png" data-src="images/R5_Patient.png" data-caption="<a href='https://www.hl7.org/fhir/R5/patient.html' target='_blank'>https://www.hl7.org/fhir/R5/patient.html</a>"}
-[![Click to enlarge](images/R5_Patient.png){fig-alt="Screenshot of Resource Contents table of the Patient resource in the FHIR R5 specification"}](images/R5_Patient.png)
-:::
+![Screenshot of Resource Contents table of the Patient resource in the FHIR R5 specification](images/R5_Patient.png){fig-alt="Screenshot of Resource Contents table of the Patient resource in the FHIR R5 specification"}
 
 All FHIR resources have a Resource Content table.[^1] The table shows the hierarchy of elements in the FHIR resource. Elements might be one level deep (like `Patient.birthDate`) or nested (like `Patient.contact.name`).
 

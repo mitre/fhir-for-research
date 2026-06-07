@@ -45,7 +45,7 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 
 ## FHIR Bulk Data
 
--   [FHIR Bulk Data Access](/modules/new-bulk-fhir.qmd)
+-   [FHIR Bulk Data Access](/modules/bulk-fhir-intro.qmd)
 -   [FHIR Bulk Data Technical Example](/modules/bulk-fhir-tech.qmd)
 -   [FHIR Bulk Data webinar](/webinars/bulk-data/index.qmd)
 
