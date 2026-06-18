@@ -29,9 +29,11 @@ date: 2026-05-18
 
 CQL is intended to be both human-friendly _and_ machine-computable. Simple expressions can often be understood by people who are not familiar with CQL. For example:
 
-* <pre class="cql-code"><code>AgeInYears() <span class="cql-operator">&gt;=</span> <span class="cql-number">18</span></code></pre>
-* <pre class="cql-code"><code><span class="cql-keyword">exists</span> [Condition: <span class="cql-identifier">"Diabetes"</span>]</code></pre>
-* <pre class="cql-code"><code>[Encounter: <span class="cql-identifier">"Inpatient"</span>] E where</span> E.period <span class="cql-keyword">starts</span> <span class="cql-number">1</span> <span class="cql-keyword">year or less before</span> Today()</code></pre>
+<ul>
+<li><pre class="cql-code-inline"><code>AgeInYears() <span class="cql-operator">&gt;=</span> <span class="cql-number">18</span></code></pre></li>
+<li><pre class="cql-code-inline"><code><span class="cql-keyword">exists</span> [Condition: <span class="cql-identifier">"Diabetes"</span>]</code></pre></li>
+<li><pre class="cql-code-inline"><code>[Encounter: <span class="cql-identifier">"Inpatient"</span>] E where</span> E.period <span class="cql-keyword">starts</span> <span class="cql-number">1</span> <span class="cql-keyword">year or less before</span> Today()</code></pre></li>
+</ul>
 
 Human-readable CQL expressions are usually bundled together in a single file called a CQL _library_. CQL libraries can be translated automatically into a special format that is optimized for machine processing, called the Expression Logical Model (ELM). In this way, CQL can be used to turn clinical intent, such as "adult patients with elevated A1C," into precise logic that software systems can evaluate against structured health data.
 
@@ -127,84 +129,17 @@ FHIR can standardize data exchange, while CQL can standardize the logic applied 
 
 ## Example CQL Library
 
-We will create a CQL library that contains expressions representing the following criteria:
+As an example, consider the following criteria:
 
-> Adult patients who had an outpatient encounter during the study period and whose most recent HbA1c result was greater than 6.5%.
+> Adult patients who had an outpatient encounter during the study period and who have elevated A1C.
 
 CQL can be used to express the following concepts from the criteria:
 
-* The study period
-* If the patient is an adult
-* Outpatient encounters during the study period
-* The most recent HbA1c lab test
-* If the most recent HbA1c value was 6.5% or greater
-* If the patient meets the combined criteria
+* Adult patient (i.e., age >= 18 years)
+* Outpatient encounter during the study period
+* Elevated A1C (i.e., most recent HbA1c result >= 6.5%)
 
-### Defining the ExampleElevatedHbA1c CQL Library Step-by-Step
-
-First we must declare a library name and version. CQL uses the `library` and `version` keywords for this.
-```{=html}
-<pre class="cql-code"><code><span class="cql-keyword">library</span> ExampleElevatedHbA1c <span class="cql-keyword">version</span> <span class="cql-string">'0.0.1'</span></code></pre>
-```
-
-Next we must indicate what data model we're using (FHIR) and include any helper libraries for that data model. CQL uses the `using` keyword to declare models and the `include` keyword to include additional libraries in your logic.
-```{=html}
-<pre class="cql-code"><code><span class="cql-keyword">using</span> FHIR <span class="cql-keyword">version</span> <span class="cql-string">'4.0.1'</span>
-<span class="cql-keyword">include</span> FHIRHelpers <span class="cql-keyword">version</span> <span class="cql-string">'4.0.1'</span></code></pre>
-```
-
-When CQL queries for data, it's often useful to filter the queries based on clinical terminology. For example, we only want to retrieve encounters that are coded as _outpatient_ and observations that are coded _HbA1c lab tests_. CQL requires authors to declare terminology requirements up front and provides `valueset`, `codesystem`, `concept`, and `code` keywords for doing so. In our case, we will use value sets from the [Value Set Authority Center](https://vsac.nlm.nih.gov/).
-```{=html}
-<pre class="cql-code"><code><span class="cql-keyword">valueset</span> <span class="cql-identifier">"Outpatient Clinical Encounters"</span>: <span class="cql-string">'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1160.24'</span>
-<span class="cql-keyword">valueset</span> <span class="cql-identifier">"HbA1c Laboratory Test"</span>: <span class="cql-string">'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1013'</span></code></pre>
-```
-
-Since the study period could change, we will use a CQL `parameter` to define the study period as a DateTime interval that is passed in during execution. This means that the CQL can be executed with any arbitrary study period rather than encoding a specific study period into the CQL logic.
-```{=html}
-<pre class="cql-code"><code><span class="cql-keyword">parameter</span> <span class="cql-identifier">"Study Period"</span> <span class="cql-type">Interval</span>&lt;<span class="cql-type">DateTime</span>&gt;</code></pre>
-```
-
-Next we will declare that the rest of the CQL expressions in the library are intended to be processed in the context of a patient. CQL uses the `context` keyword and supports different contexts depending on the data model being used. Most data models support the `Patient` context.
-```{=html}
-<pre class="cql-code"><code><span class="cql-keyword">context</span> Patient</code></pre>
-```
-
-We're finally at the point where we can define the first patient-based criteria. We need to determine if the patient is an adult. To do this, we'll use CQL's built-in `AgeInYears()` function to determine if the patient is 18 years or older. Note as well that we use a `define` keyword to give the CQL statement a name that we can reference later. Statement names should reflect what they represent, so we'll call it `Is Adult` since it returns a true or false value depending on if the patient is an adult.
-```{=html}
-<pre class="cql-code"><code><span class="cql-keyword">define</span> <span class="cql-identifier">"Is Adult"</span>: AgeInYears() <span class="cql-operator">&gt;=</span> <span class="cql-number">18</span></code></pre>
-```
-
-To determine if the patient had an outpatient encounter in the study period, we must query for `Encounter`s that have a code in the `Outpatient Clinical Encounters` value set and whose encounter `period` occurred during the `Study Period`.
-```{=html}
-<pre class="cql-code"><code><span class="cql-keyword">define</span> <span class="cql-identifier">"Has Outpatient Encounter During Study Period"</span>:
-  <span class="cql-keyword">exists</span> [Encounter: <span class="cql-identifier">"Outpatient Clinical Encounters"</span>] E
-    <span class="cql-keyword">where</span> E.period <span class="cql-keyword">during</span> <span class="cql-identifier">"Study Period"</span></code></pre>
-```
-
-In the above expression, `[Encounter: "Outpatient Clinical Encounters"]` retrieves `Encounter` resources from the FHIR server and filters them by the `Outpatient Clinical Encounters` value set. The letter `E` is used as an alias to refer to each returned `Encounter` in the `where` clause. The `exists` keyword is used to check if the query returns at least one result (i.e., at least one matching encounter _exists_).
-
-Next we want to check the most recent HbA1c value. First we'll find the most recent HbA1c laboratory test by querying for `Observation`s with a code in the `HbA1c Laboratory Test` value set. Since we want the most recent one, we will `sort` the results by their `issued` dates and return the last one by using CQL's built-in `Last` function.
-```{=html}
-<pre class="cql-code"><code><span class="cql-keyword">define</span> <span class="cql-identifier">"Most Recent HbA1c"</span>: <span class="cql-keyword">
-  Last</span>([Observation: <span class="cql-identifier">"HbA1c Laboratory Test"</span>] HbA1c <span class="cql-keyword">sort by</span> issued)</code></pre>
-```
-
-To see if the result is 6.5% or above, we can reference the `Most Recent HbA1c` expression we just defined and check its `value`. CQL indicates that UCUM units must be wrapped in single-quotes, so when we do the comparison, we must use `'%'` rather than `%`.
-```{=html}
-<pre class="cql-code"><code><span class="cql-keyword">define</span> <span class="cql-identifier">"Has Elevated HbA1c"</span>: <span class="cql-identifier">"Most Recent HbA1c"</span>.value <span class="cql-operator">&gt;=</span> <span class="cql-number">6.5</span> <span class="cql-string">'%'</span></code></pre>
-```
-
-Finally we can combine our statements using the `and` keyword to provide one expression that checks all of the criteria.
-```{=html}
-<pre class="cql-code"><code><span class="cql-keyword">define</span> <span class="cql-identifier">"Is Adult with Outpatient Encounter and Elevated HbA1c"</span>:
-  <span class="cql-identifier">"Is Adult"</span> <span class="cql-keyword">and</span>
-  <span class="cql-identifier">"Has Outpatient Encounter During Study Period"</span> <span class="cql-keyword">and</span>
-  <span class="cql-identifier">"Has Elevated HbA1c"</span></code></pre>
-```
-
-### The Complete ExampleElevatedHbA1c CQL Library
-
-Putting all of the steps above together, we end up with the following library. Note that this library is for example purposes only. It has not been fully tested and should not be used in production environments.
+The CQL library below demonstrates what this might look like when expressed as CQL logic. _Note that this library is for example purposes only. It has not been fully tested and should not be used in production environments._
 
 ```{=html}
 <pre class="cql-code"><code><span class="cql-keyword">library</span> ExampleElevatedHbA1c <span class="cql-keyword">version</span> <span class="cql-string">'0.0.1'</span>
@@ -235,7 +170,9 @@ Putting all of the steps above together, we end up with the following library. N
   <span class="cql-identifier">"Has Elevated HbA1c"</span></code></pre>
 ```
 
-If you'd like, you can copy the CQL library above into the online [CQL Playground](https://www.cqframework.org/clinical_quality_language/playground/) to see what the machine-computable ELM representation looks like. Feel free to experiment by changing the CQL and watching the ELM representation change in response.
+For a detailed walk-through of the process used to convert the criteria to the CQL library above, see the [CQL technical example](clinical-quality-language-example.qmd).
+
+If you'd like, you may also copy the CQL library into the online [CQL Playground](https://www.cqframework.org/clinical_quality_language/playground/) to see what the machine-computable ELM representation looks like. Feel free to experiment by changing the CQL and watching the ELM representation change in response.
 
 ## Implementation Considerations
 

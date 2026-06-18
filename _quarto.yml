@@ -113,6 +113,8 @@ website:
           contents:
             - file: modules/clinical-quality-language-intro.qmd
               text: "Introduction"
+            - file: modules/clinical-quality-language-example.qmd
+              text: "Technical Example"
         - section: "REDCap"
           contents:
             - file: modules/redcap-intro.qmd
