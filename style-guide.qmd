@@ -46,13 +46,25 @@ These are defined on the [Roles page](roles.qmd).
 
 ### Learning objectives (optional)
 
-Learning objectives can be included in the frontmatter to display as part of the module content. Use the following syntax:
+Learning objectives can be included in the frontmatter to display as part of the module content. For a list of objectives without answers, use the following syntax:
 
 ```yaml
-learning_objectives:
+learning_objectives2:
   - Learning objective 1 goes here.
   - Learning objective 2 goes here.
 ```
+
+For objectives with answers, use `learning_objectives` instead. The answers appear in a "Key points" section at the end of the module:
+
+```yaml
+learning_objectives:
+  - question: Learning objective 1 goes here.
+    answer: A possible answer goes here.
+  - question: Learning objective 2 goes here.
+    answer: A possible answer goes here.
+```
+
+Use only one of these formats per page.
 
 ## Voice
 
@@ -212,7 +224,7 @@ From the [Google documentation guide](https://google.github.io/styleguide/docgui
 
 When citing web-based content, simply add a hyperlink as described above.
 
-When citing printed content or any content where an academic reader would expect a formal citation, use Quarto's built-in [citation capabilities](https://quarto.org/docs/authoring/footnotes-and-citations.html). References should be added to `references.bib` in the root of the repository.
+When citing printed content or any content where an academic reader would expect a formal citation, use Quarto's built-in [citation capabilities](https://quarto.org/docs/authoring/footnotes-and-citations.html). References should be added to `bibliography.bib` in the root of the repository. Module pages inherit `bibliography: ../bibliography.bib` from `modules/_metadata.yml`.
 
 ## Images
 

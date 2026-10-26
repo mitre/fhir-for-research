@@ -32,16 +32,18 @@ website:
         file: sections/introduction.qmd
       - text: Technologies
         file: sections/technologies.qmd
-      - text: Hands-on Practice
+      - text: Hands-on <span class="collapse-lg-xl">Practice</span>
         file: sections/hands-on-practice.qmd
       - text: Hosting Your Own Workshop
         file: sections/hosting-your-own-workshop.qmd
 
     right:
       - href: contribute.qmd
-        text: Questions & Contributions
+        text: <span class="collapse-lg-xl">Questions & Contributions</span>
+        icon: question-circle-fill
       - icon: github
         href: https://github.com/NIH-ODSS/fhir-for-research
+        text: <span class="collapse-sm">View on GitHub</span>
         aria-label: View the GitHub repository for this site
 
   sidebar:
@@ -56,31 +58,27 @@ website:
           text: "Introduction"
         - section: "FHIR for Research"
           contents:
-            - section: "What is FHIR"
+            - section: "What is FHIR?"
               contents:
                 - modules/fhir-from-10000-ft.qmd
                 - modules/fhir-from-1000-ft.qmd
                 - modules/fhir-history.qmd
                 - modules/onc-certification-program.qmd
-            - section: "What does FHIR look like"
+            - section: "Core FHIR Concepts"
               contents:
-                - file: modules/key-fhir-resources.qmd
-                  text: Key FHIR Resources
+                - file: modules/fhir-resources-intro.qmd
+                  text: Introduction to FHIR Resources
+                - file: modules/fhir-resources-in-depth.qmd
+                  text: FHIR Resources in Depth
                 - modules/terminology.qmd
                 - modules/fhir-specification.qmd
+            - section: "The FHIR Community"
+              contents:
                 - file: modules/fhir-community.qmd
                   text: FHIR Community & Documentation
                 - modules/cdms.qmd
                 - modules/fhir-versions.qmd
-            - section: "FHIR Implementation Guides"
-              contents:
-                - file: modules/data-modeling-reading-igs.qmd
-                  text: Reading IGs
-                - file: modules/data-modeling-real-world-igs.qmd
-                  text: Real World IGs
-                - file: modules/data-modeling-writing-igs.qmd
-                  text: Writing IGs
-            - section: "How to use FHIR"
+            - section: "Using FHIR"
               contents:
                 - file: modules/fhir-accessing-data.qmd
                   text: Using the FHIR API to access data
@@ -95,6 +93,16 @@ website:
       contents:
         - file: sections/technologies.qmd
           text: Technologies
+        - section: "FHIR Implementation Guides"
+          contents:
+            - file: modules/data-modeling-what-is-fhir-ig.qmd
+              text: "What is a FHIR IG?"
+            - file: modules/data-modeling-reading-igs.qmd
+              text: "Reading IGs"
+            - file: modules/data-modeling-real-world-igs.qmd
+              text: "Real World IGs"
+            - file: modules/data-modeling-writing-igs.qmd
+              text: "Writing IGs"
         - section: "SMART on FHIR"
           contents:
             - file: modules/smart-on-fhir-intro.qmd
@@ -145,6 +153,18 @@ website:
               text: "Real World Research"
             - file: modules/genomics.qmd
               text: Genomics Data Standardization
+        - section: "Common Data Elements (CDEs)"
+          contents:
+            - file: modules/cde-introduction.qmd
+              text: "Introduction"
+            - file: modules/cde-harmonization.qmd
+              text: "Harmonization"
+            - file: modules/cde-fhir.qmd
+              text: "CDEs & FHIR"
+            - file: modules/cde-implementation-examples.qmd
+              text: "Implementation Examples"
+            - file: modules/cde-vulcan-accelerator.qmd
+              text: "HL7 Vulcan Accelerator"
     - id: hands-on-practice
       title: "Hands-on Practice"
       style: floating

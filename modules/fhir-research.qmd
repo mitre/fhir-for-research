@@ -13,6 +13,8 @@ learning_objectives:
     answer: Researchers have used FHIR to extract data from EHRs, define phenotypes that are portable across systems and institutions, and enable research that requires integration with clinical workflows.
 
 reading_time: true
+date: 2026-10-26
+
 ---
 
 Researchers have published work using FHIR in a number of areas, usually related to:

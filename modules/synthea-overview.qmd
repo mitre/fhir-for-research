@@ -14,6 +14,8 @@ learning_objectives:
     answer: Synthea is a software tool that generates realistic but not real synthetic electronic health records.
 
 reading_time: true
+date: 2026-10-26
+
 ---
 
 Accessing real healthcare data for research purposes is difficult for many reasons including:

@@ -31,7 +31,7 @@ As a real-world comparison, you can think of FHIR resource types as blank paper 
 
 ## Resources overview
 
-In [Key FHIR Resources](key-fhir-resources.qmd) you saw examples of resources, the most fundamental concept in FHIR; nearly everything in FHIR is a resource. To help people familiarize themselves, FHIR loosely organizes resources into the following informal groups.[^1]
+In [Introduction to FHIR Resources](fhir-resources-intro.qmd) you saw examples of resources, the most fundamental concept in FHIR; nearly everything in FHIR is a resource. To help people familiarize themselves, FHIR loosely organizes resources into the following informal groups.[^1]
 
 [^1]: These groups are called "modules" in FHIR documentation, though to prevent confusion with modules on this site, we minimize use of that term here. The documentation also further puts those groups into Levels 1-5, where each level builds off the one above it, but these levels are not meaningful to all users.
 

@@ -1,58 +1,90 @@
 ---
-title: Technologies
+title: FHIR Ecosystem Technologies
 sidebar: false
+listing:
+  - id: role-selector
+    template: ../partials/role-selector.ejs.md
+    contents: ../partials/roles.yml
 aliases:
   - advanced-topics.html
 ---
 
-**Technologies** in FHIR for Research cover approaches to gathering and analyzing FHIR-formatted data for research purposes.
+The FHIR ecosystem includes technologies that add practical layers for building healthcare applications and clinical solutions.
 
+- FHIR Implementation Guides (IGs) define profiles, terminology, resource constraints and conformance rules so systems exchange data consistently.
+
+- SMART on FHIR provides a standardized authorization approach, allowing third-party apps to connect safely and securely to electronic health records, and setting the scope of access to patient data.
+
+- CDS Hooks is a specification for integrating clinical decision support into clinician workflows, calling services at key moments, such as opening a chart or placing a medication order.
+
+- Clinical Quality Language (CQL) expresses computable clinical logic in a human-readable and machine-executable form.
+
+- FHIR Bulk Data enables handling of large populations of FHIR resources, such as for population health reporting.
+
+- Synthea™ is an open-source, synthetic patient generator that models the medical history of synthetic patients. This provides data for researchers which is free from cost, privacy and security concerns during development of new health applications.
+
+As you explore the world of FHIR-based solutions and applications, you will almost certainly come across these technologies, and find possible use cases for your own work.
+
+::::: role-select-pane
 Select your [role](/roles.html) to <mark>highlight</mark> the content that is most relevant to you:
 
-<a href="#" class="btn-role" data-role="investigator">Investigator</a>
-<a href="#" class="btn-role" data-role="research-leader">Research Leader</a>
-<a href="#" class="btn-role" data-role="informaticist">Informaticist</a>
-<a href="#" class="btn-role" data-role="software-engineer">Software Engineer</a>
-<a href="#" class="btn-role" data-role="clinician-scientist">Clinician Scientist/Trainee</a>
+::: {#role-selector}
+:::
 
-*Recommended: complete highlighted [FHIR for Research Introduction](introduction.qmd) modules for your role first*
+:::::
 
-:::{.highlight-by-role}
-### SMART on FHIR
+::: highlight-by-role
+## FHIR Implementation Guides
 
--   [Introduction](/modules/smart-on-fhir-intro.qmd)
--   [Technical Details](/modules/smart-on-fhir-tech.qmd)
+- [What is a FHIR IG](/modules/data-modeling-what-is-fhir-ig.qmd)
+- [Reading a FHIR IG](/modules/data-modeling-reading-igs.qmd)
+- [Real world FHIR IGs](/modules/data-modeling-real-world-igs.qmd)
+- [Writing a FHIR IG](/modules/data-modeling-writing-igs.qmd)
+
+## SMART on FHIR
+
+- [Introduction](/modules/smart-on-fhir-intro.qmd)
+- [Technical Details](/modules/smart-on-fhir-tech.qmd)
 
 ## CDS Hooks
 
--   [Introduction](/modules/cds-hooks-intro.qmd)
--   [Types of CDS Hooks](/modules/cds-hooks-types.qmd)
--   [Technical Example](/modules/cds-hooks-tech.qmd)
+- [Introduction](/modules/cds-hooks-intro.qmd)
+- [Types of CDS Hooks](/modules/cds-hooks-types.qmd)
+- [Technical Example](/modules/cds-hooks-tech.qmd)
 
 ## Clinical Quality Language
 
--   [Introduction](/modules/clinical-quality-language-intro.qmd)
--   [Technical Example](/modules/clinical-quality-language-example.qmd)
+- [Introduction](/modules/clinical-quality-language-intro.qmd)
+- [Technical Example](/modules/clinical-quality-language-example.qmd)
 
 ## REDCap
 
--   [Introduction](/modules/redcap-intro.qmd)
--   [REDCap on FHIR](/modules/redcap-fhir.qmd)
+- [Introduction](/modules/redcap-intro.qmd)
+- [REDCap on FHIR](/modules/redcap-fhir.qmd)
 
 ## Synthea
--   [Synthea Overview](/modules/synthea-overview.qmd)
--   [Running Synthea](/modules/synthea-running.qmd)
--   [Customizing Synthea](/modules/synthea-customizing.qmd)
+
+- [Synthea Overview](/modules/synthea-overview.qmd)
+- [Running Synthea](/modules/synthea-running.qmd)
+- [Customizing Synthea](/modules/synthea-customizing.qmd)
 
 ## FHIR Bulk Data
 
--   [FHIR Bulk Data Access](/modules/bulk-fhir-intro.qmd)
--   [FHIR Bulk Data Technical Example](/modules/bulk-fhir-tech.qmd)
--   [FHIR Bulk Data webinar](/webinars/bulk-data/index.qmd)
+- [FHIR Bulk Data Access](/modules/bulk-fhir-intro.qmd)
+- [FHIR Bulk Data Technical Example](/modules/bulk-fhir-tech.qmd)
+- [FHIR Bulk Data webinar](/webinars/bulk-data/index.qmd)
+
+## Common Data Elements (CDEs)
+
+- [Introduction to CDEs for Research](/modules/cde-introduction.qmd)
+- [Harmonization of CDEs & Other Standards](/modules/cde-harmonization.qmd)
+- [CDEs & FHIR](/modules/cde-fhir.qmd)
+- [CDE and Interoperability Implementation Examples](/modules/cde-implementation-examples.qmd)
+- [HL7 Vulcan Accelerator](/modules/cde-vulcan-accelerator.qmd)
 
 ## Emerging Topics
 
--   [Emerging Innovations](/modules/fhir-emerging-innovations.qmd)
--   [Real World Research](/modules/fhir-research.qmd)
--   [Genomics Data Standardization](/modules/genomics.qmd)
+- [Emerging Innovations](/modules/fhir-emerging-innovations.qmd)
+- [Real World Research](/modules/fhir-research.qmd)
+- [Genomics Data Standardization](/modules/genomics.qmd)
 :::

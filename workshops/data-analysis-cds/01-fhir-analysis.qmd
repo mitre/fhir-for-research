@@ -290,7 +290,7 @@ Examples illustrating the relationship between FHIRPath and DataFrame column nam
 The element paths can typically be constructed by looking at the hierarchy resource pages in the FHIR specification, or by examining the column names in a full DataFrame output and converting the underscore notation to FHIRPath notation.
 
 ::: {.content-hidden when-format="ipynb"}
-See [Key FHIR Resources](../../modules/key-fhir-resources.qmd) for more information on reading the FHIR specification.
+See [FHIR Resources in Depth](../../modules/fhir-resources-in-depth.qmd) for more information on reading the FHIR specification.
 :::
 
 ## Working with Multiple Resources (Advanced Level)

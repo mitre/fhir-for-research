@@ -121,6 +121,14 @@ body {
     text-decoration: none;
 }
 
+// Styles for role selection
+.role-select-pane {
+  border:1px solid #fafafa;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding:1.5rem 0.5rem 0rem 1rem;
+  margin-bottom:2em;
+}
+
 .btn-role {
     display: inline-block;
     text-align: center;
@@ -137,7 +145,29 @@ body {
 .btn-role:hover {
     background-color: #6c757d;
     color: #fff;
-    text-decoration: none;
+}
+
+/* Hide the native radio buttons for role selectors entirely */
+ul.roles-select-list
+{
+  margin:0;
+  padding-left:0;
+  li {
+    display:inline-block;
+    margin-bottom:0.25em;
+    input[type="radio"] {
+      display:none;
+      appearance: none;
+      -webkit-appearance: none;
+      position: absolute;
+    }
+    label:has(input[type="radio"]:checked) {
+      color:white;
+      font-weight:700 !important;
+      background-color:#343a40;
+      border-color:#343a40;
+    }
+  }
 }
 
 // Light mode highlight style
@@ -192,4 +222,34 @@ body {
 }
 .navbar-collapse {
     background-color: $navbar-bg;
+}
+
+// Dynamic screen width adjustments to avoid navbar menu item wrapping
+@media (width <= 992px) {
+  .navbar-collapse {
+    border:1px solid #ddd;  
+  }
+}
+@media (992px <= width) {
+  .collapse-sm {
+    @include visually-hidden-focusable();
+  }
+}
+@media (992px <= width <= 1320px) {
+  .collapse-lg-xl {
+    @include visually-hidden-focusable();
+
+  }
+}
+@media (992px <= width <= 1200px) {
+  .navbar-expand-lg .navbar,
+  .navbar-expand-lg .navbar-collapse .nav-link {
+    padding-left:0.3rem;
+    padding-right:0.3rem;
+  }
+}
+@media (992px <= width <= 1050px) {
+  .navbar-collapse .navbar-nav .nav-link {
+    font-size:95%;
+  }
 }

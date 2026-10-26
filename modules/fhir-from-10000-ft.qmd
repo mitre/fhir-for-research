@@ -36,17 +36,26 @@ Health care organizations have been [widely adopting electronic health record (E
 
 However, EHRs and their subsystems often cannot exchange data with other systems--they are not **interoperable**. Improving interoperability remains an important challenge for implementers and users of EHRs, including researchers who wish to use EHR data in their work.
 
+### What is interoperability in healthcare?
+
+> Interoperability in healthcare refers to timely and secure access, integration and use of electronic health data so that it can be used to optimize health outcomes for individuals and populations.[^1]
+
+[^1]: [What is interoperability in healthcare?](https://www.ibm.com/think/topics/interoperability-in-healthcare)
+
 Fast Healthcare Interoperability Resources (FHIR) is one of the key technologies that enables interoperability of health-related data.
 
-[Health Information and Management Systems Society](https://www.himss.org/resources/interoperability-healthcare)[^1] [defines interoperability](https://www.himss.org/resources/interoperability-healthcare) as:
+[Health Information and Management Systems Society](https://www.himss.org/resources/interoperability-healthcare)[^2] [lists four levels of interoperability](https://www.himss.org/resources/interoperability-how-measure-data-interoperability-and-communication-across-health/) for healthcare:
 
-[^1]: HIMSS is the Healthcare Information and Management Systems Society. [Its mission](https://www.himss.org/who-we-are) is to "reform the global health ecosystem through the power of information and technology."
+[^2]: HIMSS is the Healthcare Information and Management Systems Society. [Its mission](https://www.himss.org/who-we-are) is to "reform the global health ecosystem through the power of information and technology."
 
-> The ability of different information systems, devices and applications (systems) to access, exchange, integrate and cooperatively use data in a coordinated manner, within and across organizational, regional and national boundaries, to provide timely and seamless portability of information and optimize the health of individuals and populations globally.
+ - **Foundational interoperability**, which describes interconnectivity requirements for one system or application to securely communicate data to, and receive data from, another.
+- **Structural interoperability**, which describes the format, syntax and organization of data exchanges from the data field level. 
+- **Semantic interoperability**, which establishes common models and codification of data that are mutually intelligible to users.
+- **Organizational interoperability**, which includes governance, policy and social, legal and organizational considerations. The objective of organizational interoperability is to facilitate the secure, seamless and timely communication and use of data within and between organizations, entities and individuals.
 
-[ONC](https://www.healthit.gov/)[^2] [describes the importance of interoperability](https://www.healthit.gov/topic/interoperability):
+[ONC](https://www.healthit.gov/)[^3] [describes the importance of interoperability](https://www.healthit.gov/topic/interoperability):
 
-[^2]: ONC is [The Office of the National Coordinator for Health Information Technology](https://www.healthit.gov/).
+[^3]: ONC is [The Office of the National Coordinator for Health Information Technology](https://www.healthit.gov/).
 
     From [their website](https://healthit.gov/about/):
 
@@ -68,7 +77,15 @@ While the Health IT Certification Program is voluntary, [CMS provides a financia
 
 ### FHIR is widespread
 
-As of 2019, [84% of hospitals had adopted FHIR](https://www.healthit.gov/buzz-blog/health-it/the-heat-is-on-us-caught-fhir-in-2019) and FHIR is widely used in the health technologies outside of EHRs. For example, [Apple's HealthKit uses FHIR](https://developer.apple.com/documentation/healthkit/samples/accessing_health_records) for accessing data from healthcare institutions. The major public cloud providers ([Amazon](https://aws.amazon.com/healthlake/), [Google](https://cloud.google.com/healthcare-api/docs/concepts/fhir), and [Microsoft](https://azure.microsoft.com/en-us/products/health-data-services)) also provide FHIR functionality. In addition, FHIR is an international standard and is actively used outside the US.[^3]
+As of 2026, [the federal government reported](https://www.hhs.gov/sites/default/files/operation-trialblazer.pdf)[^archived_link] that:
+
+[^archived_link]: The linked PDF is [archived here](https://web.archive.org/web/20260622175129/https://www.hhs.gov/sites/default/files/operation-trialblazer.pdf).
+
+> ONC Certified EHRs are now a cornerstone in our health system, with about 99% adoption by hospitals and 90% by providers.
+
+This is an increase from 2019 adoption figures, which indicated [84% of hospitals had adopted FHIR](https://www.healthit.gov/buzz-blog/health-it/the-heat-is-on-us-caught-fhir-in-2019).
+
+Additionally, FHIR is widely used in the health technologies outside of EHRs. For example, [Apple's HealthKit uses FHIR](https://developer.apple.com/documentation/healthkit/samples/accessing_health_records) for accessing data from healthcare institutions. The major public cloud providers ([Amazon](https://aws.amazon.com/healthlake/), [Google](https://cloud.google.com/healthcare-api/docs/concepts/fhir), and [Microsoft](https://azure.microsoft.com/en-us/products/health-data-services)) also provide FHIR functionality. FHIR usage is not limited to just the US: it is an international standard and is actively used worldwide.[^3]
 
 [^3]: For example, there are many internationally-focused FHIR Implementation Guides: <http://hl7.org/fhir/uv/>.
 

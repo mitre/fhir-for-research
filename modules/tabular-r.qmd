@@ -9,7 +9,7 @@ learning_objectives2:
   - Learn how the fhircrackr library facilitates requesting data from a FHIR server, and creating tidy tabular data tables.
 
 execute:
-  cache: false # caching seems to unexpectedly break dependencies between chunks on full render
+  cache: false # caching seems to unexpectedly break dependencies between chunks on full renders
   error: true
 
 # Print data frames
@@ -19,6 +19,8 @@ format:
      code-overflow: wrap
 
 reading_time: true
+date: 2026-10-26
+
 ---
 
 Data analysis approaches in R typically uses [data frames](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Data-frames-1) to store tabular data. There are two primary approaches to loading FHIR-formatted data into Pandas DataFrames:
@@ -38,7 +40,7 @@ The examples in this module use a FHIR testing server populated with [Synthea da
 
 The endpoint for this testing server is:
 
-```         
+```
 https://hapi.fhir.org/baseR4
 ```
 

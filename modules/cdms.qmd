@@ -40,7 +40,7 @@ CDMs and FHIR are both important parts of the health research data ecosystem, bu
 
 -   **CDMs:** Typically, CDMs consist of a standardized set of relational database tables, with columns for each data element. CDMs also typically define standardized [terminology](terminology.qmd) for representing concepts. CDMs may formalize specific concepts using Common Data Elements (CDEs), which "are standardized, precisely defined questions paired with a set of specific allowable responses, used systematically across different sites, studies, or clinical trials to ensure consistent data collection @ODSS_CDE."
 
--   **FHIR:** FHIR defines [resources](key-fhir-resources.qmd) for each type of data, which can be extended to add additional data elements as needed for a given use case. Resources have a nested structure (like a multi-level outline) rather than a tabular structure (like a spreadsheet). Base FHIR includes terminology bindings, but many are broad or weaker than the constraints needed for a specific research use case; [Implementation Guides](data-modeling-reading-igs.qmd) can narrow value sets and binding strength.
+-   **FHIR:** FHIR defines [resources](fhir-resources-intro.qmd) for each type of data, which can be extended to add additional data elements as needed for a given use case. Resources have a nested structure (like a multi-level outline) rather than a tabular structure (like a spreadsheet). Base FHIR includes terminology bindings, but many are broad or weaker than the constraints needed for a specific research use case; [Implementation Guides](data-modeling-reading-igs.qmd) can narrow value sets and binding strength.
 
 ### Implementation
 
