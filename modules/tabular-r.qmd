@@ -9,7 +9,7 @@ learning_objectives2:
   - Learn how the fhircrackr library facilitates requesting data from a FHIR server, and creating tidy tabular data tables.
 
 execute:
-  cache: false # caching seems to unexpectedly break dependencies between chunks on full render
+  cache: false # caching seems to unexpectedly break dependencies between chunks on full renders
   error: true
 
 # Print data frames
@@ -19,6 +19,8 @@ format:
      code-overflow: wrap
 
 reading_time: true
+date: 2026-10-26
+
 ---
 
 Data analysis approaches in R typically uses [data frames](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Data-frames-1) to store tabular data. There are two primary approaches to loading FHIR-formatted data into Pandas DataFrames:
@@ -38,7 +40,7 @@ The examples in this module use a FHIR testing server populated with [Synthea da
 
 The endpoint for this testing server is:
 
-```         
+```
 https://hapi.fhir.org/baseR4
 ```
 
@@ -77,6 +79,9 @@ table_desc_patient <- fhir_table_description(
 
 # Convert to R data frame
 df_patient <- fhir_crack(bundles = patient_bundle, design = table_desc_patient, verbose = 0)
+
+# Exclude `photo.data`, which is a base64-encoded photo and doesn't display well in dataframes
+df_patient <- df_patient %>% select(-any_of("photo.data"))
 
 df_patient %>% head(5)
 ```
@@ -138,9 +143,9 @@ There are two approaches to identifying element paths to construct XPath express
 2.  Print out the raw data returned by the FHIR server. Fhircrackr uses XML-formatted data, and the following code will print out one of the instances of Patient requested above:
 
 ```{r}
-xml2::xml_find_first(x = patient_bundle[[1]], xpath = "./entry[1]/resource") %>%
-    paste0() %>%
-    cat()
+resource <- xml2::xml_find_first(x = patient_bundle[[1]], xpath = "./entry[1]/resource")
+xml2::xml_find_all(resource, ".//photo") %>% xml2::xml_remove() # Suppress the photo element - prints out a bunch of base64-encoded data that makes it hard to read the rest of the XML
+resource %>% paste0() %>% cat()
 ```
 
 In some cases, you may need to construct more complex expressions like the one to extract `marital_status` from `Patient.maritalStatus.coding.code`. You can use a tool like [this XPath tester](https://extendsclass.com/xpath-tester.html) to help generate XPath expressions, though online tools such as these should not be used with real patient data. For more information on XPath, see [this guide](https://www.w3schools.com/xml/xpath_intro.asp).

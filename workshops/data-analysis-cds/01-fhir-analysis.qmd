@@ -4,6 +4,7 @@ learning_objectives2:
   - Understand the high-level approaches for converting FHIR-formatted data into tabular data for analysis in Python.
   - Learn how to request data from a FHIR server and creating tidy tabular data tables using the FHIR-PYrate library. 
 execute:
+  eval: false # It looks like fhirpyrate doesn't work with Python 3.14 due to deprecated typing.io. We want to switch this to sql-on-fhir anyway, so don't eval this file for now.
   cache: false # changes in fhir-server env will not be picked up otherwise
 jupyter: python3
 
@@ -289,7 +290,7 @@ Examples illustrating the relationship between FHIRPath and DataFrame column nam
 The element paths can typically be constructed by looking at the hierarchy resource pages in the FHIR specification, or by examining the column names in a full DataFrame output and converting the underscore notation to FHIRPath notation.
 
 ::: {.content-hidden when-format="ipynb"}
-See [Key FHIR Resources](../../modules/key-fhir-resources.qmd) for more information on reading the FHIR specification.
+See [FHIR Resources in Depth](../../modules/fhir-resources-in-depth.qmd) for more information on reading the FHIR specification.
 :::
 
 ## Working with Multiple Resources (Advanced Level)

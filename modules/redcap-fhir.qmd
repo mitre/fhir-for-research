@@ -14,6 +14,8 @@ learning_objectives2:
   - Understand how REDCap can integrate with FHIR to support research.
   - Learn about the roles and approaches that may lead to successful REDCap on FHIR implementations.
 
+date: 2026-03-10
+
 reading_time: true
 ---
 
@@ -62,6 +64,8 @@ The authors also used two strategies to support adoption of REDCap:
 
 1.  Building trust among researchers in the security and reliability of REDCap through several layers of back-up should any component fail and simulated data loss and retrieval exercises.
 2.  Establishing a REDCap administrator that acted as a dedicated, go-to person that could answer researchers' questions and offer consultations.
+
+Additionally, Cheng _et al._ @redcap_2025 discuss potential implementation barriers and potential solutions to REDCap on FHIR.
 
 ## Conclusion
 

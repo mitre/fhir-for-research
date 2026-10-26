@@ -20,7 +20,7 @@ This hands-on workshop introduces researchers to FHIR data analysis and clinical
 -   Recommended background: Basic understanding of FHIR concepts
     -   See our [FHIR from 1,000 Feet](/modules/fhir-from-1000-ft.qmd) module for introductory material
     -   For Part 2, familiarity with [Genomics Data Standardization with FHIR](/modules/genomics.qmd)
-    -   Helpful concepts: [CDS Hooks](/modules/new-cds-hooks-intro.qmd) and [SMART on FHIR](/modules/new-smart-on-fhir-intro.qmd)
+    -   Helpful concepts: [CDS Hooks](/modules/new-cds-hooks-intro.qmd) and [SMART on FHIR](/modules/smart-on-fhir-intro.qmd)
 
 ## Synthetic Data
 
@@ -44,7 +44,7 @@ The dataset can be downloaded from the [Synthea downloads page](https://synthea.
 
 ## Environment Setup {#environment-setup}
 
-Running the two interactive Jupyter notebooks in this workshop may require some local setup. There are four options, listed below. The first, Google Colab, is the recommended method since it requires the least amount of setup, but the other options are also viable and might be the right fit for different needs. 
+Running the two interactive Jupyter notebooks in this workshop may require some local setup. There are four options, listed below. The first, Google Colab, is the recommended method since it requires the least amount of setup, but the other options are also viable and might be the right fit for different needs.
 
 At the top of each notebook, you will see a series of badges like those below:
 

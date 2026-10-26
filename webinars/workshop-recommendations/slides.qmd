@@ -100,7 +100,7 @@ July 2023 <br><br><br>
         1.  Tabular Analysis
         2.  REDCap
         3.  FHIR Bulk Data
-    3.  Advanced Topics
+    3.  Technologies
         1.  Synthetic Data & FHIR Testing Servers
         2.  Other Topics
 :::
@@ -138,7 +138,7 @@ Detailed setup instructions are found at <https://purl.org/fhir-for-research/web
 
     -   Submit a pull request: <https://docs.github.com/articles/using-pull-requests>
 
-    -   NIH/ODSS will review to intergrate into the main repository
+    -   NIH/ODSS will review to integrate into the main repository
 :::
 
 # Workshop Best Practices
@@ -211,7 +211,7 @@ Detailed setup instructions are found at <https://purl.org/fhir-for-research/web
 
 -   Include learning objectives and prerequisites in registration promotional materials
 
-    -   Consider the Introduction to FHIR for Reserach webinar as a prerequisite if your potential audience doesn't have prior FHIR experience (<https://purl.org/fhir-for-research/webinars/intro>)
+    -   Consider the Introduction to FHIR for Research webinar as a prerequisite if your potential audience doesn't have prior FHIR experience (<https://purl.org/fhir-for-research/webinars/intro>)
 
     -   Identify any technical skills are required for some/all of the workshop
 :::

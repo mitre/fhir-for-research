@@ -13,6 +13,8 @@ learning_objectives:
     answer: Researchers have used FHIR to extract data from EHRs, define phenotypes that are portable across systems and institutions, and enable research that requires integration with clinical workflows.
 
 reading_time: true
+date: 2026-10-26
+
 ---
 
 Researchers have published work using FHIR in a number of areas, usually related to:
@@ -77,7 +79,7 @@ Below is a list of studies that used FHIR in some way. These may help you come u
     -   @Jiang_2017b
 -   Environmental health and spatiotemporal data
     -   @Xu_Cox_Stillwell_Pfaff_Champion_Ahalt_Fecho_2020
--   Findable, Accessible, Interoperable, and Resusabe ([FAIR](https://www.go-fair.org/fair-principles/)) data principles
+-   Findable, Accessible, Interoperable, and Reusable ([FAIR](https://www.go-fair.org/fair-principles/)) data principles
     -   @Sinaci_Nunez_2020
 -   Multi-site research
     -   @Garza_2020
