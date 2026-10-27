@@ -215,10 +215,10 @@ body {
 .navbar {
     height: 60px;
     background-color: $navbar-bg;
-    border-bottom: 2px solid #3c78d8;
+    border-bottom: 1px solid #102d49;
 }
 .quarto-dark .navbar {
-    border-bottom-color: rgb(0, 188, 140);
+    border-bottom-color: #66c8c4;
 }
 .navbar-collapse {
     background-color: $navbar-bg;
@@ -227,7 +227,7 @@ body {
 // Dynamic screen width adjustments to avoid navbar menu item wrapping
 @media (width <= 992px) {
   .navbar-collapse {
-    border:1px solid #ddd;  
+    border:1px solid #ddd;
   }
 }
 @media (992px <= width) {

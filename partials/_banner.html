@@ -8,22 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const banner = document.getElementById('env-banner');
   if (!banner) return;
 
-  let q = document.querySelector('.role-tags');
-  if (q) {
-    q.after(banner);
+  const header = document.getElementById('quarto-header');
+  if (header) {
+    header.before(banner);
   }
   else {
-    q = document.querySelector('#metadata-container');
-    if (document.querySelector('#metadata-container .date')) {
-      q.after(banner);
-    }
-    else {
-      q = document.querySelector('.column-screen');
-      if(document.querySelector('.column-screen .hero')) {
-        q.after(banner);
-        banner.style.marginTop = "2em";
-      }
-    }
+    document.body.prepend(banner);
   }
   
   if (hostname === 'nih-odss.github.io') {

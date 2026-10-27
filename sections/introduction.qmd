@@ -7,13 +7,18 @@ listing:
     contents: ../partials/roles.yml
 ---
 
-FHIR® (pronounced "fire"), which stands for Fast Healthcare Interoperability Resources, is a platform for health data standardization and access. FHIR adopts lessons learned from earlier standards with modern web technologies, such as APIs, data formats and security, to support simpler, faster and more flexible interoperability for exchanging and working with health data.
+::: {.home-page .section-page .column-screen}
+::: {.home-container}
+::: {.section-intro}
+[Learn the foundations]{.home-eyebrow}
 
-FHIR is an [Health Level Seven](https://www.hl7.org/) (HL7) standard designed to make healthcare data easier to exchange, understand, and reuse among health records, laboratory systems, apps, researchers, public-health agencies, and services. Introduced in 2011, FHIR modernized earlier HL7 standards by combining healthcare-specific data models with web technologies such as [REST APIs](https://en.wikipedia.org/wiki/REST), [JSON](https://www.json.org/), and [OAuth-based security](https://oauth.net/2/).
+# Introduction to FHIR
 
-It organizes information into reusable units called [resources](https://www.hl7.org/fhir/R5/resource.html): a standardized representation of a clinical or administrative concept, such as a Patient, Observation, Medication, or Encounter. Resources can be queried individually or bundled together. FHIR also supports profiles and Implementation Guides for local requirements, SMART on FHIR for secure applications, and APIs for clinical decision support and population-scale data exchange. Together, these technologies make FHIR an interoperability platform rather than just a data format.
+[Understand FHIR before putting it to work.]{.home-lead}
 
-This module introduces the purpose, history and core technologies of FHIR. The [Technologies](/sections/technolgies.cqm) page describes several related technologies designed to solve common challenges when working with FHIR in real-world applications.
+FHIR® (Fast Healthcare Interoperability Resources, pronounced “fire”) is an HL7 standard for representing and exchanging health data. Learn how its resources, terminology, and APIs fit together, and what they mean for research.
+
+:::
 
 ::::: role-select-pane
 Select your [role](/roles.html) to <mark>highlight</mark> the content that is most relevant to you:
@@ -23,29 +28,59 @@ Select your [role](/roles.html) to <mark>highlight</mark> the content that is mo
 
 :::::
 
-::: highlight-by-role
+
+::: {.section-grid .highlight-by-role}
+
+::: {.section-card}
 ## What is FHIR?
+
+Understand why health data interoperability matters for research, how FHIR combines a shared data model with web APIs, and how it evolved from earlier HL7 standards. Explore the role of certification in shaping available EHR capabilities.
 
 - [FHIR from 10,000 Feet](/modules/fhir-from-10000-ft.qmd)
 - [FHIR from 1,000 Feet](/modules/fhir-from-1000-ft.qmd)
 - [Brief History of FHIR](/modules/fhir-history.qmd)
 - [ONC Certification Program](/modules/onc-certification-program.qmd)
+:::
 
+::: {.section-card}
 ## Core FHIR Concepts
+
+Learn how resources represent healthcare information, how references connect related records, and how terminology preserves shared meaning. Examine resource structures and examples, then navigate the broader specification to understand exchange, conformance, security, and clinical reasoning capabilities.
 
 - [Introduction to FHIR Resources](/modules/fhir-resources-intro.qmd)
 - [FHIR Resources in Depth](/modules/fhir-resources-in-depth.qmd)
 - [Terminology Introduction](/modules/terminology.qmd)
 - [The FHIR Specification](/modules/fhir-specification.qmd)
+:::
 
+::: {.section-card}
 ## The FHIR Community
+
+Find places to ask questions, collaborate with implementers, and engage in standards development. Compare FHIR with common data models used in research networks, and understand how specification versions influence implementation choices and compatibility across systems.
 
 - [The FHIR Community & Documentation](/modules/fhir-community.qmd)
 - [Common Data Models & FHIR](/modules/cdms.qmd)
 - [FHIR Versions](/modules/fhir-versions.qmd)
+:::
 
+::: {.section-card}
 ## Using FHIR
+
+Build an understanding of FHIR API requests by exploring resource retrieval, patient searches, and server capabilities. Try practical examples for common research questions, and use the introductory webinar materials to reinforce the concepts behind accessing health data.
 
 - [Using the FHIR API to Access Data](/modules/fhir-accessing-data.qmd)
 - [Introductory Webinar](/webinars/intro/index.qmd)
+:::
+:::
+
+::: {.section-card .section-continue .mt-4}
+[Ready for more?]{.home-eyebrow}
+
+Learn how FHIR and related technologies can help you access EHR data, specify study data requirements, and build and test applications.
+
+::: {.home-actions}
+[Continue →](technologies.qmd){.home-button}
+:::
+:::
+:::
 :::
