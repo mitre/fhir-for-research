@@ -5,7 +5,8 @@ FHIR_SERVER="http://localhost:8080/fhir/"
 
 # URL path fragment to use to open Jupyter notebooks in collab and binder 
 # when this project is published
-COLLAB_BINDER_PATH="NIH-ODSS/fhir-for-research"
+COLLAB_BINDER_PATH="mitre/fhir-for-research"
+COLLAB_BINDER_REF="gh-pages"
 
 # Repository URL to FHIR Exercises
 FHIR_EXERCISES_REPO="https://github.com/NIH-ODSS/fhir-exercises"

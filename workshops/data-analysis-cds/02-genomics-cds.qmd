@@ -1,5 +1,6 @@
 ---
 title: FHIR Genomics Analysis for Clinical Decision Support
+date: 2026-09-16
 jupyter: python3
 error: true
 execute:
@@ -18,10 +19,7 @@ reading_time: true
 ---
 
 ::: {.content-hidden when-format="ipynb"}
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/{{< env COLLAB_BINDER_PATH >}}/blob/main/workshops/data-analysis-cds/data/02-genomics-cds.ipynb)
-[![View in NBViewer](https://raw.githubusercontent.com/jupyter/design/refs/heads/main/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/{{< env COLLAB_BINDER_PATH>}}/blob/main/workshops/data-analysis-cds/data/02-genomics-cds.ipynb) <!-- Force download instead of opening the notebook as a page-->
-<a href="./02-genomics-cds.ipynb" download><img src="https://img.shields.io/badge/download-notebook-F37626?logo=jupyter" alt="Download Notebook"></a>
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/{{< env COLLAB_BINDER_PATH >}}/HEAD?urlpath=%2Fdoc%2Ftree%2Fworkshops%2Fdata-analysis-cds%2F02-genomics-cds.ipynb)
+{{< notebook-buttons notebook="02-genomics-cds.ipynb" github-path="workshops/data-analysis-cds/02-genomics-cds.ipynb" binder=false >}}
 :::
 
 ## Introduction
@@ -756,7 +754,7 @@ To extend this work in a production environment, you would need to:
 2.  **Implement Authentication**:
     -   Use industry-standard authentication protocols supported by your EHR
 3.  **Update Clinical Knowledge**:
-    -   Store clinical recommendations in a database rather than hardcoded values
+    -   Store clinical recommendations in a database rather than hard-coded values
     -   Establish a regular review cycle with clinical experts
 4.  **Add Robust Error Handling**:
     -   Implement comprehensive exception handling, logging, and monitoring

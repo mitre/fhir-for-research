@@ -10,11 +10,12 @@ execute:
   error: true
 jupyter: python3
 
-format: 
+format:
   html: default
   ipynb: default
 
 reading_time: true
+date: 2025-05-20
 ---
 
 Data analysis approaches in Python often use [Pandas DataFrames](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) to store tabular data. There are two primary approaches to loading FHIR-formatted data into Pandas DataFrames:
@@ -36,7 +37,7 @@ The examples in this module use a FHIR testing server populated with [Synthea da
 
 The endpoint for this testing server is:
 
-```         
+```
 https://hapi.fhir.org/baseR4
 ```
 
@@ -123,7 +124,7 @@ df = search.steal_bundles_to_dataframe(
 df
 ```
 
-While FHIRPath can be quite complex, its use in FHIR-PYrate is often straight forward. Nested elements are separated with `.`, and elements with multiple sub-values are identified by `[N]` where `N` is an integer starting at 0. The element paths can typically be constructed by loading all elements into a DataFrame and then manually deriving the FHIRPaths from the column names, or by looking at the hierarchy resource pages in the FHIR specification (see [Key FHIR Resources](key-fhir-resources.qmd) for more information on reading the FHIR specification).
+While FHIRPath can be quite complex, its use in FHIR-PYrate is often straight forward. Nested elements are separated with `.`, and elements with multiple sub-values are identified by `[N]` where `N` is an integer starting at 0. The element paths can typically be constructed by loading all elements into a DataFrame and then manually deriving the FHIRPaths from the column names, or by looking at the hierarchy resource pages in the FHIR specification (see [FHIR Resources in Depth](fhir-resources-in-depth.qmd) for more information on reading the FHIR specification).
 
 ## Elements with multiple sub-values
 

@@ -36,17 +36,17 @@ Learn how FHIR can be used to exchange health data, and how to incorporate it in
 ::: feature
 ### Introduction
 
-This introduction to FHIR for research explains what FHIR is, what does FHIR data look, how to intepret FHIR guides, and how FHIR is used.
+This introduction to FHIR for research explains what FHIR is, what FHIR data looks like, how to interpret FHIR guides, and how FHIR is used.
 
 [Learn more »](sections/introduction.qmd){.learn-more}
 :::
 
 ::: feature
-### Advanced Topics
+### Technologies
 
 SMART on FHIR, Clinical Decision Support Hooks, and other real-world approaches to gathering FHIR data for research purposes.
 
-[Learn more »](sections/advanced-topics.qmd){.learn-more}
+[Learn more »](sections/technologies.qmd){.learn-more}
 :::
 
 ::: feature
@@ -103,7 +103,7 @@ This guide is suitable for a wide range of technical and domain roles. Working w
 
 ::: role-list
 -   Investigator
--   Research Leaders
+-   Research Leader
 -   Informaticist
 -   Software Engineer
 -   Clinical Scientist

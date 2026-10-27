@@ -16,6 +16,8 @@ learning_objectives2:
 bibliography: ../bibliography.bib
 
 reading_time: true
+
+date: 2026-03-10
 ---
 
 [REDCap](https://www.project-redcap.org) (which stands for "Research Electronic Data Capture") is:

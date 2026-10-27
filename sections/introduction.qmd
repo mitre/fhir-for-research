@@ -1,42 +1,51 @@
 ---
 title: Introduction
 sidebar: false
+listing:
+  - id: role-selector
+    template: ../partials/role-selector.ejs.md
+    contents: ../partials/roles.yml
 ---
 
-FHIR&reg; (pronounced "fire"), which stands for Fast Healthcare Interoperability Resources, is a platform for health data standardization and access. This **Introduction** breaks FHIR down into modules designed to enable FHIR for research.
+FHIR® (pronounced "fire"), which stands for Fast Healthcare Interoperability Resources, is a platform for health data standardization and access. FHIR adopts lessons learned from earlier standards with modern web technologies, such as APIs, data formats and security, to support simpler, faster and more flexible interoperability for exchanging and working with health data.
 
+FHIR is an [Health Level Seven](https://www.hl7.org/) (HL7) standard designed to make healthcare data easier to exchange, understand, and reuse among health records, laboratory systems, apps, researchers, public-health agencies, and services. Introduced in 2011, FHIR modernized earlier HL7 standards by combining healthcare-specific data models with web technologies such as [REST APIs](https://en.wikipedia.org/wiki/REST), [JSON](https://www.json.org/), and [OAuth-based security](https://oauth.net/2/).
+
+It organizes information into reusable units called [resources](https://www.hl7.org/fhir/R5/resource.html): a standardized representation of a clinical or administrative concept, such as a Patient, Observation, Medication, or Encounter. Resources can be queried individually or bundled together. FHIR also supports profiles and Implementation Guides for local requirements, SMART on FHIR for secure applications, and APIs for clinical decision support and population-scale data exchange. Together, these technologies make FHIR an interoperability platform rather than just a data format.
+
+This module introduces the purpose, history and core technologies of FHIR. The [Technologies](/sections/technolgies.cqm) page describes several related technologies designed to solve common challenges when working with FHIR in real-world applications.
+
+::::: role-select-pane
 Select your [role](/roles.html) to <mark>highlight</mark> the content that is most relevant to you:
 
-<a href="#" class="btn-role" data-role="investigator">Investigator</a>
-<a href="#" class="btn-role" data-role="research-leader">Research Leader</a>
-<a href="#" class="btn-role" data-role="informaticist">Informaticist</a>
-<a href="#" class="btn-role" data-role="software-engineer">Software Engineer</a>
-<a href="#" class="btn-role" data-role="clinician-scientist">Clinician Scientist/Trainee</a>
-
-:::{.highlight-by-role}
-## What is FHIR
-
--   [FHIR from 10,000 Feet](/modules/fhir-from-10000-ft.qmd)
--   [FHIR from 1,000 Feet](/modules/fhir-from-1000-ft.qmd)
--   [Brief History of FHIR](/modules/fhir-history.qmd)
-
-## What does FHIR look like
-
--   [Key FHIR Resources](/modules/key-fhir-resources.qmd)
--   [Terminology Introduction](/modules/terminology.qmd)
--   [The FHIR Community & Documentation](/modules/fhir-community.qmd)
--   [Common Data Models & FHIR](/modules/cdms.qmd)
--   [FHIR Versions](/modules/fhir-versions.qmd)
-
-## How to Interpret FHIR guides
-
--   [Reading a FHIR specification](/modules/data-modeling-reading-igs.qmd)
--   [Real world FHIR specifications](/modules/data-modeling-real-world-igs.qmd)
--   [Writing a FHIR specification](/modules/data-modeling-writing-igs.qmd)
-
-## How to use FHIR
-
--   [Using the FHIR API to Access Data](/modules/fhir-accessing-data.qmd)
--   [Introductory Webinar](/webinars/intro/index.qmd)
+::: {#role-selector}
 :::
 
+:::::
+
+::: highlight-by-role
+## What is FHIR?
+
+- [FHIR from 10,000 Feet](/modules/fhir-from-10000-ft.qmd)
+- [FHIR from 1,000 Feet](/modules/fhir-from-1000-ft.qmd)
+- [Brief History of FHIR](/modules/fhir-history.qmd)
+- [ONC Certification Program](/modules/onc-certification-program.qmd)
+
+## Core FHIR Concepts
+
+- [Introduction to FHIR Resources](/modules/fhir-resources-intro.qmd)
+- [FHIR Resources in Depth](/modules/fhir-resources-in-depth.qmd)
+- [Terminology Introduction](/modules/terminology.qmd)
+- [The FHIR Specification](/modules/fhir-specification.qmd)
+
+## The FHIR Community
+
+- [The FHIR Community & Documentation](/modules/fhir-community.qmd)
+- [Common Data Models & FHIR](/modules/cdms.qmd)
+- [FHIR Versions](/modules/fhir-versions.qmd)
+
+## Using FHIR
+
+- [Using the FHIR API to Access Data](/modules/fhir-accessing-data.qmd)
+- [Introductory Webinar](/webinars/intro/index.qmd)
+:::

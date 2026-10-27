@@ -4,10 +4,15 @@ title: CDS Hooks Technical Example
 roles:
   - Software Engineer
 
+date: 2026-05-26
+
 reading_time: true
+
+aliases:
+  - cds-hooks-tech.html
 ---
 
-This module is meant for technical users who are interested understanding the architecture of CDS Hooks by reviewing an example CDS Service. Please be familiar with [SMART on FHIR](new-smart-on-fhir-intro.qmd) and read the [CDS Hooks introduction](new-cds-hooks-intro.qmd) before continuing.
+This module is meant for technical users who are interested in understanding the architecture of CDS Hooks by reviewing an example CDS Service. Please be familiar with [SMART on FHIR](smart-on-fhir-intro.qmd) and read the [CDS Hooks introduction](cds-hooks-intro.qmd) before continuing.
 
 ## Example Overview: Facilitating Retinoblastoma Research
 
@@ -45,7 +50,7 @@ The data for this use case can be accessed [here](https://github.com/NIH-NEI/fhi
     -   Configure the CDS service to filter patients and identify those diagnosed with retinoblastoma by examining relevant FHIR resources, such as `Condition` resources with retinoblastoma diagnosis codes.
     -   Use the `prefetch` feature in CDS Hooks to load the necessary FHIR resource instances without making a separate request to the FHIR server.
 
-2.  **Create CDS Card:**
+2.  **Create a CDS Card:**
 
     -   Create a link card that provides succinct decision support verbiage, urging the clinician to consider asking the patient's parents or guardians if they would be interested in enrolling the patient into a research recruitment registry. The card should include a brief description and any relevant details about the registry, and end with a link to enroll in the registry. The enrollment process could be via a third-party registry website (i.e., any arbitrary website, as implemented in the example code below) or a SMART on FHIR application.
 
@@ -91,24 +96,26 @@ After ensuring you have access to a test FHIR server with the synthetic data des
     If the patient meets the criteria, the appropriate card(s) are returned in JSON format. For example:
 
     ``` json
-    [
-      {
-        summary: "Enrollment Link",
-        indicator: "info",
-        detail:
-          "This patient is diagnosed with retinoblastoma. Please consider referring them to the retinoblastoma recruitment registry if their parents or guardians are interested in being contacted about research opportunities.\n\nClick below to guide the patient’s family through the signing up for the Retinoblastoma Research Recruitment Registry.",
-        source: {
-          label: "Enrollment App",
+    {
+      "cards": [
+        {
+          summary: "Enrollment Link",
+          indicator: "info",
+          detail:
+            "This patient is diagnosed with retinoblastoma. Please consider referring them to the retinoblastoma recruitment registry if their parents or guardians are interested in being contacted about research opportunities.\n\nClick below to guide the patient’s family through signing up for the Retinoblastoma Research Recruitment Registry.",
+          source: {
+            label: "Enrollment App",
+          },
+          links: [
+            {
+              label: "Enroll Patient →",
+              url: "http://example.com/enrollment-smart-app",
+              type: "smart"
+            }
+          ]
         },
-        links: [
-          {
-            label: "Enroll Patient →",
-            url: "http://example.com/enrollment-smart-app",
-            type: "smart"
-          }
-        ]
-      },
-    ]
+      ]
+    }
     ```
 
     Multiple cards can be returned if needed. If you want to link to a URL for a non-SMART on FHIR application, use `type: "absolute"` instead of `type: "smart"`.
@@ -173,7 +180,7 @@ There are a multitude of approaches for implementing such a server. An example [
 
 ## Other Research Applications
 
-This use case showcases just a fraction of what CDS Hooks can offer to FHIR research application developers. By leveraging different types of hooks, such as the `patient-view` used above or [hook types](new-cds-hooks-types.qmd) like `encounter-start` hooks, developers can achieve a high degree of flexibility in integrating clinical decision support (CDS) into various points of the clinical workflow. Here are some additional ways CDS Hooks can further enhance research application development:
+This use case showcases just a fraction of what CDS Hooks can offer to FHIR research application developers. By leveraging different types of hooks, such as the `patient-view` used above or [hook types](cds-hooks-types.qmd) like `encounter-start` hooks, developers can achieve a high degree of flexibility in integrating clinical decision support (CDS) into various points of the clinical workflow. Here are some additional ways CDS Hooks can further enhance research application development:
 
 #### Tailored User Interaction
 
@@ -187,7 +194,7 @@ This use case showcases just a fraction of what CDS Hooks can offer to FHIR rese
 
 #### Advanced Considerations for Research Integration
 
--   **Condition-Specific Hooks:** Beyond the `patient-view` hook, explore the use of condition-specific hooks such as `order-select` or `order-sign` hooks. These hooks allow for CDS interventions at the moment of clinical decision-making, such as when a clinician is placing an order for a medication or test. For example, an `order-sign` hook could be used to prompt a clinician to consider enrolling a patient in a research study before finalizing a treatment order.
+-   **Clinical Workflow Hooks:** Beyond the `patient-view` hook, explore the use of condition-specific hooks such as `order-select` or `order-sign` hooks. These hooks allow for CDS interventions at the moment of clinical decision-making, such as when a clinician is placing an order for a medication or test. For example, an `order-sign` hook could be used to prompt a clinician to consider enrolling a patient in a research study before finalizing a treatment order.
 
 -   **Contextual Data Integration:** Utilize the context provided by hooks, such as encounter information, patient demographics, and clinical context, to deliver highly specific and actionable CDS interventions. For instance, the `encounter-start` hook can be used to identify eligible patients for a study based on the reason for their visit, ensuring that research opportunities are presented at the most relevant clinical moments.
 
@@ -205,9 +212,9 @@ By exploring the capabilities and potential use cases of CDS Hooks, FHIR researc
 
 When developing software applications involving exchange of health data, it is important to appropriately address security and privacy requirements for sensitive patient information. Use reputable open-source software libraries to save development time and avoid common security pitfalls.
 
-Strong data protection measures should be employed to safeguard patient information. This includes ensuring patient data exchange complies with relevant regulations to protect sensitive personal health information (PHI). For instance, requirements may include compliance with regulations such as Health Insurance Portability and Accountability Act (HIPAA) in the United States, as well as with your institution's local Institutional Review Board (IRB) and privacy rules.
+Strong data protection measures should be employed to safeguard patient information. This includes ensuring patient data exchange complies with relevant regulations to protect sensitive protected health information (PHI). For instance, requirements may include compliance with regulations such as Health Insurance Portability and Accountability Act (HIPAA) in the United States, as well as with your institution's local Institutional Review Board (IRB) and privacy rules.
 
-Note that leveraging SMART on FHIR with CDS Hooks can helpful for addressing authorization and authentication. It is important to ensure that your CDS service handles these correctly, typically using OAuth 2.0 to authenticate with the EHR system and restrict access based on user roles.
+Note that leveraging SMART on FHIR with CDS Hooks can be helpful for addressing authorization and authentication. It is important to ensure that your CDS service handles these correctly, typically using OAuth 2.0 to authenticate with the EHR system and restrict access based on user roles.
 
 ### Design
 
