@@ -1,7 +1,7 @@
 function Meta(meta)
   local input_file = (quarto.doc.input_file or ""):gsub("\\", "/")
 
-  local section_dirs = { "/modules/", "/webinars/" }
+  local section_dirs = { "/modules/", "/webinars/", "/workshops/" }
 
   meta.in_modules = false
   for _, dir in ipairs(section_dirs) do

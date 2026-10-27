@@ -96,6 +96,10 @@ jobs:
           uv run ./script/load_data.py
           echo "Data uploaded"
 
+      - name: Set Binder repository path
+        run: |
+          sed -i "s|^COLLAB_BINDER_PATH=.*|COLLAB_BINDER_PATH=\"${GITHUB_REPOSITORY}\"|" _environment
+
       - name: Render Quarto
         run: uv run quarto render
 

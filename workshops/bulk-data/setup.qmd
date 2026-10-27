@@ -1,5 +1,6 @@
 ---
 title: FHIR Bulk Data Workshop Setup
+date: 2026-09-16
 
 toc: false
 number-sections: false

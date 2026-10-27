@@ -1,5 +1,6 @@
 ---
 title: "FHIR for Research - From Data Analysis to Clinical Decision Support"
+date: 2026-09-16
 format:
   html:
     toc: true
@@ -48,7 +49,7 @@ Running the two interactive Jupyter notebooks in this workshop may require some 
 
 At the top of each notebook, you will see a series of badges like those below:
 
-![](https://colab.research.google.com/assets/colab-badge.svg){fig-alt="Button for opening Google Colab."} ![](https://raw.githubusercontent.com/jupyter/design/refs/heads/main/logos/Badges/nbviewer_badge.svg){fig-alt="Button for opening NBViewer."} <img src="https://img.shields.io/badge/download-notebook-F37626?logo=jupyter" alt="Download Notebook"/> ![](https://mybinder.org/badge_logo.svg){fig-alt="Button for opening Binder."}
+{{< notebook-buttons notebook="01-fhir-analysis.ipynb" github-path="workshops/data-analysis-cds/01-fhir-analysis.ipynb" binder=false >}}
 
 Identify one of the setup options to use, follow the necessary instructions, and then proceed to [Workshop Materials](#workshop-materials) and use your chosen setup option in the notebook.
 

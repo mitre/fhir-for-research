@@ -1,5 +1,6 @@
 ---
 title: Analyzing FHIR Data in a Tabular Format With Python
+date: 2026-09-16
 learning_objectives2:
   - Understand the high-level approaches for converting FHIR-formatted data into tabular data for analysis in Python.
   - Learn how to request data from a FHIR server and creating tidy tabular data tables using the FHIR-PYrate library. 
@@ -16,11 +17,7 @@ reading_time: true
 ---
 
 ::: {.content-hidden when-format="ipynb"}
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/{{< env COLLAB_BINDER_PATH >}}/blob/main/workshops/data-analysis-cds/data/01-fhir-analysis.ipynb)
-[![View in NBViewer](https://raw.githubusercontent.com/jupyter/design/refs/heads/main/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/{{< env COLLAB_BINDER_PATH >}}/blob/main/workshops/data-analysis-cds/data/01-fhir-analysis.ipynb)
- <!-- Force download instead of opening the notebook as a page-->
-<a href="./01-fhir-analysis.ipynb" download><img src="https://img.shields.io/badge/download-notebook-F37626?logo=jupyter" alt="Download Notebook"></a>
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/{{< env COLLAB_BINDER_PATH >}}/HEAD?urlpath=%2Fdoc%2Ftree%2Fworkshops%2Fdata-analysis-cds%2F01-fhir-analysis.ipynb)
+{{< notebook-buttons notebook="01-fhir-analysis.ipynb" github-path="workshops/data-analysis-cds/01-fhir-analysis.ipynb" binder=false >}}
 :::
 
 ## Introduction
