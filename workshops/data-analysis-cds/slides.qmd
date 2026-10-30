@@ -137,7 +137,6 @@ Questions
 
 - Basic familiarity with Python and JavaScript
 - Web browser (Chrome recommended)
-- Google account for Colab (optional)
 
 ::: {.notes}
 - Minimal requirements to get started
@@ -149,23 +148,23 @@ Questions
 
 ::: {.columns}
 ::: {.column width="50%"}
-### Google Colab
-- Zero setup required
-- Click and start coding
-- Great for workshops
+### Read Online
+- Rendered workshop pages
+- No setup required
+- Best for reviewing content
 :::
 
 ::: {.column width="50%"}
 ### Local Installation
 - JupyterLab Desktop
-- Command line setup
+- Download the notebook
 - Better for sensitive data
 :::
 :::
 
 ::: {.notes}
-- Recommend Colab for consistency
-- Local setup for production use
+- Recommend JupyterLab Desktop for interactive use
+- Use the rendered pages when execution is not needed
 - Important security considerations
 :::
 

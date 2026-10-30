@@ -30,40 +30,6 @@
 .section-next p { margin-bottom: 0; }
 .section-next a { font-weight: 700; text-underline-offset: 0.2em; }
 
-.section-roles {
-  margin-bottom: 2rem;
-  padding: 1.4rem 1.5rem;
-  background: var(--home-surface);
-  border: 1px solid var(--home-border);
-  border-radius: 0.4rem;
-}
-
-.section-role-buttons > p {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 0;
-}
-
-.section-roles .btn-role {
-  color: var(--home-link);
-  border-color: var(--home-link);
-}
-
-.section-roles .btn-role:hover {
-  background: var(--home-link);
-  color: var(--bs-body-bg);
-}
-
-.section-role-buttons a.btn-secondary {
-  color: #fff;
-  background: #20558a;
-  border-color: #20558a;
-}
-
-.section-roles a[data-role]:focus-visible {
-  outline-offset: 3px;
-}
 
 .section-grid {
   display: grid;
@@ -94,8 +60,8 @@
 .section-card a { font-weight: 500; text-underline-offset: 0.2em; }
 
 .section-continue {
-  background: #e9f3f1;
-  border-color: #c9ded9;
+  background: var(--home-surface-alt);
+  border: 1px solid var(--home-border);
 }
 
 .section-continue .home-button {

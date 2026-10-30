@@ -18,17 +18,15 @@ format:
 reading_time: true
 ---
 
-::: {.content-hidden when-format="ipynb"}
-{{< notebook-buttons notebook="02-genomics-cds.ipynb" github-path="workshops/data-analysis-cds/02-genomics-cds.ipynb" binder=false >}}
-:::
+{{< notebook-buttons >}}
 
 ## Introduction
 
-For the best learning experience, run this tutorial interactively, via one of the environment setup options. Use the above button depending on your chosen [setup option](index.qmd#environment-setup).
+For the best learning experience, run this tutorial interactively. See [Running Workshop Notebooks](https://fhir-for-research.pages.mitre.org/web/workshops/running-notebooks.html) for supported setup options.
 
-This tutorial explores how to work with genomic data in FHIR for clinical decision support (CDS) applications. We'll use the [Synthea Coherent Data Set](index.qmd#synthetic-data) to retrieve and analyze genomic reports and observations, ultimately implementing a CDS service that provides actionable recommendations based on a patient's genetic profile.
+This tutorial explores how to work with genomic data in FHIR for clinical decision support (CDS) applications. We'll use the [Synthea Coherent Data Set](https://fhir-for-research.pages.mitre.org/web/workshops/data-analysis-cds/index.html#synthetic-data) to retrieve and analyze genomic reports and observations, ultimately implementing a CDS service that provides actionable recommendations based on a patient's genetic profile.
 
-In this tutorial, we're using a FHIR server located at **{{< env FHIR_SERVER >}}**, but any FHIR server loaded with appropriate data can be used. For instructions on setting up your own test server, see [Standing up a FHIR Testing Server](../../modules/synthea-test-server.qmd).
+In this tutorial, we're using a FHIR server located at **{{< env FHIR_SERVER >}}**, but any FHIR server loaded with appropriate data can be used. For instructions on setting up your own test server, see [Standing Up a FHIR Testing Server](https://fhir-for-research.pages.mitre.org/web/modules/synthea-test-server.html).
 
 ::: {.content-hidden when-format="ipynb"}
 ## Learning Paths
@@ -312,7 +310,7 @@ Now that we've analyzed genetic variants and generated recommendations, let's ex
 
 CDS Hooks is a standard for integrating clinical decision support into electronic health record (EHR) systems at the point of care. It allows our genomic analysis recommendations to be delivered to clinicians at the right time and in the right context.
 
-For a comprehensive introduction to CDS Hooks, please refer to [CDS Hooks Introduction](/modules/new-cds-hooks-intro.qmd), which covers the fundamental concepts, workflow, and implementation details.
+For a comprehensive introduction to CDS Hooks, please refer to [CDS Hooks Introduction](/modules/cds-hooks-intro.qmd), which covers the fundamental concepts, workflow, and implementation details.
 
 :::: {.content-hidden when-format="ipynb"}
 ::: {#cds-hooks-overview .callout-note}
@@ -774,6 +772,6 @@ For more information, see:
 -   [FHIR Genomics Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/)
 -   [CDS Hooks Documentation](https://cds-hooks.org/)
 -   [LOINC Genetic Variant Terms](https://loinc.org/genetic-variant/)
--   [Learn more about CDS Hooks](/modules/new-cds-hooks-intro.qmd)
+-   [Learn more about CDS Hooks](/modules/cds-hooks-intro.qmd)
 
 ::::

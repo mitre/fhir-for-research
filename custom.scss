@@ -4,6 +4,7 @@ $navbar-bg: #fafaf9 !default;
 $navbar-bg-dark: #222222;
 $code-color: #7920a7 !default;
 
+  
 /*-- scss:rules --*/
 
 // This is the column type in RMarkdown data frame output, which does not have
@@ -121,30 +122,14 @@ body {
     text-decoration: none;
 }
 
-// Styles for role selection
 .role-select-pane {
-  border:1px solid #fafafa;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding:1.5rem 0.5rem 0rem 1rem;
+  background: var(--home-surface);
+  border: 1px solid var(--home-border);
+  border-radius: 0.4rem;
+  background-color: var(--home-surface);
   margin-bottom:2em;
-}
-
-.btn-role {
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    vertical-align: middle;
-    user-select: none;
-    padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
-    border-radius: 0.2rem;
-    color: #6c757d;
-    border: #6c757d 1px solid;
-}
-
-.btn-role:hover {
-    background-color: #6c757d;
-    color: #fff;
 }
 
 /* Hide the native radio buttons for role selectors entirely */
@@ -161,11 +146,30 @@ ul.roles-select-list
       -webkit-appearance: none;
       position: absolute;
     }
+    label {
+      &.btn-role {
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        user-select: none;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        border-radius: 0.2rem;
+        color: var(--home-link);
+        border: 1px solid var(--home-link);
+        background-color:white;
+      }
+     &.btn-role:hover {
+       background-color: var(--home-link);
+       color: var(--bs-body-bg);
+     } 
+    }
     label:has(input[type="radio"]:checked) {
       color:white;
       font-weight:700 !important;
       background-color:#343a40;
-      border-color:#343a40;
+      border-color:var(--home-border);
     }
   }
 }
@@ -201,7 +205,27 @@ mark {
             color: white;
         }
     }
-}
+    ul.roles-select-list li 
+    {
+      label {
+        &.btn-role {
+          color: var(--home-link);
+          border: 1px solid var(--home-link);
+          background-color: var(--home-surface);
+        }
+       &.btn-role:hover {
+         background-color: var(--home-link);
+         color: var(--bs-body-bg);
+       } 
+      }
+      label:has(input[type="radio"]:checked) {
+        color:white;
+        background-color: #579ed1;
+        border-color:var(--home-border);
+      }
+    }
+}    
+
 
 // Fix navbar height between themes
 body {

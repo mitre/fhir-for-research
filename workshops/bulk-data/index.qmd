@@ -26,23 +26,13 @@ Please see the [Introduction to FHIR Bulk Data Webinar](../../webinars/bulk-data
 -   [Printable web page](slides.html?print-pdf)
 -   [Accessible PDF](Workshop - Bulk Data 508C.pdf)
 
-## Workshop notebook
+## Technical exercise
 
-The materials for this workshop are in a Jupyter notebook. You can access the notebook [as part of this website](notebook.html), or via the [raw `.ipynb` file](https://github.com/NIH-ODSS/fhir-for-research/blob/main/workshops/bulk-data/notebook.ipynb) ([open in nbviewer](https://nbviewer.org/github/NIH-ODSS/fhir-for-research/blob/main/workshops/bulk-data/notebook.ipynb)).
+The former workshop notebook has moved to the [FHIR Bulk Data Technical Example](../../modules/bulk-fhir-tech.qmd). Use that maintained module for the interactive Bulk Data exercise.
 
-The full interactive version of the notebook can be run locally, by running the following sequence of commands in a terminal window, to install and launch the Jupyter environment. Note [Python](https://docs.python.org/3/using/index.html) is required to be installed first.
+The previous `notebook.ipynb`, NBViewer link, `requirements.txt` instructions, and `workshops/fhir-bulk-data` directory are no longer part of this repository.
 
-``` sh
-git clone https://github.com/NIH-ODSS/fhir-for-research.git # Clone this git repository
-cd fhir-for-research
-python3 -m venv venv/ # Create a Python virtualenv
-source venv/bin/activate # Activate the virtualenv
-pip install -r requirements.txt # Install dependencies
-cd workshops/fhir-bulk-data # Go to this folder
-python -m jupyter notebook # Run the Jupyter notebook
-```
-
-A browser window will pop up showing the "fhir-bulk-data" folder in Jupyter. Click on the `notebook.ipynb` to open it.
+For notebooks provided by other workshops, see [Running Workshop Notebooks](../running-notebooks.qmd).
 
 ## JKWS to PEM conversion
 

@@ -52,6 +52,7 @@ chrohn
 clauw
 cnc
 codeable
+codespaces
 colab
 colorectal
 colwidths

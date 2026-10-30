@@ -17,6 +17,7 @@ nav.page-navigation {
   --home-muted: #425b70;
   --home-link: #20558a;
   --home-surface: #f1f6fa;
+  --home-surface-alt: #e9f3f1;
   --home-border: #ccdbe6;
   color: var(--home-ink);
   line-height: 1.6;
@@ -311,9 +312,10 @@ nav.page-navigation {
 
 .quarto-dark .home-page {
   --home-ink: #e5eef6;
-  --home-muted: #c1d1df;
+  --home-muted: #cfdae4;
   --home-link: #9acef5;
   --home-surface: #213242;
+  --home-surface-alt: #0e4a47;
   --home-border: #506779;
 }
 

@@ -13,6 +13,10 @@ env:
   FHIR_SERVER: "http://localhost:8080/fhir"
   CI_DEBUG_SERVICES: "false" # This helps with FHIR service debugging
   ENVIRONMENT_NAME: "production"
+  DEPLOY_TARGET: github
+  DEPLOY_REPOSITORY: ${{ github.repository }}
+  DEPLOY_BRANCH: ${{ github.ref_name }}
+  DEPLOY_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
   PACKAGES: |
     libcurl4-openssl-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev libfontconfig1-dev
 
@@ -96,12 +100,22 @@ jobs:
           uv run ./script/load_data.py
           echo "Data uploaded"
 
-      - name: Set Binder repository path
+      - name: Set deployment location
         run: |
-          sed -i "s|^COLLAB_BINDER_PATH=.*|COLLAB_BINDER_PATH=\"${GITHUB_REPOSITORY}\"|" _environment
+          DEPLOY_PREFIX=""
+          if [ "$DEPLOY_BRANCH" != "$DEPLOY_DEFAULT_BRANCH" ]; then
+            DEPLOY_PREFIX="branches/${GITHUB_REF_NAME##*/}"
+          fi
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          DEPLOY_URL="https://${GITHUB_REPOSITORY_OWNER}.github.io/${REPO_NAME}"
+          if [ -n "$DEPLOY_PREFIX" ]; then
+            DEPLOY_URL="${DEPLOY_URL}/${DEPLOY_PREFIX}"
+          fi
+          echo "DEPLOY_PREFIX=$DEPLOY_PREFIX" >> "$GITHUB_ENV"
+          echo "DEPLOY_URL=$DEPLOY_URL" >> "$GITHUB_ENV"
 
       - name: Render Quarto
-        run: uv run quarto render
+        run: uv run quarto render --site-url "$DEPLOY_URL"
 
       - name: Remove .html extensions and /index from links
         run: |
@@ -171,13 +185,12 @@ jobs:
           git fetch origin
           git reset --hard origin/gh-pages
 
-          mkdir -p branches/${GITHUB_REF_NAME##*/}
-          rm -rf branches/${GITHUB_REF_NAME##*/}/*
-          cp -r $GITHUB_WORKSPACE/public/* branches/${GITHUB_REF_NAME##*/}/
+          mkdir -p "$DEPLOY_PREFIX"
+          rm -rf "$DEPLOY_PREFIX"/*
+          cp -r "$GITHUB_WORKSPACE"/public/* "$DEPLOY_PREFIX"/
           rm -rf .github/workflows
           git add -A
           git commit --amend -m "Update site"
           GIT_SSH_COMMAND='ssh -i ' git push -u --force origin gh-pages
 
-          REPO_NAME=$(basename "${{ github.repository }}")
-          echo "Preview URL: https://$GITHUB_ACTOR.github.io/$REPO_NAME/branches/$GITHUB_REF_NAME"
+          echo "Preview URL: $DEPLOY_URL"

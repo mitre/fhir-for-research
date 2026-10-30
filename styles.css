@@ -18,11 +18,11 @@ body {
 }
 
 /* The sticky menu reserves its own space below the scrolling banner. */
-body:has(> #env-banner + #quarto-header) {
+body:has(> #env-banner ~ #quarto-header) {
   padding-top: 0 !important;
 }
 
-#env-banner + #quarto-header {
+#env-banner ~ #quarto-header {
   position: sticky;
   top: 0;
 }

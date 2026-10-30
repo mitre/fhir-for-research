@@ -17,11 +17,11 @@ This hands-on workshop introduces researchers to FHIR data analysis and clinical
 
 -   Basic familiarity with Python and JavaScript will allow for a deeper understanding but you can follow the workshop notebooks without prior experience.
 -   Web browser (Chrome recommended)
--   Google account to access Google Colab (optional)
+-   Google account to run notebooks in Google Colab (optional)
 -   Recommended background: Basic understanding of FHIR concepts
     -   See our [FHIR from 1,000 Feet](/modules/fhir-from-1000-ft.qmd) module for introductory material
     -   For Part 2, familiarity with [Genomics Data Standardization with FHIR](/modules/genomics.qmd)
-    -   Helpful concepts: [CDS Hooks](/modules/new-cds-hooks-intro.qmd) and [SMART on FHIR](/modules/smart-on-fhir-intro.qmd)
+    -   Helpful concepts: [CDS Hooks](/modules/cds-hooks-intro.qmd) and [SMART on FHIR](/modules/smart-on-fhir-intro.qmd)
 
 ## Synthetic Data
 
@@ -45,11 +45,9 @@ The dataset can be downloaded from the [Synthea downloads page](https://synthea.
 
 ## Environment Setup {#environment-setup}
 
-Running the two interactive Jupyter notebooks in this workshop may require some local setup. There are four options, listed below. The first, Google Colab, is the recommended method since it requires the least amount of setup, but the other options are also viable and might be the right fit for different needs.
-
 At the top of each notebook, you will see a series of badges like those below:
 
-{{< notebook-buttons notebook="01-fhir-analysis.ipynb" github-path="workshops/data-analysis-cds/01-fhir-analysis.ipynb" binder=false >}}
+{{< notebook-buttons notebook="01-fhir-analysis.ipynb" >}}
 
 Identify one of the setup options to use, follow the necessary instructions, and then proceed to [Workshop Materials](#workshop-materials) and use your chosen setup option in the notebook.
 
@@ -80,9 +78,9 @@ When working with PII/PHI data from your own FHIR server, only use local install
 4.  Open the downloaded notebook in JupyterLab Desktop
 5.  Each notebook includes its own dependency cell that will install any additional required packages
 
-### Option 4: Binder
+The rendered pages can be read directly in this website. For interactive use, the generated notebooks can be opened locally or through a supported hosted service.
 
-Click the [Binder](https://mybinder.org/) badge on any notebook for a temporary environment (slower but no setup required).
+See [Running Workshop Notebooks](../running-notebooks.qmd) for the supported options, setup instructions, FHIR server requirements, and guidance for handling sensitive data.
 
 ## Workshop Materials {#workshop-materials}
 

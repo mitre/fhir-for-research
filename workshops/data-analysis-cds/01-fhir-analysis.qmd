@@ -3,26 +3,24 @@ title: Analyzing FHIR Data in a Tabular Format With Python
 date: 2026-09-16
 learning_objectives2:
   - Understand the high-level approaches for converting FHIR-formatted data into tabular data for analysis in Python.
-  - Learn how to request data from a FHIR server and creating tidy tabular data tables using the FHIR-PYrate library. 
+  - Learn how to request data from a FHIR server and creating tidy tabular data tables using the FHIR-PYrate library.
 execute:
   eval: false # It looks like fhirpyrate doesn't work with Python 3.14 due to deprecated typing.io. We want to switch this to sql-on-fhir anyway, so don't eval this file for now.
   cache: false # changes in fhir-server env will not be picked up otherwise
 jupyter: python3
 
-format: 
+format:
   html: default
   ipynb: default
 
 reading_time: true
 ---
 
-::: {.content-hidden when-format="ipynb"}
-{{< notebook-buttons notebook="01-fhir-analysis.ipynb" github-path="workshops/data-analysis-cds/01-fhir-analysis.ipynb" binder=false >}}
-:::
+{{< notebook-buttons >}}
 
 ## Introduction
 
-For the best learning experience, run this tutorial interactively, via one of the environment setup options. Use the above button depending on your chosen [setup option](index.qmd#environment-setup).
+For the best learning experience, run this tutorial interactively. See [Running Workshop Notebooks](https://fhir-for-research.pages.mitre.org/web/workshops/running-notebooks.html) for supported setup options.
 
 Data analysis approaches in Python often use [Pandas DataFrames](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) to store tabular data. There are two primary approaches to loading FHIR-formatted data into Pandas DataFrames:
 
@@ -34,7 +32,7 @@ Data analysis approaches in Python often use [Pandas DataFrames](https://pandas.
 
     It is recommended to try this approach first, and only fall back to (1) if needed.
 
-In this tutorial, we're using a FHIR server located at **{{< env FHIR_SERVER >}}** but any FHIR server loaded with appropriate data can be used. For instructions on setting up your own test server, see [Standing up a FHIR Testing Server](../../modules/synthea-test-server.qmd).
+In this tutorial, we're using a FHIR server located at **{{< env FHIR_SERVER >}}** but any FHIR server loaded with appropriate data can be used. For instructions on setting up your own test server, see [Standing Up a FHIR Testing Server](https://fhir-for-research.pages.mitre.org/web/modules/synthea-test-server.html).
 
 ::: {.content-hidden when-format="ipynb"}
 ## Learning Paths
@@ -53,7 +51,7 @@ You can follow the tutorial sequentially or jump to the section that matches you
 
 ::: {.content-visible when-format="ipynb"}
 ## Dependencies
-Run the cell below to install required packages if you're in a fresh environment. 
+Run the cell below to install required packages if you're in a fresh environment.
 Skip this step if you already have these packages installed.
 
 ```{python}
@@ -276,7 +274,7 @@ Your code is working correctly if:
 :::
 :::
 
-While FHIRPath can be quite complex, its use in FHIR-PYrate is often straightforward. Nested elements are separated with `.`, and elements with multiple sub-values are identified by `[N]` where `N` is an integer starting at 0. 
+While FHIRPath can be quite complex, its use in FHIR-PYrate is often straightforward. Nested elements are separated with `.`, and elements with multiple sub-values are identified by `[N]` where `N` is an integer starting at 0.
 
 Examples illustrating the relationship between FHIRPath and DataFrame column names:
 
@@ -356,11 +354,11 @@ dfs = search.steal_bundles_to_dataframe(
     fhir_paths=[
         # Common paths that could appear in either resource
         ("id", "id"),
-        
+
         # Patient-specific paths
         ("patient_name", "name[0].family"),
         ("birth_date", "birthDate"),
-        
+
         # Observation-specific paths
         ("observation_code", "code.coding[0].code"),
         ("observation_value", "valueQuantity.value"),

@@ -4,10 +4,12 @@ project:
   pre-render: sh pre-render.sh # this script only runs on full rendering and not development mode
   render:
     - "*.qmd"
-    - "workshops/bulk-data/notebook.ipynb"
     - "!cache/" # naming this _cache should work instead, but did not in testing https://community.rstudio.com/t/quarto-equivalent-to-exclude-yaml-command-in-distill/148758/2
     - "!README.md"
     - "!script/"
+  resources:
+    - "pyproject.toml"
+    - workshops/bulk-data/synthea_10.ndjson
 
   preview:
     watch-inputs: true # Only rebuild when inputs change
@@ -172,7 +174,9 @@ website:
       align: left
       collapse-level: 2
       contents:
-        - section: "FHIR Analysis, CDS and Genomics Workshop"
+        - file: sections/hands-on-practice.qmd
+          text: "Workshops"
+        - section: "FHIR Analysis, CDS and Genomics"
           contents:
             - file: workshops/data-analysis-cds/index.qmd
               text: Introduction
@@ -180,16 +184,14 @@ website:
               text: "Part 1: FHIR Data Analysis"
             - file: workshops/data-analysis-cds/02-genomics-cds.qmd
               text: "Part 2: Genomics CDS"
+        - file: workshops/bulk-data/index.qmd
+          text: FHIR Bulk Data
+        - file: workshops/smart-on-fhir/index.qmd
+          text: SMART on FHIR
         - text: "---"
-        - section: "SMART on FHIR"
-          contents:
-            - file: workshops/smart-on-fhir/index.qmd
-              text: Workshop
-        - text: "---"
-        - section: "FHIR Bulk Data"
-          contents:
-            - file: workshops/bulk-data/index.qmd
-              text: Workshop
+        - file: workshops/running-notebooks.qmd
+          text: "Running Workshop Notebooks"
+
     - id: hosting-your-own-workshop
       title: "Hosting Your Own Workshop"
       style: floating
@@ -215,6 +217,7 @@ format:
   html:
     filters:
       - lua/modules-flag.lua
+      - lua/environment-banner.lua
     theme:
       light: [cosmo, custom.scss]
       dark: [darkly, custom.scss]
@@ -222,8 +225,6 @@ format:
     css: styles.css
     toc: true
     include-in-header: head.html
-    include-before-body:
-      - partials/_banner.html
     include-after-body:
       - scripts.html
     template-partials:
