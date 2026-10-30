@@ -8,8 +8,9 @@ project:
     - "!README.md"
     - "!script/"
   resources:
-    - "pyproject.toml"
+    - pyproject.toml
     - workshops/bulk-data/synthea_10.ndjson
+    - "**/**/*.ipynb"
 
   preview:
     watch-inputs: true # Only rebuild when inputs change
