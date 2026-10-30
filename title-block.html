@@ -12,8 +12,6 @@ $endif$
 $if(in_modules)$
 $if(date)$
 <div class="date">Last updated: $date$</div>
-$else$
-<div class="date"><mark>Not yet updated for 2026</mark></div>
 $endif$
 $endif$
 </div> <!-- end metadata div -->
@@ -22,7 +20,7 @@ $endif$
 $if(reading_time)$
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-  
+
     // Step 1: Count words in parent document
     let totalWords = 0;
     const mainContent = document.querySelector('#quarto-document-content');
@@ -30,28 +28,28 @@ $if(reading_time)$
       const parentWords = mainContent.innerText.trim().split(/\s+/).length;
       totalWords += parentWords;
     }
-  
+
     // We'll update the badge once we've processed ALL iframes (or there are none)
     function updateReadingTimeBadge(wordCount) {
       const wpm = 200;
       const readingTime = Math.ceil(wordCount / wpm);
-      
+
       document.getElementById('reading-time').textContent = readingTime;
       document.getElementById('reading-time-container').style.display = '';
     }
-  
+
     // Step 2: Gather iframes
     const iframes = document.querySelectorAll('iframe');
-    
+
     // If there are no iframes, just show the reading time for parent content
     if (iframes.length === 0) {
       updateReadingTimeBadge(totalWords);
       return;
     }
-  
+
     // We only update after ALL iframes have loaded or errored
     let pending = iframes.length;
-  
+
     // Helper to decrement pending count and update once done
     function iframeDone() {
       pending--;
@@ -60,7 +58,7 @@ $if(reading_time)$
         updateReadingTimeBadge(totalWords);
       }
     }
-  
+
     // Step 3: Iterate through each iframe
     iframes.forEach(iframe => {
       // Listen for 'load' (fires whether same-origin or cross-origin)
@@ -70,7 +68,7 @@ $if(reading_time)$
           const iframeDoc = iframe.contentWindow.document;
           const iframeText = (iframeDoc.body.innerText || "").trim();
           const iframeWords = iframeText.split(/\s+/).filter(Boolean).length;
-  
+
           totalWords += iframeWords;
         } catch (err) {
           // Cross-origin or any other error
@@ -80,7 +78,7 @@ $if(reading_time)$
         // Mark this iframe as processed
         iframeDone();
       }, { once: true });
-  
+
       // Listen for 'error' in case the iframe fails to load
       iframe.addEventListener('error', function() {
         console.warn("Iframe failed to load:", iframe.src);
@@ -88,7 +86,7 @@ $if(reading_time)$
         iframeDone();
       }, { once: true });
     });
-  
+
   });
   </script>
 $endif$ <!-- end script for reading time -->
@@ -203,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector('#quarto-document-content').appendChild( clone );
     }
     document.querySelector('#key-points .callout-caption-container').textContent = 'Key points';
-    
+
     const prompt = document.createElement('p');
     prompt.textContent = 'The learning objectives are below, along with possible answers:';
     document.querySelector('#key-points .callout-body').prepend(prompt);

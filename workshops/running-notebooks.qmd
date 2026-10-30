@@ -2,65 +2,64 @@
 title: Running Workshop Notebooks
 toc: true
 number-sections: false
-reading_time: true
+reading_time: false
+date: 2026-10-30
 ---
 
-Some FHIR for Research workshops provide interactive Jupyter notebooks in addition to their rendered web pages. Choose an option based on whether you want to read the material or execute and modify its code.
+Some FHIR for Research workshops provide interactive [Jupyter notebooks](https://docs.jupyter.org/en/latest/#what-is-a-notebook). These notebooks make it easy to explore and run the provided Python code to develop a deeper technical understanding of the topic in question.
 
-## Recommended options
+There are a number of ways to view or run Jupyter notebooks, and four are supported by this website:
 
-| Goal | Recommended option | Account required? | Notes |
-|---|---|---:|---|
-| Read the workshop | Rendered workshop page | No | Best for reading instructions and reviewing code without running it. |
-| Run the workshop locally | Download the notebook and open it in JupyterLab Desktop | No | Recommended interactive option. Both Data Analysis/CDS notebooks have been verified to open successfully. |
-| Use an existing Python setup | Local Jupyter or Visual Studio Code | No | Appropriate for users who already manage Python environments. |
-| Run in a hosted environment | Google Colab | Google account | The corrected one-click link reaches the generated notebook. Follow organizational policy before using a personal or cloud account. |
-| View a generated notebook | NBViewer | No | View only. The corrected link has been verified with a generated notebook. |
-| Run in a temporary hosted environment | Binder | No | Not currently supported; the notebook deployment branch does not contain a Binder environment specification. |
+1. **View the notebook on this website.** When you follow a link to a notebook on this website, you are viewing a rendered, static version of that notebook formatted for this website. This is the preferred option if you want to read though the code and surrounding narrative, but not run it.
+2. **Download and run the notebook locally.** Click the !['Download notebook' badge](../images/badges/download_notebook.svg) button, and open using [JupyterLab Desktop](#jupyterlab-desktop-recommended) or a local Python environment with Jupyter installed
+3. **View on nbviewer** to preview what you will see if you run the notebook locally. Click the !['View on nbviewer' badge](../images/badges/nbviewer.svg) to do this.
+4. **Run in the cloud.** There are multiple options for this including [Binder](https://mybinder.org) and [Google Colab](#google-colab). Use the !['Open in Google Colab' badge](../images/badges/colab.svg) to open notebooks in Colab with one click.
 
-## How the notebooks are published
+## Running locally
 
-The editable workshop sources are Quarto `.qmd` files. During deployment, Quarto generates `.ipynb` files and publishes them to the [`mitre/fhir-for-research`](https://github.com/mitre/fhir-for-research) mirror on its `gh-pages` branch.
+There are a few different options for running Jupyter notebooks locally.
 
-Colab, NBViewer, and Binder must therefore use the generated notebook path on `gh-pages`, such as `workshops/data-analysis-cds/01-fhir-analysis.ipynb`. They should not use the source branch or add a `data/` directory to that path.
+### JupyterLab Desktop (recommended)
 
-## JupyterLab Desktop (recommended)
-
-[JupyterLab Desktop](https://github.com/jupyterlab/jupyterlab-desktop) provides a local notebook environment without requiring a separately managed Jupyter server.
+[JupyterLab Desktop](https://github.com/jupyterlab/jupyterlab-desktop) provides a local notebook environment without requiring a separately managed Jupyter installation.
 
 1. Install the appropriate [JupyterLab Desktop release](https://github.com/jupyterlab/jupyterlab-desktop#installation) for your operating system.
 2. On the workshop page, select **Download Notebook**.
 3. Open the downloaded `.ipynb` file in JupyterLab Desktop.
-4. Confirm that the notebook uses a Python 3 kernel.
-5. Follow the notebook's dependency instructions before running the remaining cells.
-6. Configure the required FHIR server URL when prompted by the notebook.
+4. Confirm that the notebook uses a Python 3 kernel (look for "Python 3" in the top right corner of the open notebook).
+5. Follow any additional setup/configuration instructions included in the notebook.
 
-The Data Analysis and Genomics CDS notebooks have been verified to download and open in JupyterLab Desktop. Their complete cell execution still depends on access to a compatible FHIR server containing the workshop data.
+### Local Python with Jupyter
 
-## Local Jupyter
-
-Use this option if Jupyter is already installed in a local Python environment.
+Use this option if Jupyter is already installed in a local Python environment, and are already familiar with using Python and Jupyter.
 
 1. Download the `.ipynb` file from the workshop page.
-2. Activate the Python environment you want to use.
+2. Activate the Python environment you want to use and make sure [Jupyter is installed](https://jupyter.org/install).
 3. Start JupyterLab or Jupyter Notebook.
-4. Open the downloaded notebook and select the matching Python kernel.
-5. Follow the dependency and FHIR server instructions in the notebook.
-
-See the [Project Jupyter installation guide](https://jupyter.org/install) for installation options.
+4. Open the downloaded notebook and select a Python 3 kernel to run it.
+5. Follow any additional setup/configuration instructions included in the notebook.
 
 ## Visual Studio Code
 
-[Visual Studio Code](https://code.visualstudio.com/) can open and run `.ipynb` files with the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter).
+[Visual Studio Code](https://code.visualstudio.com/) can open and run `.ipynb` files with the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). You will also need to have a local Python environment with [Jupyter installed](https://jupyter.org/install).
 
 1. Install Visual Studio Code, the Python extension, and the Jupyter extension.
 2. Download the workshop notebook.
 3. Open the `.ipynb` file in Visual Studio Code.
-4. Select a Python environment with the required packages, or run the notebook's dependency cell.
+4. Select a Python environment with Jupyter installed.
+5. Follow any additional setup/configuration instructions included in the notebook.
 
-This option has the same local dependency and FHIR server requirements as JupyterLab Desktop.
+This option has the same local dependency requirements as the "Local Python Server with Jupyter" option.
 
-## Google Colab
+## Running in the cloud
+
+::: callout-warning
+## Sensitive data and cloud services
+
+Do not use cloud notebook service with protected health information (PHI), personally identifiable information (PII), credentials, or a sensitive FHIR endpoint unless that service and account have been approved by your organization. Use a local environment with proper security/privacy approval when handling sensitive data.
+:::
+
+### Google Colab
 
 [Google Colab](https://colab.research.google.com/) can open a generated notebook from the public GitHub mirror. A Google account is required to use a hosted runtime and save work.
 
@@ -68,31 +67,18 @@ Use the **Open in Colab** button on the notebook page. The corrected link for th
 
 Opening the notebook does not guarantee that every cell will run. Complete execution still requires access to a compatible FHIR server containing the workshop data.
 
-::: callout-warning
-## Sensitive data and cloud services
+### Binder
 
-Do not use Colab or another cloud notebook service with protected health information (PHI), personally identifiable information (PII), credentials, or a sensitive FHIR endpoint unless that service and account have been approved by your organization. Use a local environment when handling sensitive data.
-:::
+[Binder](https://mybinder.org) is often used to run Jupyter notebooks in the cloud. However, it can sometimes be unreliable so a one-click button is not included on this website to avoid a bad experience for users who encounter errors on Binder.
 
-## Viewing without execution
+----
 
-Use the rendered workshop page when you only need to read the material. NBViewer is another view-only option and now targets the generated notebook in the public mirror. The corrected NBViewer link was verified successfully with the FHIR Data Analysis notebook.
+## Technical details
 
-## Binder status
+### How the notebooks on this website are published
 
-Binder can find and clone the generated notebook on the public mirror's `gh-pages` branch, but that branch contains only the published website and generated files. Binder stops with `No environment specification found` because the branch does not include the repository's dependency configuration.
+The editable workshop sources are Quarto `.qmd` files. During deployment, Quarto generates `.ipynb` files and publishes them as a static website to the `gh-pages` branch on GitHub. Tools that rely on GitHub URLs for opening notebooks therefore need to use the `gh-pages` branch rather than the default branch.
 
-Binder is therefore not a supported option for these notebooks. Supporting it would require publishing a compatible Binder environment specification alongside the generated notebooks or maintaining a separate Binder-ready branch.
+### FHIR server and workshop data
 
-## FHIR server and workshop data
-
-Opening a notebook does not provide its FHIR data automatically. Complete execution requires a compatible FHIR server containing the data expected by that workshop.
-
-The public HAPI FHIR server can be useful for basic connectivity tests, but it does not contain the workshop's expected dataset. For the repository's local test environment, see [Standing Up a FHIR Testing Server](../modules/synthea-test-server.qmd). That setup requires Docker.
-
-## Other approaches evaluated
-
-- **GitHub Codespaces** could provide a reproducible hosted development environment, but it would require a maintained development-container configuration and may introduce account, startup-time, and usage-limit considerations.
-- **JupyterLite** runs notebooks entirely in a browser, but package compatibility and browser restrictions on remote FHIR requests need a proof of concept before it can be recommended.
-
-These options are not currently supported workshop workflows.
+Notebooks may rely on a FHIR server to provide sample data. Running the notebook does not include a running copy of this server. See [Standing Up a FHIR Testing Server](../modules/synthea-test-server.qmd) for more information.

@@ -875,9 +875,12 @@ This can be copied and pasted into <https://hl7.github.io/fhirpath.js/> to exper
 
 Having test data is very helpful when developing code that uses FHIR Bulk Data. The test data from <https://bulk-data.smarthealthit.org> may not have all the data elements you need for a specific research use case. [Synthea](https://nih-odss.github.io/fhir-for-research/modules/synthea-overview) can be used for generating customized synthetic data in FHIR format.
 
-First, we'll create a short class to mimic the functionality of `BulkDataFetcher`, but it will load the `.ndjson` file directly from disk rather than via a bulk data export.
+First, we'll create a short class to mimic the functionality of `BulkDataFetcher`, but it will load an `.ndjson` file from a local path or an HTTP(S) URL rather than via a bulk data export.
 
 ```{python}
+from contextlib import ExitStack
+
+
 class NDJSONFetcher:
     def __init__(
         self,
@@ -888,9 +891,22 @@ class NDJSONFetcher:
 
         self.resources_by_type = {}
 
-        num_lines = sum(1 for line in open(ndjson_file_path,'r'))
-        with open(ndjson_file_path, 'r') as file:
-            for line in tqdm(file, total=num_lines):
+        with ExitStack() as stack:
+            if ndjson_file_path.lower().startswith(('http://', 'https://')):
+                response = stack.enter_context(requests.get(
+                    ndjson_file_path, stream=True, timeout=60
+                ))
+                response.raise_for_status()
+                lines = response.iter_lines()
+                num_lines = None
+            else:
+                with open(ndjson_file_path, 'r', encoding='utf-8') as file:
+                    num_lines = sum(1 for line in file)
+                lines = stack.enter_context(open(ndjson_file_path, 'r', encoding='utf-8'))
+
+            for line in tqdm(lines, total=num_lines):
+                if not line.strip():
+                    continue
                 json_obj = json.loads(line)
                 this_resource_type = json_obj['resourceType']
                 if this_resource_type not in self.resources_by_type:
@@ -916,6 +932,10 @@ class NDJSONFetcher:
 # with the path to the .ndjson file on your system.
 #
 # You can download this file from {{DEPLOY_URL}}/workshops/bulk-data/synthea_10.ndjson
+# or use this URL directly below in `NDJSONFetcher()` like so:
+#
+#     synthea_fetcher = NDJSONFetcher('{{DEPLOY_URL}}/workshops/bulk-data/synthea_10.ndjson')
+
 synthea_fetcher = NDJSONFetcher('../workshops/bulk-data/synthea_10.ndjson')
 ```
 

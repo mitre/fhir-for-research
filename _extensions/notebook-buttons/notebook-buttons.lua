@@ -92,8 +92,13 @@ return {
     end
 
     if enabled(kwargs, "nbviewer") then
+      local notebook_url = download_path
+      if not notebook_url:match("^https?://") then
+        local path = pandoc.path.normalize(pandoc.path.join({pandoc.path.directory(page), download_path}))
+        notebook_url = hosting.url .. "/" .. path:gsub("^%./", "")
+      end
       table.insert(buttons, badge(
-        on_github and "https://nbviewer.jupyter.org/github/" .. github_location or nil,
+        on_github and "https://nbviewer.org/urls/" .. notebook_url:gsub("^https?://", "") or nil,
         badge_path("nbviewer.svg"),
         "View in NBViewer"
       ))
@@ -131,7 +136,7 @@ return {
             pandoc.Space(),
             pandoc.Link("Running Workshop Notebooks", deployment.project_path("workshops/running-notebooks.html")),
             pandoc.Space(),
-            pandoc.Str("for supported interactive options."),
+            pandoc.Str("for more information about these options."),
           }),
         }),
       }),

@@ -1,12 +1,11 @@
 ---
 title: "FHIR for Research - From Data Analysis to Clinical Decision Support"
-date: 2026-09-16
+date: 2026-10-30
 format:
   html:
     toc: true
     number-sections: false
 
-reading_time: true
 ---
 
 ## Workshop Overview
@@ -22,6 +21,33 @@ This hands-on workshop introduces researchers to FHIR data analysis and clinical
     -   See our [FHIR from 1,000 Feet](/modules/fhir-from-1000-ft.qmd) module for introductory material
     -   For Part 2, familiarity with [Genomics Data Standardization with FHIR](/modules/genomics.qmd)
     -   Helpful concepts: [CDS Hooks](/modules/cds-hooks-intro.qmd) and [SMART on FHIR](/modules/smart-on-fhir-intro.qmd)
+
+
+## Workshop Materials {#workshop-materials}
+
+At the top of each notebook, you will see a series of badges like those below:
+
+{{< notebook-buttons notebook="01-fhir-analysis.ipynb" >}}
+
+Use one of these options to view or run the workshop notebooks.
+
+### [Part 1: FHIR Data Analysis](01-fhir-analysis.qmd)
+
+Key concepts covered:
+
+-   Connecting to FHIR servers
+-   Converting FHIR resources to Pandas DataFrames
+-   Common analysis patterns
+-   Working with nested data
+
+### [Part 2: Clinical Decision Support with Genomics](02-genomics-cds.qmd)
+
+Key concepts covered:
+
+-   Working with FHIR genomics resources
+-   Processing genetic variants
+-   Implementing Clinical Decision Support (CDS) logic
+-   Generating clinical recommendations
 
 ## Synthetic Data
 
@@ -42,65 +68,6 @@ Walonoski J, Hall D, Bates KM, et al. The "Coherent Data Set": Combining Patient
 **Access:**
 
 The dataset can be downloaded from the [Synthea downloads page](https://synthea.mitre.org/downloads). You only need to download the data if you are running your own server. For more information on running your own server, see [Standing Up a FHIR Testing Server](/modules/synthea-test-server.qmd).
-
-## Environment Setup {#environment-setup}
-
-At the top of each notebook, you will see a series of badges like those below:
-
-{{< notebook-buttons notebook="01-fhir-analysis.ipynb" >}}
-
-Identify one of the setup options to use, follow the necessary instructions, and then proceed to [Workshop Materials](#workshop-materials) and use your chosen setup option in the notebook.
-
-### Option 1: Google Colab [**✓ recommended**]{style="color:green"}
-
-[Google Colab](https://colab.research.google.com) is a web-based tool for interacting with Jupyter notebooks.
-
-1.  Open one of the workshop's notebooks and click the "Open in Colab" badge
-2.  File → Save a copy in Drive to edit 3. No additional setup required
-
-::: callout-important
-### Important Security Note:
-
-When working with PII/PHI data from your own FHIR server, only use local installations, like JupyterLab Desktop. Cloud-based solutions like Google Colab should not be used with sensitive data unless the solution has been approved by your organization. Always consult your institutional policies before processing sensitive information in cloud environments.
-:::
-
-### Option 2: NBViewer (View Only)
-
-1.  Click the "View in NBViewer" link on any notebook
-2.  This provides a **non-interactive view** of the notebook with all outputs
-3.  Good for reviewing code and results without running anything
-
-### Option 3: JupyterLab Desktop (Easy Local Setup)
-
-1.  Download and install JupyterLab Desktop from the [official website](https://github.com/jupyterlab/jupyterlab-desktop#installation)
-2.  Follow the instructions for launching [JupyterLab Desktop](https://github.com/jupyterlab/jupyterlab-desktop?tab=readme-ov-file#launching-jupyterlab-desktop)
-3.  Open a workshop notebook and select "Download Notebook."
-4.  Open the downloaded notebook in JupyterLab Desktop
-5.  Each notebook includes its own dependency cell that will install any additional required packages
-
-The rendered pages can be read directly in this website. For interactive use, the generated notebooks can be opened locally or through a supported hosted service.
-
-See [Running Workshop Notebooks](../running-notebooks.qmd) for the supported options, setup instructions, FHIR server requirements, and guidance for handling sensitive data.
-
-## Workshop Materials {#workshop-materials}
-
-### [Part 1: FHIR Data Analysis](01-fhir-analysis.qmd)
-
-Key concepts covered:
-
--   Connecting to FHIR servers
--   Converting FHIR resources to Pandas DataFrames
--   Common analysis patterns
--   Working with nested data
-
-### [Part 2: Clinical Decision Support with Genomics](02-genomics-cds.qmd)
-
-Key concepts covered:
-
--   Working with FHIR genomics resources
--   Processing genetic variants
--   Implementing Clinical Decision Support (CDS) logic
--   Generating clinical recommendations
 
 ## Additional Resources
 
