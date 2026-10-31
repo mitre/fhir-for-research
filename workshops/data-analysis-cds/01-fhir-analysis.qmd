@@ -32,6 +32,10 @@ Data analysis approaches in Python often use [Pandas DataFrames](https://pandas.
 
     It is recommended to try this approach first, and only fall back to (1) if needed.
 
+::: callout-tip
+SQL on FHIR is an alternative to FHIR-PYrate that offers a more standardized approach to converting FHIR data into a tabular format. You can [explore SQL on FHIR in its own workshop](../workshops/sql-on-fhir.qmd).
+:::
+
 In this tutorial, we're using a FHIR server located at **{{< env FHIR_SERVER >}}** but any FHIR server loaded with appropriate data can be used. For instructions on setting up your own test server, see [Standing Up a FHIR Testing Server](https://fhir-for-research.pages.mitre.org/web/modules/synthea-test-server.html).
 
 ::: {.content-hidden when-format="ipynb"}

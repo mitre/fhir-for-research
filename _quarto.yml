@@ -1,16 +1,17 @@
 project:
   type: website
   output-dir: public
-  pre-render: sh pre-render.sh # this script only runs on full rendering and not development mode
+  post-render: sh post-render.sh # Refresh role maps after full builds without rescanning inputs.
   render:
     - "*.qmd"
     - "!cache/" # naming this _cache should work instead, but did not in testing https://community.rstudio.com/t/quarto-equivalent-to-exclude-yaml-command-in-distill/148758/2
     - "!README.md"
     - "!script/"
   resources:
-    - pyproject.toml
-    - workshops/bulk-data/synthea_10.ndjson
-    - "**/**/*.ipynb"
+    - /pyproject.toml
+    - /workshops/bulk-data/synthea_10.ndjson
+    - "/modules/**/*.ipynb"
+    - "/workshops/**/*.ipynb"
 
   preview:
     watch-inputs: true # Only rebuild when inputs change
@@ -187,6 +188,8 @@ website:
               text: "Part 2: Genomics CDS"
         - file: workshops/bulk-data/index.qmd
           text: FHIR Bulk Data
+        - file: workshops/sql-on-fhir.qmd
+          text: SQL on FHIR
         - file: workshops/smart-on-fhir/index.qmd
           text: SMART on FHIR
         - text: "---"
