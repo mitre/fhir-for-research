@@ -34,7 +34,7 @@ CDS Hooks are a technology that is part of the HL7 [FHIR](fhir-from-10000-ft.qmd
 
 ## How CDS Hooks Work
 
-Think of CDS Hooks as a way to "plug in" external support services into a clinician's EHR system. They are designed to provide real-time assistance to healthcare providers by offering electronic interventions during patient care, such as suggestions or alerts that appear at crucial decision points.
+Think of CDS Hooks as a way to "plug" external support services into a clinician's EHR system. They are designed to provide real-time assistance to healthcare providers by offering electronic interventions during patient care, such as suggestions or alerts that appear at crucial decision points.
 
 CDS Hooks are event-driven, meaning they are triggered by specific clinical workflow events, such as opening a patient's chart, ordering a lab test, or prescribing medication. When an event occurs, the EHR system sends a request to a CDS service, which processes the relevant patient data and context to generate recommendations. These recommendations are returned as "CDS Cards," which provide information, suggestions, or links to external applications.
 
@@ -49,7 +49,7 @@ CDS Hooks and FHIR are complementary standards that work together to improve cli
 
 ## Value in Research FHIR Applications
 
-CDS Hooks can be implemented in FHIR applications to enhance research capabilities by providing real-time, context-specific decision support within clinical workflow.
+CDS Hooks can be implemented in FHIR applications to enhance research capabilities by providing real-time, context-specific decision support within clinical workflows.
 
 ### Examples
 

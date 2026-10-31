@@ -34,7 +34,7 @@ CDMs and FHIR are both important parts of the health research data ecosystem, bu
 
 -   **CDMs:** Provide a consistent structure for storing and querying health data to facilitate research.
 
--   **FHIR:** Enable interoperability between health IT systems. This is often serving operational purposes (e.g., interfacing a specialty imaging system with a health system's EHR), but can include research-related systems and use cases.
+-   **FHIR:** Enables interoperability between health IT systems. This often serves operational purposes (e.g., interfacing a specialty imaging system with a health system's EHR), but can include research-related systems and use cases.
 
 ### Structure
 
@@ -74,7 +74,7 @@ If you are not familiar with CDMs, below are some notable CDMs used in the US:
 
 ### OMOP
 
-OMOP was originally created in 2007 by the FDA and other partners to study the effects of medical products.[@cdm_timeline_paper] It is now managed by the [OHDSI](https://www.ohdsi.org/) (Observational Health Data Science and Informatics).
+OMOP was originally created in 2007 by the FDA and other partners to study the effects of medical products.[@cdm_timeline_paper] It is now managed by [OHDSI](https://www.ohdsi.org/) (Observational Health Data Science and Informatics).
 
 [OMOP is an](https://www.ohdsi.org/data-standardization/):
 
@@ -94,7 +94,7 @@ Although FDA-regulated products undergo clinical testing before approval, the te
 
 ### PCORnet
 
-The Patient-Centered Outcomes Research Institute (PCORI) developed [PCORnet](https://pcornet.org/news/pcornet-common-data-model/) to make clinical research more streamlined, representative, and efficient. PCORnet data is largely drawn from EHRs, as well as some patient-reported and payor data. The PCORnet includes data from more than [47 million patients annually](https://pcornet.org/about/) that researchers can use for observational studies. PCORnet launched in 2014 [@fleurence2014].
+The Patient-Centered Outcomes Research Institute (PCORI) developed [PCORnet](https://pcornet.org/news/pcornet-common-data-model/) to make clinical research more streamlined, representative, and efficient. PCORnet data is largely drawn from EHRs, as well as some patient-reported and payor data. PCORnet includes data from more than [47 million patients annually](https://pcornet.org/about/) that researchers can use for observational studies. PCORnet launched in 2014 [@fleurence2014].
 
 
 ![Diagram showing the structure of the PCORnet CDM v7.0. From @pcornet_cdm_70.](images/cdms_pcornet.png){fig-alt="Diagram showing the structure of the PCORnet CDM v7.0."}

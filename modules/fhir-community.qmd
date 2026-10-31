@@ -27,7 +27,7 @@ FHIR has an active community of users who engage in discussions and offer advice
 
 ## The HL7 FHIR community
 
-The [HL7](https://hl7.org) FHIR community consists of developers, maintainers, and implementers who engage with the [FHIR specification](https://hl7.org/fhir/). Community-members work in many environments including:
+The [HL7](https://hl7.org) FHIR community consists of developers, maintainers, and implementers who engage with the [FHIR specification](https://hl7.org/fhir/). Community members work in many environments including:
 
 -   Clinical settings
 -   Health-focused companies and non-profits
@@ -51,11 +51,11 @@ HL7 specifications and many FHIR Implementation Guides are developed as [**HL7 P
 
 HL7 Work Groups consist of subject matter experts and other stakeholders. Each Work Group has a [mailing list](https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions) that may be joined to communicate with the Work Group, including asking for time on an upcoming conference call. Work Groups also post conference call agendas on their Confluence sites (see the [Work Group directory on HL7 Confluence](https://confluence.hl7.org/pages/viewpage.action?pageId=4489802) for more information).
 
-Each Work Group lists their associated projects on their page linked to from the [HL7 Work Groups directory](http://www.hl7.org/Special/committees/index.cfm?ref=nav). Work Groups typically meet on a weekly basis for a [conference call](http://www.hl7.org/concalls/CallDirectory.aspx). There is a core leadership team for each Work Group that facilitates meetings. Attendees vary depending on agenda content.
+Each Work Group lists its associated projects on its page linked to from the [HL7 Work Groups directory](http://www.hl7.org/Special/committees/index.cfm?ref=nav). Work Groups typically meet on a weekly basis for a [conference call](http://www.hl7.org/concalls/CallDirectory.aspx). There is a core leadership team for each Work Group that facilitates meetings. Attendees vary depending on agenda content.
 
-Meeting minutes and other documentation is typically found on the Work Group's HL7 Confluence site. Links to these sites can be found on the "Additional Resources" tab on the Work Group's directory page ([example for the Public Health Work Group](https://www.hl7.org/Special/committees/_common/links.cfm?wg_id=43)) or linked to from the [Work Group directory on HL7 Confluence](https://confluence.hl7.org/pages/viewpage.action?pageId=4489802)
+Meeting minutes and other documentation are typically found on the Work Group's HL7 Confluence site. Links to these sites can be found on the "Additional Resources" tab on the Work Group's directory page ([example for the Public Health Work Group](https://www.hl7.org/Special/committees/_common/links.cfm?wg_id=43)) or linked to from the [Work Group directory on HL7 Confluence](https://confluence.hl7.org/pages/viewpage.action?pageId=4489802).
 
-Work Groups also meet in-person or hybrid at [HL7 Working Group Meetings](https://www.hl7.org/events/workgroupmeetings.cfm?ref=nav), which are held three times per year.
+Work Groups also meet in person or in a hybrid format at [HL7 Working Group Meetings](https://www.hl7.org/events/workgroupmeetings.cfm?ref=nav), which are held three times per year.
 
 #### Getting started with Work Groups {#work-group-meetings}
 
@@ -127,7 +127,7 @@ More information on the [FHIR to OMOP project that is part of Vulcan can be foun
 
 ### HL7 Confluence
 
-Documentation on HL7 processes and general information is typically found in the [HL7 Confluence](https://confluence.hl7.org) site. Confluence is a Wikipedia-like documentation website for HL7. Many of the links throughout this module go to HL7 Confluence pages. The site is useful for finding:
+Documentation on HL7 processes and general information are typically found in the [HL7 Confluence](https://confluence.hl7.org) site. Confluence is a Wikipedia-like documentation website for HL7. Many of the links throughout this module go to HL7 Confluence pages. The site is useful for finding:
 
 -   HL7 projects in development
 -   Schedules and information for HL7 Work Groups
@@ -137,7 +137,7 @@ The Confluence site also includes tips on [getting involved](https://confluence.
 
 ### HL7 Jira
 
-Project work and specification development primarily occurs in [HL7 Jira](https://jira.hl7.org/secure/Dashboard.jspa). The site is an issue-tracking resource used for managing comments and suggestions on HL7 specifications and terminologies. This includes the core FHIR specification and FHIR IGs developed with HL7 Work Group oversight.
+Project work and specification development primarily occur in [HL7 Jira](https://jira.hl7.org/secure/Dashboard.jspa). The site is an issue-tracking resource used for managing comments and suggestions on HL7 specifications and terminologies. This includes the core FHIR specification and FHIR IGs developed with HL7 Work Group oversight.
 
 ### FHIR Community Forum
 
@@ -175,7 +175,7 @@ The next step in [HL7's FHIR project workflow](https://confluence.hl7.org/spaces
 1.  **For Comment**: opportunity for developers to solicit feedback early in the development process
 2.  **Informative**: used to vet content that is non-binding, like recommendations and guidance for implementers
 3.  **Standard for Trial Use (STU)**: for vetting content that will be binding on implementers. IGs in this ballot period are ready to be used but have not been widely implemented.
-4.  **Normative**: this stage is the final ballot level and once the requirements are meant, IGs at this level are authoritative. A high level of consensus is required to meet the normative status since any changes are binding.
+4.  **Normative**: this stage is the final ballot level and once the requirements are met, IGs at this level are authoritative. A high level of consensus is required to meet the normative status since any changes are binding.
 
 During a ballot, a specification is "frozen" for a specified period of time to give balloters time to submit comments to raise issues or propose changes. Balloters may cast votes to publish the specification. The sponsoring Work Group will review the comments to resolve issues raised during a ballot.
 
@@ -191,11 +191,15 @@ There are several benefits of balloting an IG through HL7, including **visibilit
 -   **Implementation**: greater visibility prevents standards from being developed in isolation. Successful implementation is more likely since there are many opportunities for the potential future implementers to offer input throughout the balloting process.
 -   **Reusability**: the combination of visibility and successful implementation supports reusability of the profiles within an IG, which is beneficial for the standards development process. Reusing existing IG content is conducive to interoperability.
 
-There are also a number of factors to remember when choosing to ballot with HL7: - **Complexity**: the ballot schedule requires careful planning to ensure milestones are met and ballots are not delayed. This can be daunting for newcomers. - **Time**: The HL7 balloting timeline is fixed. New implementation guides must be proposed \~7 months ahead of time, updates to existing ballots must be filed \~2 months ahead of time. - **Reconciliation**: Once you have successfully balloted your implementation guide, you will need to reconcile any negative feedback received before publishing. This process can take months, and up to a year depending on the complexity and amount of feedback received.
+There are also a number of factors to remember when choosing to ballot with HL7:
+
+-   **Complexity**: the ballot schedule requires careful planning to ensure milestones are met and ballots are not delayed. This can be daunting for newcomers.
+-   **Time**: The HL7 balloting timeline is fixed. New implementation guides must be proposed \~7 months ahead of time; updates to existing ballots must be filed \~2 months ahead of time.
+-   **Reconciliation**: Once you have successfully balloted your implementation guide, you will need to reconcile any negative feedback received before publishing. This process can take months, and up to a year depending on the complexity and amount of feedback received.
 
 ### Is balloting through HL7 a requirement for developing a FHIR IG?
 
-Balloting through HL7 is not necessarily a requirement though and some use cases may find the significant time and effort required to complete the process too cumbersome. Reaching the Standards for Trial Use (STU) phase, where an IG can officially be trialed in a pilot-like environment, can take multiple years in some cases. For use cases that don't require wide adoption, like a FHIR IG for a specific research project, the HL7 balloting process may not make sense. HL7 has some guidance on [publishing IGs outside of HL7](https://confluence.hl7.org/pages/viewpage.action?pageId=104580055)
+Balloting through HL7 is not necessarily a requirement, and some use cases may find the significant time and effort required to complete the process too cumbersome. Reaching the Standards for Trial Use (STU) phase, where an IG can officially be trialed in a pilot-like environment, can take multiple years in some cases. For use cases that don't require wide adoption, like a FHIR IG for a specific research project, the HL7 balloting process may not make sense. HL7 has some guidance on [publishing IGs outside of HL7](https://confluence.hl7.org/pages/viewpage.action?pageId=104580055).
 
 An example of an IG produced outside the HL7 process is the [NIH Cloud Platform Interoperability Effort (NCPI) FHIR Implementation Guide v2](https://nih-ncpi.github.io/ncpi-fhir-ig-2/) (NCPI FHIR IG), which aims "to produce a shared view of research structure and semantics to accelerate the scientific process and reduce impediments needed to share knowledge among researchers."
 
@@ -212,4 +216,4 @@ The balloting process is complex and may be difficult to follow for new communit
 
 -   Join a [Work Group meeting](#work-group-meetings).
 -   Join the [chat.fhir.org](#chat-fhir-org) workspace, and particularly the [#Ballot-QA](https://chat.fhir.org/#narrow/stream/179257-Ballot-QA) stream to read previous questions and answers or ask new questions.
--   Connect with others in the HL7 community that have worked on balloted specifications, either through [chat.fhir.org](https://chat.fhir.org) or through the Confluence work space. The community is vast and friendly; asking someone for advice may save you from sifting through Confluence to find the answer.
+-   Connect with others in the HL7 community that have worked on balloted specifications, either through [chat.fhir.org](https://chat.fhir.org) or through the Confluence workspace. The community is vast and friendly; asking someone for advice may save you from sifting through Confluence to find the answer.

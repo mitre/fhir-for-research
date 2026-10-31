@@ -19,7 +19,7 @@ roles:
 
 learning_objectives:
   - question: Summarize the role of FHIR in health data interoperability.
-    answer: FHIR is a common specification that defines technical mechanisms for interoperability of health IT systems. Adoption and implementation of FHIR is driven by regulation in the US, and facilitated by FHIR's pragmatic implementation-first approach.
+    answer: FHIR is a common specification that defines technical mechanisms for interoperability of health IT systems. Adoption and implementation of FHIR are driven by regulation in the US, and facilitated by FHIR's pragmatic implementation-first approach.
   - question: Explain FHIR’s relevance to research.
     answer: At a high level, FHIR is well-adopted throughout the US healthcare system thanks to ONC and CMS rules. FHIR's openness, active development with an implementer-first approach, and extensibility make it a flexible tool for many use cases including research-focused data access and exchange.
   - question: Describe how FHIR can enhance research.
@@ -67,7 +67,7 @@ Below is additional background on interoperability and the technologies that ena
 
 ## FHIR is key to US health data interoperability
 
-The [ONC 21st Century Cures Act](https://www.nih.gov/research-training/medical-research-initiatives/cures) (known as the "Cures Act") supports seamless and secure access to health information. As part of Cures Act, [ONC added a set of interoperability criteria](onc-certification-program.qmd) to the existing 2015 [Health IT Certifications Program](https://www.healthit.gov/topic/certification-ehrs/certification-health-it). These criteria include:
+The [ONC 21st Century Cures Act](https://www.nih.gov/research-training/medical-research-initiatives/cures) (known as the "Cures Act") supports seamless and secure access to health information. As part of the Cures Act, [ONC added a set of interoperability criteria](onc-certification-program.qmd) to the existing 2015 [Health IT Certifications Program](https://www.healthit.gov/topic/certification-ehrs/certification-health-it). These criteria include:
 
 -   "Standardized access to single patient and multiple patient services via an API(s) using the HL7 FHIR standard" [@ONC_2015_Edition]
 
@@ -99,7 +99,7 @@ FHIR has several characteristics that benefit research:
 
 -   FHIR uses **common web technologies**, which are widely used in technology outside of health care. Because software developers are familiar with these web technologies, implementing FHIR systems is cost effective even if software developers aren't familiar with FHIR.
 
--   The FHIR specification can be **easily customized and extended** for specific use case (e.g., [representing oncology data](https://hl7.org/fhir/us/mcode/)).
+-   The FHIR specification can be **easily customized and extended** for specific use cases (e.g., [representing oncology data](https://hl7.org/fhir/us/mcode/)).
 
 For more background, please see the [Fundamental Principles of FHIR](https://confluence.hl7.org/display/FHIR/Fundamental+Principles+of+FHIR) from HL7's documentation.
 

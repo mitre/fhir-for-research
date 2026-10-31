@@ -1,5 +1,5 @@
 ---
-title: Real World Implementation Guides
+title: Real-World Implementation Guides
 date: 2026-02-18
 
 roles:
@@ -17,7 +17,7 @@ number-sections: false
 reading_time: true
 ---
 
-FHIR Implementation Guides (IGs) provide a mechanism for use-case specific customization of the FHIR specification.
+FHIR Implementation Guides (IGs) provide a mechanism for use-case-specific customization of the FHIR specification.
 
 ::: {.callout-caution appearance="minimal"}
 Please see [the "Customizing FHIR" section in FHIR from 1,000 Feet](fhir-from-1000-ft.qmd#customizing-fhir) for a high-level overview of FHIR IGs and profiling. [Reading IGs](data-modeling-reading-igs.qmd) provides additional details.
@@ -33,9 +33,9 @@ A [full list of IGs published through HL7® is available here](http://www.fhir.o
 
 -   [**Bulk Data Access**](https://hl7.org/fhir/uv/bulkdata/)⭐️, which provides a mechanism for extracting population-scale data from FHIR servers. [See here for more information](smart-on-fhir-intro.qmd#bulk-data-access).
 
--   [**Da Vinci Coverage Requirements Discovery (CRD)**](https://hl7.org/fhir/us/davinci-crd/)⭐, which "which provides decision support to providers at the time they're ordering diagnostics, specifying treatments, making referrals, scheduling appointments, etc." This IG leverages [CDS Hooks](https://cds-hooks.hl7.org/) to surface coverage information within the clinical workflow. ([source](https://hl7.org/fhir/us/davinci-crd/burden.html))
+-   [**Da Vinci Coverage Requirements Discovery (CRD)**](https://hl7.org/fhir/us/davinci-crd/)⭐, "which provides decision support to providers at the time they're ordering diagnostics, specifying treatments, making referrals, scheduling appointments, etc." This IG leverages [CDS Hooks](https://cds-hooks.hl7.org/) to surface coverage information within the clinical workflow. ([source](https://hl7.org/fhir/us/davinci-crd/burden.html))
 
--   [**Da Vinci Documentation Templates and Rules (DTR)**](http://hl7.org/fhir/us/davinci-dtr)⭐, which "which allows providers to download 'smart' questionnaires, rules (e.g., [CQL](https://cql.hl7.org/)), and provides a SMART on FHIR app or EHR app that executes them to gather information relevant to a performed or planned service." ([source](https://hl7.org/fhir/us/davinci-crd/burden.html))
+-   [**Da Vinci Documentation Templates and Rules (DTR)**](http://hl7.org/fhir/us/davinci-dtr)⭐, "which allows providers to download 'smart' questionnaires, rules (e.g., [CQL](https://cql.hl7.org/)), and provides a SMART on FHIR app or EHR app that executes them to gather information relevant to a performed or planned service." ([source](https://hl7.org/fhir/us/davinci-crd/burden.html))
 
 -   [**Da Vinci Payer Data Exchange (PDex)**](https://hl7.org/fhir/us/davinci-pdex/)⭐, which defines how payers can provide "information related to the clinical condition and care" of a patient.
 
@@ -47,7 +47,7 @@ A [full list of IGs published through HL7® is available here](http://www.fhir.o
 
 -   [**Electronic Case Reporting**](http://hl7.org/fhir/us/ecr/)⭐, which supports public health electronic case reporting.
 
--   [**FHIR to CDISC Joint Mapping Implementation Guide**](https://hl7.org/fhir/uv/cdisc-mapping/), that provides mapping tables between selected portions of the [CDISC](https://www.cdisc.org) standard and FHIR.
+-   [**FHIR to CDISC Joint Mapping Implementation Guide**](https://hl7.org/fhir/uv/cdisc-mapping/), which provides mapping tables between selected portions of the [CDISC](https://www.cdisc.org) standard and FHIR.
 
 -   [**Genomics Reporting**](http://hl7.org/fhir/uv/genomics-reporting/), which provides FHIR versions of common data structures involving genomics data like [genotypes](http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition-genotype.html) and [variants](http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition-variant.html).
 
@@ -59,7 +59,7 @@ A [full list of IGs published through HL7® is available here](http://www.fhir.o
 
 -   [**Quality Improvement Core**](http://hl7.org/fhir/us/qicore/), which supports interoperable clinical quality measures and clinical decision support.
 
--   [**Retrieval of Real World Data for Clinical Research**](https://hl7.org/fhir/uv/vulcan-rwd/), which supports the use of real world data for research purposes.
+-   [**Retrieval of Real World Data for Clinical Research**](https://hl7.org/fhir/uv/vulcan-rwd/), which supports the use of real-world data for research purposes.
 
 -   [**Situational Awareness for Novel Epidemic Response**](http://hl7.org/fhir/uv/saner/), which "enables transmission of high level situational awareness information from inpatient facilities to centralized data repositories to support the treatment of novel influenza-like illness."
 
@@ -73,4 +73,4 @@ A [full list of IGs published through HL7® is available here](http://www.fhir.o
 
 -   [**Vulcan FHIR to OMOP FHIR IG**](https://build.fhir.org/ig/HL7/fhir-omop-ig/en/), which "provides details on how to transform healthcare data from FHIR to the OMOP Common Data Model. It aims to bridge the gap between these two widely used formats in healthcare and research. The standard defines mappings between FHIR resources and OMOP data tables, focusing on commonly used EHR data."
 
--   [**Vulcan Clinical Study Protocol (Vulcan UDP)**](https://build.fhir.org/ig/HL7/vulcan-udp-ig/en/), provides a FHIR representation of the [ICH M11 guidelines](https://www.ema.europa.eu/en/ich-m11-guideline-clinical-study-protocol-template-technical-specifications-scientific-guideline) for standardized clinical trial protocols.
+-   [**Vulcan Clinical Study Protocol (Vulcan UDP)**](https://build.fhir.org/ig/HL7/vulcan-udp-ig/en/), which provides a FHIR representation of the [ICH M11 guidelines](https://www.ema.europa.eu/en/ich-m11-guideline-clinical-study-protocol-template-technical-specifications-scientific-guideline) for standardized clinical trial protocols.

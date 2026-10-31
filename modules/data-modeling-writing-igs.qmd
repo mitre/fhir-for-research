@@ -53,17 +53,17 @@ A FHIR IG includes many different elements to describe and define a use case. Th
 
 Writing the technical components of the IG will require knowledge of core FHIR resources, data types and terminology. You will need to know how to read FHIR specifications, create profiles and extensions, and understand how your IG relates to other common IGs, such as [US Core](https://hl7.org/fhir/us/core/STU3.1.1/).
 
-Your IG may likely require using specific terminology and coding systems, such as [SNOMED CT](https://www.snomed.org/what-is-snomed-ct), [LOINC](https://loinc.org), [ICD](https://icd.who.int/en/) or [RxNorm](https://www.nlm.nih.gov/research/umls/rxnorm/index.html). These codes may be further organized into specific [ValueSets](https://build.fhir.org/valueset.html) for use by your IG.
+Your IG may require using specific terminology and coding systems, such as [SNOMED CT](https://www.snomed.org/what-is-snomed-ct), [LOINC](https://loinc.org), [ICD](https://icd.who.int/en/) or [RxNorm](https://www.nlm.nih.gov/research/umls/rxnorm/index.html). These codes may be further organized into specific [ValueSets](https://build.fhir.org/valueset.html) for use by your IG.
 
-You should be able describe how clients (those who consume data which conforms to your IG) and servers (those who will provide or receive data which conforms to your IG) will use your IG through the FHIR API and RESTful operations. You will need an understanding of REST, JSON, XML and HTTP status codes.
+You should be able to describe how clients (those who consume data which conforms to your IG) and servers (those who will provide or receive data which conforms to your IG) will use your IG through the FHIR API and RESTful operations. You will need an understanding of REST, JSON, XML and HTTP status codes.
 
 An IG is intended to be computable and testable using tools such as the [HL7 Validator](https://validator.fhir.org) and the [IG Publisher](https://confluence.hl7.org/spaces/FHIR/pages/35718627/IG+Publisher+Documentation) validator. Testing and validation of your IG will require example instances of data which conforms to your profiles.
 
-Creating an IG will often require collaboration among multiple individuals. Understanding how to use source control (such as GitHub or GitLab) will let you develop the IG collaboratively, and can track changes and versions of your IG.
+Creating an IG will often require collaboration among multiple individuals. Understanding how to use source control (such as GitHub or GitLab) will let you develop the IG collaboratively and track changes and versions of your IG.
 
 ## Should IGs be created through HL7®?
 
-Many of the IGs listed in [Real World IGs](data-modeling-real-world-igs.qmd) are created and published through the [HL7 process](https://confluence.hl7.org/display/FHIR/FHIR+Implementation+Guide+Process+Flow). This is process is helpful for IGs that may be widely implemented or need to be updated on an ongoing basis to support implementation. It may not be necessary to create or publish an IG through HL7 if it is meant to be used for a limited time to support a specific study. IGs can also be moved under HL7 after they are created, though it is typically better to do this as early as possible to avoid any intellectual property issues. Researchers interested in the HL7 process can consult with the relevant [HL7 Work Group](fhir-community.qmd#hl7-work-groups).
+Many of the IGs listed in [Real-World IGs](data-modeling-real-world-igs.qmd) are created and published through the [HL7 process](https://confluence.hl7.org/display/FHIR/FHIR+Implementation+Guide+Process+Flow). This process is helpful for IGs that may be widely implemented or need to be updated on an ongoing basis to support implementation. It may not be necessary to create or publish an IG through HL7 if it is meant to be used for a limited time to support a specific study. IGs can also be moved under HL7 after they are created, though it is typically better to do this as early as possible to avoid any intellectual property issues. Researchers interested in the HL7 process can consult with the relevant [HL7 Work Group](fhir-community.qmd#hl7-work-groups).
 
 ## How is an IG created?
 

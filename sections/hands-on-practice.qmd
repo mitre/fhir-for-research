@@ -44,6 +44,15 @@ Use a Jupyter notebook to practice working with population-scale FHIR data. Foll
 
 -   [FHIR Bulk Data Workshop](/workshops/bulk-data/index.qmd)
 :::
+
+::: {.section-card}
+## SQL on FHIR Workshop
+
+Work through a practical example of converting FHIR data to a tabular structure using SQL on FHIR's standardized approach. This workshop also includes use of FHIRPath expressions to filter and select data elements from FHIR resource instances, and includes practical examples with synthetic data including linking blood pressure readings to patient demographics.
+
+-   [SQL on FHIR Workshop](/workshops/sql-on-fhir.qmd)
+:::
+
 :::
 :::
 :::

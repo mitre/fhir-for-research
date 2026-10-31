@@ -188,7 +188,7 @@ This use case showcases just a fraction of what CDS Hooks can offer to FHIR rese
 
 #### Enhancing User Engagement and Feedback
 
--   **User Feedback Mechanism:** Integrate a mechanism within the CDS cards that allows clinicians to provide feedback directly from the EHR interface. For instance, clinicians can mark whether the decision support was useful, not relevant, or suggest improvements. This feedback loop can be invaluable for iteratively refining the CDS service and enhancing the relevance and accuracy of future interventions. It also fosters a sense of collaboration between the developers and end-users, leading to a more user-centered design.
+-   **User Feedback Mechanism:** Integrate a mechanism within the CDS cards that allows clinicians to provide feedback directly from the EHR interface. For instance, clinicians can indicate whether the decision support was useful or not relevant, or suggest improvements. This feedback loop can be invaluable for iteratively refining the CDS service and enhancing the relevance and accuracy of future interventions. It also fosters a sense of collaboration between the developers and end-users, leading to a more user-centered design.
 
 -   **Track Engagement Metrics:** Implement analytics to collect data on CDS card interactions, such as display frequency, click-through rates, and subsequent actions taken by clinicians (e.g., initiating a research registry enrollment). By analyzing these engagement metrics, developers can assess the effectiveness of the CDS interventions, identify patterns of use, and make data-driven decisions for optimizing the CDS service. This continuous feedback process ensures that the decision support system evolves to better meet clinician needs and improve patient care.
 
@@ -210,21 +210,21 @@ By exploring the capabilities and potential use cases of CDS Hooks, FHIR researc
 
 ### Security and Privacy
 
-When developing software applications involving exchange of health data, it is important to appropriately address security and privacy requirements for sensitive patient information. Use reputable open-source software libraries to save development time and avoid common security pitfalls.
+When developing software applications involving the exchange of health data, it is important to appropriately address security and privacy requirements for sensitive patient information. Use reputable open-source software libraries to save development time and avoid common security pitfalls.
 
-Strong data protection measures should be employed to safeguard patient information. This includes ensuring patient data exchange complies with relevant regulations to protect sensitive protected health information (PHI). For instance, requirements may include compliance with regulations such as Health Insurance Portability and Accountability Act (HIPAA) in the United States, as well as with your institution's local Institutional Review Board (IRB) and privacy rules.
+Strong data protection measures should be employed to safeguard patient information. This includes ensuring patient data exchange complies with relevant regulations to protect sensitive protected health information (PHI). For instance, requirements may include compliance with regulations such as the Health Insurance Portability and Accountability Act (HIPAA) in the United States, as well as with your institution's local Institutional Review Board (IRB) and privacy rules.
 
 Note that leveraging SMART on FHIR with CDS Hooks can be helpful for addressing authorization and authentication. It is important to ensure that your CDS service handles these correctly, typically using OAuth 2.0 to authenticate with the EHR system and restrict access based on user roles.
 
 ### Design
 
-Because CDS Hooks enables integration into user workflows, thoughtful design can help ensure good user experience and avoid risks of resulting in a product with limited effectiveness due to alert fatigue, unnecessary workflow changes, etc. Avoid this by considering [human-centered design](https://en.wikipedia.org/wiki/Human-centered_design).
+Because CDS Hooks enables integration into user workflows, thoughtful design can help ensure a good user experience and avoid risks of resulting in a product with limited effectiveness due to alert fatigue, unnecessary workflow changes, etc. Avoid this by considering [human-centered design](https://en.wikipedia.org/wiki/Human-centered_design).
 
 ### Resources
 
 There are many open-source software libraries and resources for helping developers work with FHIR and CDS Hooks. [docs.smarthealthit.org](http://docs.smarthealthit.org/) lists helpful resources on software libraries, vendor sandboxes, synthetic data, etc.
 
-Additional resources that are specifically helpful related to CDS Hooks include:
+Additional resources specifically related to CDS Hooks include:
 
 -   [CDS Hooks Specification](https://cds-hooks.org/): This site provides the CDS Hooks specification as well as helpful resources and best practices on CDS Hooks development, a [cheat sheet](https://cds-hooks.org/cheat-sheet/Cheat%20Sheet%20-%20Sept%202019.pdf), [examples](https://cds-hooks.org/examples/), and more.
 

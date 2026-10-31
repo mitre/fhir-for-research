@@ -24,7 +24,7 @@ Use cases covered by one of the APIs required for certified systems are much mor
 
 ### [45 CFR 170.315(g)(10)](https://www.ecfr.gov/current/title-45/part-170/section-170.315#p-170.315(g)(10)): Standardized API for Patient and Population Services
 
-The [Cures Act Final Rule](https://healthit.gov/regulations/cures-act-final-rule/) includes a provision requiring that patients be able to access their electronic health information via a standard API (FHIR), and (g)(10) certification verifies that an Electronic Health Records (EHR) system meets these requirements. The [HTI-1 final rule](https://healthit.gov/regulations/hti-rules/hti-1-final-rule/) identifies updated versions of the specifications (called [Implementation Guides](data-modeling-reading-igs.qmd)) describing FHIR implementations that must be implemented by EHRs for certification. While the this certification is voluntary, [CMS provides a financial incentive](https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/Certification) to health systems that use certified EHRs, and as a result the vast majority of EHR systems in the United States have received this certification. The various required standards and their relationships are described in the table below.
+The [Cures Act Final Rule](https://healthit.gov/regulations/cures-act-final-rule/) includes a provision requiring that patients be able to access their electronic health information via a standard API (FHIR), and (g)(10) certification verifies that an Electronic Health Record (EHR) system meets these requirements. The [HTI-1 final rule](https://healthit.gov/regulations/hti-rules/hti-1-final-rule/) identifies updated versions of the specifications (called [Implementation Guides](data-modeling-reading-igs.qmd)) describing FHIR implementations that must be implemented by EHRs for certification. While this certification is voluntary, [CMS provides a financial incentive](https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/Certification) to health systems that use certified EHRs, and as a result the vast majority of EHR systems in the United States have received this certification. The various required standards and their relationships are described in the table below.
 
 | Standard | Cures Act Required Version | HTI-1 Required Version (effective Jan. 1, 2026) | Description |
 |------------------|------------------|------------------|------------------|
@@ -40,11 +40,11 @@ The [CMS-0057-F Final Rule](https://www.cms.gov/files/document/fact-sheet-cms-in
 
 ASTP has established voluntary certifications covering three of these recommended implementation guides related to prior authorization workflows.
 
--   [(g)(31)](https://www.ecfr.gov/current/title-45/part-170/section-170.315#p-170.315(g)(31)) covers the [Coverage Requirements Discovery (CRD) IG]()
--   [(g)(32)](https://www.ecfr.gov/current/title-45/part-170/section-170.315#p-170.315(g)(32)) covers the [Documentation Templates and Rules (DTR) IG]()
--   [(g)(33)](https://www.ecfr.gov/current/title-45/part-170/section-170.315#p-170.315(g)(33)) covers the [Prior Authorization Support (PAS) IG]()
+-   [(g)(31)](https://www.ecfr.gov/current/title-45/part-170/section-170.315#p-170.315(g)(31)) covers the [Coverage Requirements Discovery (CRD) IG](https://hl7.org/fhir/us/davinci-crd/)
+-   [(g)(32)](https://www.ecfr.gov/current/title-45/part-170/section-170.315#p-170.315(g)(32)) covers the [Documentation Templates and Rules (DTR) IG](https://hl7.org/fhir/us/davinci-dtr/)
+-   [(g)(33)](https://www.ecfr.gov/current/title-45/part-170/section-170.315#p-170.315(g)(33)) covers the [Prior Authorization Support (PAS) IG](https://hl7.org/fhir/us/davinci-pas/)
 
-For three APIs related to prior authorization (collectively referred to as "burden reduction")
+These three APIs related to prior authorization are collectively referred to as "burden reduction."
 
 ## Identifying Certified Software
 

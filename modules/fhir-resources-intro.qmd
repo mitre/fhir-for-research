@@ -15,7 +15,7 @@ learning_objectives:
   - question: Understand the purpose of FHIR resources.
     answer: The basic data exchange format of FHIR.
   - question: Identify the general parts of a resource.
-    answer: FHIR resources include resource metadata, human-readable descriptions, links to other related resources and extensions, and domain specific elements.
+    answer: FHIR resources include resource metadata, human-readable descriptions, links to other related resources and extensions, and domain-specific elements.
 
 reading_time: true
 lightbox: true
@@ -27,7 +27,7 @@ Resources are the key building blocks of FHIR. A [**FHIR resource**](https://hea
 
 ## Overview
 
-Healthcare data needs to represent many different concepts. These can range from clinical data about a patient, to how healthcare services are scheduled, to the financial transactions needed to pay for care. Each of these concepts is broken down to a small, well-defined packet of information called a FHIR Resource, and organized into different categories, such as clinical history or diagnostic results. The individual data elements represented in each may be different, but the structure and organization of every resource is well-defined. Different hospitals, clinics, insurers, laboratories and applications can exchange and understand these resources.
+Healthcare data needs to represent many different concepts. These can range from clinical data about a patient, to how healthcare services are scheduled, to the financial transactions needed to pay for care. Each of these concepts is broken down into a small, well-defined packet of information called a FHIR Resource, and organized into different categories, such as clinical history or diagnostic results. The individual data elements represented in each may be different, but the structure and organization of every resource are well-defined. Different hospitals, clinics, insurers, laboratories and applications can exchange and understand these resources.
 
 Each resource has a clear purpose and can stand on its own, while still connecting to other resources when needed. This means that it is possible to work with just the set of resources related to your use case, without needing to retrieve the entire set of all patient data. When certain combinations of resources are needed for a common use case, a FHIR Profile can be created to define and verify the necessary resources and required values for that case.
 
@@ -41,7 +41,7 @@ Resources are meant to be general purpose and fit most common data needs, and av
 
 ### Usability
 
-FHIR resources were developed with usability in mind, so that both technical teams and healthcare organizations could adopt it more easily. The names and structures of a resource are generally straightforward, and they are organized around real-world healthcare concepts that people recognize. Each type of resource is well-documented and follows consistent patterns to represent data.
+FHIR resources were developed with usability in mind, so that both technical teams and healthcare organizations could adopt them more easily. The names and structures of a resource are generally straightforward, and they are organized around real-world healthcare concepts that people recognize. Each type of resource is well-documented and follows consistent patterns to represent data.
 
 ### Performance
 
@@ -49,7 +49,7 @@ An individual FHIR resource is meant to be small, and contain a minimal but spec
 
 ### Data Fidelity
 
-The definition of each resource describes the specific data types each value if permitted to contain. Some data types may be limited to dates or strings. Others may be specified by external organizations, such as terminology or clinical codes. The structure and definition of a resource means that it can be validated by their syntax and sets of business rules.
+The definition of each resource describes the specific data types each value is permitted to contain. Some data types may be limited to dates or strings. Others may be specified by external organizations, such as terminology or clinical codes. The structure and definition of a resource mean that it can be validated against its syntax and sets of business rules.
 
 ### Implementability
 
@@ -62,7 +62,7 @@ A FHIR Resource generally consists of four main parts:
 - Resource metadata such as the type of resource, id and relationship to other resources
 - Optional human-readable descriptions of the data in the resource
 - Links to any extensions added to the base resource
-- The domain specific structured data elements defined by the resource type (the 'content' of the resource)
+- The domain-specific structured data elements defined by the resource type (the 'content' of the resource)
 
 In this example a patient had a diagnostic HPV test performed, and the results of that test showed a positive HPV result. This would be represented by a [DiagnosticReport FHIR Resource](https://www.hl7.org/fhir/R5/diagnosticreport.html), and a JSON representation might look like this:
 
@@ -113,6 +113,6 @@ This includes elements for:
 
 The `subject` element includes a reference to the [Patient](https://www.hl7.org/fhir/R5/patient.html) resource identifying the patient on whom the test was performed, and the `performer` element identifies the [Practitioner](https://www.hl7.org/fhir/R5/practitioner.html) who performed the test.
 
-Viewing other FHIR resources and look for similar patterns. What elements identify this resource? What other resources is this one related to? How are specific values encoded? (Hint: look for `code`, `system` and `value` attributes) What items are meant for humans to read? (Hint: look for `text` and `display` attributes).
+View other FHIR resources and look for similar patterns. What elements identify this resource? What other resources is this one related to? How are specific values encoded? (Hint: look for `code`, `system` and `value` attributes.) What items are meant for humans to read? (Hint: look for `text` and `display` attributes.)
 
-Explanations of each element and attributes are found in the [FHIR structure table](https://hl7.org/fhir/formats.html#table) for every resource type.
+Explanations of each element and its attributes are found in the [FHIR structure table](https://hl7.org/fhir/formats.html#table) for every resource type.

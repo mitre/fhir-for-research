@@ -31,7 +31,7 @@ FHIR IGs typically share a common structure and format (especially those publish
 
 ## Evaluating an IG for research
 
-The approach described in the materials FSH Seminar materials linked above can be applied to reviewing an IG for research purposes. Some of the key considerations specifically for research include:
+The approach described in the FSH Seminar materials linked above can be applied to reviewing an IG for research purposes. Some of the key considerations specifically for research include:
 
 -   Are all the necessary data elements included in the resources profiled in the IG?
 -   Are the constraints defined in the IG appropriate for the relevant research use cases?
@@ -61,7 +61,7 @@ Details on these IGs appear below. Readers are encouraged to click through the l
 
 ### US Core
 
-The main US Core page has a helpful ["How To Read This Guide" section](https://hl7.org/fhir/us/core/STU8.0.1/#how-to-read-this-guide), which describes the different parts of the IG. The ["Conformance"](https://hl7.org/fhir/us/core/STU8.0.1/conformance.html) and ["Guidance"](https://hl7.org/fhir/us/core/STU8.0.1/guidance.html) sections are of particular importance because they contain requirements which can not be expressed in the FHIR artifacts themselves.
+The main US Core page has a helpful ["How To Read This Guide" section](https://hl7.org/fhir/us/core/STU8.0.1/#how-to-read-this-guide), which describes the different parts of the IG. The ["Conformance"](https://hl7.org/fhir/us/core/STU8.0.1/conformance.html) and ["Guidance"](https://hl7.org/fhir/us/core/STU8.0.1/guidance.html) sections are of particular importance because they contain requirements which cannot be expressed in the FHIR artifacts themselves.
 
 Two parts of the ["FHIR Artifacts" section](https://hl7.org/fhir/us/core/STU8.0.1/artifacts.html) are of particular interest. The ["US Core Server Capability Statement"](https://hl7.org/fhir/us/core/STU8.0.1/CapabilityStatement-us-core-server.html) defines which FHIR interactions servers must support, which will determine how you can use the FHIR API to retrieve data. The ["Profiles and Extensions" section](https://hl7.org/fhir/us/core/STU8.0.1/profiles-and-extensions.html) contains links for all of the profiles and extensions defined in US Core, which will determine what the data looks like. When reading a page for a particular profile or extension, be sure to pay attention to the written narrative in addition to the actual definition, as the narrative may contain additional conformance rules which are not able to be expressed in the profile or extension itself.
 

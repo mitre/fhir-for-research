@@ -44,7 +44,7 @@ Researchers also use SMART on FHIR to add data to EHR workflows. For example, a 
 
 SMART on FHIR can also help researchers integrate data into an EHR that the EHR does not natively support. For example, @watkins2020 discuss how genetic testing could be better-integrated with EHRs using SMART on FHIR and CDS Hooks ([see below](#cds-hooks)).
 
-Other common uses for SMART on FHIR applications include gathering [Questionnaire respsonses](https://hl7.org/fhir/questionnaireresponse.html). These are frequently used to gather information from patients such as family medical history, mental health, diet and nutrition and social determinants of health.
+Other common uses for SMART on FHIR applications include gathering [Questionnaire responses](https://hl7.org/fhir/questionnaireresponse.html). These are frequently used to gather information from patients such as family medical history, mental health, diet and nutrition, and social determinants of health.
 
 ### Accessing bulk data
 
@@ -125,7 +125,7 @@ Integrating SMART on FHIR backend applications with EHRs is often less complex t
 
 ### Security and Privacy
 
-Consider security and privacy early when developing your research approach. Take steps to ensure proper data storage and access as you would with any software that handles sensitive data. Patient data should not be stored or exchanged with additional services outside of the program or application, such cloud-based computing, storage or AI services unless explicitly authorized by your organization, and accredited to handle sensitive data.
+Consider security and privacy early when developing your research approach. Take steps to ensure proper data storage and access as you would with any software that handles sensitive data. Patient data should not be stored or exchanged with additional services outside of the program or application, such as cloud-based computing, storage, or AI services, unless those services are explicitly authorized by your organization and accredited to handle sensitive data.
 
 Also, consider security and privacy early when developing your research approach. Take steps to ensure proper data storage and access as you would with any software that handles sensitive data. In addition to [IRB](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4631034/) approval, you may need approval related to privacy and information security. If your institution has not worked with SMART on FHIR before, it may not have a well-defined process for getting the appropriate approvals. In this case, it may be helpful to identify researchers from other institutions who have used SMART on FHIR in a similar context, and cite their work to demonstrate prior successful use of this technology when discussing with the IRB and decision-makers at your institution.
 
@@ -135,4 +135,4 @@ While SMART on FHIR provides the functionality to unlock and exchange data with 
 
 In addition, some EHR vendors provide FHIR APIs via a subscription or tiered-licensing fee to access data directly from an EHR instance, particularly for high-volume or rate-limited services. If you are working on developing a SMART on FHIR application which is intended to connect to a production ('live') EHR instance, be sure to discuss potential costs with your EHR vendor support services.
 
-Please see [SMART on FHIR Technical Details](smart-on-fhir-tech.qmd) for more technical implementation on using SMART on FHIR and related standards.
+Please see [SMART on FHIR Technical Details](smart-on-fhir-tech.qmd) for more technical implementation details on using SMART on FHIR and related standards.

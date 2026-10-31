@@ -25,7 +25,7 @@ date: 2026-05-18
 
 ## Overview
 
-[HL7 Clinical Quality Language](https://cql.hl7.org/) (CQL) is a domain-specific language for specifying clinical logic such as algorithms, rules, and complex criteria. It is most often used for defining electronic clinical quality measures (eCQM) and clinical decision support (CDS) logic, but it can also be used for cohort selection, prior authorization logic, questionnaire population, and other use cases that need to extract, reason over, and/or manipulate health data in a standardized way. CQL is sometimes referred to as a way of representing clinical knowledge because it can be used to encode clinical guidelines, calculators, and measures.
+[HL7 Clinical Quality Language](https://cql.hl7.org/) (CQL) is a domain-specific language for specifying clinical logic such as algorithms, rules, and complex criteria. It is most often used for defining electronic clinical quality measures (eCQMs) and clinical decision support (CDS) logic, but it can also be used for cohort selection, prior authorization logic, questionnaire population, and other use cases that need to extract, reason over, and/or manipulate health data in a standardized way. CQL is sometimes referred to as a way of representing clinical knowledge because it can be used to encode clinical guidelines, calculators, and measures.
 
 CQL is intended to be both human-friendly _and_ machine-computable. Simple expressions can often be understood by people who are not familiar with CQL. For example:
 
@@ -84,7 +84,7 @@ Many eCQMs follow a population-based paradigm, defining criteria that evaluate e
 
 As the population names suggest, these measures are typically scored by dividing the numerator by the denominator, taking into account relevant exclusions and exceptions. The above descriptions focus on patient-based populations, but some measures may count encounters, episodes, or other items instead. The CMS documentation for [specifications by measure category](https://mmshub.cms.gov/measure-lifecycle/measure-specification/specifications-measure-category) describes the different types of measures, and the documentation for [developing specifications](https://mmshub.cms.gov/measure-lifecycle/measure-specification/develop-specification/overview) provides additional details about the different measure populations.
 
-CQL-based measures use CQL logic to define the population criteria for each of the populations above. The Centers for Medicare and Medicaid Services (CMS) began publishing eCQMs in the CQL format in 2019 [@ecqm_cql_start] and have published updates every year since then. Current measures (as of 2026) use CQL with the [QDM](https://ecqi.healthit.gov/qdm/about), [HQMF](https://ecqi.healthit.gov/hqmf/about), and [QRDA](https://ecqi.healthit.gov/qrda/about). CMS is in the process of transitioning to FHIR for measure data and reporting, at which point these measures will be called digital quality measures (dQM) [@cms_fhir_dqm]. Visit the [eCQI Resource Center](https://ecqi.healthit.gov/) to download CMS eCQMs and access robust documentation about developing and using CQL-based eCQMs.
+CQL-based measures use CQL logic to define the population criteria for each of the populations above. The Centers for Medicare and Medicaid Services (CMS) began publishing eCQMs in the CQL format in 2019 [@ecqm_cql_start] and has published updates every year since then. Current measures (as of 2026) use CQL with the [QDM](https://ecqi.healthit.gov/qdm/about), [HQMF](https://ecqi.healthit.gov/hqmf/about), and [QRDA](https://ecqi.healthit.gov/qrda/about). CMS is in the process of transitioning to FHIR for measure data and reporting, at which point these measures will be called digital quality measures (dQMs) [@cms_fhir_dqm]. Visit the [eCQI Resource Center](https://ecqi.healthit.gov/) to download CMS eCQMs and access robust documentation about developing and using CQL-based eCQMs.
 
 ### Clinical Decision Support
 
@@ -113,7 +113,7 @@ CQL may be applicable to clinical researchers in any context in which they want 
 
 ### Defining research cohorts
 
-CQL can help researchers express inclusion, exclusion, and phenotype definitions in a standardized, human-reviewable form. This may be useful when a study needs to identify patients across multiple FHIR-enabled sites. Even in cases where available tooling does not support executing CQL logic, CQL expressions provide a deterministic, fully-specified approach to defining cohort criteria.
+CQL can help researchers express inclusion, exclusion, and phenotype definitions in a standardized, human-reviewable form. This may be useful when a study needs to identify patients across multiple FHIR-enabled sites. Even in cases where available tooling does not support executing CQL logic, CQL expressions provide a deterministic, fully specified approach to defining cohort criteria.
 
 ### Connecting research and quality measurement
 
@@ -178,7 +178,7 @@ If you'd like, you may also copy the CQL library into the online [CQL Playground
 
 When using CQL or determining if you should use CQL for a research project, consider the following:
 
-**CQL results are only as good as the data provided as input.** CQL does not limit the FHIR resources or elements you can reference, but real-world FHIR implementations do not support every FHIR resource or every element within each FHIR resource. The data requirements of a CQL library should be evaluated for feasibility based on the FHIR data that is available. In addition, FHIR data may be incomplete (e.g., missing values), may use non-standard codes, or may be coded incorrectly. If CQL is provided poor quality data, it will generally provide poor quality results.
+**CQL results are only as good as the data provided as input.** CQL does not limit the FHIR resources or elements you can reference, but real-world FHIR implementations do not support every FHIR resource or every element within each FHIR resource. The data requirements of a CQL library should be evaluated for feasibility based on the FHIR data that is available. In addition, FHIR data may be incomplete (e.g., missing values), may use non-standard codes, or may be coded incorrectly. If CQL is provided with poor-quality data, it will generally provide poor-quality results.
 
 **A strong understanding of terminology is required.** CQL uses value sets, code systems, and codes to filter data from broad health data types (e.g., procedure) to specific concepts (e.g., appendectomy). CQL authors and implementers must have a robust understanding of standard terminologies, how they are used, and how they relate to FHIR resources.
 

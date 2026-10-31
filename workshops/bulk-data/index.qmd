@@ -19,7 +19,7 @@ The notebook for this workshop can be found at [FHIR Bulk Data Technical Example
 {{< notebook-buttons notebook="../../modules/bulk-fhir-tech.ipynb" >}}
 
 ::: callout-tip
-## JKWS to PEM conversion
+## JWKS to PEM conversion
 
 This workshop uses <https://bulk-data.smarthealthit.org> to provide a testing FHIR server, which will generate a public/private keypair in JWKS format. To use this keypair in Python, it must be converted to PEM format for use in Python, which can be done using [this web page](pem.html).
 :::

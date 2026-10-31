@@ -51,7 +51,7 @@ When a FHIR resource is created and populated with data, we call this an **insta
 ::: {.callout-note collapse="true"}
 ## JSON format FHIR `Patient` instance example
 
-Below is an example of a what a FHIR resource instance looks like in JSON format.
+Below is an example of what a FHIR resource instance looks like in JSON format.
 
 ``` json
 {
@@ -100,7 +100,7 @@ Below is an example of a what a FHIR resource instance looks like in JSON format
 
 The FHIR specification follows [the 80/20 rule](http://www.healthintersections.com.au/2014/02/28/fhir-and-confusion-about-the-8020-rule.html) to determine which data elements are included in a resource: data elements are typically included only if 80% of relevant systems will use them. Less common data needs are handled through [FHIR extensions](https://www.hl7.org/fhir/extensibility.html) (discussed below). This means that FHIR-enabled systems will implement *most* common data elements consistently.<!-- This paragraph is quoted in fhir-history.qmd -- any changes here should be synchronized there manually. -->
 
-To maximize usability, data elements contained in FHIR resources have minimal constraints. **Constraints** restrict how a data element can be populated. For example, a constraint on Patient resource might require that `Patient.birthDate` be populated. However, some systems record a patient's age in years rather than date of birth for privacy reasons. If the constraint on `Patient.birthDate` existed, those system would not be able to use the Patient resource.
+To maximize usability, data elements contained in FHIR resources have minimal constraints. **Constraints** restrict how a data element can be populated. For example, a constraint on the Patient resource might require that `Patient.birthDate` be populated. However, some systems record a patient's age in years rather than their date of birth for privacy reasons. If the constraint on `Patient.birthDate` existed, those systems would not be able to use the Patient resource.
 
 However, some use cases may require `Patient.birthDate` be populated. To achieve this, implementers can define use case-specific constraints on top of the base FHIR specification through **profiling**. The output of profiling is an [Implementation Guide (IG)](data-modeling-reading-igs.qmd), which is a collection of **profiles** that build on top of the FHIR specification (or other IGs).
 
@@ -167,9 +167,9 @@ There are two research considerations for customizing FHIR:
 
 ## Connecting systems together: the FHIR API
 
-FHIR not only provides a standard way to represent data using FHIR resources, it also provides a standard way for systems to communicate.
+FHIR not only provides a standard way to represent data using FHIR resources, but also provides a standard way for systems to communicate.
 
-This standard communication approach is called an API (short for [Application Program Interface](https://en.wikipedia.org/wiki/API)). As mentioned in [Part 1](fhir-from-10000-ft.qmd), FHIR's API uses a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)ful approach, which is a widely used throughout the technology industry. Find more specifics on FHIR's API in the [Accessing FHIR Data module](fhir-accessing-data.qmd).
+This standard communication approach is called an API (short for [Application Program Interface](https://en.wikipedia.org/wiki/API)). As mentioned in [Part 1](fhir-from-10000-ft.qmd), FHIR's API uses a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)ful approach, which is widely used throughout the technology industry. Find more specifics on FHIR's API in the [Accessing FHIR Data module](fhir-accessing-data.qmd).
 
 The diagram below shows how FHIR's API connects systems to each other:
 

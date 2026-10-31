@@ -43,7 +43,7 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: 1.6.40
+          version: 1.10.18
 
       - name: Write APT package dependencies to a file
         run: echo "$PACKAGES" > github-ci-apt-packages.txt
@@ -113,6 +113,9 @@ jobs:
           fi
           echo "DEPLOY_PREFIX=$DEPLOY_PREFIX" >> "$GITHUB_ENV"
           echo "DEPLOY_URL=$DEPLOY_URL" >> "$GITHUB_ENV"
+
+      - name: Install Chrome Headless Shell
+        run: quarto install chrome-headless-shell --no-prompt
 
       - name: Render Quarto
         run: uv run quarto render --site-url "$DEPLOY_URL"

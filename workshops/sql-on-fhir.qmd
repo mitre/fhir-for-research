@@ -323,7 +323,7 @@ for resource in raw_resources:
 
 ### Use FHIRPath to select elements
 
-[FHIRPath](https://hl7.org/fhirpath/) is a tool for selecting and extracting specific data elements from FHIR resource instances. For example, the date of birth can be selected from a Patient resource instance using the FHIRPath `birthDate`. Another example: `name.first().family` selects one of the patient's family name(s) (it's possible to have multiple names in FHIR), and `name.first().given.first()` selects that name's first given name.
+[FHIRPath](https://hl7.org/fhirpath/) is a tool for selecting and extracting specific data elements from FHIR resource instances. For example, the date of birth can be selected from a Patient resource instance using the FHIRPath `birthDate`. Another example: `name.first().family` selects one of the patient's family names (it's possible to have multiple names in FHIR), and `name.first().given.first()` selects that name's first given name.
 
 You can explore FHIRPath using the [FHIRPath sandbox](https://hl7.github.io/fhirpath.js/) with [an example synthetic Patient resource instance](https://www.hl7.org/fhir/us/core/Patient-example.json).
 

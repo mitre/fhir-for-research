@@ -17,7 +17,7 @@ learning_objectives:
   - question: Explain the significance of a FHIR resource's "structure table" in the FHIR specification and identify what is included in the table.
     answer: The data elements of each FHIR resource are listed in a "structure table" on that resource's page in the FHIR specification. The structure table includes each data element's name, flags, cardinality, type, constraints, and descriptions.
   - question: Describe how FHIR resources support interoperability.
-    answer: The data elements of each FHIR resource are rigorously defined by the FHIR specification. Systems that (correctly) implement the FHIR specification are therefore able have a consistent location and format for storing data, which supports transfer of medical information without loss of meaning.
+    answer: The data elements of each FHIR resource are rigorously defined by the FHIR specification. Systems that (correctly) implement the FHIR specification are therefore able to have a consistent location and format for storing data, which supports transfer of medical information without loss of meaning.
 
 reading_time: true
 lightbox: true
@@ -27,7 +27,7 @@ lightbox: true
 
 The FHIR core v5.0.0 (also known as Revision 5, or R5) defines [157 resources](https://hl7.org/fhir/R5/resourcelist.html) that allow for healthcare interoperability. The [HL7® FHIR® standard](https://hl7.org/fhir) gives a well-structured summary of FHIR's core resources:
 
-![The organization of FHIR's core resources. From <a href="https://hl7.org/fhir/R5">HL7's FHIR specification</a>.](images/fhir-index-R5.png){fig-alt="Screenshot from the FHIR specification showing the organization of FHIR resources. Level 1: basic framework on which the specification is built. Level 2: Supporting implementation and binding to external specifications. Level 3: Linking to real-world concepts in the healthcare system. Level 4: Record-keeping and and Data Exchange for the healthcare process. Level 5: Providing the ability to reason about the healthcare process."}
+![The organization of FHIR's core resources. From <a href="https://hl7.org/fhir/R5">HL7's FHIR specification</a>.](images/fhir-index-R5.png){fig-alt="Screenshot from the FHIR specification showing the organization of FHIR resources. Level 1: basic framework on which the specification is built. Level 2: Supporting implementation and binding to external specifications. Level 3: Linking to real-world concepts in the healthcare system. Level 4: Record-keeping and Data Exchange for the healthcare process. Level 5: Providing the ability to reason about the healthcare process."}
 
 ::: {.callout-note collapse="true" icon="false"}
 ## Links to the <a href="https://hl7.org/fhir/R5/">FHIR R5</a> resources in the screenshot above:
@@ -82,7 +82,7 @@ The FHIR core v5.0.0 (also known as Revision 5, or R5) defines [157 resources](h
     - [Allergy](https://hl7.org/fhir/R5/allergyintolerance.html)
     - [Problem](https://hl7.org/fhir/R5/condition.html)
     - [Procedure](https://hl7.org/fhir/R5/procedure.html)
-    - [CarePlan](https://hl7.org/fhir/R5/careplan.html)/[Goal](https://hl7.org/fhir/R5/-%20goal.html)
+    - [CarePlan](https://hl7.org/fhir/R5/careplan.html)/[Goal](https://hl7.org/fhir/R5/goal.html)
     - [Family History](https://hl7.org/fhir/R5/familymemberhistory.html)
     - [RiskAssessment](https://hl7.org/fhir/R5/riskassessment.html)
     - etc.
@@ -129,24 +129,24 @@ The FHIR core v5.0.0 (also known as Revision 5, or R5) defines [157 resources](h
 As shown above, the FHIR core resources are organized into 5 levels:
 
 - **Levels 1 and 2** include data types and infrastructure required to implement FHIR, including "meta" FHIR resources used to describe aspects of FHIR itself.
-- **Levels 3 and 4** include intuitive FHIR resources information such as `Patient` or `Observation`.
+- **Levels 3 and 4** include intuitive FHIR resources such as `Patient` or `Observation`.
 - **Level 5** includes abstract FHIR resources such as clinical workflows with the intended use of [Clinical Decision Support](https://www.healthit.gov/topic/safety/clinical-decision-support).
 
 ## Maturity
 
-The [FHIR Maturity Model (FMM)](https://hl7.org/fhir/versions.html#maturity) describes how mature the definition of a particular FHIR resource type is. Each resource types has a maturity level from FMM 0 (draft) to FMM 6 (normative). As resource types receive more testing and become more stable, their FMM level increases, and in general, resource types with higher FMM levels are more likely to be implemented in real world systems. The FMM level for each resource type is displayed to the right of its name in the resource list, with `N` indicating normative.
+The [FHIR Maturity Model (FMM)](https://hl7.org/fhir/versions.html#maturity) describes how mature the definition of a particular FHIR resource type is. Each resource type has a maturity level from FMM 0 (draft) to FMM 6 (normative). As resource types receive more testing and become more stable, their FMM level increases, and in general, resource types with higher FMM levels are more likely to be implemented in real-world systems. The FMM level for each resource type is displayed to the right of its name in the resource list, with `N` indicating normative.
 
 ::: callout-note
 As of writing (March 2026), the FHIR R6 ballot indicates that the FMM framework may be revised. Once R6 is published, [this page](https://hl7.org/fhir/versions.html) will have any updates to the FMM framework.
 :::
 
-![Screenshot from the FHIR specification highlighting "Diagnostic" resource types along with their maturity level which range from 0 to normative (represented as <code>N</code>) (<a href="https://hl7.org/fhir/resourcelist.html">source</a>).](images/fmm-levels.png){fig-align="center" fig-alt="Screenshot from the FHIR specification highlighting 'Diagnostic' resource types along with their maturity level which range from 0 to normative."}
+![Screenshot from the FHIR specification highlighting "Diagnostic" resource types along with their maturity levels, which range from 0 to normative (represented as <code>N</code>) (<a href="https://hl7.org/fhir/resourcelist.html">source</a>).](images/fmm-levels.png){fig-align="center" fig-alt="Screenshot from the FHIR specification highlighting 'Diagnostic' resource types along with their maturity levels, which range from 0 to normative."}
 
 ## Representation
 
 A FHIR resource may be encoded in different standard formats like [JSON and XML](https://hl7.org/fhir/formats.html#wire). These formats are used throughout the software industry, not just in healthcare. Using standard formats allows common programming languages and software tools to process FHIR resources.[^1]
 
-[^1]: In contrast, [HL7 V2](fhir-history.qmd) messages use their own proprietary encoding format, which cannot be parsed without a purpose-built software or custom code.
+[^1]: In contrast, [HL7 V2](fhir-history.qmd) messages use their own proprietary encoding format, which cannot be parsed without purpose-built software or custom code.
 
 ::: {.callout-tip collapse="true" icon="false"}
 ## Examples of JSON and XML formats
@@ -204,7 +204,7 @@ All FHIR resources have a similar table representing their contents. These table
 
 - **Name:** The element name.
 - **Flags:** Special markers that carry information required for implementers. The flags **`N`**, `?!`, and `Σ` represent [normative](https://www.hl7.org/fhir/R5/versions.html#std-process), [is-modifier](https://www.hl7.org/fhir/R5/conformance-rules.html#isModifier), and [in-summary](https://www.hl7.org/fhir/R5/search.html#summary) respectively. We will not cover FHIR attribute flags in detail here, but [HL7 documents them](https://www.hl7.org/fhir/formats.html#table).
-- **Card.:** The cardinality of the attribute in format `{minimum}..{maximum}`. Cardinality refers to the number of data points an element can hold. The most intuitive cardinality values are `1..1` which means "one value required" and `0..1`, which means "one value is optional. However, other options are possible, like `0..*`, which means"any number of values."[^2]
+- **Card.:** The cardinality of the attribute in the format `{minimum}..{maximum}`. Cardinality refers to the number of data points an element can hold. The most intuitive cardinality values are `1..1`, which means "one value required," and `0..1`, which means "one value is optional." However, other options are possible, like `0..*`, which means "any number of values."[^2]
 - **Type:** The primitive or complex [data type](https://hl7.org/fhir/datatypes.html). A [primitive data type](https://www.hl7.org/fhir/datatypes.html#primitive) is a base data type, like [`date`](https://hl7.org/fhir/R5/datatypes.html#date) or [`integer`](https://hl7.org/fhir/R5/datatypes.html#integer). A [complex data type](https://hl7.org/fhir/R5/datatypes.html#complex) is constructed from other data types, like [Address](https://hl7.org/fhir/R5/datatypes.html#Address).
 - **Description & Constraints:** A human-targeted explanation of the element that may contain constraints that implementers must enforce. Constraints (like "element X must be populated if element Y is missing") may be formally defined through a language called [FHIRPath](https://hl7.org/fhir/fhirpath.html).
 
@@ -266,7 +266,7 @@ HumanName's elements all have primitive types, such as `HumanName.given`, an arr
 
 The structure of HumanName highlights the flexibility of FHIR's approach to modeling data. `HumanName` allocates seven separate elements to represent a person's name. Compare this with a standard approach in a relational database, which would typically allocate only a few fields.
 
-In FHIR, all of these elements are, allowing for flexibility in how implementers represent names. For example, some implementers might store names as a single string (e.g., `Pieter van de Heuvel, MSc`), while others might split up the name parts into separate elements (like the JSON above).
+In FHIR, all of these elements are optional, allowing for flexibility in how implementers represent names. For example, some implementers might store names as a single string (e.g., `Pieter van de Heuvel, MSc`), while others might split up the name parts into separate elements (like the JSON above).
 
 Making elements optional balances flexibility with interoperability: this approach provides a standard location and encoding for the data element in question, without requiring *all* systems to populate it. This approach is used throughout the core FHIR resource definitions.
 
@@ -479,7 +479,7 @@ Regarding the JSON and XML representations of FHIR, implementers and researchers
 
 - In either JSON or XML, the underlying data of the FHIR resource are the same. You can convert between JSON and XML representations of FHIR data without loss of information.
 
-- You should use JSON by default when writing code to ingest in FHIR instances (or computable representations of FHIR profiles or resource definitions).
+- You should use JSON by default when writing code to ingest FHIR instances (or computable representations of FHIR profiles or resource definitions).
 
 - When requesting FHIR data from a server, you can [specify](https://www.hl7.org/fhir/http.html#parameters) the format of the response.
 
@@ -488,11 +488,11 @@ Regarding the JSON and XML representations of FHIR, implementers and researchers
 
 ## The Observation resource
 
-[Observation](https://hl7.org/fhir/observation.html) is another commonly used FHIR resource. It captures vital signs, laboratory data, imaging results, clinical findings, device measurements, and more. Like the Patient resource, there is an [Observation structure table](http://hl7.org/fhir/observation.html#resource):
+[Observation](https://hl7.org/fhir/observation.html) is another commonly used FHIR resource. It captures vital signs, laboratory data, imaging results, clinical findings, device measurements, and more. Like the Patient resource, Observation has a [structure table](http://hl7.org/fhir/observation.html#resource):
 
 ![The structure for FHIR observation resource. <a href='https://hl7.org/fhir/observation.html#resource' target='_blank'>https://hl7.org/fhir/observation.html#resource</a>](images/fhir-observation-structure.png){fig-alt="Observation structure with attributes status:code, code:CodeableConcept, subject:Reference(Patient), and value[x]. Go to https://hl7.org/fhir/observation.html#resource for a text version."}
 
-Below is a JSON example `Observation` of high blood glucose levels:
+Below is an example `Observation` of high blood glucose levels in JSON:
 
 ``` json
 {
@@ -596,12 +596,12 @@ A [CapabilityStatement](https://hl7.org/fhir/capabilitystatement.html) is a reso
 
 CapabilityStatements provide information like:
 
-- **`CapabilityStatement.url`:** The base URI for the FHIR server. This may also be the URI for capability statement itself, which includes the base URI for the server.
+- **`CapabilityStatement.url`:** The base URI for the FHIR server. This may also be the URI for the capability statement itself, which includes the base URI for the server.
 - **`CapabilityStatement.fhirVersion`:** The FHIR version that the API conforms to. Note that a FHIR server may provide API endpoints for multiple FHIR versions simultaneously via API endpoint URLs like `https://fhir.example.com/R4/...` and `https://fhir.example.com/R5/...` for FHIR R4 and R5 respectively.
 - **`CapabilityStatement.format`:** The [encoding formats](https://hl7.org/fhir/formats.html#wire) supported by the FHIR server. [FHIR queries](fhir-accessing-data.qmd) must specify one of these formats via the [HTTP `Accept` Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept).
-- **`CapabilityStatement.implementationGuide`:** The [implementation guides (IG)](data-modeling-real-world-igs.qmd) that the FHIR server conforms to. However, a server may be partially or fully compliant to an IG without listing it in the metadata.
+- **`CapabilityStatement.implementationGuide`:** The [implementation guides (IGs)](data-modeling-real-world-igs.qmd) that the FHIR server conforms to. However, a server may be partially or fully compliant with an IG without listing it in the metadata.
 - **`CapabilityStatement.rest[i].security.service`:** The [RESTful security services](http://hl7.org/fhir/valueset-restful-security-service.html#expansion) required to access data on this server. This example uses [SMART-on-FHIR](smart-on-fhir-intro.qmd), but other possibilities include [OAuth](https://oauth.net/) or [UDAP](https://www.udap.org/).
-- **`CapabilityStatement.rest[i].resource.type`:** All FHIR resources supported by the server. Note: this does not include foundational resources such as `CapabilityStatement` or `Bundle`, but typically resources [level 3 and higher](https://hl7.org/fhir).
+- **`CapabilityStatement.rest[i].resource.type`:** All FHIR resources supported by the server. Note: this does not include foundational resources such as `CapabilityStatement` or `Bundle`, but typically resources at [level 3 and higher](https://hl7.org/fhir).
 - **`CapabilityStatement.rest[i].resource.interaction`:** The [RESTful interactions](http://hl7.org/fhir/http.html) available for that resource by the server. For example, the [`search`](http://hl7.org/fhir/http.html#search) interaction is a RESTful API action available in FHIR. The `CapabilityStatement.rest[i].resource.searchParam` field specifies what search parameters are possible.
 
 Properly implemented FHIR servers must provide an instance of CapabilityStatement at the `/metadata` endpoint.[^3] This provides a way for software to discover key information about the features of a given FHIR server. Note that the real-world capabilities of a FHIR server may not match its stated capabilities, so software that accesses FHIR servers should be resilient to deviations from the published CapabilityStatements.
@@ -636,7 +636,7 @@ Properly implemented FHIR servers must provide an instance of CapabilityStatemen
 
 [Composition](https://hl7.org/fhir/composition.html)
 
-: A set of FHIR resources that create a single coherent clinical statement, and usually acts as the skeleton for a [document](http://hl7.org/fhir/documents.html). This is often used in conjunction with a `Bundle`.
+: A set of FHIR resources that creates a single coherent clinical statement and usually acts as the skeleton for a [document](http://hl7.org/fhir/documents.html). This is often used in conjunction with a `Bundle`.
 
 [Extension](https://hl7.org/fhir/extensibility.html#extension)
 

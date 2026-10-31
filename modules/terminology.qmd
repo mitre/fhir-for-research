@@ -35,7 +35,7 @@ Concept
 
 :   A mental representation of a real or abstract thing.
 
-    For example, a disease state (like "type 2 diabetes") or medical procedure (like "bilateral hip replacement") are both concepts.
+    For example, a disease state (like "type 2 diabetes") and a medical procedure (like "bilateral hip replacement") are both concepts.
 
 Code
 
@@ -125,13 +125,13 @@ LOINC creates three different human-readable descriptions for each of its concep
 
 #### Structure
 
-SNOMED CT [@snomed] is comprised of:
+SNOMED CT [@snomed] consists of:
 
--   **Concepts**: Unique clinical meaning with a computer readable code. Can have multiple descriptions.
+-   **Concepts**: Unique clinical meanings with computer-readable codes. Can have multiple descriptions.
 
--   **Descriptions**: Human readable explanation of a concept (what a doctor would read).
+-   **Descriptions**: Human-readable explanations of concepts (what a doctor would read).
 
--   **Relationships**: Correlation between related concepts, i.e., "synonyms." Provides computer readable definitions of concepts and supports data searches.
+-   **Relationships**: Correlations between related concepts, i.e., "synonyms." Provide computer-readable definitions of concepts and support data searches.
 
     There are two main types of relationships in SNOMED CT:
 
@@ -139,9 +139,9 @@ SNOMED CT [@snomed] is comprised of:
 
     -   **Attribute relationships** define non-hierarchical relationships between two concepts. Concepts can have as many attribute relationships as needed. For example, `399150003` (PCR test for SARS) has a `Component` relationship with `415360003` (SARS coronavirus).[^3]
 
-[^3]: SNOMED CT relationship types are defined by SNOMED concepts. In this case, "Component" is represented by the [SNOMED CT code `246093002`](https://browser.ihtsdotools.org/?perspective=full&conceptId1=246093002&edition=MAIN/2023-02-28&release=&languages=en) .
+[^3]: SNOMED CT relationship types are defined by SNOMED concepts. In this case, "Component" is represented by the [SNOMED CT code `246093002`](https://browser.ihtsdotools.org/?perspective=full&conceptId1=246093002&edition=MAIN/2023-02-28&release=&languages=en).
 
-Below is an example of how SNOMED might represent a condition (acute post-streptococcal glomerulenephritis) and its associated relationships:[^4]
+Below is an example of how SNOMED might represent a condition (acute post-streptococcal glomerulonephritis) and its associated relationships:[^4]
 
 [^4]: Adapted from [SNOMED CT - Georgia Tech - Health Informatics in the Cloud](https://youtu.be/OqFILtre8Dc?t=118) (YouTube).
 
@@ -183,9 +183,9 @@ An ICD-10 code can range between 3 and 7 alphanumeric characters and has three m
 
 -   **Category**: A letter followed by two numbers, which describes the general type of injury or disease.
 -   **Subclassification** (optional): Up to three digits, further specifying an injury or disease. The subclassification follows the category after a decimal point. Each digit of the subclassification adds more specificity, explaining the cause, manifestation, location, severity, and type of injury or disease.
--   **Extension** (optional): One of three letters describing the type of encounter for a given injury or disease: A (initial encounter), D (subsequent encounter), or S (sequila). The extension follows the subclassification.
+-   **Extension** (optional): One of three letters describing the type of encounter for a given injury or disease: A (initial encounter), D (subsequent encounter), or S (sequela). The extension follows the subclassification.
 
-Below is an example of different levels of specificity for an ICD-10 code [@icd_10]. The injury is a *closed fracture of distal phalanx of right index finger*. **Bolded** text below indicates a traversal of least to most specific codes for this injury.
+Below is an example of different levels of specificity for an ICD-10 code [@icd_10]. The injury is a *closed fracture of distal phalanx of right index finger*. **Bolded** text below indicates a traversal from the least to the most specific codes for this injury.
 
 -   **`S62` -- fracture at wrist and hand level**
     -   `S62.0` -- fracture at navicular \[scaphoid\] bone of wrist
@@ -223,7 +223,7 @@ NLM completes the following three steps when classifying a drug [@RxNorm_Overvie
 
 2.  **Create a normalized name for a concept**: After grouping synonyms into a concept, RxNorm creates a normalized name with the ingredient, strength, and dose form. The name also includes if the drug is branded or in a pack. For the concept above, the RxNorm normalized name is "Naproxen 250 MG Oral Tablet." The branded version is "Naproxen 250 MG Oral Tablet \[Prosaid\]."
 
-    The general format for an RxNorm normalized name depends on two factors: (1) generic vs. branded, and (2) single vs. pack. Below summarizes the general formats for each scenario:
+    The general format for an RxNorm normalized name depends on two factors: (1) generic vs. branded, and (2) single vs. pack. The list below summarizes the general formats for each scenario:
 
     -   **Generic drugs:** Ingredient Strength Dose Form
     -   **Branded drugs:** Ingredient Strength Dose Form \[Brand Name\]
@@ -232,7 +232,7 @@ NLM completes the following three steps when classifying a drug [@RxNorm_Overvie
 
 3.  **Assign a concept unique identifier (RXCUI)**: The RXCUI is a numeric identifier that is a code assigned to a given concept. For example, the RXCUI for the above concept example is `198013`.
 
-RxNorm normalized names have different levels of specificity, defined by the **term type (TTY)**. For example, depending on the TTY, an RxNorm normalized name might only include the ingredient, might only include the dose form, or one of many combinations of descriptors.
+RxNorm normalized names have different levels of specificity, defined by the **term type (TTY)**. For example, depending on the TTY, an RxNorm normalized name might only include the ingredient, might only include the dose form, or might include one of many combinations of descriptors.
 
 ::: {.callout-note collapse="true"}
 ## Expand to view the different TTYs
@@ -282,7 +282,7 @@ We review these resources in detail below.
 
 The [CodeSystem FHIR resource](https://www.hl7.org/fhir/codesystem.html) defines an organized, managed collection of concepts that belong to a given terminology system. The CodeSystem resource represents properties of standard terminologies (like LOINC and ICD-10) in a computable format. These properties include:
 
--   The canonical identifier for the code system (typically a URL like `http://loinc.org` for LOINC, or an [OID](https://en.wikipedia.org/wiki/Object_identifier) like `2.16.840.1.113883.6.1` (which also [represents LOINC](https://loinc.org/oids/2.16.840.1.113883.6.1/))
+-   The canonical identifier for the code system (typically a URL like `http://loinc.org` for LOINC, or an [OID](https://en.wikipedia.org/wiki/Object_identifier) like `2.16.840.1.113883.6.1` (which also [represents LOINC](https://loinc.org/oids/2.16.840.1.113883.6.1/)))
 -   Version of the code system
 -   The concepts defined by the code system
 -   Publication metadata like a human-readable description, copyright information, and publication date

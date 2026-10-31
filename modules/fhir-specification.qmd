@@ -45,21 +45,21 @@ These groups include concepts and resources that should be familiar to anyone wh
 
 The medication-related resources are non-trivial and a slightly deeper introduction may be useful:
 
--   [`Medication`](https://fhir.hl7.org/fhir/medication.html) is a "reference" style resource, which means it's not specific to a single patient's data. These represent the concept of a specific medication, such as "acetaminophen" or "Aspirin 100mg capsules", which patient-specific resources can then reference back to as appropriate. In the real world, `Medication` may not always be used; instead of defining an instance of `Medication` to represent "Aspirin 100mg capsules", patient-specific resources may use a [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept) to reference [`329292`](https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&searchTerm=329292), the code from [RxNorm](https://www.nlm.nih.gov/research/umls/rxnorm/index.html) that represents this medication.
+-   [`Medication`](https://fhir.hl7.org/fhir/medication.html) is a "reference" style resource, which means it's not specific to a single patient's data. These resources represent the concept of a specific medication, such as "acetaminophen" or "Aspirin 100mg capsules", which patient-specific resources can then reference back to as appropriate. In the real world, `Medication` may not always be used; instead of defining an instance of `Medication` to represent "Aspirin 100mg capsules", patient-specific resources may use a [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept) to reference [`329292`](https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&searchTerm=329292), the code from [RxNorm](https://www.nlm.nih.gov/research/umls/rxnorm/index.html) that represents this medication.
 -   [`MedicationRequest`](https://fhir.hl7.org/fhir/medicationrequest.html) is the closest in meaning to a prescription, and when querying for a patient's active medications, this is likely the best place to look.
     -   From the [FHIR specification](https://fhir.hl7.org/fhir/medicationrequest.html): "The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns."
 -   [`MedicationDispense`](https://fhir.hl7.org/fhir/medicationdispense.html), [`MedicationAdministration`](https://fhir.hl7.org/fhir/medicationadministration.html), and [`MedicationStatement`](https://fhir.hl7.org/fhir/medicationstatement.html) represent other perspectives in the provision of a medication.
 
-In practice, different systems are likely to have different approaches in which resources they use and don't use. Therefore, some care should be taken to make sure the right resource type is used when querying medication data from FHIR servers.
+In practice, different systems are likely to differ in which resources they use and don't use. Therefore, some care should be taken to make sure the right resource type is used when querying medication data from FHIR servers.
 
 ### DocumentReference
 
 While the FHIR community aspires for all data to be accessible purely in FHIR format, in reality not everything is. A lot of information is still transmitted on paper, by fax, or digitized as a PDF. FHIR uses the [`DocumentReference`](https://fhir.hl7.org/fhir/documentreference.html) resource to represent non-FHIR documents, as well as how to retrieve them. `DocumentReference` can work in two ways:
 
-1.  By directly including the content, in [base64](https://en.wikipedia.org/wiki/Base64). Base64 is a way of representing data that can be transmitted safely in plain text using only 64 possible characters (`A`-`Z`, `a`-`z`, `0`-`9`, and usually `+` and `/`) . Note that base64 is **not** a form of secure encryption, nor is it a form of compression (a file converted to base64 will be about 33% larger than its original form).
+1.  By directly including the content, in [base64](https://en.wikipedia.org/wiki/Base64). Base64 is a way of representing data that can be transmitted safely in plain text using only 64 possible characters (`A`-`Z`, `a`-`z`, `0`-`9`, and usually `+` and `/`). Note that base64 is **not** a form of secure encryption, nor is it a form of compression (a file converted to base64 will be about 33% larger than its original form).
 2.  By linking to the URL of the content where it can be fetched.
 
-Again, in practice different systems are likely to have different approaches in when they include the content directly versus linking to a URL.
+Again, in practice different systems are likely to differ in when they include the content directly versus linking to a URL.
 
 ## [Financial](https://hl7.org/fhir/financial-module.html)
 
@@ -87,9 +87,9 @@ In practice, the Event-type resource should always be present in the data, but m
 
 The Conformance group contains "metadata" type resources for representing the FHIR specification itself, and those resources can also be used to create a tailored (or constrained) version of the base FHIR for a specific use case.
 
-FHIR tries to strike an appropriate balance between generic and being specific.
+FHIR tries to strike an appropriate balance between being generic and being specific.
 
-On one hand, the base resources are fairly generic to ensure they can be implemented broadly. No resource has too many fields, and very few of those fields are required. But the bare minimum defined by the base resource definition often is not be enough for specific use cases. For example, `Patient.identifier` is not a required field, but many use cases require a patient medical record number (MRN). Quantitative analysis requires data with consistent units, but the base FHIR specification does not guarantee numeric data fields are accompanied by units.
+On one hand, the base resources are fairly generic to ensure they can be implemented broadly. No resource has too many fields, and very few of those fields are required. But the bare minimum defined by the base resource definition is often not enough for specific use cases. For example, `Patient.identifier` is not a required field, but many use cases require a patient medical record number (MRN). Quantitative analysis requires data with consistent units, but the base FHIR specification does not guarantee numeric data fields are accompanied by units.
 
 In [FHIR from 1,000 Feet](fhir-from-1000-ft.qmd) you saw the two core approaches to making FHIR work for specific use cases: extensibility and profiling.
 
@@ -111,7 +111,7 @@ In the paper form analogy, this is like an overlay of annotations on top of the 
 
 #### Implementation Guides (IGs)
 
-IGs are collections of profiles and extensions for a specific use case or set of related use cases. Most FHIR implementations support one or more IGs rather than only the base FHIR specification. For example in the United States, due to [ONC’s Cures Act Final Rule](https://healthit.gov/regulations/cures-act-final-rule/) certified EHRs must support specific profiles from the [US Core IG](https://hl7.org/fhir/us/core/).
+IGs are collections of profiles and extensions for a specific use case or set of related use cases. Most FHIR implementations support one or more IGs rather than only the base FHIR specification. For example, in the United States, due to [ONC’s Cures Act Final Rule](https://healthit.gov/regulations/cures-act-final-rule/), certified EHRs must support specific profiles from the [US Core IG](https://hl7.org/fhir/us/core/).
 
 ### `StructureDefinition`
 
@@ -130,12 +130,12 @@ This approach is also used later in the [Clinical Reasoning](#clinical-reasoning
 
 One of the major goals of R6 is stability of the core FHIR specification. R6 will be fully "normative", meaning that once published, no breaking changes will be allowed. However, some resource types have not been used widely enough in practice yet to be considered normative. So instead of prematurely marking them normative, R6 removes them from the core specification and introduces a new approach for these resources to change over time until they are broadly adopted by the community. This approach is called "Additional Resources", based on an existing concept called custom resources.
 
-FHIR has never prevented implementers from defining and using their own custom resource types, however it is strongly discouraged for many reasons and considered non-conformant to FHIR ([read more here](https://hl7.org/fhir/basic.html#why)). R6 provides a governance and technical pathway to leverage custom resource types as Additional Resources that can eventually join the core FHIR specification once mature. For more information, see [this blog post](https://www.health-samurai.io/articles/fhir-additional-resources).
+FHIR has never prevented implementers from defining and using their own custom resource types; however, it is strongly discouraged for many reasons and considered non-conformant to FHIR ([read more here](https://hl7.org/fhir/basic.html#why)). R6 provides a governance and technical pathway to leverage custom resource types as Additional Resources that can eventually join the core FHIR specification once mature. For more information, see [this blog post](https://www.health-samurai.io/articles/fhir-additional-resources).
 :::
 
 ### `CapabilityStatement`
 
-Because base FHIR is so permissive, for a client to meaningfully interact with a server, that server have some way of advertising what it can do. In FHIR, this description is represented in a [`CapabilityStatement`](https://fhir.hl7.org/fhir/capabilitystatement.html). A `CapabilityStatement` documents many aspects of a FHIR implementation, including: what FHIR version the server runs, which Implementation Guides (if any) are supported, what resource types are available, what actions can be performed, and what form of security is present. Representing these in standardized ways means that generic tools can adapt to the specifics of each server without having to resort to trial and error.
+Because base FHIR is so permissive, for a client to meaningfully interact with a server, that server must have some way of advertising what it can do. In FHIR, this description is represented in a [`CapabilityStatement`](https://fhir.hl7.org/fhir/capabilitystatement.html). A `CapabilityStatement` documents many aspects of a FHIR implementation, including what FHIR version the server runs, which Implementation Guides (if any) are supported, what resource types are available, what actions can be performed, and what form of security is present. Representing these in standardized ways means that generic tools can adapt to the specifics of each server without having to resort to trial and error.
 
 ::: {.callout-tip appearance="simple"}
 In our paper form analogy, the retrieval of completed paper forms is mediated by a clerk sitting in a room full of file cabinets. You can ask the clerk for their `CapabilityStatement`, and their response will allow you to determine what kinds of requests you can make: e.g., which kinds of paper forms you can ask for, and how you can ask.
@@ -143,7 +143,7 @@ In our paper form analogy, the retrieval of completed paper forms is mediated by
 
 ### `SearchParameter`
 
-[`SearchParameter`](https://fhir.hl7.org/fhir/searchparameter.html) defines fields that can be searched for, see [REST and Search](#rest-and-search) below.
+[`SearchParameter`](https://fhir.hl7.org/fhir/searchparameter.html) defines fields that can be searched for; see [REST and Search](#rest-and-search) below.
 
 ::: {.callout-tip appearance="simple"}
 In the paper form analogy, this is how the clerk could tell you which data elements you can ask them to search through for each resource type.
@@ -208,9 +208,9 @@ Researchers will usually be reading data from a FHIR server rather than modifyin
 For a more detailed overview of FHIR's REST API and search, see the [Accessing FHIR Data module](fhir-accessing-data.qmd).
 
 ::: {.callout-tip appearance="simple"}
-In our paper form analogy, you can think of the RESTful server as the room full of file cabinets. The API is a clerk sitting in a desk in front of the door.
+In our paper form analogy, you can think of the RESTful server as the room full of file cabinets. The API is a clerk sitting at a desk in front of the door.
 
-Resource instances, our “filled in forms”, are filed in numbered file folders. The number on the folder is the unique ID for that instance. Every time an update is made, a new copy of the form is put on top of the previous version, so that the entire history of that form is available. Each FHIR resource type is represented by one file cabinet. All `Patient` forms in one cabinet, all `Allergy` forms in another, etc.
+Resource instances, our “filled in forms”, are filed in numbered file folders. The number on the folder is the unique ID for that instance. Every time an update is made, a new copy of the form is put on top of the previous version, so that the entire history of that form is available. Each FHIR resource type is represented by one file cabinet. All `Patient` forms are in one cabinet; all `Allergy` forms are in another, etc.
 
 To interact with the files, you send a request by handing the clerk a requisition. The clerk makes sure you are who you say you are and you have access to the requested files, then fetches the files, copies and collates them into a response as needed, and hands the response back to you. This is the equivalent in our analogy of sending a REST API request and receiving the response.
 :::
@@ -221,7 +221,7 @@ Many actions in FHIR either take a collection of resources as input or return a 
 
 A `Bundle` may be paginated: broken up into multiple parts for performance reasons. In these cases, the `link` field will indicate the URL to fetch to get the next set of data. Pagination often occurs when searching via the FHIR REST API.
 
-Other collection-type resources do exist, including [`Composition`](https://fhir.hl7.org/fhir/composition.html), [`List`](https://fhir.hl7.org/fhir/list.html), and [`Group`](https://fhir.hl7.org/fhir/group.html). Each of these has their own semantics and implications, but the fundamental concept is similar: these are sets of resources that have been grouped together for a reason.
+Other collection-type resources do exist, including [`Composition`](https://fhir.hl7.org/fhir/composition.html), [`List`](https://fhir.hl7.org/fhir/list.html), and [`Group`](https://fhir.hl7.org/fhir/group.html). Each of these has its own semantics and implications, but the fundamental concept is similar: these are sets of resources that have been grouped together for a reason.
 
 ::: {.callout-tip appearance="simple"}
 In our paper forms analogy, these are like stacks of forms that have been collected together in a folder, with a cover sheet.
@@ -269,7 +269,7 @@ FHIR does not mandate a specific technical approach for how to secure a healthca
 The file cabinets from our analogy before now have locks on them. The clerk checks your credentials and access privileges before unlocking the file cabinet to fulfill your requisition.
 :::
 
-All users will need to know how to login and access data on their respective FHIR implementations, but beyond that, very few will need to be aware of how the security aspects are implemented.
+All users will need to know how to log in and access data on their respective FHIR implementations, but beyond that, very few will need to be aware of how the security aspects are implemented.
 
 ::: callout-important
 ## Not everything in the real world is FHIR
@@ -285,7 +285,7 @@ Please see the [SMART on FHIR Introduction page](smart-on-fhir-intro.qmd) for mo
 
 ## [Clinical Reasoning](https://hl7.org/fhir/clinicalreasoning-module.html) {#clinical-reasoning}
 
-The Clinical Reasoning group provides resources and operations to enable the representation, distribution, and evaluation of clinical knowledge artifacts such as clinical decision support rules, quality measures, public health indicators, order sets, clinical protocols, and evidence summaries. In addition, the module describes how expression languages can be used throughout the specification to provide dynamic capabilities."
+The Clinical Reasoning group provides resources and operations to enable the representation, distribution, and evaluation of clinical knowledge artifacts such as clinical decision support rules, quality measures, public health indicators, order sets, clinical protocols, and evidence summaries. In addition, the module describes how expression languages can be used throughout the specification to provide dynamic capabilities.
 
 The Clinical Reasoning group includes resources that can allow a system to define new behavior dynamically. Use cases for these resources include, but are not limited to, clinical decision support rules, electronic clinical quality measures (eCQMs), and reporting.
 
@@ -297,7 +297,7 @@ One area of potential interest where these are used today is to enable Electroni
 
 ## [Medication Definition](https://hl7.org/fhir/medication-definition-module.html)
 
-In contrast to the [Medications group noted previously](#medications) FHIR also includes resources for detailed medication definitions. These are not meant for medications associated to an individual patient's data, these are definitional artifacts that allow for high-fidelity computable descriptions of products, packages, and items. Mentioned here for completeness, these resources are not widely used and are under review for being migrated out of the core specification in R6.
+In contrast to the [Medications group noted previously](#medications), FHIR also includes resources for detailed medication definitions. These are not meant for medications associated with an individual patient's data; these are definitional artifacts that allow for high-fidelity computable descriptions of products, packages, and items. Mentioned here for completeness, these resources are not widely used and are under review for being migrated out of the core specification in R6.
 
 ## [Implementer support](https://hl7.org/fhir/implsupport-module.html)
 
@@ -305,7 +305,7 @@ Finally, the official FHIR documentation includes additional content and tools f
 
 ## Takeaways
 
-FHIR is not just the data (our "filled out paper forms"), it's the entire system: the clerk, the cabinets, the folders, and the interactions.
+FHIR is not just the data (our "filled out paper forms"); it's the entire system: the clerk, the cabinets, the folders, and the interactions.
 
 In the real world, almost no use case will make use of all of FHIR's capabilities. Read and search are by far the most common and most useful for secondary use of data. Writing data back to an EHR may be desired sometimes but at best it's more complex than read-only access, and is not always possible.
 

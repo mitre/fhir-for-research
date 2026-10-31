@@ -2,9 +2,9 @@
 title: Style Guide
 ---
 
-We use the [RStudio Visual R Markdown](https://rstudio.github.io/visual-markdown-editing/) interchangeably with writing raw Markdown in another editor like VSCode. Visual R Markdown will automatically reformat `.md` or `.qmd` files when opening them, so we do not get hung up on specific Markdown styling as we accept the default output of Visual R Markdown.
+We use the [RStudio Visual R Markdown editor](https://rstudio.github.io/visual-markdown-editing/) interchangeably with writing raw Markdown in another editor like VSCode. Visual R Markdown will automatically reformat `.md` or `.qmd` files when opening them, so we do not get hung up on specific Markdown styling as we accept the default output of Visual R Markdown.
 
-The following are style rules that are not impacted by Visual R Markdown automatic reformatting.
+The following are style rules that are not impacted by Visual R Markdown's automatic reformatting.
 
 Visual R Markdown uses [Pandoc's flavor of Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown) so that's what we use when manually writing Markdown. [Quarto's Markdown guide](https://quarto.org/docs/authoring/markdown-basics.html) is also helpful.
 
@@ -34,7 +34,7 @@ Use [this website](https://individed.com/code/to-title-case/) to properly capita
 
 ### Targeted roles
 
-Roles should be listed as a YAML array in the frontmatter. The following roles are valid, and should appear verbatim as below:
+Roles should be listed as a YAML array in the frontmatter. The following roles are valid, and should appear verbatim as shown below:
 
     - Investigator
     - Research Leaders
@@ -72,7 +72,7 @@ See [Microsoft's](https://learn.microsoft.com/en-us/style-guide/grammar/person) 
 
 ### First person
 
-Avoid singular first person pronouns ("I"/"me").
+Avoid singular first-person pronouns ("I"/"me").
 
 Use plural first person sparingly ("we"/"us") to refer to the authors.
 
@@ -122,7 +122,7 @@ From [Microsoft's style guide](https://learn.microsoft.com/en-us/style-guide/gra
 
 - "Very" and "really" are absent.
   - **Ctrl-f for "very" and "really".** Remove these words.
-  - If necessary, replace the verb or adjective with a more description verb or adjective.
+  - If necessary, replace the verb or adjective with a more descriptive verb or adjective.
     - **Examples** "It's really good."
       - "It's excellent."
 
@@ -279,7 +279,7 @@ Note the `<img>` tag in the rendered HTML has an `alt` property. This is critica
 
         -   Likewise, if you refer to content that might change (even if the link still resolves), use a release-specific link.
 
-        -   If we want to "upgrade" the documentation in the future, we can search for all instances of `https://www.hl7.org/fhir/R4B/`, and then check those links for
+        -   If we want to "upgrade" the documentation in the future, we can search for all instances of `https://www.hl7.org/fhir/R4B/`, and then check those links for version-specific content.
 
 ## Referencing the FHIR specification
 

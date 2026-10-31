@@ -115,7 +115,7 @@ ytFfvwKBgCifCEgyYbq0WtjExrZ92eMOToaM+u6DaTLdJkoyxTyrQdVZ+GYLnTC/
 HAkFfUpRbKOeRoEZWvN2XHAHuwNaVe5NQ2vLVBOgPDLHglVo3SpV
 -----END RSA PRIVATE KEY-----"""
 
-# note key id is the "kid" field from the JWKS -- it's same
+# note key id is the "kid" field from the JWKS -- it's the same
 # for both values of `keys`
 key_id = "4d7792ce42054d5df8dd85f8b527dd88"
 
@@ -137,7 +137,7 @@ session = requests.Session()
 # session.verify = False
 ```
 
-Let's start by confirming we can hit the server via the `/metadata` endpoint. When connecting to a server for the first time it is generally a good idea to review the metadata to see what the server supports, and that it matches your expectations. In this case, expect to see the name "SMART Sample Bulk Data Server", and references to "export" operations.
+Let's start by confirming we can hit the server via the `/metadata` endpoint. When connecting to a server for the first time it is generally a good idea to review the metadata to see what the server supports and confirm that it matches your expectations. In this case, expect to see the name "SMART Sample Bulk Data Server", and references to "export" operations.
 
 ```{python}
 r = session.get(f'{server_url}/metadata')
@@ -193,7 +193,7 @@ def JSONView(data, level=1):
 JSONView(metadata)
 ```
 
-The SMART Backend Authorization specification defines that the token endpoint will be published as part of the FHIR resource server's SMART metadata, at `.well-known/smart-configuration`. Let's fetch that endpoint and review the contents.
+The SMART Backend Authorization specification states that the token endpoint will be published as part of the FHIR resource server's SMART metadata, at `.well-known/smart-configuration`. Let's fetch that endpoint and review the contents.
 
 ```{python}
 #| eval: false
@@ -375,7 +375,7 @@ output_files = response['output']
 print(output_files)
 ```
 
-Now we can loop through the list and download each one. Each file is an NDJSON, so that means we'll see one resource per line.
+Now we can loop through the list and download each one. Each file is an NDJSON file, so that means we'll see one resource per line.
 
 To make each step clear and distinct, we'll keep a dict of `{ resourceType: [resources,...]}` which we can process later.
 
@@ -398,13 +398,13 @@ for output_file in tqdm(output_files):
     if resource_type not in resources_by_type:
         resources_by_type[resource_type] = []
 
-    # NDJSON can't be parsed as a whole, we have to process it line-by-line
+    # NDJSON can't be parsed as a whole; we have to process it line by line
     for line in ndjson.split('\n'):
         resource = json.loads(line)
         resources_by_type[resource_type].append(resource)
 
 
-# This is a large amount of JSON data, only uncomment this line if you care to review
+# This is a large amount of JSON data; only uncomment this line if you care to review it
 # print(resources_by_type)
 ```
 
@@ -451,7 +451,7 @@ with pd.option_context('display.max_rows', 1000, 'display.max_columns', 10):
 
 Next, what if we know in advance we will only want certain fields?
 
-For this, we will use [SAS's Python implementation](https://github.com/sassoftware/sqlonfhir) of [SQL on FHIR](https://sql-on-fhir.org/). SQL on FHIR uses [FHIRPath](https://hl7.org/fhir/fhirpath.html) to identify which elements we want to extract and map these onto the desired column name in the DataFrame.
+For this, we will use [SAS's Python implementation](https://github.com/sassoftware/sqlonfhir) of [SQL on FHIR](https://sql-on-fhir.org/). SQL on FHIR uses [FHIRPath](https://hl7.org/fhir/fhirpath.html) to identify which elements we want to extract and map these onto the desired column names in the DataFrame.
 
 [FHIRPath is](https://hl7.org/fhirpath/):
 
@@ -862,7 +862,7 @@ You can write your own ViewDefinitions using the pattern above to test out retri
 
 It may be helpful to use an online tool like <https://hl7.github.io/fhirpath.js/> to assist with creating FHIRPaths for filtering the FHIR resources down for creating DataFrames. **(Note that you should not use online tools like this with identified patient data.)**
 
-Given we are using synthetic data, it's fine to copy/paste this into an online tool. Let's grab one Patient resource instance from the last data pull we did for exploration with the FHIRPath tool.
+Given that we are using synthetic data, it's fine to copy/paste this into an online tool. Let's grab one Patient resource instance from the last data pull we did for exploration with the FHIRPath tool.
 
 ```{python}
 #| scrolled: true
@@ -925,7 +925,7 @@ class NDJSONFetcher:
 
         return dfs
 
-# Load in 10 patients of Synthea data.
+# Load Synthea data for 10 patients.
 # The original data come from <https://synthea.mitre.org/downloads> > 1K Sample Synthetic Patient Records, FHIR R4
 #
 # If you are running this as a Jupyter Notebook, you will need to replace the path below

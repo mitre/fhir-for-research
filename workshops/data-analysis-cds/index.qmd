@@ -14,7 +14,7 @@ This hands-on workshop introduces researchers to FHIR data analysis and clinical
 
 ## Prerequisites
 
--   Basic familiarity with Python and JavaScript will allow for a deeper understanding but you can follow the workshop notebooks without prior experience.
+-   Basic familiarity with Python and JavaScript will allow for a deeper understanding, but you can follow the workshop notebooks without prior experience.
 -   Web browser (Chrome recommended)
 -   Google account to run notebooks in Google Colab (optional)
 -   Recommended background: Basic understanding of FHIR concepts
@@ -54,7 +54,7 @@ Key concepts covered:
 This tutorial uses the Synthea Coherent Data Set, a comprehensive synthetic health dataset that includes:
 
 -   FHIR resources
--   Digital Imaging and Communications in Medicine (DICOM, an international standard for storing, retrieving, and sending medical imaging like those from an MRI, CT scan, or x-ray) images
+-   Digital Imaging and Communications in Medicine (DICOM, an international standard for storing, retrieving, and sending medical images like those from an MRI, CT scan, or x-ray) images
 -   Genomic data
 -   Physiological data (ECGs)
 -   Clinical notes

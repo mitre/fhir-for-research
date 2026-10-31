@@ -20,7 +20,7 @@ date: 2026-10-26
 
 ---
 
-There are a few ways to run Synthea: a basic setup using a prepackaged JAR file and a developer setup, or either way may be packaged and run in Docker. The [Basic setup](#basic-setup) is recommended for users who want to get started quickly and do not anticipate making significant changes or customizations to Synthea. The [Developer setup](#developer-setup) is recommended for users who want the ability to fully modify and customize all aspects of Synthea. This page describes both approaches and the configuration options available to them, or if you prefer a more guided approach, the [Synthea Toolkit](https://synthetichealth.github.io/spt/#/customizer) will ask questions about your use case and help you choose the right settings to setup, configure, and run Synthea appropriately.
+There are a few ways to run Synthea: a basic setup using a prepackaged JAR file and a developer setup; either setup may also be packaged and run in Docker. The [Basic setup](#basic-setup) is recommended for users who want to get started quickly and do not anticipate making significant changes or customizations to Synthea. The [Developer setup](#developer-setup) is recommended for users who want the ability to fully modify and customize all aspects of Synthea. This page describes both approaches and the configuration options available to them. If you prefer a more guided approach, the [Synthea Toolkit](https://synthetichealth.github.io/spt/#/customizer) will ask questions about your use case and help you choose the right settings to set up, configure, and run Synthea appropriately.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ After following the instructions, you will see a new `output` folder, and a `fhi
 
 ## Configuration
 
-Synthea includes a variety of command-line arguments and configuration options to enable or disable common settings, or change certain aspects of the output data. A small subset of the common options are listed below; more complete documentation is available [on the Synthea wiki](https://github.com/synthetichealth/synthea/wiki/Common-Configuration).
+Synthea includes a variety of command-line arguments and configuration options to enable or disable common settings, or change certain aspects of the output data. A small subset of the common options is listed below; more complete documentation is available [on the Synthea wiki](https://github.com/synthetichealth/synthea/wiki/Common-Configuration).
 
 ### Command line arguments
 

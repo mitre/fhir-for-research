@@ -320,7 +320,7 @@ CDS Hooks provides a framework for:
 
 1.  **Event-Driven Integration**: Hooks trigger at specific points in clinical workflow
 2.  **Standard API**: Consistent way for EHRs to communicate with CDS services
-3.  **Card-Based Interface**: Recommendations delivered as "cards" within EHR UI
+3.  **Card-Based Interface**: Recommendations delivered as "cards" within the EHR UI
 4.  **Context-Aware**: Services receive patient context to provide relevant advice
 
 **Common Hook Points:**
@@ -335,8 +335,8 @@ When integrated into a real clinical environment, the CDS Hooks workflow would l
 
 1.  **Trigger**: A clinician opens a patient's record, triggering the `patient-view` hook
 2.  **Request**: The EHR sends a request to a CDS service with the patient context
-3.  **Analysis**: CDS service queries the FHIR server for relevant genomic data and analyzes variants
-4.  **Response**: CDS service returns CDS Hooks cards with clinical recommendations
+3.  **Analysis**: The CDS service queries the FHIR server for relevant genomic data and analyzes variants
+4.  **Response**: The CDS service returns CDS Hooks cards with clinical recommendations
 5.  **Display**: The EHR displays these recommendations to the clinician within their workflow
 :::
 ::::
@@ -345,7 +345,7 @@ When integrated into a real clinical environment, the CDS Hooks workflow would l
 
 Now, let's create a CDS Hooks service to serve our genomic recommendations. This service will:
 
-1.  Analyze a patient's genetic data in real-time
+1.  Analyze a patient's genetic data in real time
 2.  Generate appropriate clinical recommendations
 3.  Return these recommendations as CDS Hooks cards
 
@@ -748,7 +748,7 @@ Moving a prototype CDS service to production involves significant security, comp
 To extend this work in a production environment, you would need to:
 
 1.  **Host the Service**:
-    -   Deploy on a secure, HIPAA-compliant infrastructure with HTTPS and appropriate security measures
+    -   Deploy on secure, HIPAA-compliant infrastructure with HTTPS and appropriate security measures
 2.  **Implement Authentication**:
     -   Use industry-standard authentication protocols supported by your EHR
 3.  **Update Clinical Knowledge**:

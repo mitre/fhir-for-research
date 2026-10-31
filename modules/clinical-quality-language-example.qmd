@@ -47,7 +47,7 @@ Using the original narrative and the decisions above, we might come up with the 
 ::: callout-note
 ## Note
 
-The object identifiers (OIDs) for outpatient encounter (`2.16.840.1.113762.1.4.1160.24`) and HbA1c  result (`2.16.840.1.113883.3.464.1003.198.12.1013`) above link to value sets in the [Value Set Authority Center](https://vsac.nlm.nih.gov/) (VSAC). **Viewing the contents of these value sets requires a free account.**
+The object identifiers (OIDs) for outpatient encounter (`2.16.840.1.113762.1.4.1160.24`) and HbA1c result (`2.16.840.1.113883.3.464.1003.198.12.1013`) above link to value sets in the [Value Set Authority Center](https://vsac.nlm.nih.gov/) (VSAC). **Viewing the contents of these value sets requires a free account.**
 :::
 
 ## Knowledge Level 3: Structured
@@ -122,7 +122,7 @@ To determine if the patient had an outpatient encounter in the study period, we 
     <span class="cql-keyword">where</span> E.period <span class="cql-keyword">during</span> <span class="cql-identifier">"Study Period"</span></code></pre>
 ```
 
-In the CQL [query](https://cql.hl7.org/02-authorsguide.html#queries) above, `[Encounter: "Outpatient Clinical Encounters"]` retrieves `Encounter` resources from the FHIR server and filters them by the `Outpatient Clinical Encounters` value set. The letter `E` is used as an alias so we can easily refer to each returned `Encounter` in the `where` clause. The `during` keyword is one of many [interval operators](https://cql.hl7.org/09-b-cqlreference.html#interval-operators-3) that allows us to compare specific dates with date ranges and/or compare date ranges with other date ranges. CQL also defines an additional set of [date and time operators](https://cql.hl7.org/09-b-cqlreference.html#datetime-operators-2) for performing other comparisons and calculations using dates and times.
+In the CQL [query](https://cql.hl7.org/02-authorsguide.html#queries) above, `[Encounter: "Outpatient Clinical Encounters"]` retrieves `Encounter` resources from the FHIR server and filters them by the `Outpatient Clinical Encounters` value set. The letter `E` is used as an alias so we can easily refer to each returned `Encounter` in the `where` clause. The `during` keyword is one of many [interval operators](https://cql.hl7.org/09-b-cqlreference.html#interval-operators-3) that allow us to compare specific dates with date ranges and/or compare date ranges with other date ranges. CQL also defines an additional set of [date and time operators](https://cql.hl7.org/09-b-cqlreference.html#datetime-operators-2) for performing other comparisons and calculations using dates and times.
 
 Note that we also prefixed the entire query with the `exists` keyword. This provides a simple way to check if the query returns at least one result. In our case, it will return `true` if at least one matching encounter *exists* and return `false` otherwise.
 
@@ -240,7 +240,7 @@ Feel free to experiment with the CQL Playground further by editing the CQL to se
 
 ## Knowledge Level 4: Executable
 
-Knowledge level 4 is the executable representation, suitable for use at a specific site or within a specific system. It builds on level 3 structured artifacts by adding site-specific configuration, local data mappings, and integration into local clinical workflows. In our example, this might include configuring the CQL engine to interface with a local FHIR server, mapping local codes to the standardized codes in our value sets, and exposing the functionality to end users in an appropriate way. Level 4 integrations may leverage other health standards like [SMART on FHIR](smart-on-fhir-intro.qmd) or [CDS Hooks](new-cds-hooks-intro.qmd), or they may integrate directly using custom APIs and interfaces. This knowledge level represents the final step: the point at which the intent of the narrative has been realized in a specific environment.
+Knowledge level 4 is the executable representation, suitable for use at a specific site or within a specific system. It builds on level 3 structured artifacts by adding site-specific configuration, local data mappings, and integration into local clinical workflows. In our example, this might include configuring the CQL engine to interface with a local FHIR server, mapping local codes to the standardized codes in our value sets, and exposing the functionality to end users in an appropriate way. Level 4 integrations may leverage other health standards like [SMART on FHIR](smart-on-fhir-intro.qmd) or [CDS Hooks](cds-hooks-intro.qmd), or they may integrate directly using custom APIs and interfaces. This knowledge level represents the final step: the point at which the intent of the narrative has been realized in a specific environment.
 
 ## CQL Resources
 
